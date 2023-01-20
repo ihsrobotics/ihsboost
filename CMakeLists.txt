@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.0)
+project(ihs_boost)
+
+add_compile_options("-std=c++17")  # if 17 is not available, 11 will do for everything except for threading test
+add_compile_options("-fPIC")
+
+include_directories(/usr/local/include)
+message("installing to " ${CMAKE_INSTALL_PREFIX})
+define_property(GLOBAL PROPERTY install_path BRIEF_DOCS "where to install" FULL_DOCS "where to install files")
+set_property(GLOBAL PROPERTY install_path ${CMAKE_INSTALL_PREFIX}/include/ihsboost)
+get_property(local_install_path GLOBAL PROPERTY install_path)
+message("include install_path has been set to " ${local_install_path})
+
+add_subdirectory(util)
+add_subdirectory(movement)
+add_subdirectory(controllers)
+add_subdirectory(threading)
+add_subdirectory(servos)
+
+add_library(ihsboost SHARED empty.cpp)
+target_link_libraries(ihsboost PUBLIC ihs_util ihs_movement ihs_controllers ihs_servos)
+
+# install
+install(TARGETS ihsboost)
+install(FILES all.hpp DESTINATION ${local_install_path})
