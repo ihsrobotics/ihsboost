@@ -18,19 +18,19 @@ void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> sto
 {
     LinearAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
 
-    double accumulator = 0;
+    double accumulator = 0; // positive values = clockwise, negative values = CCW
     double speed = accelerator.speed();
     create_drive_direct(speed, speed);
     while (!stop_function())
     {
         speed = accelerator.speed();
         accumulator += get_gyro_z_val();
-        if (accumulator > 0)
-        { // positive values = clockwise, negative values = CCW
+        if ((accumulator > 0 && speed > 0) || (accumulator < 0 && speed < 0))
+        { // go slower on left wheel, faster on right wheel
             create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
         }
         else
-        {
+        { // go faster on left wheel, slower on right wheel
             create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
         }
         accelerator.step();
