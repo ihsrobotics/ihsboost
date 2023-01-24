@@ -5,7 +5,7 @@
 #define MEAN_VAL 3.5484280676588367
 #define MIN_VAL 0
 #define MAX_VAL 8
-#define RAW_TO_360_DEGREES 7.404987180034728
+#define RAW_TO_360_DEGREES 4.6895
 #define between(val, a, b) ((a >= val && val >= b) || (b >= val && val >= a))
 
 double get_gyro_z_val()
@@ -82,6 +82,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
         if (accelerator.done() && cached_accumulator != 0)
         {
             cached_accumulator = accumulator;
+            break;
         }
     }
 
