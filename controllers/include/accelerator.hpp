@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ACCELERATOR_HPP
+#define ACCELERATOR_HPP
 
 class AccelerateController
 {
@@ -64,3 +65,5 @@ private:
     double necessary_updates;
     double sin_val;
 };
+
+#endif

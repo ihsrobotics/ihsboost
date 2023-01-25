@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ROOMBA_TURNS_HPP
+#define ROOMBA_TURNS_HPP
 
 #define deg2rad 0.017453292519943296
 #define DIST_BETWEEN_WHEEL 23.5
@@ -15,3 +16,5 @@
  * @param angle - double - angle to turn to in degrees
  */
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle);
+
+#endif

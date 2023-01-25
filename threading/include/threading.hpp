@@ -1,4 +1,5 @@
-#pragma once
+#ifndef THREADING_HPP
+#define THREADING_HPP
 
 #include <thread>
 
@@ -25,3 +26,5 @@ private:
     volatile bool done_flag;
     std::thread _thread;
 };
+
+#endif

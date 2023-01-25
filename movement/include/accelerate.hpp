@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ACCELERATE_HPP
+#define ACCELERATE_HPP
 
 #include "speed.hpp"
 
@@ -52,3 +53,5 @@ void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec = 
  * @param updates_per_sec how many updates to the speed to make per second (default 500)
  */
 void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec = SIN_ACCEL_AVG_PER_SEC, int updates_per_sec = ACCELERATE_UPDATES_PER_SEC);
+
+#endif

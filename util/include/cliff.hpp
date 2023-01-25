@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CLIFF_HPP
+#define CLIFF_HPP
 
 enum Cliff
 {
@@ -13,3 +14,5 @@ enum LineSide
     LeftSide = 0,
     RightSide
 };
+
+#endif
