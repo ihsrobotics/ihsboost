@@ -1,5 +1,4 @@
-#ifndef GYRO_MOVEMENT_HPP
-#define GYRO_MOVEMENT_HPP
+#pragma once
 
 #include "speed.hpp"
 #include <functional>
@@ -43,5 +42,3 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double acc
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
 void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed = GYRO_TURN_V2_MIN_SPEED, double accel_per_sec = GYRO_LINEAR_ACCEL, int updates_per_sec = GYRO_UPDATES_PER_SEC);
-
-#endif

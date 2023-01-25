@@ -1,5 +1,4 @@
-#ifndef SERVOS_HPP
-#define SERVOS_HPP
+#pragma once
 
 #define SERVO_MOVEMENT_SPEED 200
 #define SERVO_UPDATES_PER_SEC 100
@@ -13,5 +12,3 @@
  * @param updates_per_sec How many updates to do per second, defaults to 100
  */
 void move_servo_slowly(int port, int position, int speed = SERVO_MOVEMENT_SPEED, int updates_per_sec = SERVO_UPDATES_PER_SEC);
-
-#endif

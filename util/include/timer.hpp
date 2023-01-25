@@ -1,5 +1,4 @@
-#ifndef TIMER_HPP
-#define TIMER_HPP
+#pragma once
 
 /**
  * @brief A class that implements a timer, useful when you want
@@ -29,5 +28,3 @@ private:
     double _time;
     double _start_time;
 };
-
-#endif

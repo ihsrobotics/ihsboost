@@ -1,5 +1,4 @@
-#ifndef SPEED_HPP
-#define SPEED_HPP
+#pragma
 
 struct Speed
 {
@@ -15,5 +14,3 @@ struct Speed
     bool operator==(const Speed o) const;
     bool operator!=(const Speed o) const;
 };
-
-#endif

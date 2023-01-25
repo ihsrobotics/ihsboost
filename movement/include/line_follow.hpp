@@ -1,5 +1,4 @@
-#ifndef LINE_FOLLOW_HPP
-#define LINE_FOLLOW_HPP
+#pragma once
 
 #include "cliff.hpp"
 #include "accelerate.hpp"
@@ -57,5 +56,3 @@ void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sen
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
 void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_SINUSOIDAL_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
-
-#endif
