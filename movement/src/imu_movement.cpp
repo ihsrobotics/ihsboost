@@ -16,28 +16,38 @@ double get_gyro_z_val()
     return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - MEAN_GYRO_VAL;
 }
 
+// helper function
+void gyro_drive_straight_step(double &accumulator, double correction_proportion, double speed)
+{
+    accumulator += get_gyro_z_val();
+    if ((accumulator > 0 && speed > 0) || (accumulator < 0 && speed < 0))
+    { // go slower on left wheel, faster on right wheel
+        create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
+    }
+    else
+    { // go faster on left wheel, slower on right wheel
+        create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
+    }
+}
+// overload where you pass in the accelerator instead of the speed
+void gyro_drive_straight_step(double &accumulator, double correction_proportion, AccelerateController &accelerator)
+{
+    gyro_drive_straight_step(accumulator, correction_proportion, accelerator.speed());
+    accelerator.step();
+    msleep(accelerator.get_msleep_time());
+}
+
 void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
     LinearAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
 
     double accumulator = 0; // positive values = clockwise, negative values = CCW
-    double speed = accelerator.speed();
-    create_drive_direct(speed, speed);
+    create_drive_direct(from_speed, from_speed);
     while (!stop_function())
     {
-        speed = accelerator.speed();
-        accumulator += get_gyro_z_val();
-        if ((accumulator > 0 && speed > 0) || (accumulator < 0 && speed < 0))
-        { // go slower on left wheel, faster on right wheel
-            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
-        }
-        else
-        { // go faster on left wheel, slower on right wheel
-            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
-        }
-        accelerator.step();
-        msleep(accelerator.get_msleep_time());
+        gyro_drive_straight_step(accumulator, correction_proportion, accelerator);
     }
+    create_drive_direct(to_speed, to_speed);
 }
 
 void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double accel_per_sec, int updates_per_sec)
@@ -125,27 +135,14 @@ void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_se
     std::function<signed short()> accel_function = accel_x;
 
     LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
-    double multiplier = static_cast<double>(accelerator.get_msleep_time()) / 1000.0;
+    double multiplier = 1.0 / updates_per_sec;
 
     double gyro_accumulator = 0;
     double accel = 0, velocity_prev = 0, velocity_cur = 0, position = 0;
-    double cached_position = 0, speed = 0;
+    double cached_position = 0;
 
     while ((cm > 0 && position < cm / 2) || (cm < 0 && position > cm / 2))
     {
-        // take care of driving straight
-        speed = accelerator.speed();
-
-        gyro_accumulator += get_gyro_z_val();
-        if ((gyro_accumulator > 0 && speed > 0) || (gyro_accumulator < 0 && speed < 0))
-        { // go slower on left wheel, faster on right wheel
-            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
-        }
-        else
-        { // go faster on left wheel, slower on right wheel
-            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
-        }
-
         // take care of accel stuff
         accel = accel_function() * RAW_TO_CMS2;
         velocity_prev = velocity_cur;
@@ -154,8 +151,8 @@ void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_se
         // trapezoidal integration (b1 + b2) / 2 * h => (f(a) + f(b)) / 2 * (b-a)
         position += (velocity_prev + velocity_cur) * 0.5 * multiplier;
 
-        accelerator.step();
-        msleep(accelerator.get_msleep_time());
+        // take care of driving straight
+        gyro_drive_straight_step(gyro_accumulator, correction_proportion, accelerator);
 
         if (accelerator.done())
         {
@@ -168,17 +165,6 @@ void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_se
     while (cached_position != 0 &&
            ((cm > 0 && position < cm - cached_position) || (cm < 0 && position > cm - cached_position)))
     {
-        // take care of driving straight
-        gyro_accumulator += get_gyro_z_val();
-        if ((gyro_accumulator > 0 && speed > 0) || (gyro_accumulator < 0 && speed < 0))
-        { // go slower on left wheel, faster on right wheel
-            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
-        }
-        else
-        { // go faster on left wheel, slower on right wheel
-            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
-        }
-
         // take care of accel stuff
         accel = accel_function() * RAW_TO_CMS2;
         velocity_prev = velocity_cur;
@@ -187,25 +173,12 @@ void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_se
         // trapezoidal integration (b1 + b2) / 2 * h => (f(a) + f(b)) / 2 * (b-a)
         position += (velocity_prev + velocity_cur) * 0.5 * multiplier;
 
-        msleep(accelerator.get_msleep_time());
+        gyro_drive_straight_step(gyro_accumulator, correction_proportion, accelerator.speed());
     }
 
-    LinearAccelerator decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
+    LinearAccelerator decelerator(accelerator.speed(), min_speed, accel_per_sec, updates_per_sec);
     while ((cm > 0 && position < cm) || (cm < 0 && position > cm))
     {
-        // take care of driving straight
-        speed = decelerator.speed();
-
-        gyro_accumulator += get_gyro_z_val();
-        if ((gyro_accumulator > 0 && speed > 0) || (gyro_accumulator < 0 && speed < 0))
-        { // go slower on left wheel, faster on right wheel
-            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
-        }
-        else
-        { // go faster on left wheel, slower on right wheel
-            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
-        }
-
         // take care of accel stuff
         accel = accel_function() * RAW_TO_CMS2;
         velocity_prev = velocity_cur;
@@ -214,8 +187,8 @@ void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_se
         // trapezoidal integration (b1 + b2) / 2 * h => (f(a) + f(b)) / 2 * (b-a)
         position += (velocity_prev + velocity_cur) * 0.5 * multiplier;
 
-        decelerator.step();
-        msleep(decelerator.get_msleep_time());
+        // take care of driving straight
+        gyro_drive_straight_step(gyro_accumulator, correction_proportion, decelerator);
     }
 
     create_drive_direct(0, 0);

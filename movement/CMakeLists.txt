@@ -2,7 +2,7 @@ message("current source dir is " ${CMAKE_CURRENT_SOURCE_DIR})
 
 # sources
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/accelerate.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/line_follow.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/gyro_movement.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/roomba_turns.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imu_movement.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/roomba_turns.cpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # include dependencies
@@ -17,6 +17,6 @@ add_dependencies(ihs_movement ihs_util ihs_controllers)
 
 # install
 get_property(local_install_path GLOBAL PROPERTY install_path)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/accelerate.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/gyro_movement.hpp 
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/accelerate.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/imu_movement.hpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/line_follow.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/roomba_turns.hpp
     DESTINATION ${local_install_path})
