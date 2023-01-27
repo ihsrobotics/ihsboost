@@ -9,6 +9,11 @@
 #define GYRO_CORRECTION_PROPORTION .90
 #define GYRO_TURN_V2_MIN_SPEED 10
 
+#define ACCEL_MIN_SPEED 10
+#define ACCEL_LINEAR_ACCEL 500
+#define ACCEL_UPDATES_PER_SEC 200
+#define ACCEL_CORRECTION_PROPORTION .90
+
 /**
  * @brief Drive the create straight using the gyroscope
  *
@@ -44,4 +49,5 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double acc
  */
 void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed = GYRO_TURN_V2_MIN_SPEED, double accel_per_sec = GYRO_LINEAR_ACCEL, int updates_per_sec = GYRO_UPDATES_PER_SEC);
 
+void accel_drive_cm(int max_speed, double cm, int min_speed = ACCEL_MIN_SPEED, double accel_per_sec = ACCEL_LINEAR_ACCEL, double correction_proportion = ACCEL_CORRECTION_PROPORTION, int updates_per_sec = ACCEL_UPDATES_PER_SEC);
 #endif

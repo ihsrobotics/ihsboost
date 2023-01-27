@@ -3,7 +3,7 @@
 
 //  movement
 #include "accelerate.hpp"
-#include "gyro_movement.hpp"
+#include "imu_movement.hpp"
 #include "line_follow.hpp"
 #include "roomba_turns.hpp"
 
