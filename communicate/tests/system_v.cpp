@@ -1,36 +1,12 @@
 #include <iostream>
 #include <sys/msg.h>
-#include <memory.h>
+#include "message.hpp"
 
 using namespace std;
 
 // create a communicator
 // should be able to sendmessage
 // should have ability to parse config msgs
-
-#define MAX_MSG_SIZE 200
-class Message
-{
-public:
-    Message(){};
-    Message(string msg) : length(msg.size())
-    {
-        memcpy(buf, msg.c_str(), length * sizeof(char));
-    }
-    string get_msg()
-    {
-        string ret = "";
-        for (size_t i = 0; i < length; ++i)
-        {
-            ret.push_back(buf[i]);
-        }
-        return ret;
-    }
-
-private:
-    size_t length;
-    char buf[MAX_MSG_SIZE];
-};
 
 /**
  * @brief Class to communicate using System V message queues
