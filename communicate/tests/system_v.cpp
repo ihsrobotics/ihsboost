@@ -1,7 +1,5 @@
 #include <iostream>
-#include <fstream>
 #include <sys/msg.h>
-#include <sys/shm.h>
 #include <memory.h>
 
 using namespace std;
@@ -34,19 +32,30 @@ private:
     char buf[MAX_MSG_SIZE];
 };
 
-class MSGCommunicator
+/**
+ * @brief Class to communicate using System V message queues
+ *
+ */
+class SysVCommunicator
 {
 public:
     /**
-     * @brief Construct a new MSGCommunicator object. In order to connect to the same msg queue, both `path`
+     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue, both `path`
      * and `identifier` must be the same on both communicators
      *
      * @param path a path to real file
      * @param identifier a character to use as the "session id"
      */
-    MSGCommunicator(string path, char identifier)
+    SysVCommunicator(string path, char identifier) : SysVCommunicator(ftok(path.c_str(), identifier)){};
+    /**
+     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
+     * the provided key on both communicators must be the same
+     *
+     * @param key
+     */
+    SysVCommunicator(int key)
     {
-        k = ftok(path.c_str(), identifier);
+        k = key;
         cout << "the key is " << k << endl;
         msg_q_id = msgget(k, IPC_CREAT);
         if (msg_q_id == -1)
@@ -56,7 +65,7 @@ public:
             throw errno;
         }
     }
-    ~MSGCommunicator()
+    ~SysVCommunicator()
     {
         close();
     }
@@ -105,8 +114,8 @@ int main()
     // cout << my_msg.get_msg() << endl;
     // cout << "size of message is " << sizeof(Message) << " and of our particular message is " << sizeof(my_msg) << endl;
 
-    MSGCommunicator a("../../README.md", 'c');
-    MSGCommunicator b("../../README.md", 'c');
+    SysVCommunicator a("../../README.md", 'd');
+    SysVCommunicator b("../../README.md", 'd');
 
     a.send_msg("hi there bay area!");
     a.send_msg("you are listening to 95.7 KOIT");
