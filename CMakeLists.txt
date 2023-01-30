@@ -16,9 +16,10 @@ add_subdirectory(movement)
 add_subdirectory(controllers)
 add_subdirectory(threading)
 add_subdirectory(servos)
+add_subdirectory(communicate)
 
 add_library(ihsboost SHARED empty.cpp)
-target_link_libraries(ihsboost PUBLIC ihs_util ihs_movement ihs_controllers ihs_servos)
+target_link_libraries(ihsboost PUBLIC ihs_util ihs_movement ihs_controllers ihs_servos ihs_communicate)
 
 # install
 install(TARGETS ihsboost)

@@ -17,3 +17,9 @@
 
 // servos
 #include "servos.hpp"
+
+// communication
+#include "communicator.hpp"
+#include "message.hpp"
+#include "posixqcommunicator.hpp"
+#include "sysvcommunicator.hpp"
