@@ -1,5 +1,5 @@
-#ifndef SYSVCOMMUNICATOR_HPP
-#define SYSVCOMMUNICATOR_HPP
+#ifndef SYS_V_COMMUNICATOR_HPP
+#define SYS_V_COMMUNICATOR_HPP
 
 #include "message.hpp"
 #include "communicator.hpp"

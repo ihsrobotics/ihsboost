@@ -1,48 +1,54 @@
+#include "posixqcommunicator.hpp"
 #include <iostream>
-#include <mqueue.h>
-#include "message.hpp"
+#include <sstream>
+#include <thread>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
-class PosixQCommunicator
+int main(int argc, const char *argv[])
 {
-public:
-    PosixQCommunicator(const char *name) : _name(name)
+    if (argc != 2)
     {
-        struct mq_attr attr;
-        int must_stop = 0;
+        cerr << "need a second argument to be provided" << endl;
+        cerr << "either `talker` or `listener`" << endl;
+        return -1;
+    }
 
-        /* initialize the queue attributes */
-        attr.mq_flags = 0;
-        attr.mq_maxmsg = 10;
-        attr.mq_msgsize = 10;
-        attr.mq_curmsgs = 0;
+    const char *name = "/my_queue";
+    if (string(argv[1]) == "talker")
+    {
+        cout << "talker" << endl;
+        PosixQCommunicator talker(name);
 
-        msg_q_id = mq_open("hi", O_CREAT | O_RDONLY, 0644, &attr);
-        cout << "msg_q_id is " << msg_q_id << endl;
-        if (msg_q_id == -1)
+        int count = 0;
+        ostringstream s;
+        while (1)
         {
-            cerr << "errored!! " << endl;
-            cerr << "with error " << errno << endl;
-            throw errno;
+            s << "message " << count;
+
+            cout << "sending message : " << s.str() << endl;
+
+            talker.send_msg(s.str());
+            this_thread::sleep_for(milliseconds(500));
+
+            s.str("");
+            s.clear();
+            ++count;
         }
-        EACCES;
     }
-    ~PosixQCommunicator()
+
+    if (string(argv[1]) == "listener")
     {
-        int a = mq_close(msg_q_id);
-        cout << "closed with value " << a << endl;
-        a = mq_unlink("hi");
-        cout << "killed with value " << a << endl;
+        cout << "listener" << endl;
+        PosixQCommunicator listener(name);
+
+        while (1)
+        {
+            cout << "received: " << listener.receive_msg() << endl;
+        }
     }
 
-private:
-    mqd_t msg_q_id;
-    const char *_name;
-};
-
-int main()
-{
-    PosixQCommunicator com{"cool"};
     return 0;
 }
