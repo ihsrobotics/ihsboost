@@ -25,6 +25,9 @@ public:
      *
      */
     virtual void close() = 0;
+
+protected:
+    void check_error(int retval, const char *where);
 };
 
 #endif

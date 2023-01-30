@@ -1,5 +1,6 @@
 #include "sysvcommunicator.hpp"
 #include <iostream>
+#include <fcntl.h>
 using namespace std;
 
 SysVCommunicator::SysVCommunicator(string path, char identifier) : SysVCommunicator(ftok(path.c_str(), identifier)){};
@@ -8,13 +9,8 @@ SysVCommunicator::SysVCommunicator(int key)
 {
     k = key;
     cout << "the key is " << k << endl;
-    msg_q_id = msgget(k, IPC_CREAT);
-    if (msg_q_id == -1)
-    {
-        cerr << "failed to create queue with error code " << errno << endl;
-        cerr << "check errno-base.h for a list of error codes" << endl;
-        throw errno;
-    }
+    msg_q_id = msgget(k, IPC_CREAT | S_IRWXU | S_IRWXG | S_IRWXO);
+    check_error(msg_q_id, "creating queue");
 }
 
 SysVCommunicator::~SysVCommunicator()
@@ -29,25 +25,15 @@ void SysVCommunicator::send_msg(string message)
 
     // send the msg
     // the 0 just means don't use any fancy flags
-    int result = msgsnd(msg_q_id, reinterpret_cast<void *>(&m), sizeof(Message), 0);
-    if (result == -1)
-    {
-        cerr << "failed to send message with error code " << errno << endl;
-        cerr << "check errno-base.h for a list of error codes" << endl;
-        throw errno;
-    }
+    int ret = msgsnd(msg_q_id, reinterpret_cast<void *>(&m), sizeof(Message), 0);
+    check_error(ret, "sending message");
 }
 
 string SysVCommunicator::receive_msg()
 {
     Message m;
-    int result = msgrcv(msg_q_id, &m, sizeof(Message), 0, 0);
-    if (result == -1)
-    {
-        cerr << "failed to receive message with error code " << errno << endl;
-        cerr << "check errno-base.h for a list of error codes" << endl;
-        throw errno;
-    }
+    int ret = msgrcv(msg_q_id, &m, sizeof(Message), 0, 0);
+    check_error(ret, "receiving message");
     return m.get_msg();
 }
 
