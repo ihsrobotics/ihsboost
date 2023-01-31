@@ -93,7 +93,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
         accelerator.step();
         msleep(accelerator.get_msleep_time());
 
-        if (accelerator.done() && cached_accumulator != 0)
+        if (accelerator.done())
         {
             cached_accumulator = accumulator;
             break;
