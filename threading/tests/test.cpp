@@ -23,8 +23,8 @@ void cool_other_function(int a, int b, int c, int sleep)
 int main()
 {
     cout << "starting" << endl;
-    Threadable my_thread(cool_function, 3, 11, 2300);
-    Threadable my_other_thread(cool_other_function, 3, 11, 22, 500);
+    Threadable<void(int a, int b, int sleep), int, int, int> my_thread(cool_function, 3, 11, 2300);
+    Threadable<void(int a, int b, int c, int sleep), int, int, int, int> my_other_thread(cool_other_function, 3, 11, 22, 500);
     size_t i = 0;
     cout << "what is the current value? " << my_thread() << " and " << my_other_thread() << endl;
     while (!my_thread() || !my_other_thread())
