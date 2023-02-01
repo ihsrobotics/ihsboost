@@ -11,6 +11,10 @@
 
 #define RAW_TO_CMS2 0.09580078125
 
+// --------------------------------------------- GYRO SECTION ---------------------------------------------
+// Functions in this section deal with gyroscope things
+// --------------------------------------------------------------------------------------------------------
+
 double get_gyro_z_val()
 {
     signed short val = gyro_z();
@@ -130,7 +134,15 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     gyro_accumulator.stop_accumulating();
 }
 
-// accel stuff
+// --------------------------------------------- ACCEL STUFF ---------------------------------------------
+// functions in this section deal with accelerometer (and also gyroscope to drive straight)
+// -------------------------------------------------------------------------------------------------------
+
+double get_accel_x_val()
+{
+    return accel_x() * RAW_TO_CMS2;
+}
+
 void accel_drive_cm(int max_speed, double cm, int min_speed, double accel_per_sec, double correction_proportion, int updates_per_sec)
 {
     // accel val of 1024 = 9.81 m/s^2 = 98.1 cm/s^2 acceleration
