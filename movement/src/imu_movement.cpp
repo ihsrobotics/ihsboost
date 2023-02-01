@@ -1,6 +1,6 @@
 #include "imu_movement.hpp"
 #include "accelerator.hpp"
-#include "threading.hpp"
+#include "accumulator.hpp"
 #include <kipr/wombat.h>
 
 #define MEAN_GYRO_VAL 3.5484280676588367
@@ -16,50 +16,6 @@ double get_gyro_z_val()
     signed short val = gyro_z();
     return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - MEAN_GYRO_VAL;
 }
-
-// try to accumulate in a separate thread
-class GyroAccumulator
-{
-public:
-    GyroAccumulator(int updates_per_sec)
-        : flag(true), multiplier(1 / static_cast<double>(updates_per_sec)), msleep_time(1000 / updates_per_sec){};
-
-    void start_accumulating()
-    {
-        t = new Threadable(accumulate, this);
-    }
-
-    void stop_accumulating()
-    {
-        flag = false;
-
-        // wait till finished
-        while (!(*t)())
-            ;
-
-        // cleanup
-        delete t;
-    }
-
-    // return the accumulator
-    const volatile double &get_accumulator() { return accumulator; }
-
-private:
-    static void accumulate(GyroAccumulator *g)
-    {
-        while (g->flag)
-        {
-            g->accumulator += get_gyro_z_val() * g->multiplier;
-            msleep(g->msleep_time);
-        }
-    }
-
-    Threadable<void(GyroAccumulator *g), GyroAccumulator *> *t;
-    int msleep_time;
-    double multiplier;
-    volatile double accumulator;
-    volatile bool flag;
-};
 
 // helper function
 void gyro_drive_straight_step(double &accumulator, double correction_proportion, double speed)
@@ -120,7 +76,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     // 2 - where you try to accelerate to speed, already reach half the angle, then need to start decelerating
 
     LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
-    GyroAccumulator gyro_accumulator(200);
+    Accumulator gyro_accumulator(get_gyro_z_val, 200);
 
     double cached_accumulator = 0;
     double speed;
