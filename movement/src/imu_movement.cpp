@@ -1,11 +1,12 @@
 #include "imu_movement.hpp"
 #include "accelerator.hpp"
+#include "threading.hpp"
 #include <kipr/wombat.h>
 
 #define MEAN_GYRO_VAL 3.5484280676588367
 #define MIN_GYRO_VAL 0
 #define MAX_GYRO_VAL 8
-#define RAW_TO_360_DEGREES 4.6895
+#define RAW_TO_360_DEGREES 7.5122
 #define between(val, a, b) ((a >= val && val >= b) || (b >= val && val >= a))
 
 #define RAW_TO_CMS2 0.09580078125
@@ -15,6 +16,50 @@ double get_gyro_z_val()
     signed short val = gyro_z();
     return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - MEAN_GYRO_VAL;
 }
+
+// try to accumulate in a separate thread
+class GyroAccumulator
+{
+public:
+    GyroAccumulator(int updates_per_sec)
+        : flag(true), multiplier(1 / static_cast<double>(updates_per_sec)), msleep_time(1000 / updates_per_sec){};
+
+    void start_accumulating()
+    {
+        t = new Threadable(accumulate, this);
+    }
+
+    void stop_accumulating()
+    {
+        flag = false;
+
+        // wait till finished
+        while (!(*t)())
+            ;
+
+        // cleanup
+        delete t;
+    }
+
+    // return the accumulator
+    const volatile double &get_accumulator() { return accumulator; }
+
+private:
+    static void accumulate(GyroAccumulator *g)
+    {
+        while (g->flag)
+        {
+            g->accumulator += get_gyro_z_val() * g->multiplier;
+            msleep(g->msleep_time);
+        }
+    }
+
+    Threadable<void(GyroAccumulator *g), GyroAccumulator *> *t;
+    int msleep_time;
+    double multiplier;
+    volatile double accumulator;
+    volatile bool flag;
+};
 
 // helper function
 void gyro_drive_straight_step(double &accumulator, double correction_proportion, double speed)
@@ -75,19 +120,21 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     // 2 - where you try to accelerate to speed, already reach half the angle, then need to start decelerating
 
     LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
+    GyroAccumulator gyro_accumulator(200);
 
-    double accumulator = 0;
     double cached_accumulator = 0;
     double speed;
     int left_sign = (degrees > 0) ? 1 : -1;
     int right_sign = (degrees > 0) ? -1 : 1;
     double multiplier = static_cast<double>(accelerator.get_msleep_time()) / 1000.0;
 
+    gyro_accumulator.start_accumulating();
+
     // accelerating part of the turn, capped at 1/2 of the turn that way, if it didn't have enough time to accelerate,
     // it will still have enough time to decelerate from its current speed
-    while ((degrees > 0 && accumulator < degrees * RAW_TO_360_DEGREES / 2) || (degrees < 0 && accumulator > degrees * RAW_TO_360_DEGREES / 2))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES / 2) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES / 2))
     {
-        accumulator += get_gyro_z_val() * multiplier;
         speed = accelerator.speed();
         create_drive_direct(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
         accelerator.step();
@@ -95,27 +142,26 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
 
         if (accelerator.done())
         {
-            cached_accumulator = accumulator;
+            cached_accumulator = gyro_accumulator.get_accumulator();
             break;
         }
     }
 
     // do any extra turning that is needed
+    create_drive_direct(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
     while (cached_accumulator != 0 &&
-           ((degrees > 0 && accumulator < degrees * RAW_TO_360_DEGREES - cached_accumulator) ||
-            (degrees < 0 && accumulator > degrees * RAW_TO_360_DEGREES - cached_accumulator)))
+           ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES - cached_accumulator) ||
+            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES - cached_accumulator)))
     {
-        accumulator += get_gyro_z_val() * multiplier;
-        create_drive_direct(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
         msleep(accelerator.get_msleep_time());
     }
 
     // decelerate from current speed to min_speed, which should be close to 0
     LinearAccelerator decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
 
-    while ((degrees > 0 && accumulator < degrees * RAW_TO_360_DEGREES) || (degrees < 0 && accumulator > degrees * RAW_TO_360_DEGREES))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES))
     {
-        accumulator += get_gyro_z_val() * multiplier;
         speed = decelerator.speed();
         create_drive_direct(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
         decelerator.step();
@@ -124,6 +170,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
 
     // stop at the end
     create_drive_direct(0, 0);
+
+    gyro_accumulator.stop_accumulating();
 }
 
 // accel stuff
