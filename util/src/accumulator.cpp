@@ -3,7 +3,7 @@
 void Accumulator::start_accumulating()
 {
     // accumulate values in separate thread
-    t = new Threadable(accumulate, this);
+    t = new Threadable<void(Accumulator * a), Accumulator *>(accumulate, this);
 }
 
 void Accumulator::stop_accumulating()
