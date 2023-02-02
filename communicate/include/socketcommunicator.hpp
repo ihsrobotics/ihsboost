@@ -9,7 +9,7 @@ class SocketServer : public Communicator
 {
 public:
     SocketServer(int port);
-    ~SocketServer();
+    virtual ~SocketServer();
 
     virtual void send_msg(std::string msg);
 
@@ -22,7 +22,7 @@ private:
     int socket_fd;
 };
 
-class SocketClient : Communicator
+class SocketClient : public Communicator
 {
 public:
     SocketClient(const char *ipv4_addr, int port);

@@ -11,8 +11,24 @@
 class Message
 {
 public:
-    Message(){};
+    /**
+     * @brief Construct a new Message object with no message
+     *
+     */
+    Message();
+
+    /**
+     * @brief Construct a new Message object with the provided message
+     *
+     * @param msg the message that this Message object will hold
+     */
     Message(std::string msg);
+
+    /**
+     * @brief Get the stored message as a string
+     *
+     * @return std::string - the message that this Message contains
+     */
     std::string get_msg();
 
 private:

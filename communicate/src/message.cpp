@@ -1,5 +1,7 @@
 #include "message.hpp"
 
+Message::Message() : length(0){};
+
 Message::Message(std::string msg) : length(static_cast<uint8_t>(msg.size()))
 {
     memset(buf, 0, MAX_MSG_SIZE * sizeof(char));
