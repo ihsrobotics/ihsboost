@@ -22,7 +22,7 @@ private:
     int socket_fd;
 };
 
-class SocketClient : Communicator
+class SocketClient : public Communicator
 {
 public:
     SocketClient(const char *ipv4_addr, int port);

@@ -1,4 +1,5 @@
 #include "sysvcommunicator.hpp"
+#include "communication_exception.hpp"
 #include <iostream>
 #include <fcntl.h>
 using namespace std;
@@ -40,6 +41,22 @@ string SysVCommunicator::receive_msg()
 void SysVCommunicator::close()
 {
     cout << "closing SysVCommunicator" << endl;
+
     int ret = msgctl(msg_q_id, IPC_RMID, NULL);
-    check_error(ret, "closing");
+    try
+    {
+        check_error(ret, "closing");
+    }
+    catch (CommunicationException &c)
+    {
+        if (c.get_error_code() == EINVAL)
+        {
+            // this happens if the sysv communicator was already closed
+            cout << "The SysVCommunicator has already been closed by a different process." << endl;
+        }
+        else
+        {
+            throw c;
+        }
+    }
 }
