@@ -1,21 +1,24 @@
 #ifndef COMMUNICATION_EXCEPTION_HPP
 #define COMMUNICATION_EXCEPTION_HPP
 
-#include <exception>
+#include <stdexcept>
 #include <string>
 
 class CommunicationException : public std::exception
 {
 public:
-    CommunicationException(std::string where, int error_code);
+    CommunicationException(const char *where, int error_code);
+    CommunicationException(CommunicationException &c);
+    ~CommunicationException();
 
-    int get_error_code();
+    int get_error_code() const;
 
-    virtual const char *what();
+    virtual const char *what() const noexcept override;
 
 private:
     int error_code;
-    std::string where;
+    const char *where;
+    char *msg;
 };
 
 #endif

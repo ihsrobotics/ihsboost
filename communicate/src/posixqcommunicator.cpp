@@ -48,7 +48,7 @@ void PosixQCommunicator::close()
         ret = mq_unlink(_name);
         check_error(ret, "unlinking");
     }
-    catch (CommunicationException c)
+    catch (CommunicationException &c)
     {
         // if the error = because there was no existing file / directory
         if (c.get_error_code() == ENOENT)
