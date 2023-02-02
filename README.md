@@ -25,3 +25,36 @@ g++ (file) -lihsboost -std=c++11
 ```
 Note: `(file)` should be replaced by the name of the file that
 should be compiled.
+## Network Config
+### Steps
+If you are trying to connect from older wombat to older wombat, then
+the following extra steps are required from one of them in order
+to connect to the wifi of another wombat:
+```
+sudo systemctl stop hostapd
+sudo systemctl start wpa_supplicant
+
+wpa_password (wifi_name) (wifi_password) | sudo tee /etc/wpa_supplicant.conf
+```
+Where `(wifi_name)` is the name of the wifi that you want to connect to
+and `(wifi_password)` is the password for that wifi network.
+
+Then, in a terminal that you will keep open, run
+```
+sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf &
+sudo ifconfig wlan0 (new_ip_address)
+```
+Where `(new_ip_address)` is the ip address that you want this wombat
+to have now.
+### Example
+```
+sudo systemctl stop hostapd
+sudo systemctl start wpa_supplicant
+
+wpa_password 5555-wombat d0a0b500 | sudo tee /etc/wpa_supplicant.conf
+sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf &
+sudo ifconfig wlan0 192.168.125.2
+```
+This connects to the network `5555-wombat` that has password
+`d0a0b500`. Then, it sets the current wombat's ip address to
+`192.168.125.2`.
