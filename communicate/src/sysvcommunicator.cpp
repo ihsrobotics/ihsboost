@@ -39,5 +39,7 @@ string SysVCommunicator::receive_msg()
 
 void SysVCommunicator::close()
 {
-    msgctl(msg_q_id, IPC_RMID, NULL);
+    cout << "closing SysVCommunicator" << endl;
+    int ret = msgctl(msg_q_id, IPC_RMID, NULL);
+    check_error(ret, "closing");
 }

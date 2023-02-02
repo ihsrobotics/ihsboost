@@ -24,7 +24,7 @@ int main(int argc, const char *argv[])
 
         int count = 0;
         ostringstream s;
-        while (1)
+        for (int i = 0; i < 5; ++i)
         {
             s << "message " << count;
 
@@ -44,7 +44,7 @@ int main(int argc, const char *argv[])
         cout << "listener" << endl;
         SysVCommunicator listener(id);
 
-        while (1)
+        for (int i = 0; i < 5; ++i)
         {
             cout << listener.receive_msg() << endl;
         }

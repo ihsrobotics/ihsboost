@@ -39,7 +39,7 @@ string PosixQCommunicator::receive_msg()
 
 void PosixQCommunicator::close()
 {
-    cout << "closing and unlinking mqueue" << endl;
+    cout << "closing and unlinking PosixQCommunicator" << endl;
     int ret = mq_close(msg_q_id);
     check_error(ret, "closing");
 
@@ -53,7 +53,7 @@ void PosixQCommunicator::close()
         // if the error = because there was no existing file / directory
         if (c.get_error_code() == ENOENT)
         {
-            cout << "The mqueue has already been unlinked by a separate program." << endl;
+            cout << "The PosixQCommunicator's mqueue has already been unlinked by a separate program." << endl;
         }
         else
         {
