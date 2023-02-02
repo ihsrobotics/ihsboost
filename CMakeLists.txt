@@ -29,7 +29,7 @@ include_directories(communicate/include)
 get_property(local_ihs_sources GLOBAL PROPERTY IHS_SOURCES)
 message("Sources are" ${local_ihs_sources})
 add_library(ihsboost SHARED ${local_ihs_sources})
-target_link_libraries(ihsboost PUBLIC rt)
+target_link_libraries(ihsboost PUBLIC pthread rt)
 
 # install
 install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
