@@ -4,7 +4,10 @@
 #include <string>
 #include <memory.h>
 
+// This is the maximum number of characters in a message.
+// note that it it should never exceed 256.
 #define MAX_MSG_SIZE 200
+
 class Message
 {
 public:
@@ -13,7 +16,7 @@ public:
     std::string get_msg();
 
 private:
-    size_t length;
+    uint8_t length;
     char buf[MAX_MSG_SIZE];
 };
 #endif
