@@ -18,8 +18,10 @@ int main(int argc, const char *argv[])
         return -1;
     }
 
+    // how many messages to send
     int num_times = 15;
 
+    // variables needed for communicators.
     // sysv
     int id = 33;
     // posix
@@ -55,6 +57,7 @@ int main(int argc, const char *argv[])
         return 1;
     }
 
+    // run the main code
     if (string(argv[1]) == "talker")
     {
         cout << "talker" << endl;
@@ -75,7 +78,6 @@ int main(int argc, const char *argv[])
             ++count;
         }
     }
-
     if (string(argv[1]) == "listener")
     {
         cout << "listener" << endl;
