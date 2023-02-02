@@ -24,7 +24,7 @@ int main(int argc, const char *argv[])
 
         int count = 0;
         ostringstream s;
-        while (1)
+        for (size_t i = 0; i < 20; ++i)
         {
             s << "message " << count;
 
@@ -44,7 +44,7 @@ int main(int argc, const char *argv[])
         cout << "listener" << endl;
         PosixQCommunicator listener(name);
 
-        while (1)
+        for (size_t i = 0; i < 20; ++i)
         {
             cout << "received: " << listener.receive_msg() << endl;
         }

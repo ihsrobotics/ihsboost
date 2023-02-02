@@ -9,7 +9,7 @@ class SocketServer : public Communicator
 {
 public:
     SocketServer(int port);
-    ~SocketServer();
+    virtual ~SocketServer();
 
     virtual void send_msg(std::string msg);
 

@@ -28,7 +28,7 @@ public:
      * @param key
      */
     SysVCommunicator(int key);
-    ~SysVCommunicator();
+    virtual ~SysVCommunicator();
 
     virtual void send_msg(std::string message);
 

@@ -5,6 +5,8 @@
 class Communicator
 {
 public:
+    virtual ~Communicator(){};
+
     /**
      * @brief Send a message
      *
@@ -22,9 +24,10 @@ public:
 
     /**
      * @brief Close the communicator.
+     * @details This should be called automatically in the deconstructor.
      *
      */
-    virtual void close() = 0;
+    virtual void close(){};
 
 protected:
     void check_error(int retval, const char *where);
