@@ -23,7 +23,7 @@
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle);
 
 /**
- * @brief
+ * @brief Drive straight using create encoders
  * @details Uses the following formula: `N counts * (mm in 1 wheel revolution / counts in 1 wheel revolution) = mm`
  *
  * @param speed A positive value representing the absolute value of the max speed to travel at
@@ -35,4 +35,15 @@ void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle);
  */
 void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPEED, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
+/**
+ * @brief
+ * @details angle in radians = (right wheel distance – left wheeldistance) / wheel base distance.
+ *
+ * @param max_speed
+ * @param degrees
+ * @param min_speed
+ * @param accel_per_sec
+ * @param updates_per_sec
+ */
+void encoder_turn_degrees(int max_speed, int degrees, int min_speed = ROOMBA_MIN_SPEED, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 #endif
