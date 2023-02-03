@@ -7,6 +7,7 @@
 #define ROOMBA_MIN_SPEED 11
 
 #define deg2rad 0.017453292519943296
+#define rad2deg 57.29577951308232
 #define DIST_BETWEEN_WHEEL 23.5
 
 // these change between roombas

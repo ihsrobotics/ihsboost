@@ -135,9 +135,13 @@ void encoder_drive_straight(int max_speed, double cm, int min_speed, double corr
 
 void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
+    // angle in radians = (right wheel distance – left wheeldistance) / wheel base distance.
+
     // initialize misc
-    double cached_distance = 0;
-    int sign_val = degrees > 0 ? 1 : -1;
+    double cached_angle_degrees = 0;
+    double angle_degrees = 0;
+    int left_sign_val = degrees > 0 ? 1 : -1;
+    int right_sign_val = degrees > 0 ? -1 : 1;
 
     // initialize encoder variables
     long lenc_i = 0, renc_i = 0, lenc_f = 0, renc_f = 0, lenc_delta = 0, renc_delta = 0;
@@ -145,24 +149,20 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
     lenc_f = lenc_i;
     renc_f = renc_i;
 
-    LinearAccelerator accelerator(0, max_speed * sign_val, accel_per_sec, updates_per_sec);
+    LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
 
-    while ((mm > 0 &&
-            (lenc_delta = lenc_f - lenc_i) * (M_PI * 72.0 / 508.8) < mm / 2 &&
-            (renc_delta = renc_f - renc_i) * (M_PI * 72.0 / 508.8) < mm / 2) ||
-           ((mm < 0 &&
-             (lenc_delta = lenc_f - lenc_i) * (M_PI * 72.0 / 508.8) > mm / 2 &&
-             (renc_delta = renc_f - renc_i) * (M_PI * 72.0 / 508.8) > mm / 2)))
+    while ((degrees > 0 && (angle_degrees = ((renc_delta = renc_f - renc_i) - (lenc_delta = lenc_f - lenc_i)) / DIST_BETWEEN_WHEEL * rad2deg) < degrees) ||
+           (degrees < 0 && (angle_degrees = ((renc_delta = renc_f - renc_i) - (lenc_delta = lenc_f - lenc_i)) / DIST_BETWEEN_WHEEL * rad2deg) > degrees))
     {
         // if left wheel going faster, go slower
-        if ((mm > 0 && lenc_delta > renc_delta) || (mm < 0 && lenc_delta < renc_delta))
+        if ((degrees > 0 && lenc_delta > renc_delta) || (mm < 0 && lenc_delta < renc_delta))
         {
-            create_drive_direct(static_cast<int>(accelerator.speed() * correction_proportion), static_cast<int>(accelerator.speed() / correction_proportion));
+            create_drive_direct(static_cast<int>(accelerator.speed() * left_sign_val), static_cast<int>(accelerator.speed() * right_sign_val));
         }
         // if right wheel going faster, go slower
         else
         {
-            create_drive_direct(static_cast<int>(accelerator.speed() / correction_proportion), static_cast<int>(accelerator.speed() * correction_proportion));
+            create_drive_direct(static_cast<int>(accelerator.speed() * left_sign_val), static_cast<int>(accelerator.speed() * right_sign_val));
         }
 
         // sleep
