@@ -1,6 +1,23 @@
 # IHS Boost
 The ihs library of robot functions, from steady acceleration to servo movement
 ## Installing
+### Getting the Source files
+To get the source files on a wombat, the best way to do that is to start on your local
+computer. Run `git clone https://github.com/ihsrobotics/ihsboost.git` to get the github
+repository locally.
+
+If you are going to install on an older wombat, make sure to run the following in the
+same directory:
+```
+cd ./ihsboost
+git checkout -b older-wombat
+cd ..
+```
+
+Finally, copy the directory over with the following command:
+`scp -r ./ihsboost pi@(ipaddress):~/`
+where `(ipaddress)` should be the ip addresss (ie 192.168.125.1). This
+will copy ihsboost into the home directory of the wombat.
 ### Wombat Build
 To build on the wombat, run the following commands
 from terminal inside the ihsboost directory
@@ -34,7 +51,7 @@ to connect to the wifi of another wombat:
 sudo systemctl stop hostapd
 sudo systemctl start wpa_supplicant
 
-wpa_password (wifi_name) (wifi_password) | sudo tee /etc/wpa_supplicant.conf
+wpa_passphrase (wifi_name) (wifi_password) | sudo tee /etc/wpa_supplicant.conf
 ```
 Where `(wifi_name)` is the name of the wifi that you want to connect to
 and `(wifi_password)` is the password for that wifi network.
@@ -51,7 +68,7 @@ to have now.
 sudo systemctl stop hostapd
 sudo systemctl start wpa_supplicant
 
-wpa_password 5555-wombat d0a0b500 | sudo tee /etc/wpa_supplicant.conf
+wpa_passphrase 5555-wombat d0a0b500 | sudo tee /etc/wpa_supplicant.conf
 sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf &
 sudo ifconfig wlan0 192.168.125.2
 ```
