@@ -7,10 +7,10 @@ computer. Run `git clone https://github.com/ihsrobotics/ihsboost.git` to get the
 repository locally.
 
 If you are going to install on an older wombat, make sure to run the following in the
-same directory:
+same directory on your local machine:
 ```
 cd ./ihsboost
-git checkout -b older-wombat
+git switch older-wombat
 cd ..
 ```
 
@@ -20,7 +20,7 @@ where `(ipaddress)` should be the ip addresss (ie 192.168.125.1). This
 will copy ihsboost into the home directory of the wombat.
 ### Wombat Build
 To build on the wombat, run the following commands
-from terminal inside the ihsboost directory
+from terminal inside the ihsboost directory on the wombat
 ```
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/
@@ -29,7 +29,7 @@ sudo make install
 ```
 Note: you will need to use either the `main` branch or the 
 `older-wombat` branch depending on whether you are using a
-new wombat or an old (original OS) wombat, 
+new wombat or an old (original OS) wombat (see `Getting the Source files`) 
 ### Cross Compile Build
 Currently, Cross compile build is unsupported.
 ## Compiling programs with it
