@@ -37,14 +37,15 @@ void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle);
 void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPEED, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
 /**
- * @brief
- * @details angle in radians = (right wheel distance – left wheeldistance) / wheel base distance.
+ * @brief Turns a certain number of degrees using create encoders
+ * @details angle in radians = (left wheel distance – right wheel distance) / wheel base distance.
  *
- * @param max_speed
- * @param degrees
- * @param min_speed
- * @param accel_per_sec
- * @param updates_per_sec
+ * @param max_speed The maximum speed to turn at. Should be greater than 0..
+ * @param degrees The number of degrees to turn, positive values for CW
+ * @param min_speed The minimum speed to turn at when decelerating
+ * @param accel_per_sec How fast to accelerate per second
+ * @param updates_per_sec How many updates to do per second
  */
 void encoder_turn_degrees(int max_speed, int degrees, int min_speed = ROOMBA_MIN_SPEED, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
+
 #endif
