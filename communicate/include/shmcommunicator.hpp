@@ -27,6 +27,8 @@ public:
 
     /**
      * @brief Send a message
+     * @exception Segmentation Fault - happens if the shared memory has already been
+     * closed by another process
      *
      * @param message the message to send
      */
@@ -35,6 +37,8 @@ public:
     /**
      * @brief Wait to receive a message.
      * Blocks until message was received
+     * @exception Segmentation Fault - happens if the shared memory has already been
+     * closed by another process
      *
      * @return std::string - the message that was received
      */

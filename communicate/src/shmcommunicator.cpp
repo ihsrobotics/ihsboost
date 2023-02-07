@@ -40,6 +40,7 @@ SHMCommunicator::~SHMCommunicator()
 
 void SHMCommunicator::close()
 {
+    cout << "closing SHMCommunicator" << endl;
     int ret = shmctl(shm_id, IPC_RMID, NULL);
     try
     {

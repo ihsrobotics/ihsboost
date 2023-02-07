@@ -59,6 +59,7 @@ string SocketServer::receive_msg()
 
 void SocketServer::close()
 {
+    cout << "closing SocketServer" << endl;
     // close connected socket
     ::close(socket_fd);
 
@@ -107,5 +108,6 @@ string SocketClient::receive_msg()
 
 void SocketClient::close()
 {
+    cout << "closing SocketClient" << endl;
     ::close(client_fd);
 }

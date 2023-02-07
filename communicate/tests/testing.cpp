@@ -68,14 +68,14 @@ int main(int argc, const char *argv[])
 
         int count = 0;
         ostringstream s;
-        for (int i = 0; i < num_times; ++i)
+        for (int i = 0; i < num_times + 2; ++i)
         {
             s << "message " << count;
 
             cout << "sending message : " << s.str() << endl;
 
             c->send_msg(s.str());
-            this_thread::sleep_for(milliseconds(1000));
+            this_thread::sleep_for(milliseconds(500));
 
             s.str("");
             s.clear();
@@ -89,7 +89,7 @@ int main(int argc, const char *argv[])
         for (int i = 0; i < num_times; ++i)
         {
             cout << c->receive_msg() << endl;
-            this_thread::sleep_for(milliseconds(1000));
+            this_thread::sleep_for(milliseconds(500));
         }
     }
     delete c;
