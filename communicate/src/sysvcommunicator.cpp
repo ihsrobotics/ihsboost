@@ -4,7 +4,7 @@
 #include <fcntl.h>
 using namespace std;
 
-SysVCommunicator::SysVCommunicator(string path, char identifier) : SysVCommunicator(ftok(path.c_str(), identifier)){};
+SysVCommunicator::SysVCommunicator(const char *path, char identifier) : SysVCommunicator(ftok(path, identifier)){};
 
 SysVCommunicator::SysVCommunicator(int key)
 {

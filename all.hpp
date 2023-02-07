@@ -24,3 +24,4 @@
 #include "posixqcommunicator.hpp"
 #include "socketcommunicator.hpp"
 #include "sysvcommunicator.hpp"
+#include "shmcommunicator.hpp"

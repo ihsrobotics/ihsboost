@@ -14,7 +14,7 @@ int main(int argc, const char *argv[])
         cerr << "need 2 arguments to be provided" << endl;
         cerr << "first should be either `talker` or `listener`" << endl;
         cerr << "second should be the communicator type: `SysVCommunicator`, `PosixQCommunicator`"
-             << "or `SocketCommunicator`" << endl;
+             << "`SocketCommunicator` or `SHMCommunicator`" << endl;
         return -1;
     }
 
@@ -39,6 +39,10 @@ int main(int argc, const char *argv[])
     else if (string(argv[2]) == "PosixQCommunicator")
     {
         c = new PosixQCommunicator(name);
+    }
+    else if (string(argv[2]) == "SHMCommunicator")
+    {
+        c = new SHMCommunicator(id);
     }
     else if (string(argv[2]) == "SocketCommunicator")
     {
@@ -71,7 +75,7 @@ int main(int argc, const char *argv[])
             cout << "sending message : " << s.str() << endl;
 
             c->send_msg(s.str());
-            this_thread::sleep_for(milliseconds(500));
+            this_thread::sleep_for(milliseconds(1000));
 
             s.str("");
             s.clear();
@@ -85,6 +89,7 @@ int main(int argc, const char *argv[])
         for (int i = 0; i < num_times; ++i)
         {
             cout << c->receive_msg() << endl;
+            this_thread::sleep_for(milliseconds(1000));
         }
     }
     delete c;

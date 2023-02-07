@@ -20,7 +20,7 @@ public:
      * @param path a path to real file
      * @param identifier a character to use as the "session id"
      */
-    SysVCommunicator(std::string path, char identifier);
+    SysVCommunicator(const char *path, char identifier);
     /**
      * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
      * the provided key on both communicators must be the same
