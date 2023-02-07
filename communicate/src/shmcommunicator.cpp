@@ -2,6 +2,7 @@
 #include "communication_exception.hpp"
 #include "message.hpp"
 #include <sys/shm.h>
+#include <memory.h>
 #include <fcntl.h>
 #include <iostream>
 

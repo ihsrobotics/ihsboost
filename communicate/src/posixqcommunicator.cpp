@@ -1,5 +1,6 @@
 #include "posixqcommunicator.hpp"
 #include "communication_exception.hpp"
+#include <memory.h>
 #include <iostream>
 
 using namespace std;

@@ -2,7 +2,7 @@
 #define MESSAGE_HPP
 
 #include <string>
-#include <memory.h>
+#include <memory>
 
 // This is the maximum number of characters in a message.
 // note that it it should never exceed 256.
@@ -15,14 +15,18 @@ public:
      * @brief Construct a new Message object with no message
      *
      */
-    Message();
+    Message(uint32_t max_size = MAX_MSG_SIZE);
+
+    Message(std::string &msg, uint32_t max_size = MAX_MSG_SIZE);
 
     /**
      * @brief Construct a new Message object with the provided message
      *
      * @param msg the message that this Message object will hold
      */
-    Message(std::string msg);
+    Message(const char *msg, uint32_t max_size = MAX_MSG_SIZE);
+
+    ~Message();
 
     /**
      * @brief Get the stored message as a string
@@ -31,8 +35,15 @@ public:
      */
     std::string get_msg();
 
+    char *to_bytes();
+
+    void from_bytes(char *bytes, bool delete_bytes = true);
+
+    uint32_t get_num_bytes();
+
 private:
-    uint8_t length;
-    char buf[MAX_MSG_SIZE];
+    uint32_t _max_size;
+    uint32_t length;
+    char *buf;
 };
 #endif

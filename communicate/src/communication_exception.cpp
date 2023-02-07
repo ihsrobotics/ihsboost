@@ -18,7 +18,7 @@ CommunicationException::CommunicationException(CommunicationException &c) : Comm
 
 CommunicationException::~CommunicationException()
 {
-    delete msg;
+    delete[] msg;
 }
 
 int CommunicationException::get_error_code() const { return error_code; }
