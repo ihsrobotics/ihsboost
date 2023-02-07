@@ -1,3 +1,6 @@
+#ifndef SHM_COMMUNICATOR_HPP
+#define SHM_COMMUNICATOR_HPP
+
 #include "communicator.hpp"
 
 class SHMCommunicator : public Communicator
@@ -47,3 +50,5 @@ public:
 private:
     int shm_id;
 };
+
+#endif
