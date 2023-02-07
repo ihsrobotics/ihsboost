@@ -18,9 +18,10 @@ public:
      * and `identifier` must be the same on both communicators
      *
      * @param path a path to real file
-     * @param identifier a character to use as the "session id"
+     * @param identifier an integer to use as the "session id"
      */
-    SysVCommunicator(const char *path, char identifier);
+    SysVCommunicator(const char *path, int identifier);
+    SysVCommunicator(const char *path, int identifier, uint32_t max_msg_size);
     /**
      * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
      * the provided key on both communicators must be the same
@@ -28,13 +29,17 @@ public:
      * @param key
      */
     SysVCommunicator(int key);
+    SysVCommunicator(int key, uint32_t max_msg_size);
+
     virtual ~SysVCommunicator();
+
+    virtual void open();
+
+    virtual void close();
 
     virtual void send_msg(std::string message);
 
     virtual std::string receive_msg();
-
-    virtual void close();
 
 private:
     key_t k;

@@ -14,6 +14,7 @@ public:
      * @param identifier a character to use as the "session id"
      */
     SHMCommunicator(const char *path, int identifier);
+    SHMCommunicator(const char *path, int identifier, uint32_t max_msg_size);
 
     /**
      * @brief Construct a new SHMCommunicator object. In order to connect to the same shared memory,
@@ -22,6 +23,7 @@ public:
      * @param key
      */
     SHMCommunicator(int id);
+    SHMCommunicator(int id, uint32_t max_msg_size);
 
     virtual ~SHMCommunicator();
 
@@ -51,7 +53,10 @@ public:
      */
     virtual void close();
 
+    virtual void open();
+
 private:
+    int id;
     int shm_id;
 };
 

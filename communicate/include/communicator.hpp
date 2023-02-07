@@ -5,7 +5,25 @@
 class Communicator
 {
 public:
+    Communicator();
+
+    Communicator(uint32_t max_msg_size);
+
     virtual ~Communicator(){};
+
+    /**
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
+     *
+     */
+    virtual void open() = 0;
+
+    /**
+     * @brief Close the communicator.
+     * @details This should be called automatically in the deconstructor.
+     *
+     */
+    virtual void close() = 0;
 
     /**
      * @brief Send a message
@@ -22,15 +40,9 @@ public:
      */
     virtual std::string receive_msg() = 0;
 
-    /**
-     * @brief Close the communicator.
-     * @details This should be called automatically in the deconstructor.
-     *
-     */
-    virtual void close() = 0;
-
 protected:
     void check_error(int retval, const char *where);
+    uint32_t max_msg_size;
 };
 
 #endif

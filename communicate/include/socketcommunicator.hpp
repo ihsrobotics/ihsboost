@@ -14,6 +14,7 @@ public:
      * @param port the port to host the server on
      */
     SocketServer(int port);
+    SocketServer(int port, uint32_t max_msg_size);
     virtual ~SocketServer();
 
     /**
@@ -38,9 +39,12 @@ public:
      */
     virtual void close();
 
+    virtual void open();
+
 private:
     int server_fd;
     int socket_fd;
+    int port;
 };
 
 class SocketClient : public Communicator
@@ -53,6 +57,7 @@ public:
      * @param port the port to connect to
      */
     SocketClient(const char *ipv4_addr, int port);
+    SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size);
 
     ~SocketClient();
 
@@ -78,9 +83,13 @@ public:
      */
     virtual void close();
 
+    virtual void open();
+
 private:
     int server_fd;
     int client_fd;
+    int port;
+    const char *ipv4_addr;
 };
 
 #endif

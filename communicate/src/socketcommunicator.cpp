@@ -7,8 +7,22 @@
 
 using namespace std;
 
-SocketServer::SocketServer(int port)
+SocketServer::SocketServer(int port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port)
 {
+    open();
+}
+SocketServer::SocketServer(int port) : Communicator(), port(port)
+{
+    open();
+}
+SocketServer::~SocketServer()
+{
+    close();
+}
+
+void SocketServer::open()
+{
+    // create socket
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     check_error(server_fd, "creating host socket");
 
@@ -37,25 +51,6 @@ SocketServer::SocketServer(int port)
     socket_fd = accept(server_fd, reinterpret_cast<struct sockaddr *>(&addr), reinterpret_cast<socklen_t *>(&addrlen));
     check_error(socket_fd, "accepting connection");
 }
-SocketServer::~SocketServer()
-{
-    close();
-}
-
-void SocketServer::send_msg(string msg)
-{
-    Message m(msg);
-    int ret = send(socket_fd, reinterpret_cast<const void *>(&m), sizeof(Message), 0);
-    check_error(ret, "sending message");
-}
-
-string SocketServer::receive_msg()
-{
-    Message m("");
-    int ret = read(socket_fd, reinterpret_cast<void *>(&m), sizeof(Message));
-    check_error(ret, "receiving message");
-    return m.get_msg();
-}
 
 void SocketServer::close()
 {
@@ -67,7 +62,45 @@ void SocketServer::close()
     shutdown(server_fd, SHUT_RDWR);
 }
 
-SocketClient::SocketClient(const char *ipv4_addr, int port)
+void SocketServer::send_msg(string msg)
+{
+    Message m(msg);
+    char *bytes = m.to_bytes();
+    int ret = send(socket_fd, reinterpret_cast<const void *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    delete[] bytes;
+    check_error(ret, "sending message");
+}
+
+string SocketServer::receive_msg()
+{
+    // create bytes and message
+    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
+    Message m;
+
+    // read into byte buffer
+    int ret = read(socket_fd, reinterpret_cast<void *>(bytes), Message::get_num_bytes(max_msg_size));
+    check_error(ret, "receiving message");
+
+    // create message from bytes
+    m.from_bytes(bytes, true);
+    return m.get_msg();
+}
+
+SocketClient::SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size) : Communicator(max_msg_size), ipv4_addr(ipv4_addr), port(port)
+{
+    open();
+}
+SocketClient::SocketClient(const char *ipv4_addr, int port) : Communicator(), ipv4_addr(ipv4_addr), port(port)
+{
+    open();
+}
+
+SocketClient::~SocketClient()
+{
+    close();
+}
+
+void SocketClient::open()
 {
     // make the socket
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -86,28 +119,32 @@ SocketClient::SocketClient(const char *ipv4_addr, int port)
     check_error(client_fd, "connecting");
 }
 
-SocketClient::~SocketClient()
+void SocketClient::close()
 {
-    close();
+    cout << "closing SocketClient" << endl;
+    ::close(client_fd);
 }
 
 void SocketClient::send_msg(string msg)
 {
     Message m(msg);
-    int ret = send(server_fd, reinterpret_cast<const void *>(&m), sizeof(Message), 0);
+    char *bytes = m.to_bytes();
+    int ret = send(server_fd, reinterpret_cast<const void *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    delete[] bytes;
     check_error(ret, "sending message");
 }
 
 string SocketClient::receive_msg()
 {
-    Message m("");
-    int ret = read(server_fd, reinterpret_cast<void *>(&m), sizeof(Message));
-    check_error(ret, "receiving message");
-    return m.get_msg();
-}
+    // get bytes and message
+    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
+    Message m;
 
-void SocketClient::close()
-{
-    cout << "closing SocketClient" << endl;
-    ::close(client_fd);
+    // read into bytes
+    int ret = read(server_fd, reinterpret_cast<void *>(bytes), Message::get_num_bytes(max_msg_size));
+    check_error(ret, "receiving message");
+
+    // get message from bytes
+    m.from_bytes(bytes);
+    return m.get_msg();
 }

@@ -11,12 +11,23 @@ class PosixQCommunicator : public Communicator
 public:
     /**
      * @brief Construct a new Posix Q Communicator object
-     * Make sure to preface your name with `/`
      *
-     * @param name name of the message queue. Make sure that it starts
-     * with `/`
+     * @param name name of the message queue. Make sure that it starts with `/`
+     * @param max_msgs the maximum number of messages that the posix q
+     * will be able to hold (defaults to 10)
      */
     PosixQCommunicator(const char *name, size_t max_msgs = 10);
+
+    /**
+     * @brief Construct a new Posix Q Communicator object
+     * Make sure to preface your name with `/`
+     *
+     * @param name name of the message queue. Make sure that it starts with `/`
+     * @param max_msgs the maximum number of messages that the posix q
+     * will be able to hold
+     * @param max_msg_size The maximum size of your messages
+     */
+    PosixQCommunicator(const char *name, size_t max_msgs, uint32_t max_msg_size);
     virtual ~PosixQCommunicator();
 
     /**
@@ -41,9 +52,17 @@ public:
      */
     virtual void close();
 
+    /**
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
+     *
+     */
+    virtual void open();
+
 private:
     mqd_t msg_q_id;
     const char *_name;
+    size_t max_msgs;
 };
 
 #endif
