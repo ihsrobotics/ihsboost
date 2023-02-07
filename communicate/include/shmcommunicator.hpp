@@ -28,6 +28,20 @@ public:
     virtual ~SHMCommunicator();
 
     /**
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
+     *
+     */
+    virtual void open();
+
+    /**
+     * @brief Close the communicator.
+     * @details This should be called automatically in the deconstructor.
+     *
+     */
+    virtual void close();
+
+    /**
      * @brief Send a message
      * @exception Segmentation Fault - happens if the shared memory has already been
      * closed by another process
@@ -45,15 +59,6 @@ public:
      * @return std::string - the message that was received
      */
     virtual std::string receive_msg();
-
-    /**
-     * @brief Close the communicator.
-     * @details This should be called automatically in the deconstructor.
-     *
-     */
-    virtual void close();
-
-    virtual void open();
 
 private:
     int id;

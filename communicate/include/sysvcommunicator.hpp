@@ -33,12 +33,33 @@ public:
 
     virtual ~SysVCommunicator();
 
+    /**
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
+     *
+     */
     virtual void open();
 
+    /**
+     * @brief Close the communicator.
+     * @details This is called automatically in the deconstructor.
+     *
+     */
     virtual void close();
 
+    /**
+     * @brief Send a message
+     *
+     * @param message the message to send
+     */
     virtual void send_msg(std::string message);
 
+    /**
+     * @brief Wait to receive a message.
+     * Blocks until message was received
+     *
+     * @return std::string - the message that was received
+     */
     virtual std::string receive_msg();
 
 private:

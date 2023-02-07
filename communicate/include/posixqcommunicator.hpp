@@ -31,6 +31,20 @@ public:
     virtual ~PosixQCommunicator();
 
     /**
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
+     *
+     */
+    virtual void open();
+
+    /**
+     * @brief Close the communicator.
+     * @details This is called automatically in the deconstructor.
+     *
+     */
+    virtual void close();
+
+    /**
      * @brief Send a message
      *
      * @param message the message to send
@@ -44,20 +58,6 @@ public:
      * @return std::string - the message that was received
      */
     virtual std::string receive_msg();
-
-    /**
-     * @brief Close the communicator.
-     * @details This is called automatically in the deconstructor.
-     *
-     */
-    virtual void close();
-
-    /**
-     * @brief Opens the communicator
-     * @details This should be called automatically in the constructor
-     *
-     */
-    virtual void open();
 
 private:
     mqd_t msg_q_id;
