@@ -1,4 +1,4 @@
-#include "../include/message_buf.hpp"
+#include <ihsboost/message_buf.hpp>
 #include <iostream>
 using namespace std;
 
