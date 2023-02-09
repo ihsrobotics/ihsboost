@@ -8,24 +8,9 @@ class MessageBuf
 {
 public:
     // constructors and deconstructors
-    MessageBuf() : attrs(), data_holder(nullptr){};
-    MessageBuf(MessageBuf &&other)
-    {
-        // case where other is this
-        if (this == &other)
-        {
-            return;
-        }
-
-        // steal attrs
-        attrs = other.attrs;
-        data_holder = other.data_holder;
-
-        // set the other one to nullptr so
-        // that its cleanup doesn't mess with us
-        other.data_holder = nullptr;
-    }
-    ~MessageBuf() { reset(); }
+    MessageBuf();
+    MessageBuf(MessageBuf &&other);
+    ~MessageBuf();
 
     // modifiers
     /**
@@ -33,27 +18,7 @@ public:
      * and resetting buffer attributes
      *
      */
-    void reset()
-    {
-        // only delete data if it was allocated
-        if (!attrs.empty)
-        {
-            // use the correct delete
-            // depends on whether it was constructed from bytes or just a new
-            if (attrs.was_from_bytes)
-            {
-                delete[] reinterpret_cast<char *>(data_holder);
-            }
-            else
-            {
-                delete reinterpret_cast<DataHolder<void *> *>(data_holder);
-            }
-            data_holder = nullptr;
-        }
-
-        // clean the other things
-        attrs.reset();
-    }
+    void reset();
 
     // getters
     /**
@@ -62,16 +27,7 @@ public:
      *
      * @return const std::type_info&
      */
-    const std::type_info &get_type() const
-    {
-        // check if empty
-        if (is_empty())
-        {
-            throw EmptyBufException();
-        }
-
-        return *reinterpret_cast<const std::type_info *>(attrs.tp_info);
-    }
+    const std::type_info &get_type() const;
 
     /**
      * @brief Return whether or not the message buf is empty
@@ -79,16 +35,23 @@ public:
      * @return true
      * @return false
      */
-    bool is_empty() const
-    {
-        return attrs.empty;
-    }
+    bool is_empty() const;
 
-    uint32_t get_size()
-    {
-        return sizeof(BufAttrs) + attrs.data_holder_size;
-    }
+    /**
+     * @brief Get the number of bytes that this current
+     * object takes
+     *
+     * @return uint32_t the number of bytes
+     */
+    uint32_t get_size() const;
 
+    /**
+     * @brief Get the number of bytes that a MessageBuf
+     * of type T will take
+     *
+     * @tparam T
+     * @return uint32_t the number of bytes
+     */
     template <typename T>
     static uint32_t get_size()
     {
@@ -150,22 +113,7 @@ public:
      *
      * @return char*
      */
-    char *to_bytes()
-    {
-        char *ret = new char[get_size()];
-
-        // copy data attributes
-        memcpy(reinterpret_cast<void *>(ret), reinterpret_cast<const void *>(&attrs), sizeof(BufAttrs));
-
-        // copy data if any
-        if (!is_empty())
-        {
-            memcpy(reinterpret_cast<void *>(ret + sizeof(BufAttrs)), reinterpret_cast<const void *>(data_holder), attrs.data_holder_size);
-        }
-
-        // return buffer
-        return ret;
-    }
+    char *to_bytes() const;
 
     /**
      * @brief construct this message from bytes
@@ -173,38 +121,22 @@ public:
      * @param bytes the bytes
      * @param delete_bytes delete the bytes after using them
      */
-    void from_bytes(char *bytes, bool delete_bytes = true)
-    {
-        // clean anything we have
-        reset();
-
-        // get attrs
-        memcpy(reinterpret_cast<void *>(&attrs), reinterpret_cast<const void *>(bytes), sizeof(BufAttrs));
-
-        // get data if any
-        if (!is_empty())
-        {
-            char *temp = new char[attrs.data_holder_size];
-            memcpy(reinterpret_cast<void *>(temp), reinterpret_cast<const void *>(bytes + sizeof(BufAttrs)), attrs.data_holder_size);
-            data_holder = temp;
-            attrs.was_from_bytes = true;
-        }
-
-        // cleanup bytes if necessary
-        if (delete_bytes)
-        {
-            delete[] bytes;
-            bytes = nullptr;
-        }
-    }
+    void from_bytes(char *bytes, bool delete_bytes = true);
 
 private:
     // structs that buffer uses
     // message attributes
     struct BufAttrs
     {
-        BufAttrs() : empty(true), was_from_bytes(false), tp_info(), data_holder_size(0){};
+        BufAttrs();
 
+        /**
+         * @brief configures this attributes object so that
+         * it reflects holding data of type T
+         *
+         * @tparam T
+         * @param _was_from_bytes whether or not the data was from bytes
+         */
         template <typename T>
         void hold_data(bool _was_from_bytes)
         {
@@ -214,12 +146,11 @@ private:
             data_holder_size = sizeof(DataHolder<T>);
         }
 
-        void reset()
-        {
-            empty = true;
-            data_holder_size = 0;
-            was_from_bytes = false;
-        }
+        /**
+         * @brief Resets the attributes
+         *
+         */
+        void reset();
 
         bool empty;                           // whether or not the buffer is empty
         bool was_from_bytes;                  // whether or not the buffer was constructed from bytes
