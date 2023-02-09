@@ -1,8 +1,8 @@
 #ifndef MESSAGE_HPP
 #define MESSAGE_HPP
 
-#include <string>
 #include <memory>
+#include "message_buf.hpp"
 
 // This is the maximum number of characters in a message.
 // note that it it should never exceed 256.
