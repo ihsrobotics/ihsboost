@@ -2,13 +2,13 @@
 #define ROOMBA_TURNS_HPP
 
 #define ROOMBA_ACCEL_PER_SEC 500
-#define ROOMBA_CORRECTION_PROPORTION .6
+#define ROOMBA_CORRECTION_PROPORTION .85
 #define ROOMBA_UPDATES_PER_SEC 500
 #define ROOMBA_MIN_SPEED 11
 
 #define deg2rad 0.017453292519943296
 #define rad2deg 57.29577951308232
-#define DIST_BETWEEN_WHEEL 23.5
+#define DIST_BETWEEN_WHEEL 23.5 // in cm
 
 // these change between roombas
 #define LEFT_WHEEL_UNITS 0.11 // in cm / sec
