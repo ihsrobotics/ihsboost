@@ -76,9 +76,17 @@ public:
      */
     static uint32_t get_num_bytes(uint32_t max_msg_size);
 
+    struct MessageInfo
+    {
+        MessageInfo(uint32_t max_size);
+        MessageInfo(uint32_t length, uint32_t max_size);
+
+        uint32_t max_size;
+        uint32_t length;
+    };
+
 private:
-    uint32_t max_size;
-    uint32_t length;
+    MessageInfo message_info;
     char *buf;
 };
 #endif

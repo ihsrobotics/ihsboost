@@ -45,7 +45,7 @@ void PosixQCommunicator::send_msg(string message)
 string PosixQCommunicator::receive_msg()
 {
     // create bytes and message
-    char *bytes = new char[max_msg_size];
+    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
     Message m;
 
     // read into byte buffer
