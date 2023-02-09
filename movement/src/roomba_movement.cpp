@@ -169,7 +169,6 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
         lenc_delta = lenc_f - lenc_i;
         renc_delta = renc_f - renc_i;
         angle_degrees = (lenc_delta * (M_PI * 72.0 / 508.8) - renc_delta * (M_PI * 72.0 / 508.8)) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
-        cout << "lenc delta is " << lenc_delta << " and renc delta is " << renc_delta << " and angle_degrees " << angle_degrees << endl;
 
         if (accelerator.done())
         {
@@ -178,7 +177,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
         }
     }
 
-    // do any more driving until it is time to start decelerating
+    // do any more driving until it is time to start decelerating)
     while (cached_angle_degrees != 0 &&
            ((degrees > 0 && angle_degrees < degrees - cached_angle_degrees) ||
             (degrees < 0 && angle_degrees > degrees - cached_angle_degrees)))
@@ -193,7 +192,6 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
         lenc_delta = lenc_f - lenc_i;
         renc_delta = renc_f - renc_i;
         angle_degrees = (lenc_delta * (M_PI * 72.0 / 508.8) - renc_delta * (M_PI * 72.0 / 508.8)) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
-        cout << "lenc delta is " << lenc_delta << " and renc delta is " << renc_delta << " and angle_degrees " << angle_degrees << endl;
     }
 
     // start decelerating, go until both lenc and renc have reached the end
@@ -203,18 +201,17 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
 
     {
         // both still have places to go
-        create_drive_direct(static_cast<int>(accelerator.speed() * left_sign_val), static_cast<int>(accelerator.speed() * right_sign_val));
+        create_drive_direct(static_cast<int>(decelerator.speed() * left_sign_val), static_cast<int>(decelerator.speed() * right_sign_val));
 
         // sleep
         decelerator.step();
-        msleep(accelerator.get_msleep_time());
+        msleep(decelerator.get_msleep_time());
 
         // update encoders
         _create_get_raw_encoders(&lenc_f, &renc_f);
         lenc_delta = lenc_f - lenc_i;
         renc_delta = renc_f - renc_i;
         angle_degrees = (lenc_delta * (M_PI * 72.0 / 508.8) - renc_delta * (M_PI * 72.0 / 508.8)) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
-        cout << "lenc delta is " << lenc_delta << " and renc delta is " << renc_delta << " and angle_degrees " << angle_degrees << endl;
     }
     create_drive_direct(0, 0);
 }
