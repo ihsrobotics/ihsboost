@@ -36,7 +36,7 @@ void MessageBuf::reset()
         }
         else
         {
-            delete reinterpret_cast<DataHolder<void *> *>(data_holder);
+            delete data_holder;
         }
         data_holder = nullptr;
     }
@@ -45,7 +45,7 @@ void MessageBuf::reset()
     attrs.reset();
 }
 
-const std::type_info &MessageBuf::get_type() const
+const std::uint64_t MessageBuf::get_type_hash() const
 {
     // check if empty
     if (is_empty())
@@ -53,7 +53,7 @@ const std::type_info &MessageBuf::get_type() const
         throw EmptyBufException();
     }
 
-    return *reinterpret_cast<const std::type_info *>(attrs.tp_info);
+    return attrs.tp_hash;
 }
 
 bool MessageBuf::is_empty() const
@@ -109,10 +109,14 @@ void MessageBuf::from_bytes(char *bytes, bool delete_bytes)
 }
 
 // MessageBuf::BufAttrs stuf
-MessageBuf::BufAttrs::BufAttrs() : empty(true), was_from_bytes(false), tp_info(), data_holder_size(0){};
+MessageBuf::BufAttrs::BufAttrs() : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0){};
 void MessageBuf::BufAttrs::reset()
 {
     empty = true;
-    data_holder_size = 0;
     was_from_bytes = false;
+
+    data_holder_size = 0;
+    data_holder_len = 0;
+
+    tp_hash = 0;
 }

@@ -27,7 +27,7 @@ public:
      *
      * @return const std::type_info&
      */
-    const std::type_info &get_type() const;
+    const std::uint64_t get_type_hash() const;
 
     /**
      * @brief Return whether or not the message buf is empty
@@ -52,10 +52,10 @@ public:
      * @tparam T
      * @return uint32_t the number of bytes
      */
-    template <typename T>
+    template <typename T, std::uint16_t _Len = 1>
     static uint32_t get_size()
     {
-        return sizeof(BufAttrs) + sizeof(DataHolder<T>);
+        return sizeof(BufAttrs) + sizeof(DataHolder<T, _Len>);
     }
 
     /**
@@ -77,22 +77,42 @@ public:
         }
 
         // check if it is the right type
-        if (typeid(T) != get_type())
+        if (typeid(T).hash_code() != get_type_hash())
         {
             throw BadBufCastException();
         }
         // if it is, then return the data
         else
         {
-            return reinterpret_cast<DataHolder<T> *>(data_holder)->val;
+            return reinterpret_cast<DataHolder<T, 1> *>(data_holder)->val[0];
+        }
+    }
+    template <typename T, std::uint16_t _Len>
+    T *get_val()
+    {
+        // check if it is empty
+        if (is_empty())
+        {
+            throw EmptyBufException();
+        }
+
+        // check if it is the right type
+        if (typeid(T *).hash_code() != get_type_hash())
+        {
+            throw BadBufCastException();
+        }
+        else
+        {
+            return reinterpret_cast<DataHolder<T, _Len> *>(data_holder)->val;
         }
     }
 
     // setters
     /**
-     * @brief Set the val object
+     * @brief Store a literal
      *
      * @tparam T the type of the object
+     * @param val the value to store
      */
     template <typename T>
     void set_val(T val)
@@ -101,10 +121,32 @@ public:
         reset();
 
         // initialize our attributes
-        attrs.hold_data<T>(false);
+        attrs.hold_data<T>(false, false);
 
         // then set our data
-        data_holder = new DataHolder<T>(val);
+        data_holder = new DataHolder<T, 1>(val);
+    }
+
+    /**
+     * @brief Set the stored data to an array
+     * @details val must be a pointer to an array
+     * of T's of minimum length _Length
+     *
+     * @tparam T
+     * @tparam _Length
+     * @param val
+     */
+    template <typename T, std::uint16_t _Length>
+    void set_val(T *val)
+    {
+        // clean up
+        reset();
+
+        // prepare attributes, this time it IS a pointer
+        attrs.hold_data<T, _Length>(true, false);
+
+        // initialize our data holder
+        data_holder = new DataHolder<T, _Length>(val);
     }
 
     // byte stuff
@@ -135,15 +177,26 @@ private:
          * it reflects holding data of type T
          *
          * @tparam T
+         * @tparam len
          * @param _was_from_bytes whether or not the data was from bytes
          */
-        template <typename T>
-        void hold_data(bool _was_from_bytes)
+        template <typename T, std::uint16_t _Len = 1>
+        void hold_data(bool is_ptr, bool _was_from_bytes)
         {
             empty = false;
             was_from_bytes = _was_from_bytes;
-            memcpy(reinterpret_cast<void *>(tp_info), reinterpret_cast<const void *>(&typeid(T)), sizeof(std::type_info));
-            data_holder_size = sizeof(DataHolder<T>);
+
+            if (is_ptr)
+            {
+                tp_hash = typeid(T *).hash_code();
+            }
+            else
+            {
+                tp_hash = typeid(T).hash_code();
+            }
+
+            data_holder_len = _Len;
+            data_holder_size = sizeof(DataHolder<T, _Len>);
         }
 
         /**
@@ -152,19 +205,28 @@ private:
          */
         void reset();
 
-        bool empty;                           // whether or not the buffer is empty
-        bool was_from_bytes;                  // whether or not the buffer was constructed from bytes
-        char tp_info[sizeof(std::type_info)]; // info about type
-        uint32_t data_holder_size;            // how large the data is
+        bool empty;                // whether or not the buffer is empty
+        bool was_from_bytes;       // whether or not the buffer was constructed from bytes
+        uint64_t tp_hash;          // info about type
+        uint32_t data_holder_size; // how large the data is
+        uint16_t data_holder_len;  // how many items data contains
     };
 
     // data attributes
-    template <typename T>
+    template <typename T, std::uint16_t len>
     struct DataHolder
     {
-        DataHolder(T &&val) : val(val){};
-        DataHolder(T &val) : val(val){};
-        T val;
+        DataHolder(T &&_val) : val{_val} {};
+        DataHolder(T &_val) : val{_val} {};
+        DataHolder(T *_val) : val()
+        {
+            for (uint16_t i = 0; i < len; ++i)
+            {
+                val[i] = _val[i];
+            }
+        }
+
+        T val[len];
     };
 
     // attributes
