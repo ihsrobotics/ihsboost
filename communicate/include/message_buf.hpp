@@ -1,6 +1,5 @@
 #ifndef MESSAGE_BUF_HPP
 #define MESSAGE_BUF_HPP
-#include <memory.h>
 #include <typeinfo>
 #include "communication_exception.hpp"
 
@@ -8,7 +7,7 @@ class MessageBuf
 {
 public:
     // constructors and deconstructors
-    MessageBuf();
+    MessageBuf(uint32_t buf_size);
     MessageBuf(MessageBuf &&other);
     ~MessageBuf();
 
@@ -39,11 +38,27 @@ public:
 
     /**
      * @brief Get the number of bytes that this current
-     * object takes
+     * object takes when converted to bytes
      *
      * @return uint32_t the number of bytes
      */
-    uint32_t get_size() const;
+    uint32_t get_buffered_size() const;
+
+    /**
+     * @brief Get the true size of this object
+     *
+     * @return uint32_t
+     */
+    uint32_t get_true_size() const;
+
+    /**
+     * @brief Get how long the data is
+     * @details value of 1 means that it only holds one of that type,
+     * value of 2 means that there are 2, etc
+     *
+     * @return uint16_t
+     */
+    uint16_t get_length() const;
 
     /**
      * @brief Get the number of bytes that a MessageBuf
@@ -56,6 +71,17 @@ public:
     static uint32_t get_size()
     {
         return sizeof(BufAttrs) + sizeof(DataHolder<T, _Len>);
+    }
+    /**
+     * @brief Get the number of bytes that a MessageBuf
+     * of max size `buf_size` will take
+     *
+     * @param buf_size the size of the buffer
+     * @return uint32_t
+     */
+    static uint32_t get_size(uint32_t buf_size)
+    {
+        return sizeof(BufAttrs) + buf_size;
     }
 
     /**
@@ -87,6 +113,16 @@ public:
             return reinterpret_cast<DataHolder<T, 1> *>(data_holder)->val[0];
         }
     }
+
+    /**
+     * @brief Get the val object
+     *
+     * @tparam T
+     * @tparam _Len Note that as long as this is provided
+     * it should return the correct pointer data, even if
+     * `_Len` was incorrect
+     * @return T* a pointer to the data
+     */
     template <typename T, std::uint16_t _Len>
     T *get_val()
     {
@@ -171,6 +207,7 @@ private:
     struct BufAttrs
     {
         BufAttrs();
+        BufAttrs(uint32_t buf_size);
 
         /**
          * @brief configures this attributes object so that
@@ -210,6 +247,7 @@ private:
         uint64_t tp_hash;          // info about type
         uint32_t data_holder_size; // how large the data is
         uint16_t data_holder_len;  // how many items data contains
+        uint32_t buf_size;         // how large the buffer should be when converting to bytes
     };
 
     // data attributes

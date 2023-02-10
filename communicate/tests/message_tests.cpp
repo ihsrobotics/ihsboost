@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    MessageBuf m;
+    int max_msg_size = 100;
+    MessageBuf m(max_msg_size);
     m.set_val<int>(223);
     cout << "getting value is " << m.get_val<int>() << endl;
 
@@ -19,7 +20,7 @@ int main()
         cout << "bad buf cast with exception: " << b.what() << endl;
     }
 
-    MessageBuf c;
+    MessageBuf c(max_msg_size);
     c.from_bytes(m.to_bytes());
     cout << "testing if it retains information" << endl;
     try
@@ -37,7 +38,7 @@ int main()
     cout << "c is now " << c.get_val<string>() << endl;
     cout << "m is still " << m.get_val<int>() << endl;
 
-    MessageBuf m2;
+    MessageBuf m2(max_msg_size);
     m2.set_val<int>(33);
 
     cout << "getting val " << m2.get_val<int>() << endl;
@@ -61,17 +62,18 @@ int main()
 
     ofstream out("out.b", ofstream::binary);
     char *write_buf = m.to_bytes();
-    cout << "difference between the two is " << MessageBuf::get_size<double, 3>() << " and " << m.get_size() << endl;
-    out.write(reinterpret_cast<const char *>(write_buf), MessageBuf::get_size<double, 3>());
+    cout << "difference between the two is " << MessageBuf::get_size(max_msg_size) << " and " << m.get_true_size() << " and " << m.get_buffered_size() << endl;
+
+    out.write(reinterpret_cast<const char *>(write_buf), MessageBuf::get_size(max_msg_size));
     out.close();
     delete[] write_buf;
 
     ifstream in("out.b", ofstream::binary);
-    char *buf = new char[MessageBuf::get_size<double, 3>()];
-    in.read(buf, m.get_size());
+    char *buf = new char[MessageBuf::get_size(max_msg_size)];
+    in.read(buf, MessageBuf::get_size(max_msg_size));
 
     cout << "recomposing" << endl;
-    MessageBuf recomposed;
+    MessageBuf recomposed(max_msg_size);
     recomposed.from_bytes(buf);
     double *second_ret = recomposed.get_val<double, 3>();
     for (int i = 0; i < 3; ++i)

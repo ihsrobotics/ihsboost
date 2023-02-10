@@ -1,6 +1,8 @@
 #include "message_buf.hpp"
+#include <memory.h>
+#include <iostream>
 
-MessageBuf::MessageBuf() : attrs(), data_holder(nullptr){};
+MessageBuf::MessageBuf(uint32_t buf_size) : attrs(buf_size), data_holder(nullptr){};
 MessageBuf::MessageBuf(MessageBuf &&other)
 {
     // case where other is this
@@ -61,14 +63,27 @@ bool MessageBuf::is_empty() const
     return attrs.empty;
 }
 
-uint32_t MessageBuf::get_size() const
+uint32_t MessageBuf::get_buffered_size() const
 {
-    return sizeof(BufAttrs) + attrs.data_holder_size;
+    return get_size(attrs.buf_size);
+}
+
+uint32_t MessageBuf::get_true_size() const
+{
+    return get_size(attrs.data_holder_size);
+}
+
+uint16_t MessageBuf::get_length() const
+{
+    return attrs.data_holder_len;
 }
 
 char *MessageBuf::to_bytes() const
 {
-    char *ret = new char[get_size()];
+    char *ret = new char[get_buffered_size()];
+    memset(reinterpret_cast<void *>(ret), 0, get_buffered_size());
+    std::cout << "getting buffered size was " << get_buffered_size() << std::endl;
+    std::cout << "tp hash is " << attrs.tp_hash << std::endl;
 
     // copy data attributes
     memcpy(reinterpret_cast<void *>(ret), reinterpret_cast<const void *>(&attrs), sizeof(BufAttrs));
@@ -109,7 +124,8 @@ void MessageBuf::from_bytes(char *bytes, bool delete_bytes)
 }
 
 // MessageBuf::BufAttrs stuf
-MessageBuf::BufAttrs::BufAttrs() : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0){};
+MessageBuf::BufAttrs::BufAttrs() : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(0){};
+MessageBuf::BufAttrs::BufAttrs(uint32_t buf_size) : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(buf_size){};
 void MessageBuf::BufAttrs::reset()
 {
     empty = true;
