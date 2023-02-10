@@ -2,14 +2,12 @@
 #include "accelerator.hpp"
 #include <kipr/wombat.h>
 #include <stdlib.h>
-#include <iostream>
-using namespace std;
 
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units, double right_wheel_units)
 {
     // calculate curl to get the time when angle is reached
     double time = abs(DIST_BETWEEN_WHEEL / (rightWheelSpeed - leftWheelSpeed) *
-                      angle * deg2rad * 1000);
+                      angle * deg2rad * 1000.0);
 
     create_drive_direct(static_cast<int>(leftWheelSpeed / left_wheel_units),
                         static_cast<int>(rightWheelSpeed / right_wheel_units));
