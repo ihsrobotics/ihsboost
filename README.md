@@ -38,7 +38,7 @@ assuming that you have already installed ihsboost,
 all you have to do is the following command to compile
 to form the executable `./a.out`:
 ```
-g++ (file) -lihsboost -std=c++11
+g++ (file) -lihsboost -lkipr -pthread -rt -std=c++11
 ```
 Note: `(file)` should be replaced by the name of the file that
 should be compiled.
