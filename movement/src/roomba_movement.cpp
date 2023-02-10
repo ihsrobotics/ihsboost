@@ -5,14 +5,14 @@
 #include <iostream>
 using namespace std;
 
-void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle)
+void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units, double right_wheel_units)
 {
     // calculate curl to get the time when angle is reached
     double time = abs(DIST_BETWEEN_WHEEL / (rightWheelSpeed - leftWheelSpeed) *
                       angle * deg2rad * 1000);
 
-    create_drive_direct(leftWheelSpeed / LEFT_WHEEL_UNITS,
-                        rightWheelSpeed / RIGHT_WHEEL_UNITS);
+    create_drive_direct(static_cast<int>(leftWheelSpeed / left_wheel_units),
+                        static_cast<int>(rightWheelSpeed / right_wheel_units));
     msleep(time);
     create_drive_direct(0, 0);
 }

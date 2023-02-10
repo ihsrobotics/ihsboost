@@ -21,7 +21,7 @@
  * @param rightWheelSpeed - double - it is speed of right wheel in CM per second
  * @param angle - double - angle to turn to in degrees
  */
-void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle);
+void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units = LEFT_WHEEL_UNITS, double right_wheel_units = RIGHT_WHEEL_UNITS);
 
 /**
  * @brief Drive straight using create encoders
