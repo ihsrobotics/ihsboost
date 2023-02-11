@@ -82,8 +82,6 @@ char *MessageBuf::to_bytes() const
 {
     char *ret = new char[get_buffered_size()];
     memset(reinterpret_cast<void *>(ret), 0, get_buffered_size());
-    std::cout << "getting buffered size was " << get_buffered_size() << std::endl;
-    std::cout << "tp hash is " << attrs.tp_hash << std::endl;
 
     // copy data attributes
     memcpy(reinterpret_cast<void *>(ret), reinterpret_cast<const void *>(&attrs), sizeof(BufAttrs));
