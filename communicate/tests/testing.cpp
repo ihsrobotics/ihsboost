@@ -23,7 +23,7 @@ int main(int argc, const char *argv[])
 
     // variables needed for communicators.
     // sysv
-    int id = 33;
+    int id = 345;
     // posix
     const char *name = "/my_queue";
     // socket
@@ -67,18 +67,14 @@ int main(int argc, const char *argv[])
         cout << "talker" << endl;
 
         int count = 0;
-        ostringstream s;
         for (int i = 0; i < num_times; ++i)
         {
-            s << "message " << count;
 
-            cout << "sending message : " << s.str() << endl;
+            cout << "sending message : " << i << endl;
 
-            c->send_msg(s.str());
+            c->send_msg(c->create_msg<int>(i));
             this_thread::sleep_for(milliseconds(500));
 
-            s.str("");
-            s.clear();
             ++count;
         }
     }
@@ -88,7 +84,7 @@ int main(int argc, const char *argv[])
 
         for (int i = 0; i < num_times; ++i)
         {
-            cout << c->receive_msg() << endl;
+            cout << c->receive_msg().get_val<int>() << endl;
         }
     }
     delete c;

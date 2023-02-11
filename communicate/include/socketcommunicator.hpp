@@ -1,8 +1,6 @@
 #ifndef SOCKET_COMMUNICATOR_HPP
 #define SOCKET_COMMUNICATOR_HPP
 
-#include <string>
-#include "message.hpp"
 #include "communicator.hpp"
 
 class SocketServer : public Communicator
@@ -36,7 +34,7 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(std::string msg);
+    virtual void send_msg(MessageBuf message);
 
     /**
      * @brief Wait to receive a message.
@@ -44,7 +42,7 @@ public:
      *
      * @return std::string - the message that was received
      */
-    virtual std::string receive_msg();
+    virtual MessageBuf receive_msg();
 
 private:
     int server_fd;
@@ -67,19 +65,11 @@ public:
     ~SocketClient();
 
     /**
-     * @brief Send a message
+     * @brief Opens the communicator
+     * @details This should be called automatically in the constructor
      *
-     * @param message the message to send
      */
-    virtual void send_msg(std::string msg);
-
-    /**
-     * @brief Wait to receive a message.
-     * Blocks until message was received
-     *
-     * @return std::string - the message that was received
-     */
-    virtual std::string receive_msg();
+    virtual void open();
 
     /**
      * @brief Close the communicator.
@@ -88,7 +78,20 @@ public:
      */
     virtual void close();
 
-    virtual void open();
+    /**
+     * @brief Send a message
+     *
+     * @param message the message to send
+     */
+    virtual void send_msg(MessageBuf message);
+
+    /**
+     * @brief Wait to receive a message.
+     * Blocks until message was received
+     *
+     * @return std::string - the message that was received
+     */
+    virtual MessageBuf receive_msg();
 
 private:
     int server_fd;

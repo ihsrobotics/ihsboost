@@ -26,35 +26,34 @@ void PosixQCommunicator::open()
     struct mq_attr attr;
     memset(&attr, 0, sizeof(attr));
     attr.mq_maxmsg = static_cast<int>(max_msgs);
-    attr.mq_msgsize = Message::get_num_bytes(max_msg_size);
+    attr.mq_msgsize = MessageBuf::get_size(max_msg_size);
 
     msg_q_id = mq_open(_name, O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO, &attr);
     cout << "msg_q_id is " << msg_q_id << endl;
     check_error(msg_q_id, "opening");
 }
 
-void PosixQCommunicator::send_msg(string message)
+void PosixQCommunicator::send_msg(MessageBuf message)
 {
-    Message m(message, max_msg_size);
-    char *bytes = m.to_bytes();
-    int ret = mq_send(msg_q_id, reinterpret_cast<const char *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    char *bytes = message.to_bytes();
+    int ret = mq_send(msg_q_id, reinterpret_cast<const char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
 }
 
-string PosixQCommunicator::receive_msg()
+MessageBuf PosixQCommunicator::receive_msg()
 {
     // create bytes and message
-    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
-    Message m;
+    char *bytes = new char[MessageBuf::get_size(max_msg_size)];
+    MessageBuf m(max_msg_size);
 
     // read into byte buffer
-    int ret = mq_receive(msg_q_id, reinterpret_cast<char *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    int ret = mq_receive(msg_q_id, reinterpret_cast<char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     check_error(ret, "receiving message");
 
     // create message from bytes
     m.from_bytes(bytes);
-    return m.get_msg();
+    return m;
 }
 
 void PosixQCommunicator::close()

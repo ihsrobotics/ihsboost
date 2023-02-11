@@ -1,7 +1,6 @@
 #ifndef POSIX_Q_COMMUNICATOR_HPP
 #define POSIX_Q_COMMUNICATOR_HPP
 
-#include "message.hpp"
 #include "communicator.hpp"
 #include <string>
 #include <mqueue.h>
@@ -49,7 +48,7 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(std::string message);
+    virtual void send_msg(MessageBuf message);
 
     /**
      * @brief Wait to receive a message.
@@ -57,7 +56,7 @@ public:
      *
      * @return std::string - the message that was received
      */
-    virtual std::string receive_msg();
+    virtual MessageBuf receive_msg();
 
 private:
     mqd_t msg_q_id;

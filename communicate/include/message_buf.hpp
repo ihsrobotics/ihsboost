@@ -3,6 +3,8 @@
 #include <typeinfo>
 #include "communication_exception.hpp"
 
+#define DEFAULT_MAX_MSG_SIZE 100
+
 class MessageBuf
 {
 public:

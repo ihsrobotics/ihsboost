@@ -48,7 +48,7 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(std::string message);
+    virtual void send_msg(MessageBuf message);
 
     /**
      * @brief Wait to receive a message.
@@ -58,7 +58,7 @@ public:
      *
      * @return std::string - the message that was received
      */
-    virtual std::string receive_msg();
+    virtual MessageBuf receive_msg();
 
 private:
     int id;

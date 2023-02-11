@@ -1,6 +1,5 @@
 #include "shmcommunicator.hpp"
 #include "communication_exception.hpp"
-#include "message.hpp"
 #include <sys/shm.h>
 #include <memory.h>
 #include <fcntl.h>
@@ -27,7 +26,7 @@ SHMCommunicator::~SHMCommunicator()
 
 void SHMCommunicator::open()
 {
-    shm_id = shmget(id, Message::get_num_bytes(max_msg_size), S_IRWXU | S_IRWXO | S_IRWXG | IPC_CREAT);
+    shm_id = shmget(id, MessageBuf::get_size(max_msg_size), S_IRWXU | S_IRWXO | S_IRWXG | IPC_CREAT);
     check_error(shm_id, "opening shared memory");
 }
 
@@ -50,15 +49,14 @@ void SHMCommunicator::close()
     }
 }
 
-void SHMCommunicator::send_msg(string message)
+void SHMCommunicator::send_msg(MessageBuf message)
 {
     // get shared memory
     void *buf = shmat(shm_id, NULL, 0);
 
     // get, write, and delete bytes
-    Message m(message);
-    char *bytes = m.to_bytes();
-    memcpy(buf, reinterpret_cast<const void *>(bytes), Message::get_num_bytes(max_msg_size));
+    char *bytes = message.to_bytes();
+    memcpy(buf, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size));
     delete[] bytes;
 
     // detach from shared memory
@@ -66,18 +64,18 @@ void SHMCommunicator::send_msg(string message)
     check_error(ret, "detaching after send");
 }
 
-string SHMCommunicator::receive_msg()
+MessageBuf SHMCommunicator::receive_msg()
 {
     // get shared memory
     void *buf = shmat(shm_id, NULL, 0);
 
     // create message from it, don't delete the bytes
-    Message m;
+    MessageBuf m(max_msg_size);
     m.from_bytes(reinterpret_cast<char *>(buf), false);
 
     // detach from shared memory
     int ret = shmdt(buf);
     check_error(ret, "detaching after receive");
 
-    return m.get_msg();
+    return m;
 }

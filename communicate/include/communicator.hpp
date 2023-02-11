@@ -1,6 +1,7 @@
 #ifndef COMMUNICATOR_HPP
 #define COMMUNICATOR_HPP
-#include <string>
+
+#include "message_buf.hpp"
 
 class Communicator
 {
@@ -30,7 +31,7 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(std::string message) = 0;
+    virtual void send_msg(MessageBuf message) = 0;
 
     /**
      * @brief Wait to receive a message.
@@ -38,7 +39,23 @@ public:
      *
      * @return std::string - the message that was received
      */
-    virtual std::string receive_msg() = 0;
+    virtual MessageBuf receive_msg() = 0;
+
+    template <typename T>
+    MessageBuf create_msg(T val)
+    {
+        MessageBuf m(max_msg_size);
+        m.set_val<T>(val);
+        return m;
+    }
+
+    template <typename T, std::uint16_t _Len>
+    MessageBuf create_msg(T *val)
+    {
+        MessageBuf m(max_msg_size);
+        m.set_val<T, _Len>(val);
+        return m;
+    }
 
 protected:
     void check_error(int retval, const char *where);

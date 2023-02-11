@@ -1,10 +1,8 @@
 #ifndef SYS_V_COMMUNICATOR_HPP
 #define SYS_V_COMMUNICATOR_HPP
 
-#include "message.hpp"
 #include "communicator.hpp"
 #include <sys/msg.h>
-#include <string>
 
 /**
  * @brief Class to communicate using System V message queues
@@ -52,7 +50,7 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(std::string message);
+    virtual void send_msg(MessageBuf message);
 
     /**
      * @brief Wait to receive a message.
@@ -60,7 +58,7 @@ public:
      *
      * @return std::string - the message that was received
      */
-    virtual std::string receive_msg();
+    virtual MessageBuf receive_msg();
 
 private:
     key_t k;

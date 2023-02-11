@@ -62,28 +62,27 @@ void SocketServer::close()
     shutdown(server_fd, SHUT_RDWR);
 }
 
-void SocketServer::send_msg(string msg)
+void SocketServer::send_msg(MessageBuf message)
 {
-    Message m(msg);
-    char *bytes = m.to_bytes();
-    int ret = send(socket_fd, reinterpret_cast<const void *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    char *bytes = message.to_bytes();
+    int ret = send(socket_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
 }
 
-string SocketServer::receive_msg()
+MessageBuf SocketServer::receive_msg()
 {
     // create bytes and message
-    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
-    Message m;
+    char *bytes = new char[MessageBuf::get_size(max_msg_size)];
+    MessageBuf m(max_msg_size);
 
     // read into byte buffer
-    int ret = read(socket_fd, reinterpret_cast<void *>(bytes), Message::get_num_bytes(max_msg_size));
+    int ret = read(socket_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
     check_error(ret, "receiving message");
 
     // create message from bytes
-    m.from_bytes(bytes, true);
-    return m.get_msg();
+    m.from_bytes(bytes);
+    return m;
 }
 
 SocketClient::SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size) : Communicator(max_msg_size), ipv4_addr(ipv4_addr), port(port)
@@ -125,26 +124,25 @@ void SocketClient::close()
     ::close(client_fd);
 }
 
-void SocketClient::send_msg(string msg)
+void SocketClient::send_msg(MessageBuf message)
 {
-    Message m(msg);
-    char *bytes = m.to_bytes();
-    int ret = send(server_fd, reinterpret_cast<const void *>(bytes), Message::get_num_bytes(max_msg_size), 0);
+    char *bytes = message.to_bytes();
+    int ret = send(server_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
 }
 
-string SocketClient::receive_msg()
+MessageBuf SocketClient::receive_msg()
 {
     // get bytes and message
-    char *bytes = new char[Message::get_num_bytes(max_msg_size)];
-    Message m;
+    char *bytes = new char[MessageBuf::get_size(max_msg_size)];
+    MessageBuf m(max_msg_size);
 
     // read into bytes
-    int ret = read(server_fd, reinterpret_cast<void *>(bytes), Message::get_num_bytes(max_msg_size));
+    int ret = read(server_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
     check_error(ret, "receiving message");
 
     // get message from bytes
     m.from_bytes(bytes);
-    return m.get_msg();
+    return m;
 }
