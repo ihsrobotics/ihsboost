@@ -1,55 +1,30 @@
 #include "create_extra.hpp"
 #include <kipr/wombat.h>
 
-CreateExtraController::CreateExtraController() : write(0){};
+CreateExtraController::CreateExtraController() : main_brush_speed(0), side_brush_speed(0), vacuum_speed(0){};
 
-void CreateExtraController::set_side_brush_direction_CCW()
+void CreateExtraController::run_main_brush(int8_t speed)
 {
-    write &= ~(0b00001000);
-}
-void CreateExtraController::set_side_brush_direction_CW()
-{
-    write |= 0b00001000;
+    main_brush_speed = speed;
+    transfer();
 }
 
-void CreateExtraController::run_side_brush()
+void CreateExtraController::run_side_brush(int8_t speed)
 {
-    write |= 0b00000001;
-}
-void CreateExtraController::turn_off_side_brush()
-{
-    write &= ~(0b00000001);
+    side_brush_speed = speed;
+    transfer();
 }
 
-void CreateExtraController::run_vacuum()
+void CreateExtraController::run_vacuum(int8_t speed)
 {
-    write |= 0b00000010;
-}
-void CreateExtraController::turn_off_vacuum()
-{
-    write &= ~(0b00000010);
-}
-
-void CreateExtraController::run_main_brush()
-{
-    write |= 0b00000100;
-}
-void CreateExtraController::turn_off_main_brush()
-{
-    write &= ~(0b00000100);
-}
-
-void CreateExtraController::set_main_brush_direction_outward()
-{
-    write |= 0b00010000;
-}
-void CreateExtraController::set_main_brush_direction_inward()
-{
-    write &= ~(0b00010000);
+    vacuum_speed = speed;
+    transfer();
 }
 
 void CreateExtraController::transfer()
 {
-    create_write_byte(138);
-    create_write_byte(write);
+    create_write_byte(144);
+    create_write_byte(main_brush_speed);
+    create_write_byte(side_brush_speed);
+    create_write_byte(vacuum_speed);
 }

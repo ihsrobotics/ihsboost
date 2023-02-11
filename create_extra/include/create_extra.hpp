@@ -13,69 +13,32 @@ public:
     CreateExtraController();
 
     /**
-     * @brief Set the side brush direction to CCW
-     * @details doesn't actually start the side brush
+     * @brief Run the main brush at the specified speed
+     * @details positive values cause it to turn inwards,
+     * negative values cause it to turn outwards
      *
+     * @param speed How fast to turn the main brush, ranges from -127 to 127
      */
-    void set_side_brush_direction_CCW();
+    void run_main_brush(int8_t speed);
 
     /**
-     * @brief Set the side brush direction to CW
-     * @details doesn't actually start the side brush
+     * @brief Run the side brush at the specified speed
+     * @details positive values cause it to turn CCW,
+     * negative values cause it to turn CW
      *
+     * @param speed How fast to turn the side brush, ranges from -127 to 127
      */
-    void set_side_brush_direction_CW();
+    void run_side_brush(int8_t speed);
 
     /**
-     * @brief Run the side brush. If no direction was set,
-     * default direction is CCW
+     * @brief Run the vacuum at the specified speed
+     * @details only positive values are valid.
      *
+     * @param speed How fast to turn the vacuum, ranges from 0 to 127
      */
-    void run_side_brush();
+    void run_vacuum(int8_t speed);
 
-    /**
-     * @brief Turn off the side brush.
-     *
-     */
-    void turn_off_side_brush();
-
-    /**
-     * @brief Run the vacuum
-     *
-     */
-    void run_vacuum();
-
-    /**
-     * @brief Turn off the vacuum
-     *
-     */
-    void turn_off_vacuum();
-
-    /**
-     * @brief Turn on the main brush. If no direction was set,
-     * then this defaults to inward
-     *
-     */
-    void run_main_brush();
-
-    /**
-     * @brief Turn off the main brush.
-     *
-     */
-    void turn_off_main_brush();
-
-    /**
-     * @brief Set the main brush direction to inward
-     *
-     */
-    void set_main_brush_direction_inward();
-
-    /**
-     * @brief Set the main brush direction to outward
-     *
-     */
-    void set_main_brush_direction_outward();
-
+private:
     /**
      * @brief Write changes to the create. This must be called
      * in order for changes to take effect.
@@ -83,8 +46,11 @@ public:
      */
     void transfer();
 
-private:
     uint8_t write;
+
+    int8_t main_brush_speed;
+    int8_t side_brush_speed;
+    int8_t vacuum_speed;
 };
 
 #endif
