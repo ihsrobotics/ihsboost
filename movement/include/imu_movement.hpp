@@ -9,10 +9,18 @@
 #define GYRO_CORRECTION_PROPORTION .90
 #define GYRO_TURN_V2_MIN_SPEED 11
 
+#ifndef MEAN_GYRO_VAL
 #define MEAN_GYRO_VAL 3.5484280676588367
+#endif
+#ifndef MIN_GYRO_VAL
 #define MIN_GYRO_VAL 0
+#endif
+#ifndef MAX_GYRO_VAL
 #define MAX_GYRO_VAL 8
+#endif
+#ifndef RAW_TO_360_DEGREES
 #define RAW_TO_360_DEGREES 7.5122
+#endif
 
 /**
  * @brief Drive the create straight using the gyroscope
