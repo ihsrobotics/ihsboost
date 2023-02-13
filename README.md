@@ -84,8 +84,18 @@ using python
     : /usr/include/python3.9
     : /usr/lib/python3.9 ;
 ```
-Note: you can change the python version to build it for by changing all the `3.9`'s to whatever version of python you have
+Next, we need to create a symlink:
+```
+sudo ln --symbolic /usr/lib/aarch64-linux-gnu/libboost_python39.so /usr/lib/libboost_python.so
+```
 
 Next, enter the bind directory in ihsboost
 and run `bjam`. This will build the python bindings, which can
 be imported in a python file by importing the module `ihs_communicate`.
+
+Finally, to "install" this python module, run the following command:
+```
+cp ./ihs_communicate.cpython*.so ~/.local/lib/python3.9/site-packages/
+```
+
+Note: you can change the python version for by changing all the `3.9`'s and `39`'s to whatever version of python you have
