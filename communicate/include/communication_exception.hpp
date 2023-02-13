@@ -21,4 +21,22 @@ private:
     char *msg;
 };
 
+class BadBufCastException : public std::bad_cast
+{
+public:
+    virtual const char *what() const noexcept override
+    {
+        return "get_val tried to return the wrong type!";
+    }
+};
+
+class EmptyBufException : public std::bad_exception
+{
+public:
+    virtual const char *what() const noexcept override
+    {
+        return "get_val was called but the buffer is empty!";
+    }
+};
+
 #endif

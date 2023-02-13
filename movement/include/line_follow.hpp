@@ -12,6 +12,26 @@
 #define LINE_FOLLOW_LINEAR_ACCELERATION 500
 #define LINE_FOLLOW_SINUSOIDAL_ACCELERATION 500
 
+#define ALIGN_UPDATES_PER_SEC 500
+
+/**
+ * @brief Returns whether or not a sensor reading is black
+ *
+ * @param val the sensor value
+ * @return true if it is black
+ * @return false if it isn't black
+ */
+bool is_black(int val);
+
+/**
+ * @brief Returns whether or not a sensor reading is white
+ *
+ * @param val the sensor value
+ * @return true if it is white
+ * @return false if it isn't white
+ */
+bool is_white(int val);
+
 /**
  * @brief Line follow at a given speed
  *
@@ -57,5 +77,27 @@ void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sen
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
 void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_SINUSOIDAL_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
+
+/**
+ * @brief Align with black, meaning keep moving until both `cliff_sensor_l` and `cliff_sensor_r` are on black.
+ *
+ * @param speed the speed to go when not on black
+ * @param correction_speed the speed to go at once on black
+ * @param cliff_sensor_l the left cliff sensor to use
+ * @param cliff_sensor_r the right cliff sensor to use
+ * @param updates_per_second how many updates to do per second.
+ */
+void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second = ALIGN_UPDATES_PER_SEC);
+
+/**
+ * @brief Align with white, meaning keep moving until both `cliff_sensor_l` and `cliff_sensor_r` are on white.
+ *
+ * @param speed the speed to go when not on white
+ * @param correction_speed the speed to go at once on white
+ * @param cliff_sensor_l the left cliff sensor to use
+ * @param cliff_sensor_r the right cliff sensor to use
+ * @param updates_per_second how many updates to do per second.
+ */
+void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second = ALIGN_UPDATES_PER_SEC);
 
 #endif

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <thread>
+#include <vector>
 #include <chrono>
 
 using namespace std;
@@ -14,7 +15,7 @@ int main(int argc, const char *argv[])
         cerr << "need 2 arguments to be provided" << endl;
         cerr << "first should be either `talker` or `listener`" << endl;
         cerr << "second should be the communicator type: `SysVCommunicator`, `PosixQCommunicator`"
-             << "or `SocketCommunicator`" << endl;
+             << "`SocketCommunicator` or `SHMCommunicator`" << endl;
         return -1;
     }
 
@@ -23,7 +24,7 @@ int main(int argc, const char *argv[])
 
     // variables needed for communicators.
     // sysv
-    int id = 33;
+    int id = 345;
     // posix
     const char *name = "/my_queue";
     // socket
@@ -39,6 +40,10 @@ int main(int argc, const char *argv[])
     else if (string(argv[2]) == "PosixQCommunicator")
     {
         c = new PosixQCommunicator(name);
+    }
+    else if (string(argv[2]) == "SHMCommunicator")
+    {
+        c = new SHMCommunicator(id);
     }
     else if (string(argv[2]) == "SocketCommunicator")
     {
@@ -63,18 +68,27 @@ int main(int argc, const char *argv[])
         cout << "talker" << endl;
 
         int count = 0;
-        ostringstream s;
+        ostringstream o;
         for (int i = 0; i < num_times; ++i)
         {
-            s << "message " << count;
+            o << "cool " << i << endl;
+            string ret = o.str();
+            cout << "sending message : " << ret << endl;
+            c->send_msg(c->create_msg<char>(ret.c_str(), ret.size()));
 
-            cout << "sending message : " << s.str() << endl;
+            // send list of doubles instead
+            // double my_double[3] = {3.14, 2.22, 7.77};
+            // for (int i = 0; i < 3; ++i)
+            // {
+            //     cout << my_double[i] << endl;
+            // }
+            // cout << endl;
+            // c->send_msg(c->create_msg<double>(my_double, 3));
 
-            c->send_msg(s.str());
             this_thread::sleep_for(milliseconds(500));
 
-            s.str("");
-            s.clear();
+            o.str("");
+            o.clear();
             ++count;
         }
     }
@@ -84,7 +98,17 @@ int main(int argc, const char *argv[])
 
         for (int i = 0; i < num_times; ++i)
         {
-            cout << c->receive_msg() << endl;
+            // receive list of doubles
+            // MessageBuf ret = c->receive_msg();
+            // double *vals = ret.get_ptr_val<double>();
+            // for (int i = 0; i < 3; ++i)
+            // {
+            //    cout << vals[i] << endl;
+            //}
+            // cout << endl;
+
+            // receive char* message (basically a string)
+            cout << c->receive_msg().get_ptr_val<char>() << endl;
         }
     }
     delete c;

@@ -17,9 +17,10 @@ add_subdirectory(controllers)
 add_subdirectory(threading)
 add_subdirectory(servos)
 add_subdirectory(communicate)
+add_subdirectory(create_extra)
 
 add_library(ihsboost SHARED empty.cpp)
-target_link_libraries(ihsboost PUBLIC kipr pthread rt ihs_util ihs_movement ihs_controllers ihs_servos ihs_communicate)
+target_link_libraries(ihsboost PUBLIC kipr pthread rt ihs_util ihs_movement ihs_controllers ihs_servos ihs_communicate ihs_create_extra)
 
 # install
 install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
