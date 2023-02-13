@@ -1,5 +1,4 @@
 #include "message_buf.hpp"
-#include <memory.h>
 #include <iostream>
 
 MessageBuf::MessageBuf(uint32_t buf_size) : attrs(buf_size), data_holder(nullptr){};
@@ -30,16 +29,7 @@ void MessageBuf::reset()
     // only delete data if it was allocated
     if (!attrs.empty)
     {
-        // use the correct delete
-        // depends on whether it was constructed from bytes or just a new
-        if (attrs.was_from_bytes)
-        {
-            delete[] reinterpret_cast<char *>(data_holder);
-        }
-        else
-        {
-            delete data_holder;
-        }
+        delete[] data_holder;
         data_holder = nullptr;
     }
 

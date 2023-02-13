@@ -34,8 +34,8 @@ int main()
     cout << "it was actually " << c.get_val<int>() << endl;
 
     cout << "testing if we can change our value without changing the previous one" << endl;
-    c.set_val<string>("hi there cutie");
-    cout << "c is now " << c.get_val<string>() << endl;
+    c.set_val<char>("hi there cutie", strlen("hi there cutie"));
+    cout << "c is now " << c.get_ptr_val<char>() << endl;
     cout << "m is still " << m.get_val<int>() << endl;
 
     MessageBuf m2(max_msg_size);
@@ -53,8 +53,8 @@ int main()
     }
 
     double my_arr[3] = {2, 3.14, 33.7};
-    m.set_val<double, 3>(my_arr);
-    double *ret = m.get_val<double, 3>();
+    m.set_val<double>(my_arr, 3);
+    double *ret = m.get_ptr_val<double>();
     for (int i = 0; i < 3; ++i)
     {
         cout << "val at " << i << " is " << ret[i] << endl;
@@ -75,7 +75,7 @@ int main()
     cout << "recomposing" << endl;
     MessageBuf recomposed(max_msg_size);
     recomposed.from_bytes(buf);
-    double *second_ret = recomposed.get_val<double, 3>();
+    double *second_ret = recomposed.get_ptr_val<double>();
     for (int i = 0; i < 3; ++i)
     {
         cout << "val at " << i << " is " << second_ret[i] << endl;

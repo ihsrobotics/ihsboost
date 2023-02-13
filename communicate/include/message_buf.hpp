@@ -1,6 +1,7 @@
 #ifndef MESSAGE_BUF_HPP
 #define MESSAGE_BUF_HPP
 #include <typeinfo>
+#include <memory.h>
 #include "communication_exception.hpp"
 
 #define DEFAULT_MAX_MSG_SIZE 100
@@ -64,15 +65,17 @@ public:
 
     /**
      * @brief Get the number of bytes that a MessageBuf
-     * of type T will take
+     * of type T will take that holds `len` number of T's
+     * will take
      *
      * @tparam T
+     * @param len how many T's the MessageBuf holds
      * @return uint32_t the number of bytes
      */
-    template <typename T, std::uint16_t _Len = 1>
-    static uint32_t get_size()
+    template <typename T>
+    static uint32_t get_size(std::uint16_t len)
     {
-        return sizeof(BufAttrs) + sizeof(DataHolder<T, _Len>);
+        return sizeof(BufAttrs) + sizeof(T) * len;
     }
     /**
      * @brief Get the number of bytes that a MessageBuf
@@ -112,12 +115,12 @@ public:
         // if it is, then return the data
         else
         {
-            return reinterpret_cast<DataHolder<T, 1> *>(data_holder)->val[0];
+            return reinterpret_cast<T *>(data_holder)[0];
         }
     }
 
     /**
-     * @brief Get the val object
+     * @brief Get the ptr to the val object
      *
      * @tparam T
      * @tparam _Len Note that as long as this is provided
@@ -125,8 +128,8 @@ public:
      * `_Len` was incorrect
      * @return T* a pointer to the data
      */
-    template <typename T, std::uint16_t _Len>
-    T *get_val()
+    template <typename T>
+    T *get_ptr_val()
     {
         // check if it is empty
         if (is_empty())
@@ -141,7 +144,7 @@ public:
         }
         else
         {
-            return reinterpret_cast<DataHolder<T, _Len> *>(data_holder)->val;
+            return reinterpret_cast<T *>(data_holder);
         }
     }
 
@@ -159,10 +162,10 @@ public:
         reset();
 
         // initialize our attributes
-        attrs.hold_data<T>(false, false);
+        attrs.hold_data<T>(1, false);
 
         // then set our data
-        data_holder = new DataHolder<T, 1>(val);
+        data_holder = new T[1]{val};
     }
 
     /**
@@ -174,17 +177,18 @@ public:
      * @tparam _Length
      * @param val
      */
-    template <typename T, std::uint16_t _Length>
-    void set_val(T *val)
+    template <typename T>
+    void set_val(T *val, std::uint16_t len)
     {
         // clean up
         reset();
 
         // prepare attributes, this time it IS a pointer
-        attrs.hold_data<T, _Length>(true, false);
+        attrs.hold_data<T>(len, false);
 
         // initialize our data holder
-        data_holder = new DataHolder<T, _Length>(val);
+        data_holder = new T[len];
+        memcpy(data_holder, val, sizeof(T) * len);
     }
 
     // byte stuff
@@ -219,23 +223,23 @@ private:
          * @tparam len
          * @param _was_from_bytes whether or not the data was from bytes
          */
-        template <typename T, std::uint16_t _Len = 1>
-        void hold_data(bool is_ptr, bool _was_from_bytes)
+        template <typename T>
+        void hold_data(std::uint16_t len, bool _was_from_bytes)
         {
             empty = false;
             was_from_bytes = _was_from_bytes;
 
-            if (is_ptr)
+            if (len > 1) // holding more than 1 val -> its a pointer
             {
                 tp_hash = typeid(T *).hash_code();
             }
-            else
+            else // just holding 1 val -> its a value
             {
                 tp_hash = typeid(T).hash_code();
             }
 
-            data_holder_len = _Len;
-            data_holder_size = sizeof(DataHolder<T, _Len>);
+            data_holder_len = len;
+            data_holder_size = sizeof(T) * data_holder_len;
         }
 
         /**
@@ -250,23 +254,6 @@ private:
         uint32_t buf_size;         // how large the buffer should be when converting to bytes
         bool empty;                // whether or not the buffer is empty
         bool was_from_bytes;       // whether or not the buffer was constructed from bytes
-    };
-
-    // data attributes
-    template <typename T, std::uint16_t len>
-    struct DataHolder
-    {
-        DataHolder(T &&_val) : val{_val} {};
-        DataHolder(T &_val) : val{_val} {};
-        DataHolder(T *_val) : val()
-        {
-            for (uint16_t i = 0; i < len; ++i)
-            {
-                val[i] = _val[i];
-            }
-        }
-
-        T val[len];
     };
 
     // attributes
