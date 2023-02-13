@@ -82,7 +82,7 @@ using python
     : 3.9
     : /usr/bin/python3.9
     : /usr/include/python3.9
-    : /usr/lib/python3.9
+    : /usr/lib/python3.9 ;
 ```
 Note: you can change the python version to build it for by changing all the `3.9`'s to whatever version of python you have
 
