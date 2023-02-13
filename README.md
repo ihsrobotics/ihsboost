@@ -75,3 +75,17 @@ sudo ifconfig wlan0 192.168.125.2
 This connects to the network `5555-wombat` that has password
 `d0a0b500`. Then, it sets the current wombat's ip address to
 `192.168.125.2`.
+## Python Communicate Bindings
+To build the python communicate bindings, first create `user-config.jam` in the home directory (`~/`). It should have the following contents:
+```
+using python
+    : 3.9
+    : /usr/bin/python3.9
+    : /usr/include/python3.9
+    : /usr/lib/python3.9
+```
+Note: you can change the python version to build it for by changing all the `3.9`'s to whatever version of python you have
+
+Next, enter the bind directory in ihsboost
+and run `bjam`. This will build the python bindings, which can
+be imported in a python file by importing the module `ihs_communicate`.
