@@ -34,7 +34,8 @@ int main()
     cout << "it was actually " << c.get_val<int>() << endl;
 
     cout << "testing if we can change our value without changing the previous one" << endl;
-    c.set_val<char>("hi there cutie", strlen("hi there cutie"));
+    string our_cool_msg = "hi there cutie";
+    c.set_val<char>(our_cool_msg.c_str(), our_cool_msg.size());
     cout << "c is now " << c.get_ptr_val<char>() << endl;
     cout << "m is still " << m.get_val<int>() << endl;
 

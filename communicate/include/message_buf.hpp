@@ -178,7 +178,7 @@ public:
      * @param val
      */
     template <typename T>
-    void set_val(T *val, std::uint16_t len)
+    void set_val(const T *val, std::uint16_t len)
     {
         // clean up
         reset();

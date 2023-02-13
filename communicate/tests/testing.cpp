@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <thread>
+#include <vector>
 #include <chrono>
 
 using namespace std;
@@ -67,14 +68,27 @@ int main(int argc, const char *argv[])
         cout << "talker" << endl;
 
         int count = 0;
+        ostringstream o;
         for (int i = 0; i < num_times; ++i)
         {
+            o << "cool " << i << endl;
+            string ret = o.str();
+            cout << "sending message : " << ret << endl;
+            c->send_msg(c->create_msg<char>(ret.c_str(), ret.size()));
 
-            cout << "sending message : " << i << endl;
+            // send list of doubles instead
+            // double my_double[3] = {3.14, 2.22, 7.77};
+            // for (int i = 0; i < 3; ++i)
+            // {
+            //     cout << my_double[i] << endl;
+            // }
+            // cout << endl;
+            // c->send_msg(c->create_msg<double>(my_double, 3));
 
-            c->send_msg(c->create_msg<int>(i));
             this_thread::sleep_for(milliseconds(500));
 
+            o.str("");
+            o.clear();
             ++count;
         }
     }
@@ -84,7 +98,17 @@ int main(int argc, const char *argv[])
 
         for (int i = 0; i < num_times; ++i)
         {
-            cout << c->receive_msg().get_val<int>() << endl;
+            // receive list of doubles
+            // MessageBuf ret = c->receive_msg();
+            // double *vals = ret.get_ptr_val<double>();
+            // for (int i = 0; i < 3; ++i)
+            // {
+            //    cout << vals[i] << endl;
+            //}
+            // cout << endl;
+
+            // receive char* message (basically a string)
+            cout << c->receive_msg().get_ptr_val<char>() << endl;
         }
     }
     delete c;

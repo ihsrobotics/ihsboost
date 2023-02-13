@@ -49,11 +49,11 @@ public:
         return m;
     }
 
-    template <typename T, std::uint16_t _Len>
-    MessageBuf create_msg(T *val)
+    template <typename T>
+    MessageBuf create_msg(const T *val, uint16_t len)
     {
         MessageBuf m(max_msg_size);
-        m.set_val<T, _Len>(val);
+        m.set_val<T>(val, len);
         return m;
     }
 
