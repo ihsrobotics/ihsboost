@@ -5,19 +5,22 @@
 
 using namespace std;
 
-PosixQCommunicator::PosixQCommunicator(const char *name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(const char *name, size_t max_msgs) : Communicator(), _name(new char[strlen(name)]), max_msgs(max_msgs)
 {
+    memcpy(reinterpret_cast<void *>(_name), reinterpret_cast<const void *>(name), strlen(name));
     open();
 }
 
-PosixQCommunicator::PosixQCommunicator(const char *name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(const char *name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(new char[strlen(name)]), max_msgs(max_msgs)
 {
+    memcpy(reinterpret_cast<void *>(_name), reinterpret_cast<const void *>(name), strlen(name));
     open();
 }
 
 PosixQCommunicator::~PosixQCommunicator()
 {
     close();
+    delete[] _name;
 }
 
 void PosixQCommunicator::open()

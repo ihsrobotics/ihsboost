@@ -27,6 +27,13 @@ public:
      * @param max_msg_size The maximum size of your messages
      */
     PosixQCommunicator(const char *name, size_t max_msgs, uint32_t max_msg_size);
+
+    /**
+     * @brief Destroy the Posix Q Communicator object
+     * @details closes and attempts to unlink the message queue if it hasn't
+     * already been unlinked
+     *
+     */
     virtual ~PosixQCommunicator();
 
     /**
@@ -60,7 +67,7 @@ public:
 
 private:
     mqd_t msg_q_id;
-    const char *_name;
+    char *_name;
     size_t max_msgs;
 };
 

@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.0)
 project(ihs_boost)
 
+option("with_documentation" OFF)
+if (with_documentation)
+    find_package(Doxygen REQUIRED)
+
+    doxygen_add_docs(doxygen ${CMAKE_SOURCE_DIR} ALL)
+endif()
+
 add_compile_options("-std=c++17")  # if 17 is not available, 11 will do for everything except for threading test
 add_compile_options("-fPIC")
 
