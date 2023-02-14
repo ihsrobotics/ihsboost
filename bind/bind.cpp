@@ -61,6 +61,8 @@ BOOST_PYTHON_MODULE(ihs_communicate)
     class_<SocketServer, bases<Communicator>>("SocketServer", init<int, optional<int>>("Start a socket server on the given port. Messages will have max size of `max_msg_size`.\n\t@param port - what port to host on \n\t@param max_msg_size the maximum size for messages"));
     class_<SocketClient, bases<Communicator>>("SocketClient", init<const char *, int, optional<int>>("Open a socket client to the given ip and port. Messages will have max size of `max_msg_size`.\n\t@param ip - what ip to connect to\n\t@param port - what port to connect to \n\t@param max_msg_size the maximum size for messages"));
     class_<SHMCommunicator, bases<Communicator>>("SHMCommunicator", init<int, optional<int>>("Create a SHMCommunicator\n\t@param id - the id for the shared memory\n\t@param max_msg_size the maximum size for messages"));
+    class_<PosixQCommunicator, bases<Communicator>>("PosixQCommunicator", init<const char *, optional<int, int>>("Create a PosixQCommunicator\n\t @param name - the name for this posix queue\n\t@param max_msgs the maximum number of messages that the posix q will be able to hold (defaults to 10)\n\t@param max_msg_size the maximum size for messages"));
+    class_<SysVCommunicator, bases<Communicator>>("SysVCommunicator", init<int, optional<int>>("Construct a SysVCommunicator\n\t@param id - the id of the SysVCommunicator\n\t@param max_msg_size the maximum size for messages"));
 
     def("receive_ints", receive_ints);
     def("send_ints", send_ints);

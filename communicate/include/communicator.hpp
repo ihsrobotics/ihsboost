@@ -6,10 +6,25 @@
 class Communicator
 {
 public:
+    /**
+     * @brief Construct a new Communicator object
+     *
+     */
     Communicator();
 
+    /**
+     * @brief Construct a new Communicator object with the given
+     * max_msg_size
+     *
+     * @param max_msg_size The maximum size of your messages
+     */
     Communicator(uint32_t max_msg_size);
 
+    /**
+     * @brief Destroy the Communicator object
+     * @details This has no effect in the base class
+     *
+     */
     virtual ~Communicator(){};
 
     /**
@@ -41,6 +56,13 @@ public:
      */
     virtual MessageBuf receive_msg() = 0;
 
+    /**
+     * @brief Create a MessageBuf object storing the given value
+     *
+     * @tparam T the type of the value
+     * @param val the value to store
+     * @return MessageBuf - a MessageBuf object that can be sent using communicators
+     */
     template <typename T>
     MessageBuf create_msg(T val)
     {
@@ -49,6 +71,14 @@ public:
         return m;
     }
 
+    /**
+     * @brief Create a MessageBuf object storing the given values
+     *
+     * @tparam T the type of the values
+     * @param val a pointer to the values to store
+     * @param len how many items to store
+     * @return MessageBuf - a MessageBuf object that can be sent using communicators
+     */
     template <typename T>
     MessageBuf create_msg(const T *val, uint16_t len)
     {
@@ -58,8 +88,16 @@ public:
     }
 
 protected:
+    /**
+     * @brief Check to see if an error occured
+     *
+     * @throws CommunicationException - if retval is -1
+     * @param retval the returned value; if it is -1, then an error has occurred
+     * @param where where the error did/didn't occurr
+     */
     void check_error(int retval, const char *where);
-    uint32_t max_msg_size;
+
+    uint32_t max_msg_size; /*!< the maximum size of the message */
 };
 
 #endif

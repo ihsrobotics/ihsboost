@@ -19,7 +19,16 @@ public:
      * @param identifier an integer to use as the "session id"
      */
     SysVCommunicator(const char *path, int identifier);
+
+    /**
+     * @brief Construct a new Sys V Communicator object
+     *
+     * @param path a path to real file
+     * @param identifier an integer to use as the "session id"
+     * @param max_msg_size the maximum size of your messages
+     */
     SysVCommunicator(const char *path, int identifier, uint32_t max_msg_size);
+
     /**
      * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
      * the provided key on both communicators must be the same
@@ -27,8 +36,20 @@ public:
      * @param key
      */
     SysVCommunicator(int key);
+
+    /**
+     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
+     * the provided key on both communicators must be the same
+     *
+     * @param key
+     * @param max_msg_size the maximum size of your messages
+     */
     SysVCommunicator(int key, uint32_t max_msg_size);
 
+    /**
+     * @brief Destroy and close the Sys V Communicator object
+     *
+     */
     virtual ~SysVCommunicator();
 
     /**
