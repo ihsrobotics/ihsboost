@@ -13,25 +13,27 @@
 #ifndef ROOMBA_TURNS_HPP
 #define ROOMBA_TURNS_HPP
 
-#define ROOMBA_ACCEL_PER_SEC 500
-#define ROOMBA_CORRECTION_PROPORTION .85
-#define ROOMBA_UPDATES_PER_SEC 500
-#define ROOMBA_MIN_SPEED 11
+#define ROOMBA_ACCEL_PER_SEC 500         ///< default acceleration for the roomba
+#define ROOMBA_CORRECTION_PROPORTION .85 ///< default correction for the roomba
+#define ROOMBA_UPDATES_PER_SEC 500       ///< default updates per second
+#define ROOMBA_MIN_SPEED 11              ///< default min speed
 
-#define deg2rad 0.017453292519943296
-#define rad2deg 57.29577951308232
-#define DIST_BETWEEN_WHEEL 23.5 // in cm
+#define deg2rad 0.017453292519943296 ///< convert degrees to radians by multiplying by this
+#define rad2deg 57.29577951308232    ///< convert radians to degrees by multiplying by this
+#define DIST_BETWEEN_WHEEL 23.5      ///< distance between the roomba wheels, in cm
 
 // these change between roombas
-#define LEFT_WHEEL_UNITS 0.11 // in cm / sec
-#define RIGHT_WHEEL_UNITS 0.103
+#define LEFT_WHEEL_UNITS 0.11   ///< how far the left wheel moves, in cm/sec
+#define RIGHT_WHEEL_UNITS 0.103 ///< how far the right wheel moves, in cm/sec
 
 /**
  * @brief Rotate using speed-based turning on the roomba
  *
- * @param leftWheelSpeed - double - it is speed of left wheel in CM per second
- * @param rightWheelSpeed - double - it is speed of right wheel in CM per second
+ * @param leftWheelSpeed - double - it is speed of left wheel in CM per second. Use values from [-50, 50]
+ * @param rightWheelSpeed - double - it is speed of right wheel in CM per second. Use values from [-50, 50]
  * @param angle - double - angle to turn to in degrees
+ * @param left_wheel_units how far the left wheel moves, in cm/sec
+ * @param right_wheel_units how far the right wheel moves, in cm/sec
  */
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units = LEFT_WHEEL_UNITS, double right_wheel_units = RIGHT_WHEEL_UNITS);
 

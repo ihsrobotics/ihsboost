@@ -5,6 +5,7 @@ option("with_documentation" OFF)
 if (with_documentation)
     find_package(Doxygen REQUIRED)
 
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
     doxygen_add_docs(doxygen ${CMAKE_SOURCE_DIR} ALL)
 endif()
 

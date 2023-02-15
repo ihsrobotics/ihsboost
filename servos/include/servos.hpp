@@ -8,12 +8,13 @@
  * @copyright Copyright (c) 2023
  *
  * @defgroup servos_id Servos Functions
+ * @{
  */
 #ifndef SERVOS_HPP
 #define SERVOS_HPP
 
-#define SERVO_MOVEMENT_SPEED 200
-#define SERVO_UPDATES_PER_SEC 100
+#define SERVO_MOVEMENT_SPEED 200  ///< default number of ticks to move a servo per second
+#define SERVO_UPDATES_PER_SEC 100 ///< default updates per second when moving a servo
 
 /**
  * @brief Move a servo slowly to its goal position
