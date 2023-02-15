@@ -1,3 +1,15 @@
+/**
+ * @file timer.hpp
+ * @author Eliot Hall
+ * @brief Timer class definition
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup util_id
+ * @{
+ */
 #ifndef TIMER_HPP
 #define TIMER_HPP
 
@@ -31,3 +43,4 @@ private:
 };
 
 #endif
+/**@}*/

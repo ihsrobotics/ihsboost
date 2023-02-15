@@ -1,8 +1,24 @@
+/**
+ * @file socketcommunicator.hpp
+ * @author Eliot Hall
+ * @brief Socket based communication
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef SOCKET_COMMUNICATOR_HPP
 #define SOCKET_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 
+/**
+ * @brief Server Class for communicating over sockets
+ *
+ */
 class SocketServer : public Communicator
 {
 public:
@@ -12,7 +28,19 @@ public:
      * @param port the port to host the server on
      */
     SocketServer(int port);
+
+    /**
+     * @brief Construct a new Socket Server object
+     *
+     * @param port the port to host the server on
+     * @param max_msg_size The maximum size of your messages
+     */
     SocketServer(int port, uint32_t max_msg_size);
+
+    /**
+     * @brief Destroy the Socket Server object
+     *
+     */
     virtual ~SocketServer();
 
     /**
@@ -45,11 +73,15 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
-    int server_fd;
-    int socket_fd;
-    int port;
+    int server_fd; ///< the server field descriptor
+    int socket_fd; ///< the field descriptor for the connected socket
+    int port;      ///< the port to connect to
 };
 
+/**
+ * @brief Client class for communicating over sockets
+ *
+ */
 class SocketClient : public Communicator
 {
 public:
@@ -60,9 +92,21 @@ public:
      * @param port the port to connect to
      */
     SocketClient(const char *ipv4_addr, int port);
+
+    /**
+     * @brief Construct a new Socket Client object
+     *
+     * @param ipv4_addr The ip address to connect to
+     * @param port the port to connect to
+     * @param max_msg_size The maximum size of your messages
+     */
     SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size);
 
-    ~SocketClient();
+    /**
+     * @brief Close the Socket Client connection
+     *
+     */
+    virtual ~SocketClient();
 
     /**
      * @brief Opens the communicator
@@ -94,10 +138,11 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
-    int server_fd;
-    int client_fd;
-    int port;
-    const char *ipv4_addr;
+    int server_fd;         ///< the field descriptor of the server
+    int client_fd;         ///< the field descriptor of this SocketClient
+    int port;              ///< the port to connect to
+    const char *ipv4_addr; ///< the ip address to connect to
 };
 
 #endif
+/**@}*/

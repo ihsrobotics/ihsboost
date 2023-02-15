@@ -1,3 +1,14 @@
+/**
+ * @file create_extra.hpp
+ * @author Eliot Hall
+ * @brief Extra functionality for the create
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup create_extra_id Create Extra Functionality
+ */
 #ifndef CREATE_EXTRA_HPP
 #define CREATE_EXTRA_HPP
 #include <cstdint>
@@ -54,3 +65,4 @@ private:
 };
 
 #endif
+/**@}*/

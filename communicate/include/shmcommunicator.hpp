@@ -1,8 +1,24 @@
+/**
+ * @file shmcommunicator.hpp
+ * @author Eliot Hall
+ * @brief Shared memory based communication
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef SHM_COMMUNICATOR_HPP
 #define SHM_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 
+/**
+ * @brief Class for communicating over shared memory
+ *
+ */
 class SHMCommunicator : public Communicator
 {
 public:
@@ -14,17 +30,39 @@ public:
      * @param identifier a character to use as the "session id"
      */
     SHMCommunicator(const char *path, int identifier);
+
+    /**
+     * @brief Construct a new SHMCommunicator object. In order to connect to the same msg queue, both `path`
+     * and `identifier` must be the same on both communicators
+     *
+     * @param path a path to real file
+     * @param identifier a character to use as the "session id"
+     * @param max_msg_size The maximum size of your messages
+     */
     SHMCommunicator(const char *path, int identifier, uint32_t max_msg_size);
 
     /**
      * @brief Construct a new SHMCommunicator object. In order to connect to the same shared memory,
-     * the provided key on both communicators must be the same
+     * the provided id on both communicators must be the same
      *
-     * @param key
+     * @param id the id for this SHMCommunicator.
      */
     SHMCommunicator(int id);
+
+    /**
+     * @brief Construct a new SHMCommunicator object. In order to connect to the same shared memory,
+     * the provided id on both communicators must be the same
+     *
+     * @param id the id for this SHMCommunicator.
+     * @param max_msg_size The maximum size of your messages
+     */
     SHMCommunicator(int id, uint32_t max_msg_size);
 
+    /**
+     * @brief Destroy the SHMCommunicator object and the shared memory associated
+     * with it
+     *
+     */
     virtual ~SHMCommunicator();
 
     /**
@@ -61,8 +99,9 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
-    int id;
-    int shm_id;
+    int id;     ///< the id of the SHMCommunicator
+    int shm_id; ///< the id of the attached shared memory
 };
 
 #endif
+/**@}*/

@@ -95,7 +95,7 @@ be imported in a python file by importing the module `ihs_communicate`.
 
 Finally, to "install" this python module, run the following command:
 ```
-sudo cp ./ihs_communicate.cpython*.so /usr/local/python3.9/dist-packages/
+sudo cp ./ihs_communicate.cpython*.so /usr/local/lib/python3.9/dist-packages/
 ```
 
 Note: you can change the python version for by changing all the `3.9`'s and `39`'s to whatever version of python you have

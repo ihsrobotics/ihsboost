@@ -1,3 +1,15 @@
+/**
+ * @file accelerate.hpp
+ * @author Eliot Hall
+ * @brief Acceleration functions
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup movement_id
+ * @{
+ */
 #ifndef ACCELERATE_HPP
 #define ACCELERATE_HPP
 
@@ -55,3 +67,4 @@ void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec = 
 void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec = SIN_ACCEL_AVG_PER_SEC, int updates_per_sec = ACCELERATE_UPDATES_PER_SEC);
 
 #endif
+/**@}*/
