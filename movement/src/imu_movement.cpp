@@ -1,6 +1,7 @@
 #include "imu_movement.hpp"
 #include "accelerator.hpp"
 #include "accumulator.hpp"
+#include "config.hpp"
 #include <kipr/wombat.h>
 
 #define between(val, a, b) ((a >= val && val >= b) || (b >= val && val >= a))

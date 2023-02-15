@@ -36,6 +36,12 @@ public:
     Accumulator(std::function<double()> callable, int updates_per_sec);
 
     /**
+     * @brief Destroy the Accumulator object
+     * @details cleans up any accumulating that is currently being done
+     */
+    ~Accumulator();
+
+    /**
      * @brief Start accumulating values
      *
      */
