@@ -14,7 +14,9 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
-      - uses: mattnotmitt/doxygen-action@1.9.5
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen -y
+        shell: bash
       - name: Configure
         run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
       - name: Build
