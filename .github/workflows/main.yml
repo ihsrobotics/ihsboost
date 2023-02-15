@@ -13,8 +13,9 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - uses: actions/checkout@v3
       - name: Configure
-        run: cmake .. -Dwith_documentation=ON -Dbuild_library=OFF
+        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
       - name: Build
         run: make
       - name: Deploy
