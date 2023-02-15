@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2023
  *
  * @defgroup threading_id Threading Classes
+ * @{
  */
 #ifndef THREADING_HPP
 #define THREADING_HPP
