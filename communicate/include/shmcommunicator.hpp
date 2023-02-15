@@ -42,6 +42,11 @@ public:
      */
     SHMCommunicator(int id, uint32_t max_msg_size);
 
+    /**
+     * @brief Destroy the SHMCommunicator object and the shared memory associated
+     * with it
+     *
+     */
     virtual ~SHMCommunicator();
 
     /**
@@ -78,8 +83,8 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
-    int id;
-    int shm_id;
+    int id;     ///< the id of the SHMCommunicator
+    int shm_id; ///< the id of the attached shared memory
 };
 
 #endif
