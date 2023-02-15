@@ -17,14 +17,13 @@
 #include "accelerate.hpp"
 #include <functional>
 
-// greater than this value is white, less than is black
-#define BLACK 2000
-#define LINE_FOLLOW_UPDATES_PER_SEC 500
-#define PROPORTIONAL_CONSTANT .90
-#define LINE_FOLLOW_LINEAR_ACCELERATION 500
-#define LINE_FOLLOW_SINUSOIDAL_ACCELERATION 500
+#define BLACK 2000                              ///< greater than this value is white, less than is black
+#define LINE_FOLLOW_UPDATES_PER_SEC 500         ///< default updates per second when line following
+#define PROPORTIONAL_CONSTANT .90               ///< default correction
+#define LINE_FOLLOW_LINEAR_ACCELERATION 500     ///< default linear acceleration
+#define LINE_FOLLOW_SINUSOIDAL_ACCELERATION 500 ///< default sinusoidal acceleration
 
-#define ALIGN_UPDATES_PER_SEC 500
+#define ALIGN_UPDATES_PER_SEC 500 ///< default updates per second when aligning
 
 /**
  * @brief Returns whether or not a sensor reading is black

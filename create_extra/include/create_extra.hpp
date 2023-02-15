@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2023
  *
  * @defgroup create_extra_id Create Extra Functionality
+ * @{
  */
 #ifndef CREATE_EXTRA_HPP
 #define CREATE_EXTRA_HPP

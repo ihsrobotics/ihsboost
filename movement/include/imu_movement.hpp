@@ -16,22 +16,22 @@
 #include "speed.hpp"
 #include <functional>
 
-#define GYRO_LINEAR_ACCEL 500
-#define GYRO_UPDATES_PER_SEC 200
-#define GYRO_CORRECTION_PROPORTION .90
-#define GYRO_TURN_V2_MIN_SPEED 11
+#define GYRO_LINEAR_ACCEL 500          ///< default accel for gyro functions
+#define GYRO_UPDATES_PER_SEC 200       ///< default updates per second for gyro functions
+#define GYRO_CORRECTION_PROPORTION .90 ///< default correction for gyro_drive_straight
+#define GYRO_TURN_V2_MIN_SPEED 11      ///< default min speed for gyro_turn_degrees_v2
 
 #ifndef MEAN_GYRO_VAL
-#define MEAN_GYRO_VAL 3.5484280676588367
+#define MEAN_GYRO_VAL 3.5484280676588367 ///< default mean gyro val; used when tuning gyro filter
 #endif
 #ifndef MIN_GYRO_VAL
-#define MIN_GYRO_VAL 0
+#define MIN_GYRO_VAL 0 ///< default min gyro val; used when tuning gyro filter
 #endif
 #ifndef MAX_GYRO_VAL
-#define MAX_GYRO_VAL 8
+#define MAX_GYRO_VAL 8 ///< default max gyro val; used when tuning gyro filter
 #endif
 #ifndef RAW_TO_360_DEGREES
-#define RAW_TO_360_DEGREES 7.5122
+#define RAW_TO_360_DEGREES 7.5122 ///< default conversion from integrated gyro values to degrees
 #endif
 
 /**

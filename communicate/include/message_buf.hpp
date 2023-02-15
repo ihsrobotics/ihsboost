@@ -16,7 +16,7 @@
 #include <memory.h>
 #include "communication_exception.hpp"
 
-#define DEFAULT_MAX_MSG_SIZE 100
+#define DEFAULT_MAX_MSG_SIZE 100 ///< default maximum size for a MessageBuf's buffer
 
 /**
  * @brief Class for storing data over communicators
