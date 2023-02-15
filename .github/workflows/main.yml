@@ -14,7 +14,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Configure
-        run: cmake . -Dwith_documentation=ON -Dbuild_library=OFF
+        run: cmake .. -Dwith_documentation=ON -Dbuild_library=OFF
       - name: Build
         run: make
       - name: Deploy
