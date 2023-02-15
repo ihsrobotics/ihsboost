@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Doxygen
-        run: sudo apt-get install doxygen graphviz -y
+        run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
       - name: Configure
         run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
