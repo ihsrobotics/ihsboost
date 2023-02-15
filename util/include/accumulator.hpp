@@ -1,7 +1,7 @@
 /**
  * @file accumulator.hpp
- * @author your name (you@domain.com)
- * @brief
+ * @author Eliot Hall
+ * @brief Accumulator class for integrating values
  * @version 0.1
  * @date 2023-02-14
  *
