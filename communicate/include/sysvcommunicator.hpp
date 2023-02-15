@@ -1,3 +1,15 @@
+/**
+ * @file sysvcommunicator.hpp
+ * @author Eliot Hall
+ * @brief SysV based communication
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef SYS_V_COMMUNICATOR_HPP
 #define SYS_V_COMMUNICATOR_HPP
 
@@ -87,3 +99,4 @@ private:
 };
 
 #endif
+/**@}*/

@@ -1,8 +1,24 @@
+/**
+ * @file communicator.hpp
+ * @author Eliot Hall
+ * @brief Abstract communication class
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef COMMUNICATOR_HPP
 #define COMMUNICATOR_HPP
 
 #include "message_buf.hpp"
 
+/**
+ * @brief Abstract class for all communicators
+ *
+ */
 class Communicator
 {
 public:
@@ -97,7 +113,8 @@ protected:
      */
     void check_error(int retval, const char *where);
 
-    uint32_t max_msg_size; /*!< the maximum size of the message */
+    uint32_t max_msg_size; ///< the maximum size of the message
 };
 
 #endif
+/**@}*/

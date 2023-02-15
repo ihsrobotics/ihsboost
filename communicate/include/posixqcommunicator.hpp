@@ -1,3 +1,15 @@
+/**
+ * @file posixqcommunicator.hpp
+ * @author Eliot Hall
+ * @brief Posix-based mqueue communication
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef POSIX_Q_COMMUNICATOR_HPP
 #define POSIX_Q_COMMUNICATOR_HPP
 
@@ -5,6 +17,10 @@
 #include <string>
 #include <mqueue.h>
 
+/**
+ * @brief Class for communicating over posix-based mqueue's
+ *
+ */
 class PosixQCommunicator : public Communicator
 {
 public:
@@ -72,3 +88,4 @@ private:
 };
 
 #endif
+/**@}*/

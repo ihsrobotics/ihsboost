@@ -1,3 +1,15 @@
+/**
+ * @file speed.hpp
+ * @author Eliot Hall
+ * @brief Speed struct for representing speeds
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup util_id
+ * @{
+ */
 #ifndef SPEED_HPP
 #define SPEED_HPP
 
@@ -69,8 +81,9 @@ struct Speed
      */
     bool operator!=(const Speed o) const;
 
-    int left;  /*!< the speed of the left wheel */
-    int right; /*!< the speed of the right wheel */
+    int left;  ///< the speed of the left wheel
+    int right; ///< the speed of the right wheel
 };
 
 #endif
+/**@}*/

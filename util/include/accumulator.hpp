@@ -1,3 +1,15 @@
+/**
+ * @file accumulator.hpp
+ * @author your name (you@domain.com)
+ * @brief
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup util_id
+ * @{
+ */
 #ifndef ACCUMULATOR_HPP
 #define ACCUMULATOR_HPP
 
@@ -37,7 +49,7 @@ public:
 
     /**
      * @brief Return the current value of the accumulator
-     * @details the value returned is \f[\int f(t)dt]\f
+     * @details the value returned is \f$\int f(t)dt\f$
      *
      * @return const volatile&
      */
@@ -55,3 +67,4 @@ private:
 };
 
 #endif
+/**@}*/

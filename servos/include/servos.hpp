@@ -1,3 +1,14 @@
+/**
+ * @file servos.hpp
+ * @author Eliot Hall
+ * @brief Servo movement functions
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup servos_id Servos Functions
+ */
 #ifndef SERVOS_HPP
 #define SERVOS_HPP
 
@@ -15,3 +26,4 @@
 void move_servo_slowly(int port, int position, int speed = SERVO_MOVEMENT_SPEED, int updates_per_sec = SERVO_UPDATES_PER_SEC);
 
 #endif
+/**@}*/
