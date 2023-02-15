@@ -1,3 +1,11 @@
+# vscode
 .vscode/
+
+# building results
 build/
 out/
+
+# binding results
+*.so
+*.o
+bin/

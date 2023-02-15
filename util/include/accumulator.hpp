@@ -5,12 +5,23 @@
 #include <functional>
 #include <kipr/wombat.h>
 
+/**
+ * @brief Integrate values returned by the given function
+ *
+ */
 class Accumulator
 {
 public:
-    Accumulator(std::function<double()> callable, int updates_per_sec)
-        : callable(callable), flag(true), multiplier(1 / static_cast<double>(updates_per_sec)),
-          msleep_time(1000 / updates_per_sec){};
+    /**
+     * @brief Construct a new Accumulator object
+     * @details this will integrate values returned by the callable,
+     * meaning that the current value will be the integral of the function
+     * d time.
+     *
+     * @param callable the function to accumulate values from
+     * @param updates_per_sec how many times per second to accumulate
+     */
+    Accumulator(std::function<double()> callable, int updates_per_sec);
 
     /**
      * @brief Start accumulating values
@@ -26,10 +37,11 @@ public:
 
     /**
      * @brief Return the current value of the accumulator
+     * @details the value returned is \f[\int f(t)dt]\f
      *
      * @return const volatile&
      */
-    const volatile double &get_accumulator() { return accumulator; }
+    const volatile double &get_accumulator();
 
 private:
     static void accumulate(Accumulator *a);

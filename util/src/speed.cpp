@@ -1,5 +1,7 @@
 #include "speed.hpp"
 
+Speed::Speed(int left_speed, int right_speed) : left(left_speed), right(right_speed){};
+
 Speed Speed::operator-(const Speed o) const
 {
     return Speed(left - o.left, right - o.right);

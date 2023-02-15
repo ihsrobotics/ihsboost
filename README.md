@@ -38,7 +38,7 @@ assuming that you have already installed ihsboost,
 all you have to do is the following command to compile
 to form the executable `./a.out`:
 ```
-g++ (file) -lihsboost -std=c++11
+g++ (file) -lihsboost -lkipr -pthread -rt -std=c++11
 ```
 Note: `(file)` should be replaced by the name of the file that
 should be compiled.
@@ -75,3 +75,27 @@ sudo ifconfig wlan0 192.168.125.2
 This connects to the network `5555-wombat` that has password
 `d0a0b500`. Then, it sets the current wombat's ip address to
 `192.168.125.2`.
+## Python Communicate Bindings
+To build the python communicate bindings, first create `user-config.jam` in the home directory (`~/`). It should have the following contents:
+```
+using python
+    : 3.9
+    : /usr/bin/python3.9
+    : /usr/include/python3.9
+    : /usr/lib/python3.9 ;
+```
+Next, we need to create a symlink:
+```
+sudo ln --symbolic /usr/lib/aarch64-linux-gnu/libboost_python39.so /usr/lib/libboost_python.so
+```
+
+Next, enter the bind directory in ihsboost
+and run `bjam`. This will build the python bindings, which can
+be imported in a python file by importing the module `ihs_communicate`.
+
+Finally, to "install" this python module, run the following command:
+```
+sudo cp ./ihs_communicate.cpython*.so /usr/local/python3.9/dist-packages/
+```
+
+Note: you can change the python version for by changing all the `3.9`'s and `39`'s to whatever version of python you have

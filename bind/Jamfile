@@ -1,0 +1,9 @@
+import python ;
+
+lib boost_python ;
+project ihsboost_python : 
+    requirements 
+    <location>.
+    <library>boost_python ;
+
+python-extension ihs_communicate : bind.cpp /usr/local/lib/libihsboost.so ;
