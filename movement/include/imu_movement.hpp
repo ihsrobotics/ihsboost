@@ -1,3 +1,15 @@
+/**
+ * @file imu_movement.hpp
+ * @author Eliot Hall
+ * @brief IMU (gyro/accel) based movement functions
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup movement_id
+ * @{
+ */
 #ifndef GYRO_MOVEMENT_HPP
 #define GYRO_MOVEMENT_HPP
 
@@ -63,3 +75,4 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double mea
 void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val = MEAN_GYRO_VAL, double raw_to_360_degrees = RAW_TO_360_DEGREES, int min_speed = GYRO_TURN_V2_MIN_SPEED, double accel_per_sec = GYRO_LINEAR_ACCEL, int updates_per_sec = GYRO_UPDATES_PER_SEC);
 
 #endif
+/**@}*/

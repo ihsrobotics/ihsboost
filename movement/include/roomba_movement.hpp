@@ -1,3 +1,15 @@
+/**
+ * @file roomba_movement.hpp
+ * @author Eliot Hall
+ * @brief Roomba-specific movement functions
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup movement_id Movement Functions
+ * @{
+ */
 #ifndef ROOMBA_TURNS_HPP
 #define ROOMBA_TURNS_HPP
 
@@ -49,3 +61,4 @@ void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPE
 void encoder_turn_degrees(int max_speed, int degrees, int min_speed = ROOMBA_MIN_SPEED, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
 #endif
+/**@}*/

@@ -1,3 +1,15 @@
+/**
+ * @file message_buf.hpp
+ * @author Eliot Hall
+ * @brief MessageBuf class for serializing and retreiving data
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef MESSAGE_BUF_HPP
 #define MESSAGE_BUF_HPP
 #include <typeinfo>
@@ -291,3 +303,4 @@ private:
 };
 
 #endif
+/**@}*/

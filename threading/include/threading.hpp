@@ -1,3 +1,14 @@
+/**
+ * @file threading.hpp
+ * @author Eliot Hall
+ * @brief Easy threading functionality
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup threading_id Threading Classes
+ */
 #ifndef THREADING_HPP
 #define THREADING_HPP
 
@@ -66,3 +77,4 @@ private:
 };
 
 #endif
+/**@}*/

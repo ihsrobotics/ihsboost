@@ -1,3 +1,15 @@
+/**
+ * @file accelerator.hpp
+ * @author Eliot Hall
+ * @brief Acceleration controllers
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup accelerator_id Acceleration Classes
+ * @{
+ */
 #ifndef ACCELERATOR_HPP
 #define ACCELERATOR_HPP
 
@@ -128,3 +140,4 @@ private:
 };
 
 #endif
+/**@}*/

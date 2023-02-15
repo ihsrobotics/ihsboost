@@ -1,3 +1,15 @@
+/**
+ * @file line_follow.hpp
+ * @author Eliot Hall
+ * @brief Line follow functions
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup movement_id
+ * @{
+ */
 #ifndef LINE_FOLLOW_HPP
 #define LINE_FOLLOW_HPP
 
@@ -101,3 +113,4 @@ void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cli
 void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second = ALIGN_UPDATES_PER_SEC);
 
 #endif
+/**@}*/

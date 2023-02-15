@@ -1,3 +1,15 @@
+/**
+ * @file communicator.hpp
+ * @author Eliot Hall
+ * @brief Abstract communication class
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef COMMUNICATOR_HPP
 #define COMMUNICATOR_HPP
 
@@ -105,3 +117,4 @@ protected:
 };
 
 #endif
+/**@}*/

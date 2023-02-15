@@ -1,3 +1,15 @@
+/**
+ * @file communication_exception.hpp
+ * @author Eliot Hall
+ * @brief Exceptions that may be thrown while communicating
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @defgroup communication_id Communication Classes
+ * @{
+ */
 #ifndef COMMUNICATION_EXCEPTION_HPP
 #define COMMUNICATION_EXCEPTION_HPP
 
@@ -89,3 +101,4 @@ public:
 };
 
 #endif
+/**@}*/

@@ -1,3 +1,15 @@
+/**
+ * @file shmcommunicator.hpp
+ * @author Eliot Hall
+ * @brief Shared memory based communication
+ * @version 0.1
+ * @date 2023-02-14
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup communication_id
+ * @{
+ */
 #ifndef SHM_COMMUNICATOR_HPP
 #define SHM_COMMUNICATOR_HPP
 
@@ -92,3 +104,4 @@ private:
 };
 
 #endif
+/**@}*/
