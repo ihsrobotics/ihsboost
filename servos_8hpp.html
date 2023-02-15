@@ -80,18 +80,20 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7392880ba40dd6593b631513714de48f"><td class="memItemLeft" align="right" valign="top"><a id="a7392880ba40dd6593b631513714de48f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SERVO_MOVEMENT_SPEED</b>&#160;&#160;&#160;200</td></tr>
-<tr class="separator:a7392880ba40dd6593b631513714de48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4f13d52556a693a223c617d2a100ae"><td class="memItemLeft" align="right" valign="top"><a id="aeb4f13d52556a693a223c617d2a100ae"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SERVO_UPDATES_PER_SEC</b>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:aeb4f13d52556a693a223c617d2a100ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7392880ba40dd6593b631513714de48f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memdesc:ga7392880ba40dd6593b631513714de48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default number of ticks to move a servo per second <br /></td></tr>
+<tr class="separator:ga7392880ba40dd6593b631513714de48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb4f13d52556a693a223c617d2a100ae"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:gaeb4f13d52556a693a223c617d2a100ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second when moving a servo <br /></td></tr>
+<tr class="separator:gaeb4f13d52556a693a223c617d2a100ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afaebe503679447b03024a9e2f84ea673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="servos_8hpp.html#afaebe503679447b03024a9e2f84ea673">move_servo_slowly</a> (int port, int position, int speed=SERVO_MOVEMENT_SPEED, int updates_per_sec=SERVO_UPDATES_PER_SEC)</td></tr>
-<tr class="memdesc:afaebe503679447b03024a9e2f84ea673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="servos_8hpp.html#afaebe503679447b03024a9e2f84ea673">More...</a><br /></td></tr>
-<tr class="separator:afaebe503679447b03024a9e2f84ea673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafaebe503679447b03024a9e2f84ea673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">move_servo_slowly</a> (int port, int position, int speed=<a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>, int updates_per_sec=<a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:gafaebe503679447b03024a9e2f84ea673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">More...</a><br /></td></tr>
+<tr class="separator:gafaebe503679447b03024a9e2f84ea673"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Servo movement functions. </p>
@@ -99,59 +101,7 @@ Functions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-02-14</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="afaebe503679447b03024a9e2f84ea673"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaebe503679447b03024a9e2f84ea673">&#9670;&nbsp;</a></span>move_servo_slowly()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void move_servo_slowly </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>speed</em> = <code>SERVO_MOVEMENT_SPEED</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>updates_per_sec</em> = <code>SERVO_UPDATES_PER_SEC</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Move a servo slowly to its goal position. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">port</td><td>the port where the servo is </td></tr>
-    <tr><td class="paramname">position</td><td>the goal position to move the servo to </td></tr>
-    <tr><td class="paramname">speed</td><td>how fast to move the servo, in ticks per second. Defaults to 200 </td></tr>
-    <tr><td class="paramname">updates_per_sec</td><td>How many updates to do per second, defaults to 100 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
