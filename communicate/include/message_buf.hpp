@@ -6,6 +6,10 @@
 
 #define DEFAULT_MAX_MSG_SIZE 100
 
+/**
+ * @brief Class for storing data over communicators
+ *
+ */
 class MessageBuf
 {
 public:

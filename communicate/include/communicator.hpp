@@ -3,6 +3,10 @@
 
 #include "message_buf.hpp"
 
+/**
+ * @brief Abstract class for all communicators
+ *
+ */
 class Communicator
 {
 public:

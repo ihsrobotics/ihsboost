@@ -5,6 +5,10 @@
 #include <string>
 #include <mqueue.h>
 
+/**
+ * @brief Class for communicating over posix-based mqueue's
+ *
+ */
 class PosixQCommunicator : public Communicator
 {
 public:

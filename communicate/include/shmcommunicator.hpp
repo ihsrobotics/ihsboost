@@ -3,6 +3,10 @@
 
 #include "communicator.hpp"
 
+/**
+ * @brief Class for communicating over shared memory
+ *
+ */
 class SHMCommunicator : public Communicator
 {
 public:
