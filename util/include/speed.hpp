@@ -69,8 +69,8 @@ struct Speed
      */
     bool operator!=(const Speed o) const;
 
-    int left;  /*!< the speed of the left wheel */
-    int right; /*!< the speed of the right wheel */
+    int left;  ///< the speed of the left wheel
+    int right; ///< the speed of the right wheel
 };
 
 #endif

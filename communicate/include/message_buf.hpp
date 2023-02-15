@@ -10,11 +10,27 @@ class MessageBuf
 {
 public:
     // constructors and deconstructors
+    /**
+     * @brief Construct a new MessageBuf object
+     *
+     * @param buf_size how large the buffer size should be
+     */
     MessageBuf(uint32_t buf_size);
+
+    /**
+     * @brief Construct a new MessageBuf object from another MessageBuf
+     *
+     * @param other the MessageBuf to copy
+     */
     MessageBuf(MessageBuf &&other);
+
+    /**
+     * @brief Destroy the Message Buf object
+     * @details deletes any data associated with it
+     *
+     */
     ~MessageBuf();
 
-    // modifiers
     /**
      * @brief Cleans up the MessageBuf, deleting any data if there was any
      * and resetting buffer attributes
@@ -22,7 +38,6 @@ public:
      */
     void reset();
 
-    // getters
     /**
      * @brief Get the type_info object describing data held
      * @exception Will throw EmptyBufException if the buffer is empty
@@ -148,7 +163,6 @@ public:
         }
     }
 
-    // setters
     /**
      * @brief Store a literal
      *
@@ -174,8 +188,8 @@ public:
      * of T's of minimum length _Length
      *
      * @tparam T
-     * @tparam _Length
-     * @param val
+     * @param val a pointer to the values to store
+     * @param len how many items to store
      */
     template <typename T>
     void set_val(const T *val, std::uint16_t len)
@@ -191,7 +205,6 @@ public:
         memcpy(data_holder, val, sizeof(T) * len);
     }
 
-    // byte stuff
     /**
      * @brief Convert the buffer to bytes
      *
@@ -208,11 +221,23 @@ public:
     void from_bytes(char *bytes, bool delete_bytes = true);
 
 private:
-    // structs that buffer uses
-    // message attributes
+    /**
+     * @brief Struct that MessageBuf uses to store
+     * message attributes
+     *
+     */
     struct BufAttrs
     {
+        /**
+         * @brief Construct a new BufAttrs object
+         *
+         */
         BufAttrs();
+        /**
+         * @brief Construct a new BufAttrs object
+         *
+         * @param buf_size how large the buffer should be
+         */
         BufAttrs(uint32_t buf_size);
 
         /**
@@ -248,17 +273,17 @@ private:
          */
         void reset();
 
-        uint64_t tp_hash;          // info about type
-        uint32_t data_holder_size; // how large the data is
-        uint16_t data_holder_len;  // how many items data contains
-        uint32_t buf_size;         // how large the buffer should be when converting to bytes
-        bool empty;                // whether or not the buffer is empty
-        bool was_from_bytes;       // whether or not the buffer was constructed from bytes
+        uint64_t tp_hash;          ///< info about type
+        uint32_t data_holder_size; ///< how large the data is
+        uint16_t data_holder_len;  ///< how many items data contains
+        uint32_t buf_size;         ///< how large the buffer should be when converting to bytes
+        bool empty;                ///< whether or not the buffer is empty
+        bool was_from_bytes;       ///< whether or not the buffer was constructed from bytes
     };
 
     // attributes
-    BufAttrs attrs;
-    void *data_holder;
+    BufAttrs attrs;    ///< the MessageBuf's attributes
+    void *data_holder; ///< a pointer to the data; could als be nullptr
 };
 
 #endif

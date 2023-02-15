@@ -97,7 +97,7 @@ protected:
      */
     void check_error(int retval, const char *where);
 
-    uint32_t max_msg_size; /*!< the maximum size of the message */
+    uint32_t max_msg_size; ///< the maximum size of the message
 };
 
 #endif
