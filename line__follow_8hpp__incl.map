@@ -1,0 +1,7 @@
+<map id="movement/include/line_follow.hpp" name="movement/include/line_follow.hpp">
+<area shape="rect" id="node1" title="Line follow functions." alt="" coords="78,5,250,47"/>
+<area shape="rect" id="node2" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,95,80,121"/>
+<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="105,95,223,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="247,95,334,121"/>
+<area shape="rect" id="node4" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="119,169,209,196"/>
+</map>

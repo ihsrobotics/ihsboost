@@ -1,0 +1,4 @@
+<map id="SocketClient" name="SocketClient">
+<area shape="rect" id="node1" title="Client class for communicating over sockets." alt="" coords="13,80,116,107"/>
+<area shape="rect" id="node2" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="5,5,124,32"/>
+</map>

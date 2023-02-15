@@ -1,0 +1,7 @@
+<map id="util/include/speed.hpp" name="util/include/speed.hpp">
+<area shape="rect" id="node1" title="Speed struct for representing speeds." alt="" coords="67,5,232,32"/>
+<area shape="rect" id="node2" href="$all_8hpp_source.html" title=" " alt="" coords="61,244,128,271"/>
+<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="27,80,271,107"/>
+<area shape="rect" id="node5" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="268,155,441,196"/>
+<area shape="rect" id="node4" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="71,155,243,196"/>
+</map>

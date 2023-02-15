@@ -1,0 +1,4 @@
+<map id="EmptyBufException" name="EmptyBufException">
+<area shape="rect" id="node1" title="Exception class to protect from nullptr segmentation faults." alt="" coords="5,80,156,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="8,5,153,32"/>
+</map>
