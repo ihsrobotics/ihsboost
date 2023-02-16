@@ -33,6 +33,9 @@
 #ifndef RAW_TO_360_DEGREES
 #define RAW_TO_360_DEGREES 7.5122 ///< default conversion from integrated gyro values to degrees
 #endif
+#ifndef GYRO_FUNCTION
+#define GYRO_FUNCTION gyro_z ///< the function to use for gyro movement, must return a signed short
+#endif
 
 /**
  * @brief Drive the create straight using the gyroscope
