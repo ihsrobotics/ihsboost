@@ -1,5 +1,6 @@
 #include "accelerate.hpp"
 #include "accelerator.hpp"
+#include "config.hpp"
 #include <kipr/wombat.h>
 #include <iostream>
 #include <math.h>
@@ -34,10 +35,10 @@ void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec, i
     {
         left_accelerator.step();
         right_accelerator.step();
-        create_drive_direct(left_accelerator.speed(), right_accelerator.speed());
+        MOVEMENT_FUNCTION(left_accelerator.speed(), right_accelerator.speed());
         msleep(left_accelerator.get_msleep_time()); // msleep time will be the same for both, so just use left
     }
-    create_drive_direct(to_speed.left, to_speed.right);
+    MOVEMENT_FUNCTION(to_speed.left, to_speed.right);
 }
 
 void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec, int updates_per_sec)
@@ -61,8 +62,8 @@ void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_se
     {
         left_accelerator.step();
         right_accelerator.step();
-        create_drive_direct(left_accelerator.speed(), right_accelerator.speed());
+        MOVEMENT_FUNCTION(left_accelerator.speed(), right_accelerator.speed());
         msleep(left_accelerator.get_msleep_time()); // msleep time will be the same for both, so just use left
     }
-    create_drive_direct(to_speed.left, to_speed.right);
+    MOVEMENT_FUNCTION(to_speed.left, to_speed.right);
 }
