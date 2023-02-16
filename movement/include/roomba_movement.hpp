@@ -38,6 +38,27 @@
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units = LEFT_WHEEL_UNITS, double right_wheel_units = RIGHT_WHEEL_UNITS);
 
 /**
+ * @brief Read create encoders into lenc and renc
+ * @details This gives raw encoder values, which range from [-32768, 32767]
+ *
+ * @param[out] lenc the int that will store the left encoder value
+ * @param[out] renc the int that will store the right encoder value
+ */
+void read_encoders(int &lenc, int &renc);
+
+/**
+ * @brief Process encoders so that, even if overflow/underflow occurs, `lenc_delta` and `renc_delta` will be accurate
+ *
+ * @param lenc_prev the previous left encoder value. This is modified inside the function
+ *  to the value of the new reading
+ * @param renc_prev the previous right encoder value. This is modified inside the function
+ *  to the value of the new reading
+ * @param lenc_delta the change in the left encoder. This is incremented inside the function
+ * @param renc_delta the change in the right encoder. This is incremeneted inside the function
+ */
+void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc_delta);
+
+/**
  * @brief Drive straight using create encoders
  * @details Uses the following formula: `N counts * (mm in 1 wheel revolution / counts in 1 wheel revolution) = mm`
  *
