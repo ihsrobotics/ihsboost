@@ -1,8 +1,11 @@
 #include "imu_movement.hpp"
-#include "accelerator.hpp"
+#include "controllers.hpp"
 #include "accumulator.hpp"
 #include "config.hpp"
+#include <iostream>
 #include <kipr/wombat.h>
+using std::cout;
+using std::endl;
 
 #define between(val, a, b) ((a >= val && val >= b) || (b >= val && val >= a))
 
@@ -39,7 +42,7 @@ void gyro_drive_straight_step(double &accumulator, double correction_proportion,
 
 void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double mean_val, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
-    LinearAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
+    LinearController accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
 
     double accumulator = 0; // positive values = clockwise, negative values = CCW
     MOVEMENT_FUNCTION(from_speed, from_speed);
@@ -50,10 +53,36 @@ void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> sto
     MOVEMENT_FUNCTION(to_speed, to_speed);
 }
 
+void gyro_drive_straight_pid(int from_speed, int to_speed, std::function<bool()> stop_function, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, double accel_per_sec, int updates_per_sec)
+{
+    LinearController accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
+    PIDController pid_controller(proportional_coefficient, integral_coefficient, derivative_coefficient, updates_per_sec);
+
+    double accumulator = 0; // positive values = clockwise, negative values = CCW
+    MOVEMENT_FUNCTION(from_speed, from_speed);
+    while (!stop_function())
+    {
+        double error = get_gyro_val(MEAN_GYRO_VAL);
+
+        pid_controller.step(error, 0); // the error is the gyro val, the goal is 0
+        double correction = pid_controller.speed();
+        double speed_correction = accelerator.speed() * correction;
+        cout << "error was " << error << endl;
+        cout << "returned correction from the pid controller is " << correction << " and the speed correction is " << speed_correction << endl;
+        cout << "when multiplying this to left and right sides, this gives us left: " << accelerator.speed() / correction << " right: " << accelerator.speed() * correction << endl;
+
+        MOVEMENT_FUNCTION(accelerator.speed() / correction, accelerator.speed() * correction);
+
+        accelerator.step();
+        msleep(accelerator.get_msleep_time());
+    }
+    MOVEMENT_FUNCTION(to_speed, to_speed);
+}
+
 void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double mean_val, double raw_to_360_degrees, double accel_per_sec, int updates_per_sec)
 {
-    LinearAccelerator left_accelerator(from_speed.left, to_speed.left, accel_per_sec, updates_per_sec);
-    LinearAccelerator right_accelerator(from_speed.right, to_speed.right, accel_per_sec, updates_per_sec);
+    LinearController left_accelerator(from_speed.left, to_speed.left, accel_per_sec, updates_per_sec);
+    LinearController right_accelerator(from_speed.right, to_speed.right, accel_per_sec, updates_per_sec);
     double accumulator = 0;
     double multiplier = static_cast<double>(left_accelerator.get_msleep_time()) / 1000.0;
     while ((degrees > 0 && accumulator < degrees * raw_to_360_degrees) || (degrees < 0 && accumulator > degrees * raw_to_360_degrees))
@@ -74,7 +103,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
     // decelerating after you reach the final_angle - angle_turned_while_accelerating.
     // 2 - where you try to accelerate to speed, already reach half the angle, then need to start decelerating
 
-    LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
+    LinearController accelerator(0, max_speed, accel_per_sec, updates_per_sec);
 
     Accumulator gyro_accumulator([mean_val]() -> double
                                  { return get_gyro_val(mean_val); },
@@ -115,7 +144,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
     }
 
     // decelerate from current speed to min_speed, which should be close to 0
-    LinearAccelerator decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
+    LinearController decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
 
     while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * raw_to_360_degrees) ||
            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * raw_to_360_degrees))

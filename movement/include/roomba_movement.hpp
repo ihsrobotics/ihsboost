@@ -72,6 +72,20 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
 void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPEED, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
 /**
+ * @brief Drive the create straight using create encoders and pid
+ *
+ * @param speed the max speed to move at
+ * @param cm how many centimeters to move
+ * @param proportional_coefficient the coefficient for proportionality to the error
+ * @param integral_coefficient the coefficient for the integral of the error
+ * @param derivative_coefficient the coefficient for the derivative of the error
+ * @param min_speed the minimum speed to drive at
+ * @param accel_per_sec how fast to accelerate per second
+ * @param updates_per_second how many updates to do per second
+ */
+void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_second = ROOMBA_UPDATES_PER_SEC);
+
+/**
  * @brief Turns a certain number of degrees using create encoders
  * @details angle in radians = (left wheel distance – right wheel distance) / wheel base distance.
  *

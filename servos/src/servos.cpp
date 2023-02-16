@@ -1,10 +1,10 @@
-#include "../../controllers/include/accelerator.hpp"
+#include "controllers.hpp"
 #include "servos.hpp"
 #include <kipr/wombat.h>
 
 void move_servo_slowly(int port, int position, int speed, int updates_per_sec)
 {
-    LinearAccelerator accelerator(get_servo_position(port), position, speed, updates_per_sec);
+    LinearController accelerator(get_servo_position(port), position, speed, updates_per_sec);
 
     enable_servo(port);
     while (!accelerator.done())

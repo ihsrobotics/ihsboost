@@ -7,11 +7,11 @@
  *
  * @copyright Copyright (c) 2023
  *
- * @defgroup accelerator_id Acceleration Classes
+ * @defgroup controllers_id Movement Control Classes
  * @{
  */
-#ifndef ACCELERATOR_HPP
-#define ACCELERATOR_HPP
+#ifndef CONTROLLERS_HPP
+#define CONTROLLERS_HPP
 
 /**
  * @brief Class for accelerating
@@ -40,14 +40,14 @@ public:
      * @brief Returns the current speed
      * @return double - the current speed
      */
-    double speed() { return _cur_speed; };
+    const double speed() const;
 
     /**
      * @brief Get how long to msleep for
      *
      * @return int - how long to msleep for
      */
-    int get_msleep_time() { return 1000 / _updates_per_sec; }
+    const int get_msleep_time() const;
 
     /**
      * @brief Return whether or not the controller is done
@@ -71,18 +71,18 @@ protected:
  * @brief Class for accelerating linearly
  *
  */
-class LinearAccelerator : public AccelerateController
+class LinearController : public AccelerateController
 {
 public:
     /**
-     * @brief Construct a new LinearAccelerator object
+     * @brief Construct a new LinearController object
      *
      * @param from_speed the speed to accelerate from
      * @param to_speed the speed to accelerate to
      * @param accel_per_sec the acceleration per second
      * @param updates_per_sec how many updates to use per second
      */
-    LinearAccelerator(int from_speed, int to_speed, double accel_per_sec, int updates_per_sec);
+    LinearController(int from_speed, int to_speed, double accel_per_sec, int updates_per_sec);
 
     /**
      * @brief Updates the controller
@@ -106,18 +106,18 @@ private:
  * @brief Class for accelerating sinusoidally
  *
  */
-class SinusoidalAccelerator : public AccelerateController
+class SinusoidalController : public AccelerateController
 {
 public:
     /**
-     * @brief Construct a new Sinusoidal Accelerator object
+     * @brief Construct a new Sinusoidal Controller object
      *
      * @param from_speed the speed to accelerate from
      * @param to_speed the speed to accelerate to
      * @param avg_accel_per_sec the acceleration per second
      * @param updates_per_sec how many updates to use per second
      */
-    SinusoidalAccelerator(int from_speed, int to_speed, double avg_accel_per_sec, int updates_per_sec);
+    SinusoidalController(int from_speed, int to_speed, double avg_accel_per_sec, int updates_per_sec);
 
     /**
      * @brief Updates the controller
@@ -137,6 +137,58 @@ private:
     int delta_speed;          ///< the change in speed
     double necessary_updates; ///< how many updates are necessary
     double sin_val;           ///< the current sin value
+};
+
+/**
+ * @brief A basic PID Controller
+ * @details uses the formula \f[u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{\mathrm{d} e}{\mathrm{d} x}]\f
+ *
+ */
+class PIDController
+{
+public:
+    /**
+     * @brief Construct a new PIDController object
+     *
+     * @param Kp the coefficient for proportionality to e(t)
+     * @param Ki the coefficient for the integral of e(t)
+     * @param Kd the coefficient for the derivative of e(t)
+     * @param updates_per_second how many updates per second are done (used to calculate dt)
+     */
+    PIDController(double Kp, double Ki, double Kd, int updates_per_second);
+
+    /**
+     * @brief Update u(t) with the given error
+     *
+     * @param error the error at time t (the value of e(t))
+     */
+    void step(double error);
+
+    /**
+     * @brief Calculate the error (value - goal) and step using that error
+     *
+     * @param value the read value
+     * @param goal the goal value
+     */
+    void step(double value, double goal);
+
+    /**
+     * @brief Return the speed calculated by the PIDController
+     *
+     * @return double the speed
+     */
+    const double speed() const;
+
+private:
+    double Kp; ///< coefficient for proportionality
+    double Ki; ///< coefficient for the integral
+    double Kd; ///< coefficient for the derivative
+
+    double error_integral; ///< holds the value of the integral
+    double past_error;     ///< holds the past error value
+    double dt;             ///< dt (delta time)
+
+    double cur_speed; ///< cur speed, determined by u(t)
 };
 
 #endif
