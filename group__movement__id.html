@@ -115,6 +115,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
 <tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees <br /></td></tr>
 <tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_z</td></tr>
+<tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
+<tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7b3b25cba33b07c303f3060fe41887f6"><td class="memItemLeft" align="right" valign="top"><a id="ga7b3b25cba33b07c303f3060fe41887f6"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>&#160;&#160;&#160;2000</td></tr>
 <tr class="memdesc:ga7b3b25cba33b07c303f3060fe41887f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">greater than this value is white, less than is black <br /></td></tr>
@@ -223,6 +227,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf745b2586a727388d778b81ab6c38c49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf745b2586a727388d778b81ab6c38c49">rotate</a> (double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units=<a class="el" href="group__movement__id.html#gad5facdb7a836aba414be557815f649f7">LEFT_WHEEL_UNITS</a>, double right_wheel_units=<a class="el" href="group__movement__id.html#gada3b6c8e4a013e2e615954d269bab42a">RIGHT_WHEEL_UNITS</a>)</td></tr>
 <tr class="memdesc:gaf745b2586a727388d778b81ab6c38c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate using speed-based turning on the roomba.  <a href="group__movement__id.html#gaf745b2586a727388d778b81ab6c38c49">More...</a><br /></td></tr>
 <tr class="separator:gaf745b2586a727388d778b81ab6c38c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">read_encoders</a> (int &amp;lenc, int &amp;renc)</td></tr>
+<tr class="memdesc:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read create encoders into lenc and renc.  <a href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">More...</a><br /></td></tr>
+<tr class="separator:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0741049e45f1de20bbe65029181299e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">process_encoders</a> (int &amp;lenc_prev, int &amp;renc_prev, int &amp;lenc_delta, int &amp;renc_delta)</td></tr>
+<tr class="memdesc:gab0741049e45f1de20bbe65029181299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate.  <a href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">More...</a><br /></td></tr>
+<tr class="separator:gab0741049e45f1de20bbe65029181299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac396d9b672e8af61ebd9151a966e27af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gac396d9b672e8af61ebd9151a966e27af">encoder_drive_straight</a> (int speed, double cm, int min_speed=<a class="el" href="group__movement__id.html#ga9e29fe720ee39f15a8dc7f9de9ad572e">ROOMBA_MIN_SPEED</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga15f603e3519594ab0eb0c20f7ea3c9b1">ROOMBA_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga5cda375d336ed907733c170c3a7f9a44">ROOMBA_ACCEL_PER_SEC</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:gac396d9b672e8af61ebd9151a966e27af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#gac396d9b672e8af61ebd9151a966e27af">More...</a><br /></td></tr>
 <tr class="separator:gac396d9b672e8af61ebd9151a966e27af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1225,6 +1235,95 @@ false if it isn't white </dd></dl>
     <tr><td class="paramname">correction_proportion</td><td>how large the correction should be while line following, defaults to .90, should be between (0, 1) </td></tr>
     <tr><td class="paramname">black_val</td><td>value for black, defaults to 2000 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab0741049e45f1de20bbe65029181299e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0741049e45f1de20bbe65029181299e">&#9670;&nbsp;</a></span>process_encoders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void process_encoders </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>lenc_prev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>renc_prev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>lenc_delta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>renc_delta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lenc_prev</td><td>the previous left encoder value. This is modified inside the function to the value of the new reading </td></tr>
+    <tr><td class="paramname">renc_prev</td><td>the previous right encoder value. This is modified inside the function to the value of the new reading </td></tr>
+    <tr><td class="paramname">lenc_delta</td><td>the change in the left encoder. This is incremented inside the function </td></tr>
+    <tr><td class="paramname">renc_delta</td><td>the change in the right encoder. This is incremeneted inside the function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4b11b2aab27b0546caa7ff7c5cfd22f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b11b2aab27b0546caa7ff7c5cfd22f1">&#9670;&nbsp;</a></span>read_encoders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void read_encoders </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>lenc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>renc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read create encoders into lenc and renc. </p>
+<p>This gives raw encoder values, which range from [-32768, 32767]</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">lenc</td><td>the int that will store the left encoder value </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">renc</td><td>the int that will store the right encoder value </td></tr>
   </table>
   </dd>
 </dl>
