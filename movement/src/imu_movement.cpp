@@ -10,16 +10,16 @@
 // Functions in this section deal with gyroscope things
 // --------------------------------------------------------------------------------------------------------
 
-double get_gyro_val(double mean_val)
+double get_gyro_val()
 {
     signed short val = GYRO_FUNCTION();
-    return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - mean_val;
+    return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - MEAN_GYRO_VAL;
 }
 
 // helper function
-void gyro_drive_straight_step(double &accumulator, double correction_proportion, double speed, double mean_val)
+void gyro_drive_straight_step(double &accumulator, double correction_proportion, double speed)
 {
-    accumulator += get_gyro_val(mean_val);
+    accumulator += get_gyro_val();
     if ((accumulator > 0 && speed > 0) || (accumulator < 0 && speed < 0))
     { // go slower on left wheel, faster on right wheel
         MOVEMENT_FUNCTION(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
@@ -30,14 +30,14 @@ void gyro_drive_straight_step(double &accumulator, double correction_proportion,
     }
 }
 // overload where you pass in the accelerator instead of the speed
-void gyro_drive_straight_step(double &accumulator, double correction_proportion, AccelerateController &accelerator, double mean_val)
+void gyro_drive_straight_step(double &accumulator, double correction_proportion, AccelerateController &accelerator)
 {
-    gyro_drive_straight_step(accumulator, correction_proportion, accelerator.speed(), mean_val);
+    gyro_drive_straight_step(accumulator, correction_proportion, accelerator.speed());
     accelerator.step();
     msleep(accelerator.get_msleep_time());
 }
 
-void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double mean_val, double correction_proportion, double accel_per_sec, int updates_per_sec)
+void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
     LinearAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
 
@@ -45,20 +45,20 @@ void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> sto
     MOVEMENT_FUNCTION(from_speed, from_speed);
     while (!stop_function())
     {
-        gyro_drive_straight_step(accumulator, correction_proportion, accelerator, mean_val);
+        gyro_drive_straight_step(accumulator, correction_proportion, accelerator);
     }
     MOVEMENT_FUNCTION(to_speed, to_speed);
 }
 
-void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double mean_val, double raw_to_360_degrees, double accel_per_sec, int updates_per_sec)
+void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double accel_per_sec, int updates_per_sec)
 {
     LinearAccelerator left_accelerator(from_speed.left, to_speed.left, accel_per_sec, updates_per_sec);
     LinearAccelerator right_accelerator(from_speed.right, to_speed.right, accel_per_sec, updates_per_sec);
     double accumulator = 0;
     double multiplier = static_cast<double>(left_accelerator.get_msleep_time()) / 1000.0;
-    while ((degrees > 0 && accumulator < degrees * raw_to_360_degrees) || (degrees < 0 && accumulator > degrees * raw_to_360_degrees))
+    while ((degrees > 0 && accumulator < degrees * RAW_TO_360_DEGREES) || (degrees < 0 && accumulator > degrees * RAW_TO_360_DEGREES))
     {
-        accumulator += get_gyro_val(mean_val) * multiplier;
+        accumulator += get_gyro_val() * multiplier;
         MOVEMENT_FUNCTION(static_cast<int>(left_accelerator.speed()), static_cast<int>(right_accelerator.speed()));
         left_accelerator.step();
         right_accelerator.step();
@@ -67,7 +67,7 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double mea
     MOVEMENT_FUNCTION(to_speed.left, to_speed.right);
 }
 
-void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double raw_to_360_degrees, int min_speed, double accel_per_sec, int updates_per_sec)
+void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // this function is meant to deal with 2 main turning cases:
     // 1 - where you accelerate to speed, have time to keep turning, then need to start
@@ -76,9 +76,7 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
 
     LinearAccelerator accelerator(0, max_speed, accel_per_sec, updates_per_sec);
 
-    Accumulator gyro_accumulator([mean_val]() -> double
-                                 { return get_gyro_val(mean_val); },
-                                 200);
+    Accumulator gyro_accumulator(get_gyro_val, 200);
 
     double cached_accumulator = 0;
     double speed;
@@ -90,8 +88,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
 
     // accelerating part of the turn, capped at 1/2 of the turn that way, if it didn't have enough time to accelerate,
     // it will still have enough time to decelerate from its current speed
-    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * raw_to_360_degrees / 2) ||
-           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * raw_to_360_degrees / 2))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES / 2) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES / 2))
     {
         speed = accelerator.speed();
         MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
@@ -108,8 +106,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
     // do any extra turning that is needed
     MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
     while (cached_accumulator != 0 &&
-           ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * raw_to_360_degrees - cached_accumulator) ||
-            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * raw_to_360_degrees - cached_accumulator)))
+           ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES - cached_accumulator) ||
+            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES - cached_accumulator)))
     {
         msleep(accelerator.get_msleep_time());
     }
@@ -117,8 +115,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, double mean_val, double ra
     // decelerate from current speed to min_speed, which should be close to 0
     LinearAccelerator decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
 
-    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * raw_to_360_degrees) ||
-           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * raw_to_360_degrees))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES))
     {
         speed = decelerator.speed();
         MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
