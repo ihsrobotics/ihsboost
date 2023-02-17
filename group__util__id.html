@@ -86,8 +86,67 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:gade14d86fa661eb05c30cfc98bfa55c84"><td class="memItemLeft" align="right" valign="top"><a id="gade14d86fa661eb05c30cfc98bfa55c84"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gade14d86fa661eb05c30cfc98bfa55c84">MOVEMENT_FUNCTION</a>&#160;&#160;&#160;create_drive_direct</td></tr>
-<tr class="memdesc:gade14d86fa661eb05c30cfc98bfa55c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">default movement function, must be a callable that takes two arguments: left_speed, right_speed <br /></td></tr>
+<tr class="memdesc:gade14d86fa661eb05c30cfc98bfa55c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">movement function for create's <br /></td></tr>
 <tr class="separator:gade14d86fa661eb05c30cfc98bfa55c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00a52895d7be287368750e4128c53aba"><td class="memItemLeft" align="right" valign="top"><a id="ga00a52895d7be287368750e4128c53aba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>&#160;&#160;&#160;-0.6737848705181358</td></tr>
+<tr class="memdesc:ga00a52895d7be287368750e4128c53aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default mean gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga00a52895d7be287368750e4128c53aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memItemLeft" align="right" valign="top"><a id="ga7aa2ea798b7a82d78ae99398e7403686"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7aa2ea798b7a82d78ae99398e7403686">MIN_GYRO_VAL</a>&#160;&#160;&#160;-5</td></tr>
+<tr class="memdesc:ga7aa2ea798b7a82d78ae99398e7403686"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2724c3f615ff8262c6a5730685628b81"><td class="memItemLeft" align="right" valign="top"><a id="ga2724c3f615ff8262c6a5730685628b81"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga2724c3f615ff8262c6a5730685628b81">MAX_GYRO_VAL</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:ga2724c3f615ff8262c6a5730685628b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">default max gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga2724c3f615ff8262c6a5730685628b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae838ea484be2338f9d0231c6af237aba"><td class="memItemLeft" align="right" valign="top"><a id="gae838ea484be2338f9d0231c6af237aba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
+<tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees on the roomba <br /></td></tr>
+<tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_x</td></tr>
+<tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
+<tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memItemLeft" align="right" valign="top"><a id="ga276842c6d0fe874daa0f60c7810e6a68"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga276842c6d0fe874daa0f60c7810e6a68">GYRO_CW_MULTIPLIER</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:ga276842c6d0fe874daa0f60c7810e6a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply by this so that + values are CW, - values are CCW <br /></td></tr>
+<tr class="separator:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f5f447d33b09e7475dad88f0e42ad0b"><td class="memItemLeft" align="right" valign="top"><a id="ga7f5f447d33b09e7475dad88f0e42ad0b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7f5f447d33b09e7475dad88f0e42ad0b">LEFT_MOTOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga7f5f447d33b09e7475dad88f0e42ad0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">default left motor port <br /></td></tr>
+<tr class="separator:ga7f5f447d33b09e7475dad88f0e42ad0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9564ecabfd6f53bee9dc0742d63e19d"><td class="memItemLeft" align="right" valign="top"><a id="gac9564ecabfd6f53bee9dc0742d63e19d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gac9564ecabfd6f53bee9dc0742d63e19d">RIGHT_MOTOR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:gac9564ecabfd6f53bee9dc0742d63e19d"><td class="mdescLeft">&#160;</td><td class="mdescRight">default right motor port <br /></td></tr>
+<tr class="separator:gac9564ecabfd6f53bee9dc0742d63e19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a488482337405a31b41072cc3aab0c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga8a488482337405a31b41072cc3aab0c1">MOVEMENT_FUNCTION</a>(lspeed,  rspeed)</td></tr>
+<tr class="memdesc:ga8a488482337405a31b41072cc3aab0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">movement function for small bots  <a href="group__util__id.html#ga8a488482337405a31b41072cc3aab0c1">More...</a><br /></td></tr>
+<tr class="separator:ga8a488482337405a31b41072cc3aab0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00a52895d7be287368750e4128c53aba"><td class="memItemLeft" align="right" valign="top"><a id="ga00a52895d7be287368750e4128c53aba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>&#160;&#160;&#160;.532</td></tr>
+<tr class="memdesc:ga00a52895d7be287368750e4128c53aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default mean gyro val; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga00a52895d7be287368750e4128c53aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memItemLeft" align="right" valign="top"><a id="ga7aa2ea798b7a82d78ae99398e7403686"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7aa2ea798b7a82d78ae99398e7403686">MIN_GYRO_VAL</a>&#160;&#160;&#160;-4</td></tr>
+<tr class="memdesc:ga7aa2ea798b7a82d78ae99398e7403686"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min gyro val; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2724c3f615ff8262c6a5730685628b81"><td class="memItemLeft" align="right" valign="top"><a id="ga2724c3f615ff8262c6a5730685628b81"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga2724c3f615ff8262c6a5730685628b81">MAX_GYRO_VAL</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:ga2724c3f615ff8262c6a5730685628b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">default max gyro val; used when tuning gyro filter <br /></td></tr>
+<tr class="separator:ga2724c3f615ff8262c6a5730685628b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae838ea484be2338f9d0231c6af237aba"><td class="memItemLeft" align="right" valign="top"><a id="gae838ea484be2338f9d0231c6af237aba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
+<tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees <br /></td></tr>
+<tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_y</td></tr>
+<tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
+<tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memItemLeft" align="right" valign="top"><a id="ga276842c6d0fe874daa0f60c7810e6a68"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga276842c6d0fe874daa0f60c7810e6a68">GYRO_CW_MULTIPLIER</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:ga276842c6d0fe874daa0f60c7810e6a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply by this so that + values are CW, - values are CCW <br /></td></tr>
+<tr class="separator:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -105,6 +164,43 @@ Enumerations</h2></td></tr>
 <tr class="separator:ga34803f82fa175c477affdcf45ce37336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga8a488482337405a31b41072cc3aab0c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a488482337405a31b41072cc3aab0c1">&#9670;&nbsp;</a></span>MOVEMENT_FUNCTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOVEMENT_FUNCTION</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lspeed, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">rspeed&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    {                                     \</div>
+<div class="line">        mav(<a class="code" href="group__util__id.html#ga7f5f447d33b09e7475dad88f0e42ad0b">LEFT_MOTOR</a>, lspeed);          \</div>
+<div class="line">        mav(<a class="code" href="group__util__id.html#gac9564ecabfd6f53bee9dc0742d63e19d">RIGHT_MOTOR</a>, rspeed);         \</div>
+<div class="line">    }</div>
+<div class="ttc" id="agroup__util__id_html_ga7f5f447d33b09e7475dad88f0e42ad0b"><div class="ttname"><a href="group__util__id.html#ga7f5f447d33b09e7475dad88f0e42ad0b">LEFT_MOTOR</a></div><div class="ttdeci">#define LEFT_MOTOR</div><div class="ttdoc">default left motor port</div><div class="ttdef"><b>Definition:</b> small_bot_config.hpp:18</div></div>
+<div class="ttc" id="agroup__util__id_html_gac9564ecabfd6f53bee9dc0742d63e19d"><div class="ttname"><a href="group__util__id.html#gac9564ecabfd6f53bee9dc0742d63e19d">RIGHT_MOTOR</a></div><div class="ttdeci">#define RIGHT_MOTOR</div><div class="ttdoc">default right motor port</div><div class="ttdef"><b>Definition:</b> small_bot_config.hpp:21</div></div>
+</div><!-- fragment -->
+<p>movement function for small bots </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

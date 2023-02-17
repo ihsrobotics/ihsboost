@@ -99,26 +99,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gadc73dc4e3c0abb227d72ca5338271ffb">GYRO_TURN_V2_MIN_SPEED</a>&#160;&#160;&#160;11</td></tr>
 <tr class="memdesc:gadc73dc4e3c0abb227d72ca5338271ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min speed for gyro_turn_degrees_v2 <br /></td></tr>
 <tr class="separator:gadc73dc4e3c0abb227d72ca5338271ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00a52895d7be287368750e4128c53aba"><td class="memItemLeft" align="right" valign="top"><a id="ga00a52895d7be287368750e4128c53aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>&#160;&#160;&#160;3.5484280676588367</td></tr>
-<tr class="memdesc:ga00a52895d7be287368750e4128c53aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default mean gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga00a52895d7be287368750e4128c53aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memItemLeft" align="right" valign="top"><a id="ga7aa2ea798b7a82d78ae99398e7403686"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7aa2ea798b7a82d78ae99398e7403686">MIN_GYRO_VAL</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:ga7aa2ea798b7a82d78ae99398e7403686"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2724c3f615ff8262c6a5730685628b81"><td class="memItemLeft" align="right" valign="top"><a id="ga2724c3f615ff8262c6a5730685628b81"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga2724c3f615ff8262c6a5730685628b81">MAX_GYRO_VAL</a>&#160;&#160;&#160;8</td></tr>
-<tr class="memdesc:ga2724c3f615ff8262c6a5730685628b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">default max gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga2724c3f615ff8262c6a5730685628b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae838ea484be2338f9d0231c6af237aba"><td class="memItemLeft" align="right" valign="top"><a id="gae838ea484be2338f9d0231c6af237aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
-<tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees <br /></td></tr>
-<tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_z</td></tr>
-<tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
-<tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7b3b25cba33b07c303f3060fe41887f6"><td class="memItemLeft" align="right" valign="top"><a id="ga7b3b25cba33b07c303f3060fe41887f6"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>&#160;&#160;&#160;2000</td></tr>
 <tr class="memdesc:ga7b3b25cba33b07c303f3060fe41887f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">greater than this value is white, less than is black <br /></td></tr>
@@ -194,15 +174,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf45ae4868438e2cc2e9f523ff870069f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf45ae4868438e2cc2e9f523ff870069f">accelerate_sinusoidal</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, double accel_per_sec=<a class="el" href="group__movement__id.html#gaead9c940e567cb67e664814c9cb8070f">SIN_ACCEL_AVG_PER_SEC</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#ga0533101dcb0e3b940a2ab24d6ccfc1ec">ACCELERATE_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:gaf45ae4868438e2cc2e9f523ff870069f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accelerate both wheels at potentially different sinusoidal rates.  <a href="group__movement__id.html#gaf45ae4868438e2cc2e9f523ff870069f">More...</a><br /></td></tr>
 <tr class="separator:gaf45ae4868438e2cc2e9f523ff870069f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9cae014520dcee7de8cb0527471b3e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gae9cae014520dcee7de8cb0527471b3e8">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double mean_val=<a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga23cc77d7bf5c5938525ef42bf2e18062">GYRO_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gae9cae014520dcee7de8cb0527471b3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#gae9cae014520dcee7de8cb0527471b3e8">More...</a><br /></td></tr>
-<tr class="separator:gae9cae014520dcee7de8cb0527471b3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga42a744a54ee79054bb5a6b8252c3e0fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga42a744a54ee79054bb5a6b8252c3e0fe">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double mean_val=<a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>, double raw_to_360_degrees=<a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga42a744a54ee79054bb5a6b8252c3e0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga42a744a54ee79054bb5a6b8252c3e0fe">More...</a><br /></td></tr>
-<tr class="separator:ga42a744a54ee79054bb5a6b8252c3e0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga06863e14cedbdae18194bfe854f95db8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga06863e14cedbdae18194bfe854f95db8">gyro_turn_degrees_v2</a> (int max_speed, int degrees, double mean_val=<a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>, double raw_to_360_degrees=<a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>, int min_speed=<a class="el" href="group__movement__id.html#gadc73dc4e3c0abb227d72ca5338271ffb">GYRO_TURN_V2_MIN_SPEED</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga06863e14cedbdae18194bfe854f95db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga06863e14cedbdae18194bfe854f95db8">More...</a><br /></td></tr>
-<tr class="separator:ga06863e14cedbdae18194bfe854f95db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeca21b5e9f333a86c2e18249401d8287"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__movement__id.html#ga23cc77d7bf5c5938525ef42bf2e18062">GYRO_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:gaeca21b5e9f333a86c2e18249401d8287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">More...</a><br /></td></tr>
+<tr class="separator:gaeca21b5e9f333a86c2e18249401d8287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:ga1df56cda0097ee75be6813f59a5c4f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">More...</a><br /></td></tr>
+<tr class="separator:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga600ccd020db4d489a291eeb5dde3e897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga600ccd020db4d489a291eeb5dde3e897">gyro_turn_degrees_v2</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__movement__id.html#gadc73dc4e3c0abb227d72ca5338271ffb">GYRO_TURN_V2_MIN_SPEED</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:ga600ccd020db4d489a291eeb5dde3e897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga600ccd020db4d489a291eeb5dde3e897">More...</a><br /></td></tr>
+<tr class="separator:ga600ccd020db4d489a291eeb5dde3e897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">is_black</a> (int val)</td></tr>
 <tr class="memdesc:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not a sensor reading is black.  <a href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">More...</a><br /></td></tr>
 <tr class="separator:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -687,8 +667,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gae9cae014520dcee7de8cb0527471b3e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9cae014520dcee7de8cb0527471b3e8">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
+<a id="gaeca21b5e9f333a86c2e18249401d8287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeca21b5e9f333a86c2e18249401d8287">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,12 +690,6 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
           <td class="paramname"><em>stop_function</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mean_val</em> = <code><a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -749,7 +723,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">from_speed</td><td>speed to start at </td></tr>
     <tr><td class="paramname">to_speed</td><td>speed to cap at </td></tr>
     <tr><td class="paramname">stop_function</td><td>a function that returns true when it is time to stop driving forward </td></tr>
-    <tr><td class="paramname">mean_val</td><td>the mean gyro val to subtract from each reading </td></tr>
     <tr><td class="paramname">correction_proportion</td><td>how much the correction is by; defaults to .90, should be between (0, 1) </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast the create will accelerate by, defaults to 500 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
@@ -759,8 +732,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga42a744a54ee79054bb5a6b8252c3e0fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga42a744a54ee79054bb5a6b8252c3e0fe">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
+<a id="ga1df56cda0097ee75be6813f59a5c4f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1df56cda0097ee75be6813f59a5c4f02">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -782,18 +755,6 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mean_val</em> = <code><a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>raw_to_360_degrees</em> = <code><a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -821,8 +782,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">from_speed</td><td>the speed to start at </td></tr>
     <tr><td class="paramname">to_speed</td><td>the speed to end at </td></tr>
     <tr><td class="paramname">degrees</td><td>how many degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
-    <tr><td class="paramname">mean_val</td><td>the mean gyro val to subtract from each reading </td></tr>
-    <tr><td class="paramname">raw_to_360_degrees</td><td>how many gyro counts before it is considered 360 degrees </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate, defaults to 500 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
   </table>
@@ -831,8 +790,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga06863e14cedbdae18194bfe854f95db8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga06863e14cedbdae18194bfe854f95db8">&#9670;&nbsp;</a></span>gyro_turn_degrees_v2()</h2>
+<a id="ga600ccd020db4d489a291eeb5dde3e897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga600ccd020db4d489a291eeb5dde3e897">&#9670;&nbsp;</a></span>gyro_turn_degrees_v2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -848,18 +807,6 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mean_val</em> = <code><a class="el" href="group__movement__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>raw_to_360_degrees</em> = <code><a class="el" href="group__movement__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -892,8 +839,6 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">max_speed</td><td>the maximum speed to turn at, use a positive value </td></tr>
     <tr><td class="paramname">degrees</td><td>how many degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
-    <tr><td class="paramname">mean_val</td><td>the mean gyro val to subtract from each reading </td></tr>
-    <tr><td class="paramname">raw_to_360_degrees</td><td>how many gyro counts before it is considered 360 degrees </td></tr>
     <tr><td class="paramname">min_speed</td><td>the minimum speed to turn at, use a positive value, defaults to 11 </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate, defaults to 500 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
