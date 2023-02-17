@@ -13,7 +13,7 @@
 double get_gyro_val()
 {
     signed short val = GYRO_FUNCTION();
-    return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : static_cast<double>(val) - MEAN_GYRO_VAL;
+    return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : (static_cast<double>(val) - MEAN_GYRO_VAL) * GYRO_CW_MULTIPLIER;
 }
 
 // helper function

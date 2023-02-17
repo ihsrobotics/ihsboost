@@ -34,6 +34,9 @@
 #ifndef GYRO_FUNCTION
 #define GYRO_FUNCTION gyro_x ///< the function to use for gyro movement, must return a signed short
 #endif
+#ifndef GYRO_CW_MULTIPLIER
+#define GYRO_CW_MULTIPLIER -1 ///< multiply by this so that + values are CW, - values are CCW
+#endif
 
 #endif
 /**@}*/
