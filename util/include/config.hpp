@@ -13,7 +13,7 @@
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
 
-#include "configs/roomba_config.hpp"
+#include "roomba_config.hpp"
 
 #endif
 /**@}*/
