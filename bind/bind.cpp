@@ -32,6 +32,13 @@ bool send_ints(Communicator *communicator, boost::python::list ints)
 {
     return send_type<int, boost::python::list>(communicator, ints);
 }
+//snow's addition to send only one int
+bool send_int(Communicator *communicator, int integer)
+{
+    int messageArr[1] = {integer};
+    communicator->send_msg(communicator->create_msg<int>(messageArr, 1));
+    return true;
+}
 bool send_doubles(Communicator *communicator, boost::python::list doubles)
 {
     return send_type<double, boost::python::list>(communicator, doubles);
@@ -43,6 +50,12 @@ bool send_string(Communicator *communicator, boost::python::str string)
 boost::python::list receive_ints(Communicator *communicator)
 {
     return receive_type<int>(communicator);
+}
+//snow's addition to receive only one int, which would normally cause an error with send_ints
+int receive_int(Communicator *communicator)
+{
+    int ret = communicator->receive_msg().get_val<int>();
+    return ret;
 }
 boost::python::list receive_doubles(Communicator *communicator)
 {
@@ -65,7 +78,9 @@ BOOST_PYTHON_MODULE(ihs_communicate)
     class_<SysVCommunicator, bases<Communicator>>("SysVCommunicator", init<int, optional<int>>("Construct a SysVCommunicator\n\t@param id - the id of the SysVCommunicator\n\t@param max_msg_size the maximum size for messages"));
 
     def("receive_ints", receive_ints);
+    def("receive_int", receive_int);
     def("send_ints", send_ints);
+    def("send_int", send_int);
 
     def("receive_doubles", receive_doubles);
     def("send_doubles", send_doubles);
