@@ -92,7 +92,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a236a03a41a708354ff0f066a704ebaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>, deleting any data if there was any and resetting buffer attributes. <br /></td></tr>
 <tr class="separator:a236a03a41a708354ff0f066a704ebaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cb3071d3bf3bc38a7435dea971da6b5"><td class="memItemLeft" align="right" valign="top">const std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a7cb3071d3bf3bc38a7435dea971da6b5">get_type_hash</a> () const</td></tr>
-<tr class="memdesc:a7cb3071d3bf3bc38a7435dea971da6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type_info object describing data held.  <a href="classMessageBuf.html#a7cb3071d3bf3bc38a7435dea971da6b5">More...</a><br /></td></tr>
+<tr class="memdesc:a7cb3071d3bf3bc38a7435dea971da6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type hash describing data held.  <a href="classMessageBuf.html#a7cb3071d3bf3bc38a7435dea971da6b5">More...</a><br /></td></tr>
 <tr class="separator:a7cb3071d3bf3bc38a7435dea971da6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5342305842a8bf5490eed69440aca17d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a5342305842a8bf5490eed69440aca17d">is_empty</a> () const</td></tr>
 <tr class="memdesc:a5342305842a8bf5490eed69440aca17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether or not the message buf is empty.  <a href="classMessageBuf.html#a5342305842a8bf5490eed69440aca17d">More...</a><br /></td></tr>
@@ -133,7 +133,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abb7ef496354bb79f1a690d287d53998a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abb7ef496354bb79f1a690d287d53998a"><td class="memTemplItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#abb7ef496354bb79f1a690d287d53998a">get_size</a> (std::uint16_t len)</td></tr>
-<tr class="memdesc:abb7ef496354bb79f1a690d287d53998a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of bytes that a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> of type T will take that holds <code>len</code> number of T's will take.  <a href="classMessageBuf.html#abb7ef496354bb79f1a690d287d53998a">More...</a><br /></td></tr>
+<tr class="memdesc:abb7ef496354bb79f1a690d287d53998a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the minimum number of bytes that a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> of type T will take that holds <code>len</code> number of T's will take.  <a href="classMessageBuf.html#abb7ef496354bb79f1a690d287d53998a">More...</a><br /></td></tr>
 <tr class="separator:abb7ef496354bb79f1a690d287d53998a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c43330f2dcbaeb5d041ef57cc20fd5d"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a9c43330f2dcbaeb5d041ef57cc20fd5d">get_size</a> (uint32_t buf_size)</td></tr>
 <tr class="memdesc:a9c43330f2dcbaeb5d041ef57cc20fd5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of bytes that a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> of max size <code>buf_size</code> will take.  <a href="classMessageBuf.html#a9c43330f2dcbaeb5d041ef57cc20fd5d">More...</a><br /></td></tr>
@@ -289,7 +289,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get how long the data is. </p>
 <p>value of 1 means that it only holds one of that type, value of 2 means that there are 2, etc</p>
-<dl class="section return"><dt>Returns</dt><dd>uint16_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint16_t how long the data is </dd></dl>
 
 </div>
 </div>
@@ -319,10 +319,16 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Get the ptr to the val object. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Will</td><td>throw <a class="el" href="classEmptyBufException.html" title="Exception class to protect from nullptr segmentation faults.">EmptyBufException</a> if the buffer is empty </td></tr>
+    <tr><td class="paramname">Will</td><td>throw <a class="el" href="classBadBufCastException.html" title="Exception class to protect from bad reinterpret_cast&#39;s.">BadBufCastException</a> if <code>get_val</code> is called with the wrong type</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-    <tr><td class="paramname">_Len</td><td>Note that as long as this is provided it should return the correct pointer data, even if <code>_Len</code> was incorrect </td></tr>
+    <tr><td class="paramname">T</td><td>the type of the data, regardless of whether it is a pointer or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -356,10 +362,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the number of bytes that a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> of type T will take that holds <code>len</code> number of T's will take. </p>
+<p>Get the minimum number of bytes that a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> of type T will take that holds <code>len</code> number of T's will take. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">T</td><td>the type of the data, regardless of whether it is a pointer or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -404,7 +410,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t the number of bytes </dd></dl>
 
 </div>
 </div>
@@ -443,14 +449,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Get the type_info object describing data held. </p>
+<p>Get the type hash describing data held. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">Will</td><td>throw <a class="el" href="classEmptyBufException.html" title="Exception class to protect from nullptr segmentation faults.">EmptyBufException</a> if the buffer is empty</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>const std::type_info&amp; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>const std::uint64_t the type hash </dd></dl>
 
 </div>
 </div>
@@ -489,7 +495,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>the type of the value </td></tr>
+    <tr><td class="paramname">T</td><td>the type of the data, regardless of whether it is a pointer or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -513,9 +519,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Return whether or not the message buf is empty. </p>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dl class="section return"><dt>Returns</dt><dd>true if it is empty </dd>
 <dd>
-false </dd></dl>
+false if it isn't empty </dd></dl>
 
 </div>
 </div>
@@ -559,7 +565,7 @@ template&lt;typename T &gt; </div>
 <p>val must be a pointer to an array of T's of minimum length _Length</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">T</td><td>the type of the data, regardless of whether it is a pointer or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -602,7 +608,7 @@ template&lt;typename T &gt; </div>
 <p>Store a literal. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>the type of the object </td></tr>
+    <tr><td class="paramname">T</td><td>the type of the data, regardless of whether it is a pointer or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -631,7 +637,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Convert the buffer to bytes. </p>
-<dl class="section return"><dt>Returns</dt><dd>char* </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>char* a pointer to a newly allocated byte buffer that needs to be freed / deleted. </dd></dl>
 
 </div>
 </div>
