@@ -1,14 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(ihs_boost)
 
-option(with_documentation "with_documentation" OFF)
-if (${with_documentation})
-    find_package(Doxygen REQUIRED)
-
-    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
-    doxygen_add_docs(doxygen ${CMAKE_SOURCE_DIR} ALL)
-endif()
-
+# main .so file
 option(build_library "build_library" ON)
 if (${build_library})
     add_compile_options("-std=c++17")  # if 17 is not available, 11 will do for everything except for threading test
@@ -35,4 +28,22 @@ if (${build_library})
     # install
     install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
     install(FILES all.hpp DESTINATION ${local_install_path})
+endif()
+
+# python bindings
+option(build_python "build_python" ON)
+if (${build_python})
+    add_subdirectory(bindings)
+endif()
+
+# doxygen/documentation
+option(with_documentation "with_documentation" OFF)
+if (${with_documentation})
+    find_package(Doxygen REQUIRED)
+
+    # include the extra files
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE ${CMAKE_SOURCE_DIR}/README.md)
+
+    # doxygen it
+    doxygen_add_docs(doxygen ${CMAKE_SOURCE_DIR} ALL)
 endif()
