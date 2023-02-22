@@ -18,7 +18,7 @@ jobs:
         run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
       - name: Configure
-        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
+        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF -Dbuild_python=OFF .
       - name: Build
         run: make
       - name: Deploy
