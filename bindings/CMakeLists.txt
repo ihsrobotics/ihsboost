@@ -1,9 +1,8 @@
 option(python_verion "What python version to use" 3.9)
 
-# output messages
-message("python version is " ${python_version})
+# set install path
 set(python_install_path /usr/local/lib/python${python_version}/dist-packages)
-message("python module install path is " ${python_install_path})
+message("using python module install path of " ${python_install_path})
 
 # configure
 if (python_version EQUAL 3.9)
@@ -19,14 +18,14 @@ find_library(python_libs boost_python${python_nodot_version})
 include_directories(/usr/include/python${python_version})
 
 # include all the correct directories
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../..)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../communicate/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../controllers/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../create_extra/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../servos/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../threading/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../util/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../movement/include)
+include_directories(${CMAKE_SOURCE_DIR}/..)
+include_directories(${CMAKE_SOURCE_DIR}/communicate/include)
+include_directories(${CMAKE_SOURCE_DIR}/controllers/include)
+include_directories(${CMAKE_SOURCE_DIR}/create_extra/include)
+include_directories(${CMAKE_SOURCE_DIR}/servos/include)
+include_directories(${CMAKE_SOURCE_DIR}/threading/include)
+include_directories(${CMAKE_SOURCE_DIR}/util/include)
+include_directories(${CMAKE_SOURCE_DIR}/movement/include)
 
 # make it a python-able .so file by with the correct suffix/prefix
 set (SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/bindings.cpp)
