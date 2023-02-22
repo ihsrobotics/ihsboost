@@ -29,7 +29,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../util/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../movement/include)
 
 # make it a python-able .so file by with the correct suffix/prefix
-set (SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/bind.cpp)
+set (SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/bindings.cpp)
 add_library(ihs_bindings SHARED ${SOURCES})
 set_target_properties(ihs_bindings PROPERTIES PREFIX "")
 set_target_properties(ihs_bindings PROPERTIES SUFFIX .cpython-${python_nodot_version}-${CMAKE_HOST_SYSTEM_PROCESSOR}-linux-gnu.so)
