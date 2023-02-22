@@ -18,9 +18,9 @@
 #define ROOMBA_UPDATES_PER_SEC 500       ///< default updates per second
 #define ROOMBA_MIN_SPEED 11              ///< default min speed
 
-#define deg2rad 0.017453292519943296 ///< convert degrees to radians by multiplying by this
-#define rad2deg 57.29577951308232    ///< convert radians to degrees by multiplying by this
-#define DIST_BETWEEN_WHEEL 23.5      ///< distance between the roomba wheels, in cm
+#define deg2rad_mult 0.017453292519943296 ///< convert degrees to radians by multiplying by this
+#define rad2deg 57.29577951308232         ///< convert radians to degrees by multiplying by this
+#define DIST_BETWEEN_WHEEL 23.5           ///< distance between the roomba wheels, in cm
 
 // these change between roombas
 #define LEFT_WHEEL_UNITS 0.11   ///< how far the left wheel moves, in cm/sec
