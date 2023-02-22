@@ -61,10 +61,11 @@ boost::python::list receive_bools(Communicator *communicator)
     return receive_type<bool>(communicator);
 }
 
-BOOST_PYTHON_MODULE(ihs_communicate)
+BOOST_PYTHON_MODULE(ihs_bindings)
 {
     using namespace boost::python;
 
+    // classes
     class_<Communicator, boost::noncopyable>("CommunicatorBase", no_init);
     class_<SocketServer, bases<Communicator>>("SocketServer", init<int, optional<int>>("Start a socket server on the given port. Messages will have max size of `max_msg_size`.\n\t@param port - what port to host on \n\t@param max_msg_size the maximum size for messages"));
     class_<SocketClient, bases<Communicator>>("SocketClient", init<const char *, int, optional<int>>("Open a socket client to the given ip and port. Messages will have max size of `max_msg_size`.\n\t@param ip - what ip to connect to\n\t@param port - what port to connect to \n\t@param max_msg_size the maximum size for messages"));
