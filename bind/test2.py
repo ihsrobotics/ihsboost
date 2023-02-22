@@ -5,12 +5,22 @@ communicator = ihs_communicate.PosixQCommunicator("/our_queue")
 
 ret = ihs_communicate.receive_ints(communicator)
 print(ret)
-#snow's addition
-ret = ihs_communicate.receive_int(communicator)
-print(ret)
 
 ret = ihs_communicate.receive_doubles(communicator)
 print(ret)
 
 ret = ihs_communicate.receive_string(communicator)
 print(ret)
+
+ret = ihs_communicate.receive_ints(communicator)
+print(ret)
+ret = ihs_communicate.receive_string(communicator)
+print(ret)
+ret = ihs_communicate.receive_bools(communicator)
+print(ret)
+
+ret = ihs_communicate.receive_bools(communicator)
+print(ret)
+
+# ret = ihs_communicate.receive_doubles(communicator)
+# print(ret)
