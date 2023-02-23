@@ -9,8 +9,10 @@ int main()
 {
     Create *instance = Create::instance();
     instance->connect();
-    instance->setRefreshRate(1);
-    encoder_drive_straight_pid(200, 75, .25, 0, 0, 11, 500, 500);
+    instance->setFullMode();
+    instance->setRefreshRate(5);
+    // encoder_turn_degrees(300, -1080, 11, 1000);
+    encoder_drive_straight_pid(200, 75, .09, 0, 0, 11, 1000, 500);
     instance->stop();
     instance->disconnect();
     return 0;
