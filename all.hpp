@@ -14,6 +14,7 @@
 #include "cliff.hpp"
 #include "speed.hpp"
 #include "timer.hpp"
+#include "json_config.hpp"
 
 // servos
 #include "servos.hpp"
