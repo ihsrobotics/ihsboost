@@ -24,6 +24,10 @@
  * @example json_loader.hpp
  * @example bot-config.json
  * @example other-config.json
+ *
+ * @example listener.cpp
+ * @example listener.py
+ * @example sender.py
  */
 
 // controllers
