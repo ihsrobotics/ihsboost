@@ -1,13 +1,12 @@
 #include "roomba_movement.hpp"
 #include "controllers.hpp"
 #include <kipr/wombat.h>
-#include <stdlib.h>
-#include <iostream>
-#include <fstream>
+#include <algorithm>
 #include <limits>
 #define ENC_2_MM (M_PI * 72.0 / 508.8)   // multiply by this to convert enc to mm
 #define MM_2_ENC (508.8 / (72.0 * M_PI)) // multiply by this to convert mm to enc
-using namespace std;
+using std::abs;
+using std::min;
 
 void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units, double right_wheel_units)
 {
@@ -59,7 +58,6 @@ void check_overflow(int16_t &temp, int &enc_prev, int &enc_delta)
             // add the positive difference that it traveled on the negative side of the underflow
             enc_delta += temp - std::numeric_limits<int16_t>::min();
         }
-        cout << "overflowed" << endl;
     }
     else
     {
@@ -78,7 +76,6 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
     check_overflow(r_temp, renc_prev, renc_delta);
 
     // set the "previous" variables to the new previous values
-    cout << "lenc_delta: " << lenc_delta << "renc_delta " << renc_delta << " l_tmp: " << l_temp << " r_temp" << r_temp << " lprev" << lenc_prev << " rprev " << renc_prev << endl;
     lenc_prev = l_temp;
     renc_prev = r_temp;
 }
@@ -227,7 +224,6 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     LinearController accelerator(0, speed * sign_val, accel_per_sec, updates_per_second);
     PIDController l_controller(proportional_coefficient, integral_coefficient, derivative_coefficient, updates_per_second);
     PIDController r_controller(proportional_coefficient, integral_coefficient, derivative_coefficient, updates_per_second);
-    ofstream out("/home/esuhsd/Documents/GitHub/ihsboost/out4.txt");
 
     while ((mm > 0 && goal_delta < mm * MM_2_ENC / 2) ||
            (mm < 0 && lenc_delta > mm * MM_2_ENC / 2))
@@ -235,55 +231,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
         // the desired goal val is the integral of the velocity
         // starting at velocity of 0, then going to velocity of v linearly -> forms a triangle
         // so we integrate using triangle integration
-        // we also convert from mm to encoder values since speed is in mm
         goal_delta = accelerator.speed() * updates * dt / 2.0;
-        out << "accelerator speed:" << accelerator.speed() << ", updates: " << updates << ", integrated: " << accelerator.speed() * updates * dt / 2 << " gd" << goal_delta << endl;
-
-        // update internals
-        l_controller.step(lenc_delta, goal_delta);
-        r_controller.step(renc_delta, goal_delta);
-
-        // drive
-        // we convert from encoder values to mm/sec
-        // do enc_val * ENC_2_MM / dt
-        double l_speed = -l_controller.speed() * ENC_2_MM / dt;
-        double r_speed = -r_controller.speed() * ENC_2_MM / dt;
-        out << "start; gd: " << goal_delta << ", l_delta:" << lenc_delta << ", l_speed: " << l_speed << ", r_delta: " << renc_delta << ", r_speed: " << r_speed << "l_raw: " << l_controller.speed() << ", r_raw: " << r_controller.speed() << endl;
-
-        // l_speed = min(max(static_cast<double>(-speed), l_speed), static_cast<double>(speed));
-        // r_speed = min(max(static_cast<double>(-speed), r_speed), static_cast<double>(speed));
-        out << "driving at " << process_speed(l_speed, accelerator.speed(), min_speed) << ", " << process_speed(r_speed, accelerator.speed(), min_speed) << endl;
-        create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
-        lenc_delta_prev = lenc_delta;
-        renc_delta_prev = renc_delta;
-
-        // sleep
-        accelerator.step();
-        msleep(accelerator.get_msleep_time());
-
-        // update encoders
-        process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
-
-        if (accelerator.done())
-        {
-            out << "accelerator is done" << endl;
-            cached_distance = goal_delta * ENC_2_MM;
-            break;
-        }
-        ++updates;
-    }
-
-    out << "cached distance is " << cached_distance << endl;
-    // do any more driving until it is time to start decelerating
-    updates = 0;
-    double temp_goal_delta = goal_delta;
-    while (cached_distance != 0 &&
-           ((mm > 0 && goal_delta < (mm - cached_distance) * MM_2_ENC) ||
-            (mm < 0 && goal_delta > (mm - cached_distance) * MM_2_ENC)))
-    {
-        // at this point, we assume constant velocity, so rectangle integration
-        goal_delta = min(temp_goal_delta + (accelerator.speed() * updates * dt), (mm - cached_distance) * MM_2_ENC);
-        out << "accelerator speed:" << accelerator.speed() << ", updates: " << updates << ", integrated: " << (accelerator.speed() * updates * dt) << " gd" << goal_delta << endl;
 
         if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
         {
@@ -296,9 +244,49 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             // do enc_val * ENC_2_MM / dt
             double l_speed = -l_controller.speed() * ENC_2_MM / dt;
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
-            out << "middle; rawspeed: " << accelerator.speed() << " gd: " << goal_delta << ", l_delta:" << lenc_delta << ", l_speed: " << l_speed << ", r_delta: " << renc_delta << ", r_speed: " << r_speed << "l_raw: " << l_controller.speed() << ", r_raw: " << r_controller.speed() << endl;
 
-            out << "driving at " << process_speed(l_speed, accelerator.speed(), min_speed) << ", " << process_speed(r_speed, accelerator.speed(), min_speed) << endl;
+            create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
+            lenc_delta_prev = lenc_delta;
+            renc_delta_prev = renc_delta;
+        }
+
+        // sleep
+        accelerator.step();
+        msleep(accelerator.get_msleep_time());
+
+        // update encoders
+        process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
+
+        if (accelerator.done())
+        {
+            cached_distance = goal_delta * ENC_2_MM;
+            break;
+        }
+        ++updates;
+    }
+
+    // do any more driving until it is time to start decelerating
+    updates = 0;
+    double temp_goal_delta = goal_delta;
+    while (cached_distance != 0 &&
+           ((mm > 0 && goal_delta < (mm - cached_distance) * MM_2_ENC) ||
+            (mm < 0 && goal_delta > (mm - cached_distance) * MM_2_ENC)))
+    {
+        // at this point, we assume constant velocity, so rectangle integration
+        goal_delta = min(temp_goal_delta + (accelerator.speed() * updates * dt), (mm - cached_distance) * MM_2_ENC);
+
+        if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
+        {
+            // update internals
+            l_controller.step(lenc_delta, goal_delta);
+            r_controller.step(renc_delta, goal_delta);
+
+            // drive
+            // we convert from encoder values to mm/sec
+            // do enc_val * ENC_2_MM / dt
+            double l_speed = -l_controller.speed() * ENC_2_MM / dt;
+            double r_speed = -r_controller.speed() * ENC_2_MM / dt;
+
             create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
@@ -325,7 +313,6 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
         // trapezoidal integration from accelerator.speed() to decelerator.speed() as b1 and b2
         // use (b1+b2)/2 * h, h is delta t
         goal_delta = min(temp_goal_delta + ((accelerator.speed() + decelerator.speed()) / 2.0 * updates * dt), mm * MM_2_ENC);
-        out << "decelerator speed is " << decelerator.speed() << endl;
 
         if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
         {
@@ -338,9 +325,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             // do enc_val * ENC_2_MM / dt
             double l_speed = -l_controller.speed() * ENC_2_MM / dt;
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
-            out << "end; gd: " << goal_delta << ", l_delta:" << lenc_delta << ", l_speed: " << l_speed << ", r_delta: " << renc_delta << ", r_speed: " << r_speed << "l_raw: " << l_controller.speed() << ", r_raw: " << r_controller.speed() << endl;
 
-            out << "driving at " << process_speed(l_speed, decelerator.speed(), min_speed) << ", " << process_speed(r_speed, decelerator.speed(), min_speed) << endl;
             create_drive_direct(process_speed(l_speed, decelerator.speed(), min_speed), process_speed(r_speed, decelerator.speed(), min_speed));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
@@ -354,8 +339,6 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
         ++updates;
     }
-    out << "should have gone " << lenc_delta * ENC_2_MM << "mm" << endl;
-    out.close();
     create_drive_direct(0, 0);
 }
 
