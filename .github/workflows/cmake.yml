@@ -25,8 +25,6 @@ jobs:
       with:
         # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
         python-version: '3.10'
-        # The target architecture (x86, x64) of the Python or PyPy interpreter.
-        architecture: 'x86'
         # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
         token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
         # Set this option if you want the action to update environment variables.
