@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include "threading.hpp"
+#include <ihsboost/threading.hpp>
 
 using namespace std;
 using namespace chrono;

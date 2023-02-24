@@ -11,7 +11,6 @@
 #ifndef JSON_CONFIG_HPP
 #define JSON_CONFIG_HPP
 #include <string>
-#include <memory>
 #include <jsoncpp/json/json.h>
 
 /**
