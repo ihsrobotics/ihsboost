@@ -143,10 +143,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga5094151cad87a33211c90aed4bf200f7">deg2rad_mult</a>&#160;&#160;&#160;0.017453292519943296</td></tr>
 <tr class="memdesc:ga5094151cad87a33211c90aed4bf200f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert degrees to radians by multiplying by this <br /></td></tr>
 <tr class="separator:ga5094151cad87a33211c90aed4bf200f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga272bc5c413fc149431d9606000df4569"><td class="memItemLeft" align="right" valign="top"><a id="ga272bc5c413fc149431d9606000df4569"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga272bc5c413fc149431d9606000df4569">rad2deg</a>&#160;&#160;&#160;57.29577951308232</td></tr>
-<tr class="memdesc:ga272bc5c413fc149431d9606000df4569"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert radians to degrees by multiplying by this <br /></td></tr>
-<tr class="separator:ga272bc5c413fc149431d9606000df4569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga849109be0c33d367e96df2374c01752b"><td class="memItemLeft" align="right" valign="top"><a id="ga849109be0c33d367e96df2374c01752b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga849109be0c33d367e96df2374c01752b">rad2deg_mult</a>&#160;&#160;&#160;57.29577951308232</td></tr>
+<tr class="memdesc:ga849109be0c33d367e96df2374c01752b"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert radians to degrees by multiplying by this <br /></td></tr>
+<tr class="separator:ga849109be0c33d367e96df2374c01752b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9a8fa5d84477f9374cb55c0164f163d4"><td class="memItemLeft" align="right" valign="top"><a id="ga9a8fa5d84477f9374cb55c0164f163d4"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga9a8fa5d84477f9374cb55c0164f163d4">DIST_BETWEEN_WHEEL</a>&#160;&#160;&#160;23.5</td></tr>
 <tr class="memdesc:ga9a8fa5d84477f9374cb55c0164f163d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">distance between the roomba wheels, in cm <br /></td></tr>
@@ -177,9 +177,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gaeca21b5e9f333a86c2e18249401d8287"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__movement__id.html#ga23cc77d7bf5c5938525ef42bf2e18062">GYRO_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:gaeca21b5e9f333a86c2e18249401d8287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">More...</a><br /></td></tr>
 <tr class="separator:gaeca21b5e9f333a86c2e18249401d8287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa9bdde10ed683b3f6c3f6e577af9f9f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaa9bdde10ed683b3f6c3f6e577af9f9f4">gyro_drive_straight_pid</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gaa9bdde10ed683b3f6c3f6e577af9f9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using PID control and the gyroscope.  <a href="group__movement__id.html#gaa9bdde10ed683b3f6c3f6e577af9f9f4">More...</a><br /></td></tr>
-<tr class="separator:gaa9bdde10ed683b3f6c3f6e577af9f9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:ga1df56cda0097ee75be6813f59a5c4f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">More...</a><br /></td></tr>
 <tr class="separator:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,12 +216,18 @@ Functions</h2></td></tr>
 <tr class="memitem:gac396d9b672e8af61ebd9151a966e27af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gac396d9b672e8af61ebd9151a966e27af">encoder_drive_straight</a> (int speed, double cm, int min_speed=<a class="el" href="group__movement__id.html#ga9e29fe720ee39f15a8dc7f9de9ad572e">ROOMBA_MIN_SPEED</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga15f603e3519594ab0eb0c20f7ea3c9b1">ROOMBA_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga5cda375d336ed907733c170c3a7f9a44">ROOMBA_ACCEL_PER_SEC</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:gac396d9b672e8af61ebd9151a966e27af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#gac396d9b672e8af61ebd9151a966e27af">More...</a><br /></td></tr>
 <tr class="separator:gac396d9b672e8af61ebd9151a966e27af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76a37b72f55a6889fd5b3a22d25e2f96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga76a37b72f55a6889fd5b3a22d25e2f96">encoder_drive_straight</a> (int speed, std::function&lt; bool()&gt; condition, double correction_proportion=<a class="el" href="group__movement__id.html#ga15f603e3519594ab0eb0c20f7ea3c9b1">ROOMBA_CORRECTION_PROPORTION</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:ga76a37b72f55a6889fd5b3a22d25e2f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight at speed until it is time to stop.  <a href="group__movement__id.html#ga76a37b72f55a6889fd5b3a22d25e2f96">More...</a><br /></td></tr>
+<tr class="separator:ga76a37b72f55a6889fd5b3a22d25e2f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c304a78bbce527cd50adba55dc083a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4c304a78bbce527cd50adba55dc083a7">encoder_drive_straight_pid</a> (int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed=<a class="el" href="group__movement__id.html#ga9e29fe720ee39f15a8dc7f9de9ad572e">ROOMBA_MIN_SPEED</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga5cda375d336ed907733c170c3a7f9a44">ROOMBA_ACCEL_PER_SEC</a>, int updates_per_second=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:ga4c304a78bbce527cd50adba55dc083a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)  <a href="group__movement__id.html#ga4c304a78bbce527cd50adba55dc083a7">More...</a><br /></td></tr>
 <tr class="separator:ga4c304a78bbce527cd50adba55dc083a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga588fde3d9582e4c396fd704ed2a5b45f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga588fde3d9582e4c396fd704ed2a5b45f">encoder_turn_degrees</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__movement__id.html#ga9e29fe720ee39f15a8dc7f9de9ad572e">ROOMBA_MIN_SPEED</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga5cda375d336ed907733c170c3a7f9a44">ROOMBA_ACCEL_PER_SEC</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
 <tr class="memdesc:ga588fde3d9582e4c396fd704ed2a5b45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#ga588fde3d9582e4c396fd704ed2a5b45f">More...</a><br /></td></tr>
 <tr class="separator:ga588fde3d9582e4c396fd704ed2a5b45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaff7fe436e239dda9d58c403feb2c642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaaff7fe436e239dda9d58c403feb2c642">encoder_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> turn_speed, int degrees, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a>)</td></tr>
+<tr class="memdesc:gaaff7fe436e239dda9d58c403feb2c642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#gaaff7fe436e239dda9d58c403feb2c642">More...</a><br /></td></tr>
+<tr class="separator:gaaff7fe436e239dda9d58c403feb2c642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -549,7 +552,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="gac396d9b672e8af61ebd9151a966e27af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac396d9b672e8af61ebd9151a966e27af">&#9670;&nbsp;</a></span>encoder_drive_straight()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gac396d9b672e8af61ebd9151a966e27af">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,6 +610,57 @@ Functions</h2></td></tr>
     <tr><td class="paramname">min_speed</td><td>the minimum speed to travel at </td></tr>
     <tr><td class="paramname">correction_proportion</td><td>how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction. </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate per second </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga76a37b72f55a6889fd5b3a22d25e2f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76a37b72f55a6889fd5b3a22d25e2f96">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void encoder_drive_straight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>correction_proportion</em> = <code><a class="el" href="group__movement__id.html#ga15f603e3519594ab0eb0c20f7ea3c9b1">ROOMBA_CORRECTION_PROPORTION</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drive straight at speed until it is time to stop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>the speed to drive at, can be positive or negative </td></tr>
+    <tr><td class="paramname">condition</td><td>a function that returns true when it is time to stop </td></tr>
+    <tr><td class="paramname">correction_proportion</td><td>how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction. </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
   </table>
   </dd>
@@ -695,7 +749,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="ga588fde3d9582e4c396fd704ed2a5b45f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga588fde3d9582e4c396fd704ed2a5b45f">&#9670;&nbsp;</a></span>encoder_turn_degrees()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga588fde3d9582e4c396fd704ed2a5b45f">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -746,6 +800,57 @@ Functions</h2></td></tr>
     <tr><td class="paramname">degrees</td><td>The number of degrees to turn, positive values for CW </td></tr>
     <tr><td class="paramname">min_speed</td><td>The minimum speed to turn at when decelerating </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>How fast to accelerate per second </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>How many updates to do per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaaff7fe436e239dda9d58c403feb2c642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaff7fe436e239dda9d58c403feb2c642">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void encoder_turn_degrees </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSpeed.html">Speed</a>&#160;</td>
+          <td class="paramname"><em>turn_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>degrees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__movement__id.html#gaa897b8035150c7510f762f8b7dd5aa86">ROOMBA_UPDATES_PER_SEC</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turns a certain number of degrees using create encoders. </p>
+<p>This overload doesn't accelerate / decelerate; instead, it merely turns at the given speed until reaching the goal degrees</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turn_speed</td><td>The speed to turn at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structSpeed.html" title="An object to represent speed in terms of left and right wheel speeds.">Speed</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degrees</td><td>The number of degrees to turn, positive values for CW </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>How many updates to do per second </td></tr>
   </table>
   </dd>
@@ -812,85 +917,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">correction_proportion</td><td>how much the correction is by; defaults to .90, should be between (0, 1) </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast the create will accelerate by, defaults to 500 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="gaa9bdde10ed683b3f6c3f6e577af9f9f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa9bdde10ed683b3f6c3f6e577af9f9f4">&#9670;&nbsp;</a></span>gyro_drive_straight_pid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gyro_drive_straight_pid </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>from_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>to_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
-          <td class="paramname"><em>stop_function</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>proportional_coefficient</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>integral_coefficient</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>derivative_coefficient</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Drive the create straight using PID control and the gyroscope. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">from_speed</td><td>speed to start at </td></tr>
-    <tr><td class="paramname">to_speed</td><td>speed to cap at </td></tr>
-    <tr><td class="paramname">stop_function</td><td>a function that returns true when it is time to stop driving forward </td></tr>
-    <tr><td class="paramname">proportional_coefficient</td><td>the coefficient for proportionatlity to the error </td></tr>
-    <tr><td class="paramname">integral_coefficient</td><td>the coefficient for the integral of the error </td></tr>
-    <tr><td class="paramname">derivative_coefficient</td><td>the coefficient for the derivative of the error </td></tr>
-    <tr><td class="paramname">accel_per_sec</td><td>how fast the create will accelerate by </td></tr>
-    <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per second </td></tr>
   </table>
   </dd>
 </dl>

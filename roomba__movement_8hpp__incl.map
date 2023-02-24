@@ -1,0 +1,5 @@
+<map id="movement/include/roomba_movement.hpp" name="movement/include/roomba_movement.hpp">
+<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="7,5,205,47"/>
+<area shape="rect" id="node2" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="5,95,95,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="119,95,205,121"/>
+</map>
