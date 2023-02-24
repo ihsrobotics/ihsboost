@@ -31,7 +31,7 @@ jobs:
         update-environment: true
         
     - name: Install dependencies
-      run: sudo apt-get install libjsondev-cpp libopencv-dev ninja-build -y
+      run: sudo apt-get install libjsoncpp-dev libopencv-dev ninja-build -y
     
     - name: Install libwallaby
       run: git clone https://github.com/chrehall68/libwallaby.git &&
