@@ -194,17 +194,17 @@ void encoder_drive_straight(int max_speed, double cm, int min_speed, double corr
     create_drive_direct(0, 0);
 }
 
-double process_speed(double val, int min_speed)
+double process_speed(double correction_val, double regular_val, int min_speed)
 {
-    if (static_cast<int>(val * 10) == 0)
+    if (static_cast<int>(correction_val * 10) == 0)
     {
-        return 0;
+        return regular_val;
     }
-    if (abs(val) < min_speed)
+    if (abs(correction_val + regular_val) < min_speed)
     {
-        return min_speed * (val > 0 ? 1 : -1);
+        return min_speed * (correction_val > 0 ? 1 : -1);
     }
-    return val;
+    return correction_val + regular_val;
 }
 
 void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed, double accel_per_sec, int updates_per_second)
@@ -229,7 +229,6 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     PIDController r_controller(proportional_coefficient, integral_coefficient, derivative_coefficient, updates_per_second);
     ofstream out("/home/esuhsd/Documents/GitHub/ihsboost/out4.txt");
 
-    create_drive_direct(sign_val * min_speed, sign_val * min_speed);
     while ((mm > 0 && goal_delta < mm * MM_2_ENC / 2) ||
            (mm < 0 && lenc_delta > mm * MM_2_ENC / 2))
     {
@@ -253,8 +252,8 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
 
         // l_speed = min(max(static_cast<double>(-speed), l_speed), static_cast<double>(speed));
         // r_speed = min(max(static_cast<double>(-speed), r_speed), static_cast<double>(speed));
-        out << "driving at " << process_speed(l_speed, min_speed) << ", " << process_speed(r_speed, min_speed) << endl;
-        create_drive_direct(process_speed(l_speed, min_speed), process_speed(r_speed, min_speed));
+        out << "driving at " << process_speed(l_speed, accelerator.speed(), min_speed) << ", " << process_speed(r_speed, accelerator.speed(), min_speed) << endl;
+        create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
         lenc_delta_prev = lenc_delta;
         renc_delta_prev = renc_delta;
 
@@ -299,8 +298,8 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
             out << "middle; rawspeed: " << accelerator.speed() << " gd: " << goal_delta << ", l_delta:" << lenc_delta << ", l_speed: " << l_speed << ", r_delta: " << renc_delta << ", r_speed: " << r_speed << "l_raw: " << l_controller.speed() << ", r_raw: " << r_controller.speed() << endl;
 
-            out << "driving at " << process_speed(l_speed, min_speed) << ", " << process_speed(r_speed, min_speed) << endl;
-            create_drive_direct(process_speed(l_speed, min_speed), process_speed(r_speed, min_speed));
+            out << "driving at " << process_speed(l_speed, accelerator.speed(), min_speed) << ", " << process_speed(r_speed, accelerator.speed(), min_speed) << endl;
+            create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
         }
@@ -314,6 +313,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     }
 
     // start decelerating, go until both lenc and renc have reached the end
+    goal_delta = (mm - cached_distance) * MM_2_ENC;
     temp_goal_delta = goal_delta;
     updates = 0;
     LinearController decelerator(accelerator.speed(), min_speed * sign_val, accel_per_sec, updates_per_second);
@@ -340,8 +340,8 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
             out << "end; gd: " << goal_delta << ", l_delta:" << lenc_delta << ", l_speed: " << l_speed << ", r_delta: " << renc_delta << ", r_speed: " << r_speed << "l_raw: " << l_controller.speed() << ", r_raw: " << r_controller.speed() << endl;
 
-            out << "driving at " << process_speed(l_speed, min_speed) << ", " << process_speed(r_speed, min_speed) << endl;
-            create_drive_direct(process_speed(l_speed, min_speed), process_speed(r_speed, min_speed));
+            out << "driving at " << process_speed(l_speed, decelerator.speed(), min_speed) << ", " << process_speed(r_speed, decelerator.speed(), min_speed) << endl;
+            create_drive_direct(process_speed(l_speed, decelerator.speed(), min_speed), process_speed(r_speed, decelerator.speed(), min_speed));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
         }
