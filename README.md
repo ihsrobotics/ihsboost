@@ -3,7 +3,7 @@ The ihs library of robot functions, from steady acceleration to servo movement
 ## Installing
 ### Dependencies
 ihsboost depends on the following libraries:
-* libwallaby - please use ![this branch](https://github.com/chrehall68/libwallaby/tree/refactor) to install libwallaby
+* libwallaby - please use [this branch](https://github.com/chrehall68/libwallaby/tree/refactor) to install libwallaby
 * libjsoncpp - on linux, run `sudo apt-get install libjsoncpp-dev` to install
 ### Getting the Source files
 To get the source files on a wombat, the best way to do that is to start on your local

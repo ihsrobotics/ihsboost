@@ -8,6 +8,23 @@
  * @copyright Copyright (c) 2023
  *
  */
+/**
+ * @example message_buf_test.cpp
+ * @example message_test.cpp
+ *
+ * @example movement_test.cpp
+ * @example encoder_test.cpp
+ * @example pid_test.cpp
+ *
+ * @example threading_test.cpp
+ *
+ * @example create_extra_test.cpp
+ *
+ * @example json_loader.cpp
+ * @example json_loader.hpp
+ * @example bot-config.json
+ * @example other-config.json
+ */
 
 // controllers
 #include "controllers.hpp"

@@ -7,6 +7,8 @@
  *
  * @copyright Copyright (c) 2023
  *
+ * @addtogroup util_id
+ * @{
  */
 #ifndef JSON_CONFIG_HPP
 #define JSON_CONFIG_HPP
@@ -78,3 +80,4 @@ private:
 };
 
 #endif
+/**@}*/
