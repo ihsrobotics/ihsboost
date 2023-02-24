@@ -73,6 +73,7 @@ void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPE
 
 /**
  * @brief Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)
+ * @details Requires tuning of proportional, integral, and derivative coefficients for good results. \see PIDController
  *
  * @param speed the max speed to move at
  * @param cm how many centimeters to move

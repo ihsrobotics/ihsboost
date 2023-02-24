@@ -1,7 +1,7 @@
 /**
- * @file accelerator.hpp
+ * @file controllers.hpp
  * @author Eliot Hall
- * @brief Acceleration controllers
+ * @brief Movement controllers
  * @version 0.1
  * @date 2023-02-14
  *
@@ -141,7 +141,6 @@ private:
 
 /**
  * @brief A basic PID Controller
- * @details uses the formula \f[u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{\mathrm{d} e}{\mathrm{d} x}]\f
  *
  */
 class PIDController
@@ -149,6 +148,7 @@ class PIDController
 public:
     /**
      * @brief Construct a new PIDController object
+     * @details uses the formula \f[u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{\mathrm{d} e}{\mathrm{d} x}\f]
      *
      * @param Kp the coefficient for proportionality to e(t)
      * @param Ki the coefficient for the integral of e(t)
@@ -175,7 +175,7 @@ public:
     /**
      * @brief Return the speed calculated by the PIDController
      *
-     * @return double the speed
+     * @return double - the speed
      */
     const double speed() const;
 
