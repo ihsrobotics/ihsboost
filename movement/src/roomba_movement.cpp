@@ -89,7 +89,7 @@ void encoder_drive_straight(int speed, std::function<bool()> condition, double c
     while (!condition())
     {
         // if left wheel going faster, go slower
-        if ((speed > 0 && lenc_delta > renc_delta) || (mm < 0 && lenc_delta < renc_delta))
+        if ((speed > 0 && lenc_delta > renc_delta) || (speed < 0 && lenc_delta < renc_delta))
         {
             create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
         }
@@ -447,7 +447,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
 void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec)
 {
     // initialize encoders
-    double lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
+    int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
     double angle_degrees = 0;
     read_encoders(lenc_prev, renc_prev);
 
