@@ -1,8 +1,8 @@
 <map id="communicate/include/communicator.hpp" name="communicate/include/communicator.hpp">
-<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="253,5,416,47"/>
-<area shape="rect" id="node2" href="$all_8hpp_source.html" title=" " alt="" coords="301,184,368,211"/>
-<area shape="rect" id="node3" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="32,95,223,136"/>
-<area shape="rect" id="node4" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="247,95,422,136"/>
-<area shape="rect" id="node5" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="446,95,636,136"/>
-<area shape="rect" id="node6" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="660,95,838,136"/>
+<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="278,5,441,47"/>
+<area shape="rect" id="node2" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="5,95,196,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="326,184,393,211"/>
+<area shape="rect" id="node4" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="272,95,447,136"/>
+<area shape="rect" id="node5" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="471,95,661,136"/>
+<area shape="rect" id="node6" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="685,95,863,136"/>
 </map>

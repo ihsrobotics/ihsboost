@@ -1,5 +1,5 @@
 <map id="util/include/cliff.hpp" name="util/include/cliff.hpp">
-<area shape="rect" id="node1" title="Cliff and Line definitions." alt="" coords="5,5,156,32"/>
-<area shape="rect" id="node2" href="$all_8hpp_source.html" title=" " alt="" coords="47,169,114,196"/>
-<area shape="rect" id="node3" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="57,80,229,121"/>
+<area shape="rect" id="node1" title="Cliff and Line definitions." alt="" coords="77,5,228,32"/>
+<area shape="rect" id="node2" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,80,177,121"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="119,169,186,196"/>
 </map>

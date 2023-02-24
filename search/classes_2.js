@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['communicationexception_167',['CommunicationException',['../classCommunicationException.html',1,'']]],
-  ['communicator_168',['Communicator',['../classCommunicator.html',1,'']]],
-  ['createextracontroller_169',['CreateExtraController',['../classCreateExtraController.html',1,'']]]
+  ['communicationexception_177',['CommunicationException',['../classCommunicationException.html',1,'']]],
+  ['communicator_178',['Communicator',['../classCommunicator.html',1,'']]],
+  ['config_179',['Config',['../classConfig.html',1,'']]],
+  ['createextracontroller_180',['CreateExtraController',['../classCreateExtraController.html',1,'']]]
 ];

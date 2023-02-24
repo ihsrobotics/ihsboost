@@ -82,8 +82,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae6b83b4f2ca36712bdd82aea6ea0cb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object.  <a href="classMessageBuf.html#ae6b83b4f2ca36712bdd82aea6ea0cb8e">More...</a><br /></td></tr>
 <tr class="separator:ae6b83b4f2ca36712bdd82aea6ea0cb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7aa4b9b48d52ec641a1a7172fcb17c80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a7aa4b9b48d52ec641a1a7172fcb17c80">MessageBuf</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&amp;other)</td></tr>
-<tr class="memdesc:a7aa4b9b48d52ec641a1a7172fcb17c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object from another <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>.  <a href="classMessageBuf.html#a7aa4b9b48d52ec641a1a7172fcb17c80">More...</a><br /></td></tr>
+<tr class="memdesc:a7aa4b9b48d52ec641a1a7172fcb17c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object to this <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>.  <a href="classMessageBuf.html#a7aa4b9b48d52ec641a1a7172fcb17c80">More...</a><br /></td></tr>
 <tr class="separator:a7aa4b9b48d52ec641a1a7172fcb17c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13bac0f1230e0ffaa71fdf3dae5bcbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#ad13bac0f1230e0ffaa71fdf3dae5bcbe">operator=</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:ad13bac0f1230e0ffaa71fdf3dae5bcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object to this <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>.  <a href="classMessageBuf.html#ad13bac0f1230e0ffaa71fdf3dae5bcbe">More...</a><br /></td></tr>
+<tr class="separator:ad13bac0f1230e0ffaa71fdf3dae5bcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a36e1187dd92e6a867d2376b8bc5925"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a1a36e1187dd92e6a867d2376b8bc5925">~MessageBuf</a> ()</td></tr>
 <tr class="memdesc:a1a36e1187dd92e6a867d2376b8bc5925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Message Buf object.  <a href="classMessageBuf.html#a1a36e1187dd92e6a867d2376b8bc5925">More...</a><br /></td></tr>
 <tr class="separator:a1a36e1187dd92e6a867d2376b8bc5925"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +131,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a992dd23a7af2d2b5e18b9e78400fc6e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#a992dd23a7af2d2b5e18b9e78400fc6e5">from_bytes</a> (char *bytes, bool delete_bytes=true)</td></tr>
 <tr class="memdesc:a992dd23a7af2d2b5e18b9e78400fc6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct this message from bytes  <a href="classMessageBuf.html#a992dd23a7af2d2b5e18b9e78400fc6e5">More...</a><br /></td></tr>
 <tr class="separator:a992dd23a7af2d2b5e18b9e78400fc6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f3c5c872dbfa63c37ad80cf4a696b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageBuf.html#ae2f3c5c872dbfa63c37ad80cf4a696b7">copy</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;other)</td></tr>
+<tr class="memdesc:ae2f3c5c872dbfa63c37ad80cf4a696b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> onto this one, including copying the data stored in it.  <a href="classMessageBuf.html#ae2f3c5c872dbfa63c37ad80cf4a696b7">More...</a><br /></td></tr>
+<tr class="separator:ae2f3c5c872dbfa63c37ad80cf4a696b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -141,6 +147,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for storing data over communicators. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="listener_8cpp-example.html#_a1">listener.cpp</a>, and <a class="el" href="message_buf_test_8cpp-example.html#_a0">message_buf_test.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae6b83b4f2ca36712bdd82aea6ea0cb8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6b83b4f2ca36712bdd82aea6ea0cb8e">&#9670;&nbsp;</a></span>MessageBuf() <span class="overload">[1/2]</span></h2>
@@ -184,10 +192,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object from another <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>. </p>
+<p>Move the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object to this <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> to copy </td></tr>
+    <tr><td class="paramname">other</td><td>the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> to move to this </td></tr>
   </table>
   </dd>
 </dl>
@@ -215,6 +223,33 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae2f3c5c872dbfa63c37ad80cf4a696b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f3c5c872dbfa63c37ad80cf4a696b7">&#9670;&nbsp;</a></span>copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp; MessageBuf::copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> onto this one, including copying the data stored in it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> to copy onto this one </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>&amp; *this </dd></dl>
+
+</div>
+</div>
 <a id="a992dd23a7af2d2b5e18b9e78400fc6e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a992dd23a7af2d2b5e18b9e78400fc6e5">&#9670;&nbsp;</a></span>from_bytes()</h2>
 
@@ -249,6 +284,8 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a5">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -269,6 +306,8 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get the number of bytes that this current object takes when converted to bytes. </p>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t the number of bytes </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a10">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -290,6 +329,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Get how long the data is. </p>
 <p>value of 1 means that it only holds one of that type, value of 2 means that there are 2, etc</p>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t how long the data is </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="listener_8cpp-example.html#a3">listener.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -333,6 +374,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T* a pointer to the data </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="listener_8cpp-example.html#a4">listener.cpp</a>, <a class="el" href="message_buf_test_8cpp-example.html#a7">message_buf_test.cpp</a>, and <a class="el" href="message_test_8cpp-example.html#a9">message_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -376,6 +419,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t the number of bytes </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a8">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -431,6 +476,8 @@ template&lt;typename T &gt; </div>
 
 <p>Get the true size of this object. </p>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a9">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -500,6 +547,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T the stored value </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a2">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -522,6 +571,33 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>true if it is empty </dd>
 <dd>
 false if it isn't empty </dd></dl>
+
+</div>
+</div>
+<a id="ad13bac0f1230e0ffaa71fdf3dae5bcbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad13bac0f1230e0ffaa71fdf3dae5bcbe">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp; MessageBuf::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the other <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object to this <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> to move to this </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a>&amp; *this </dd></dl>
 
 </div>
 </div>
@@ -618,6 +694,8 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a1">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -638,6 +716,8 @@ template&lt;typename T &gt; </div>
 
 <p>Convert the buffer to bytes. </p>
 <dl class="section return"><dt>Returns</dt><dd>char* a pointer to a newly allocated byte buffer that needs to be freed / deleted. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_buf_test_8cpp-example.html#a6">message_buf_test.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

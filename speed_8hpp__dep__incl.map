@@ -1,8 +1,8 @@
 <map id="util/include/speed.hpp" name="util/include/speed.hpp">
-<area shape="rect" id="node1" title="Speed struct for representing speeds." alt="" coords="143,5,308,32"/>
-<area shape="rect" id="node2" href="$all_8hpp_source.html" title=" " alt="" coords="112,259,179,285"/>
-<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="24,87,268,114"/>
-<area shape="rect" id="node5" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="256,169,430,211"/>
-<area shape="rect" id="node6" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="361,80,560,121"/>
-<area shape="rect" id="node4" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="60,169,232,211"/>
+<area shape="rect" id="node1" title="Speed struct for representing speeds." alt="" coords="230,5,395,32"/>
+<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="5,87,249,114"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="254,259,321,285"/>
+<area shape="rect" id="node5" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="325,169,498,211"/>
+<area shape="rect" id="node6" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="420,80,619,121"/>
+<area shape="rect" id="node3" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="27,169,199,211"/>
 </map>
