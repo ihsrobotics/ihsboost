@@ -34,11 +34,19 @@ public:
     MessageBuf(uint32_t buf_size);
 
     /**
-     * @brief Construct a new MessageBuf object from another MessageBuf
+     * @brief Move the other MessageBuf object to this MessageBuf
      *
-     * @param other the MessageBuf to copy
+     * @param other the MessageBuf to move to this
      */
     MessageBuf(MessageBuf &&other);
+
+    /**
+     * @brief Moves the other MessageBuf object to this MessageBuf
+     *
+     * @param other the MessageBuf to move to this
+     * @return MessageBuf& *this
+     */
+    MessageBuf &operator=(MessageBuf &&other);
 
     /**
      * @brief Destroy the Message Buf object
@@ -192,7 +200,7 @@ public:
         reset();
 
         // initialize our attributes
-        attrs.hold_data<T>(1, false);
+        attrs.hold_data<T>(1);
 
         // then set our data
         data_holder = new T[1]{val};
@@ -214,7 +222,7 @@ public:
         reset();
 
         // prepare attributes, this time it IS a pointer
-        attrs.hold_data<T>(len, false, true);
+        attrs.hold_data<T>(len, true);
 
         // initialize our data holder
         data_holder = new T[len];
@@ -236,7 +244,38 @@ public:
      */
     void from_bytes(char *bytes, bool delete_bytes = true);
 
+    /**
+     * @brief Copies the other MessageBuf onto this one, including
+     * copying the data stored in it
+     *
+     * @param other the MessageBuf to copy onto this one
+     * @return MessageBuf& *this
+     */
+    MessageBuf &copy(MessageBuf &other);
+
 private:
+    /**
+     * @brief copies the other MessageBuf, including copying
+     * the data stored in it.
+     * @details this is a private constructor so that programs
+     * will not continually allocate new data. If you want to copy
+     * a MessageBuf, call `copy` \see copy
+     *
+     * @param other the MessageBuf to copy
+     */
+    MessageBuf(MessageBuf &other);
+
+    /**
+     * @brief copies the other MessageBuf onto this one, including
+     * copying the data stored in it
+     * @details this is a private operator so that programs
+     * will not continually allocate new data. If you want to copy
+     * a MessageBuf, call `copy` \see copy
+     *
+     * @param other the MessageBuf to copy
+     */
+    MessageBuf &operator=(MessageBuf &other);
+
     /**
      * @brief Struct that MessageBuf uses to store
      * message attributes
@@ -262,14 +301,12 @@ private:
          *
          * @tparam T the type of the data, regardless of whether it is a pointer or not
          * @param len the length of the message
-         * @param _was_from_bytes whether or not the data was from bytes
          * @param is_ptr whether or not this stores a ptr
          */
         template <typename T>
-        void hold_data(std::uint16_t len, bool _was_from_bytes, bool is_ptr = false)
+        void hold_data(std::uint16_t len, bool is_ptr = false)
         {
             empty = false;
-            was_from_bytes = _was_from_bytes;
 
             if (is_ptr)
             {
@@ -295,7 +332,6 @@ private:
         uint16_t data_holder_len;  ///< how many items data contains
         uint32_t buf_size;         ///< how large the buffer should be when converting to bytes
         bool empty;                ///< whether or not the buffer is empty
-        bool was_from_bytes;       ///< whether or not the buffer was constructed from bytes
     };
 
     // attributes

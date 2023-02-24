@@ -1,24 +1,52 @@
 #include "message_buf.hpp"
 #include <iostream>
 
+// constructors
 MessageBuf::MessageBuf(uint32_t buf_size) : attrs(buf_size), data_holder(nullptr){};
 MessageBuf::MessageBuf(MessageBuf &&other)
+{
+    *this = other;
+}
+MessageBuf::MessageBuf(MessageBuf &other)
+{
+    *this = other;
+}
+
+// assignment operators
+MessageBuf &MessageBuf::operator=(MessageBuf &&other)
 {
     // case where other is this
     if (this == &other)
     {
-        return;
+        return *this;
     }
+
+    // clean anything
+    reset();
 
     // steal attrs
     attrs = other.attrs;
     data_holder = other.data_holder;
 
-    // set the other one to nullptr so
+    // set the other one to nullptr and empty so
     // that its cleanup doesn't mess with us
     other.data_holder = nullptr;
+    other.attrs.empty = true;
+
+    return *this;
+}
+MessageBuf &MessageBuf::operator=(MessageBuf &other)
+{
+    from_bytes(other.to_bytes());
+    return *this;
 }
 
+MessageBuf &MessageBuf::copy(MessageBuf &other)
+{
+    return (*this = other);
+}
+
+// destructor
 MessageBuf::~MessageBuf()
 {
     reset();
@@ -29,7 +57,7 @@ void MessageBuf::reset()
     // only delete data if it was allocated
     if (!attrs.empty)
     {
-        delete[] data_holder;
+        delete[] reinterpret_cast<char *>(data_holder);
         data_holder = nullptr;
     }
 
@@ -100,7 +128,6 @@ void MessageBuf::from_bytes(char *bytes, bool delete_bytes)
         char *temp = new char[attrs.data_holder_size];
         memcpy(reinterpret_cast<void *>(temp), reinterpret_cast<const void *>(bytes + sizeof(BufAttrs)), attrs.data_holder_size);
         data_holder = temp;
-        attrs.was_from_bytes = true;
     }
 
     // cleanup bytes if necessary
@@ -112,12 +139,11 @@ void MessageBuf::from_bytes(char *bytes, bool delete_bytes)
 }
 
 // MessageBuf::BufAttrs stuf
-MessageBuf::BufAttrs::BufAttrs() : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(0){};
-MessageBuf::BufAttrs::BufAttrs(uint32_t buf_size) : empty(true), was_from_bytes(false), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(buf_size){};
+MessageBuf::BufAttrs::BufAttrs() : empty(true), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(0){};
+MessageBuf::BufAttrs::BufAttrs(uint32_t buf_size) : empty(true), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(buf_size){};
 void MessageBuf::BufAttrs::reset()
 {
     empty = true;
-    was_from_bytes = false;
 
     data_holder_size = 0;
     data_holder_len = 0;

@@ -1,3 +1,14 @@
+/**
+ * @file all.hpp
+ * @author Eliot Hall
+ * @brief master header that includes all other ihsboost headers
+ * @version 0.1
+ * @date 2023-02-24
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
+
 // controllers
 #include "controllers.hpp"
 
