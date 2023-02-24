@@ -1,6 +1,10 @@
 # IHS Boost
 The ihs library of robot functions, from steady acceleration to servo movement
 ## Installing
+### Dependencies
+ihsboost depends on the following libraries:
+* libwallaby - please use [this branch](https://github.com/chrehall68/libwallaby/tree/refactor) to install libwallaby
+* libjsoncpp - on linux, run `sudo apt-get install libjsoncpp-dev` to install
 ### Getting the Source files
 To get the source files on a wombat, the best way to do that is to start on your local
 computer. Run `git clone https://github.com/ihsrobotics/ihsboost.git` to get the github
@@ -25,7 +29,7 @@ from terminal inside the ihsboost directory on the wombat
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j4
 sudo make install
 ```
@@ -45,7 +49,7 @@ when configuring the project.
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9
 
 For example,
-`cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/ -Dwith_documentation=ON -Dpython_version=3.10`
+`cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10`
 will configure cmake to build the library and python bindings 
 (since `build_library` and `build_python` default to `ON`) but
 will also make the documentation (since `with_documentation` was specified to `ON`)
@@ -57,13 +61,13 @@ all you have to do is the following command to compile
 to form the executable `./a.out`:
 
 ```shell
-g++ (file) -lihsboost -lkipr -pthread -rt -std=c++11
+g++ (file) -lihsboost -lkipr -pthread -lrt -std=c++11
 ```
 
 Note: `(file)` should be replaced by the name of the file that
 should be compiled.
 
-Note: `-rt` is only necessary on older wombats
+Note: `-lrt` is only necessary on older wombats
 ## Running python programs with it
 To run a python program using ihsboost, import the python
 module `ihs_bindings` in your program. An example program might
