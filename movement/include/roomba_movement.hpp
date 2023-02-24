@@ -15,12 +15,12 @@
 
 #define ROOMBA_ACCEL_PER_SEC 500         ///< default acceleration for the roomba
 #define ROOMBA_CORRECTION_PROPORTION .85 ///< default correction for the roomba
-#define ROOMBA_UPDATES_PER_SEC 500       ///< default updates per second
+#define ROOMBA_UPDATES_PER_SEC 100       ///< default updates per second
 #define ROOMBA_MIN_SPEED 11              ///< default min speed
 
-#define deg2rad 0.017453292519943296 ///< convert degrees to radians by multiplying by this
-#define rad2deg 57.29577951308232    ///< convert radians to degrees by multiplying by this
-#define DIST_BETWEEN_WHEEL 23.5      ///< distance between the roomba wheels, in cm
+#define deg2rad_mult 0.017453292519943296 ///< convert degrees to radians by multiplying by this
+#define rad2deg 57.29577951308232         ///< convert radians to degrees by multiplying by this
+#define DIST_BETWEEN_WHEEL 23.5           ///< distance between the roomba wheels, in cm
 
 // these change between roombas
 #define LEFT_WHEEL_UNITS 0.11   ///< how far the left wheel moves, in cm/sec
@@ -70,6 +70,21 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
  * @param updates_per_sec how many updates to do per second
  */
 void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPEED, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
+
+/**
+ * @brief Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)
+ * @details Requires tuning of proportional, integral, and derivative coefficients for good results. \see PIDController
+ *
+ * @param speed the max speed to move at
+ * @param cm how many centimeters to move
+ * @param proportional_coefficient the coefficient for proportionality to the error
+ * @param integral_coefficient the coefficient for the integral of the error
+ * @param derivative_coefficient the coefficient for the derivative of the error
+ * @param min_speed the minimum speed to drive at
+ * @param accel_per_sec how fast to accelerate per second
+ * @param updates_per_second how many updates to do per second
+ */
+void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed = ROOMBA_MIN_SPEED, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_second = ROOMBA_UPDATES_PER_SEC);
 
 /**
  * @brief Turns a certain number of degrees using create encoders

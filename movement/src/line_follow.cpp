@@ -1,6 +1,6 @@
 #include <kipr/wombat.h>
 #include "line_follow.hpp"
-#include "accelerator.hpp"
+#include "controllers.hpp"
 
 std::function<int()> get_sensor(Cliff cliff_sensor)
 {
@@ -68,19 +68,19 @@ void line_follow_accelerate(Cliff cliff_sensor, LineSide line_side, std::functio
 
 void line_follow_basic(int speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion, int black_val, int updates_per_sec)
 {
-    LinearAccelerator accelerator(speed, speed, 0, updates_per_sec);
+    LinearController accelerator(speed, speed, 0, updates_per_sec);
     line_follow_accelerate(cliff_sensor, line_side, stop_condition, accelerator, correction_proportion, black_val);
 }
 
 void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion, int accel_per_sec, int black_val, int updates_per_sec)
 {
-    LinearAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
+    LinearController accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
     line_follow_accelerate(cliff_sensor, line_side, stop_condition, accelerator, correction_proportion, black_val);
 }
 
 void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion, int accel_per_sec, int black_val, int updates_per_sec)
 {
-    SinusoidalAccelerator accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
+    SinusoidalController accelerator(from_speed, to_speed, accel_per_sec, updates_per_sec);
     line_follow_accelerate(cliff_sensor, line_side, stop_condition, accelerator, correction_proportion, black_val);
 }
 

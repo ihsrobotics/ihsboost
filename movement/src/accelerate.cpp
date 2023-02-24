@@ -1,5 +1,5 @@
 #include "accelerate.hpp"
-#include "accelerator.hpp"
+#include "controllers.hpp"
 #include "config.hpp"
 #include <kipr/wombat.h>
 #include <iostream>
@@ -25,10 +25,10 @@ void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec, i
     // maintain the proportion throughout the acceleration.
     // ex: if it was supposed to accelerate from 0,0 to 400,100, then this will attempt to maintain that 4:1 ratio
     // by accelerating the smaller one at a proportional rate (hence delta_speed / greatest_delta *accel_per_sec)
-    LinearAccelerator left_accelerator(from_speed.left, to_speed.left,
-                                       abs(delta_speed.left) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.left) / greatest_delta * accel_per_sec), updates_per_sec);
-    LinearAccelerator right_accelerator(from_speed.right, to_speed.right,
-                                        abs(delta_speed.right) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.right) / greatest_delta * accel_per_sec), updates_per_sec);
+    LinearController left_accelerator(from_speed.left, to_speed.left,
+                                      abs(delta_speed.left) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.left) / greatest_delta * accel_per_sec), updates_per_sec);
+    LinearController right_accelerator(from_speed.right, to_speed.right,
+                                       abs(delta_speed.right) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.right) / greatest_delta * accel_per_sec), updates_per_sec);
 
     // loop till done
     while (!left_accelerator.done() || !right_accelerator.done())
@@ -52,10 +52,10 @@ void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_se
     // by accelerating the smaller one at a proportional rate (hence delta_speed / greatest_delta *accel_per_sec)
     // won't maintain the ratio perfectly during acceleration when using sinusoids, but will be closer than not
     // trying at all
-    SinusoidalAccelerator left_accelerator(from_speed.left, to_speed.left,
-                                           abs(delta_speed.left) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.left) / greatest_delta * accel_per_sec), updates_per_sec);
-    SinusoidalAccelerator right_accelerator(from_speed.right, to_speed.right,
-                                            abs(delta_speed.right) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.right) / greatest_delta * accel_per_sec), updates_per_sec);
+    SinusoidalController left_accelerator(from_speed.left, to_speed.left,
+                                          abs(delta_speed.left) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.left) / greatest_delta * accel_per_sec), updates_per_sec);
+    SinusoidalController right_accelerator(from_speed.right, to_speed.right,
+                                           abs(delta_speed.right) == greatest_delta ? accel_per_sec : abs(static_cast<double>(delta_speed.right) / greatest_delta * accel_per_sec), updates_per_sec);
 
     // loop till done
     while (!left_accelerator.done() || !right_accelerator.done())

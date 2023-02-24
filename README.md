@@ -62,6 +62,8 @@ g++ (file) -lihsboost -lkipr -pthread -rt -std=c++11
 
 Note: `(file)` should be replaced by the name of the file that
 should be compiled.
+
+Note: `-rt` is only necessary on older wombats
 ## Running python programs with it
 To run a python program using ihsboost, import the python
 module `ihs_bindings` in your program. An example program might
