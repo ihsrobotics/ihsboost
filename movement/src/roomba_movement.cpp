@@ -80,6 +80,36 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
     renc_prev = r_temp;
 }
 
+void encoder_drive_straight(int speed, std::function<bool()> condition, double correction_proportion, int updates_per_sec)
+{
+    // initialize encoder variables
+    int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
+    read_encoders(lenc_prev, renc_prev);
+
+    while (!condition())
+    {
+        // if left wheel going faster, go slower
+        if ((speed > 0 && lenc_delta > renc_delta) || (speed < 0 && lenc_delta < renc_delta))
+        {
+            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
+        }
+        // if right wheel going faster, go slower
+        else
+        {
+            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
+        }
+
+        // sleep
+        msleep(1000 / updates_per_sec);
+
+        // update encoders
+        process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
+    }
+
+    // stop at the end
+    create_drive_direct(0, 0);
+}
+
 void encoder_drive_straight(int max_speed, double cm, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
     // initialize misc
@@ -370,7 +400,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
 
         // update encoders
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
-        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
+        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult;
 
         if (accelerator.done())
         {
@@ -391,7 +421,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
 
         // update encoders
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
-        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
+        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult;
     }
 
     // start decelerating, go until both lenc and renc have reached the end
@@ -409,7 +439,30 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
 
         // update encoders
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
-        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg;
+        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult;
     }
+    create_drive_direct(0, 0);
+}
+
+void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec)
+{
+    // initialize encoders
+    int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
+    double angle_degrees = 0;
+    read_encoders(lenc_prev, renc_prev);
+
+    // drive until reached goal degrees
+    create_drive_direct(turn_speed.left, turn_speed.right);
+    while ((degrees > 0 && angle_degrees < degrees) || (degrees < 0 && angle_degrees > degrees))
+    {
+        // sleep
+        msleep(1000 / updates_per_sec);
+
+        // update encoders
+        process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
+        angle_degrees = (lenc_delta * ENC_2_MM - renc_delta * ENC_2_MM) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult;
+    }
+
+    // stop
     create_drive_direct(0, 0);
 }
