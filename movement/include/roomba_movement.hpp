@@ -13,13 +13,16 @@
 #ifndef ROOMBA_TURNS_HPP
 #define ROOMBA_TURNS_HPP
 
+#include "speed.hpp"
+#include <functional>
+
 #define ROOMBA_ACCEL_PER_SEC 500         ///< default acceleration for the roomba
 #define ROOMBA_CORRECTION_PROPORTION .85 ///< default correction for the roomba
 #define ROOMBA_UPDATES_PER_SEC 100       ///< default updates per second
 #define ROOMBA_MIN_SPEED 11              ///< default min speed
 
 #define deg2rad_mult 0.017453292519943296 ///< convert degrees to radians by multiplying by this
-#define rad2deg 57.29577951308232         ///< convert radians to degrees by multiplying by this
+#define rad2deg_mult 57.29577951308232    ///< convert radians to degrees by multiplying by this
 #define DIST_BETWEEN_WHEEL 23.5           ///< distance between the roomba wheels, in cm
 
 // these change between roombas
@@ -72,6 +75,16 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
 void encoder_drive_straight(int speed, double cm, int min_speed = ROOMBA_MIN_SPEED, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
 /**
+ * @brief Drive straight at speed until it is time to stop
+ *
+ * @param speed the speed to drive at, can be positive or negative
+ * @param condition a function that returns true when it is time to stop
+ * @param correction_proportion how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction.
+ * @param updates_per_sec how many updates to do per second
+ */
+void encoder_drive_straight(int speed, std::function<bool()> condition, double correction_proportion = ROOMBA_CORRECTION_PROPORTION, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
+
+/**
  * @brief Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)
  * @details Requires tuning of proportional, integral, and derivative coefficients for good results. \see PIDController
  *
@@ -98,5 +111,15 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
  */
 void encoder_turn_degrees(int max_speed, int degrees, int min_speed = ROOMBA_MIN_SPEED, double accel_per_sec = ROOMBA_ACCEL_PER_SEC, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 
+/**
+ * @brief Turns a certain number of degrees using create encoders
+ * @details This overload doesn't accelerate / decelerate; instead,
+ * it merely turns at the given speed until reaching the goal degrees
+ *
+ * @param turn_speed The speed to turn at. \see Speed
+ * @param degrees The number of degrees to turn, positive values for CW
+ * @param updates_per_sec How many updates to do per second
+ */
+void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec = ROOMBA_UPDATES_PER_SEC);
 #endif
 /**@}*/

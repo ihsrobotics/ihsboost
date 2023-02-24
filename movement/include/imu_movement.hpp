@@ -35,20 +35,6 @@
 void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double correction_proportion = GYRO_CORRECTION_PROPORTION, double accel_per_sec = GYRO_LINEAR_ACCEL, int updates_per_sec = GYRO_UPDATES_PER_SEC);
 
 /**
- * @brief Drive the create straight using PID control and the gyroscope
- *
- * @param from_speed speed to start at
- * @param to_speed speed to cap at
- * @param stop_function a function that returns true when it is time to stop driving forward
- * @param proportional_coefficient the coefficient for proportionatlity to the error
- * @param integral_coefficient the coefficient for the integral of the error
- * @param derivative_coefficient the coefficient for the derivative of the error
- * @param accel_per_sec how fast the create will accelerate by
- * @param updates_per_sec how many updates the function will do per second
- */
-void gyro_drive_straight_pid(int from_speed, int to_speed, std::function<bool()> stop_function, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, double accel_per_sec = GYRO_LINEAR_ACCEL, int updates_per_sec = GYRO_UPDATES_PER_SEC);
-
-/**
  * @brief Turn the create a certain number of degrees using the gyroscope
  *
  * @param from_speed the speed to start at
