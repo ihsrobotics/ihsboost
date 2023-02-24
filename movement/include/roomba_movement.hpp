@@ -29,6 +29,9 @@
 #define LEFT_WHEEL_UNITS 0.11   ///< how far the left wheel moves, in cm/sec
 #define RIGHT_WHEEL_UNITS 0.103 ///< how far the right wheel moves, in cm/sec
 
+#define ENC_2_MM (M_PI * 72.0 / 508.8)   ///< multiply by this to convert enc to mm
+#define MM_2_ENC (508.8 / (72.0 * M_PI)) ///< multiply by this to convert mm to enc
+
 /**
  * @brief Rotate using speed-based turning on the roomba
  *

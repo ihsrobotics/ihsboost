@@ -3,8 +3,6 @@
 #include <kipr/wombat.h>
 #include <algorithm>
 #include <limits>
-#define ENC_2_MM (M_PI * 72.0 / 508.8)   // multiply by this to convert enc to mm
-#define MM_2_ENC (508.8 / (72.0 * M_PI)) // multiply by this to convert mm to enc
 using std::abs;
 using std::min;
 
