@@ -29,7 +29,7 @@ from terminal inside the ihsboost directory on the wombat
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j4
 sudo make install
 ```
@@ -49,7 +49,7 @@ when configuring the project.
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9
 
 For example,
-`cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/ -Dwith_documentation=ON -Dpython_version=3.10`
+`cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10`
 will configure cmake to build the library and python bindings 
 (since `build_library` and `build_python` default to `ON`) but
 will also make the documentation (since `with_documentation` was specified to `ON`)
