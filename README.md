@@ -1,4 +1,7 @@
 # IHS Boost
+![Doxygen](https://github.com/ihsrobotics/ihsboost/actions/workflows/doxygen.yml/badge.svg)
+![CMake Build](https://github.com/ihsrobotics/ihsboost/actions/workflows/cmake.yml/badge.svg)
+
 The ihs library of robot functions, from steady acceleration to servo movement
 ## Installing
 ### Dependencies
