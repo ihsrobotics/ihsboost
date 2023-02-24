@@ -101,7 +101,8 @@ Other Build Options</h2>
 Compiling programs with it</h1>
 <p>To compile a program with the ihsboost library, then assuming that you have already installed ihsboost, all you have to do is the following command to compile to form the executable <code>./a.out</code>:</p>
 <div class="fragment"><div class="line">g++ (file) -lihsboost -lkipr -pthread -rt -std=c++11</div>
-</div><!-- fragment --><p>Note: <code>(file)</code> should be replaced by the name of the file that should be compiled. </p>
+</div><!-- fragment --><p>Note: <code>(file)</code> should be replaced by the name of the file that should be compiled.</p>
+<p>Note: <code>-rt</code> is only necessary on older wombats </p>
 <h1><a class="anchor" id="autotoc_md7"></a>
 Running python programs with it</h1>
 <p>To run a python program using ihsboost, import the python module <code>ihs_bindings</code> in your program. An example program might look like this:</p>

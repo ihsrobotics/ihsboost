@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ihs_boost: SinusoidalAccelerator Class Reference</title>
+<title>ihs_boost: LinearController Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,56 +63,56 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classSinusoidalAccelerator-members.html">List of all members</a>  </div>
+<a href="classLinearController-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SinusoidalAccelerator Class Reference<div class="ingroups"><a class="el" href="group__accelerator__id.html">Acceleration Classes</a></div></div>  </div>
+<div class="title">LinearController Class Reference<div class="ingroups"><a class="el" href="group__controllers__id.html">Movement Control Classes</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class for accelerating sinusoidally.  
- <a href="classSinusoidalAccelerator.html#details">More...</a></p>
+<p>Class for accelerating linearly.  
+ <a href="classLinearController.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="accelerator_8hpp_source.html">accelerator.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="controllers_8hpp_source.html">controllers.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for SinusoidalAccelerator:</div>
+Inheritance diagram for LinearController:</div>
 <div class="dyncontent">
-<div class="center"><img src="classSinusoidalAccelerator__inherit__graph.png" border="0" usemap="#aSinusoidalAccelerator_inherit__map" alt="Inheritance graph"/></div>
-<map name="aSinusoidalAccelerator_inherit__map" id="aSinusoidalAccelerator_inherit__map">
-<area shape="rect" title="Class for accelerating sinusoidally." alt="" coords="5,80,168,107"/>
-<area shape="rect" href="classAccelerateController.html" title="Class for accelerating." alt="" coords="9,5,164,32"/>
+<div class="center"><img src="classLinearController__inherit__graph.png" border="0" usemap="#aLinearController_inherit__map" alt="Inheritance graph"/></div>
+<map name="aLinearController_inherit__map" id="aLinearController_inherit__map">
+<area shape="rect" title="Class for accelerating linearly." alt="" coords="19,80,146,107"/>
+<area shape="rect" href="classAccelerateController.html" title="Class for accelerating." alt="" coords="5,5,160,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for SinusoidalAccelerator:</div>
+Collaboration diagram for LinearController:</div>
 <div class="dyncontent">
-<div class="center"><img src="classSinusoidalAccelerator__coll__graph.png" border="0" usemap="#aSinusoidalAccelerator_coll__map" alt="Collaboration graph"/></div>
-<map name="aSinusoidalAccelerator_coll__map" id="aSinusoidalAccelerator_coll__map">
-<area shape="rect" title="Class for accelerating sinusoidally." alt="" coords="5,80,168,107"/>
-<area shape="rect" href="classAccelerateController.html" title="Class for accelerating." alt="" coords="9,5,164,32"/>
+<div class="center"><img src="classLinearController__coll__graph.png" border="0" usemap="#aLinearController_coll__map" alt="Collaboration graph"/></div>
+<map name="aLinearController_coll__map" id="aLinearController_coll__map">
+<area shape="rect" title="Class for accelerating linearly." alt="" coords="19,80,146,107"/>
+<area shape="rect" href="classAccelerateController.html" title="Class for accelerating." alt="" coords="5,5,160,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1643d32d37d52b39b1195832efaf513"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSinusoidalAccelerator.html#ab1643d32d37d52b39b1195832efaf513">SinusoidalAccelerator</a> (int from_speed, int to_speed, double avg_accel_per_sec, int updates_per_sec)</td></tr>
-<tr class="memdesc:ab1643d32d37d52b39b1195832efaf513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Sinusoidal Accelerator object.  <a href="classSinusoidalAccelerator.html#ab1643d32d37d52b39b1195832efaf513">More...</a><br /></td></tr>
-<tr class="separator:ab1643d32d37d52b39b1195832efaf513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0d74caf95cdab8160f82d3599213735"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSinusoidalAccelerator.html#ab0d74caf95cdab8160f82d3599213735">step</a> () override</td></tr>
-<tr class="memdesc:ab0d74caf95cdab8160f82d3599213735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the controller.  <a href="classSinusoidalAccelerator.html#ab0d74caf95cdab8160f82d3599213735">More...</a><br /></td></tr>
-<tr class="separator:ab0d74caf95cdab8160f82d3599213735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa43cdd5214e3ded39b82840fb9e9c5b2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSinusoidalAccelerator.html#aa43cdd5214e3ded39b82840fb9e9c5b2">done</a> () override</td></tr>
-<tr class="memdesc:aa43cdd5214e3ded39b82840fb9e9c5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether or not the controller is done.  <a href="classSinusoidalAccelerator.html#aa43cdd5214e3ded39b82840fb9e9c5b2">More...</a><br /></td></tr>
-<tr class="separator:aa43cdd5214e3ded39b82840fb9e9c5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced530f422bf8c3182e1406306f29168"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearController.html#aced530f422bf8c3182e1406306f29168">LinearController</a> (int from_speed, int to_speed, double accel_per_sec, int updates_per_sec)</td></tr>
+<tr class="memdesc:aced530f422bf8c3182e1406306f29168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLinearController.html" title="Class for accelerating linearly.">LinearController</a> object.  <a href="classLinearController.html#aced530f422bf8c3182e1406306f29168">More...</a><br /></td></tr>
+<tr class="separator:aced530f422bf8c3182e1406306f29168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a2b525ab0e7a2eff143be44eb4b62a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearController.html#a64a2b525ab0e7a2eff143be44eb4b62a">step</a> () override</td></tr>
+<tr class="memdesc:a64a2b525ab0e7a2eff143be44eb4b62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the controller.  <a href="classLinearController.html#a64a2b525ab0e7a2eff143be44eb4b62a">More...</a><br /></td></tr>
+<tr class="separator:a64a2b525ab0e7a2eff143be44eb4b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c9be58dd014f9b1dec82f9df7d4133"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearController.html#ae2c9be58dd014f9b1dec82f9df7d4133">done</a> () override</td></tr>
+<tr class="memdesc:ae2c9be58dd014f9b1dec82f9df7d4133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether or not the controller is done.  <a href="classLinearController.html#ae2c9be58dd014f9b1dec82f9df7d4133">More...</a><br /></td></tr>
+<tr class="separator:ae2c9be58dd014f9b1dec82f9df7d4133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classAccelerateController"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classAccelerateController')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classAccelerateController.html">AccelerateController</a></td></tr>
 <tr class="memitem:a8f68218b4c73fb65fdc18e51202801a2 inherit pub_methods_classAccelerateController"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccelerateController.html#a8f68218b4c73fb65fdc18e51202801a2">AccelerateController</a> (int from_speed, int to_speed, double accel_per_sec, int updates_per_sec)</td></tr>
 <tr class="memdesc:a8f68218b4c73fb65fdc18e51202801a2 inherit pub_methods_classAccelerateController"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAccelerateController.html" title="Class for accelerating.">AccelerateController</a> object.  <a href="classAccelerateController.html#a8f68218b4c73fb65fdc18e51202801a2">More...</a><br /></td></tr>
 <tr class="separator:a8f68218b4c73fb65fdc18e51202801a2 inherit pub_methods_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef374f899437847b2fe0acd0cd39598b inherit pub_methods_classAccelerateController"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccelerateController.html#aef374f899437847b2fe0acd0cd39598b">speed</a> ()</td></tr>
-<tr class="memdesc:aef374f899437847b2fe0acd0cd39598b inherit pub_methods_classAccelerateController"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current speed.  <a href="classAccelerateController.html#aef374f899437847b2fe0acd0cd39598b">More...</a><br /></td></tr>
-<tr class="separator:aef374f899437847b2fe0acd0cd39598b inherit pub_methods_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb949875a9c903e15d9024c530f468d inherit pub_methods_classAccelerateController"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccelerateController.html#a4cb949875a9c903e15d9024c530f468d">get_msleep_time</a> ()</td></tr>
-<tr class="memdesc:a4cb949875a9c903e15d9024c530f468d inherit pub_methods_classAccelerateController"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get how long to msleep for.  <a href="classAccelerateController.html#a4cb949875a9c903e15d9024c530f468d">More...</a><br /></td></tr>
-<tr class="separator:a4cb949875a9c903e15d9024c530f468d inherit pub_methods_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf8aa407f6e2102c0fde6a76490c54d6 inherit pub_methods_classAccelerateController"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccelerateController.html#acf8aa407f6e2102c0fde6a76490c54d6">speed</a> () const</td></tr>
+<tr class="memdesc:acf8aa407f6e2102c0fde6a76490c54d6 inherit pub_methods_classAccelerateController"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current speed.  <a href="classAccelerateController.html#acf8aa407f6e2102c0fde6a76490c54d6">More...</a><br /></td></tr>
+<tr class="separator:acf8aa407f6e2102c0fde6a76490c54d6 inherit pub_methods_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84feb7027e08fe7765a77be9b6882d46 inherit pub_methods_classAccelerateController"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccelerateController.html#a84feb7027e08fe7765a77be9b6882d46">get_msleep_time</a> () const</td></tr>
+<tr class="memdesc:a84feb7027e08fe7765a77be9b6882d46 inherit pub_methods_classAccelerateController"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get how long to msleep for.  <a href="classAccelerateController.html#a84feb7027e08fe7765a77be9b6882d46">More...</a><br /></td></tr>
+<tr class="separator:a84feb7027e08fe7765a77be9b6882d46 inherit pub_methods_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -143,16 +143,16 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a745372c4fece6f10c8ec6f111c1ae173 inherit pro_attribs_classAccelerateController"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for accelerating sinusoidally. </p>
+<div class="textblock"><p>Class for accelerating linearly. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab1643d32d37d52b39b1195832efaf513"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1643d32d37d52b39b1195832efaf513">&#9670;&nbsp;</a></span>SinusoidalAccelerator()</h2>
+<a id="aced530f422bf8c3182e1406306f29168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced530f422bf8c3182e1406306f29168">&#9670;&nbsp;</a></span>LinearController()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SinusoidalAccelerator::SinusoidalAccelerator </td>
+          <td class="memname">LinearController::LinearController </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>from_speed</em>, </td>
@@ -167,7 +167,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>avg_accel_per_sec</em>, </td>
+          <td class="paramname"><em>accel_per_sec</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -183,12 +183,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new Sinusoidal Accelerator object. </p>
+<p>Construct a new <a class="el" href="classLinearController.html" title="Class for accelerating linearly.">LinearController</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">from_speed</td><td>the speed to accelerate from </td></tr>
     <tr><td class="paramname">to_speed</td><td>the speed to accelerate to </td></tr>
-    <tr><td class="paramname">avg_accel_per_sec</td><td>the acceleration per second </td></tr>
+    <tr><td class="paramname">accel_per_sec</td><td>the acceleration per second </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates to use per second </td></tr>
   </table>
   </dd>
@@ -197,8 +197,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa43cdd5214e3ded39b82840fb9e9c5b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa43cdd5214e3ded39b82840fb9e9c5b2">&#9670;&nbsp;</a></span>done()</h2>
+<a id="ae2c9be58dd014f9b1dec82f9df7d4133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2c9be58dd014f9b1dec82f9df7d4133">&#9670;&nbsp;</a></span>done()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +207,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool SinusoidalAccelerator::done </td>
+          <td class="memname">bool LinearController::done </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -229,8 +229,8 @@ false - the controller still has more to do </dd></dl>
 
 </div>
 </div>
-<a id="ab0d74caf95cdab8160f82d3599213735"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0d74caf95cdab8160f82d3599213735">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a64a2b525ab0e7a2eff143be44eb4b62a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a2b525ab0e7a2eff143be44eb4b62a">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +239,7 @@ false - the controller still has more to do </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SinusoidalAccelerator::step </td>
+          <td class="memname">void LinearController::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -253,15 +253,15 @@ false - the controller still has more to do </dd></dl>
 </div><div class="memdoc">
 
 <p>Updates the controller. </p>
-<p>Takes care of updating the speed; must be called in order to see any change in <a class="el" href="classAccelerateController.html#aef374f899437847b2fe0acd0cd39598b" title="Returns the current speed.">speed()</a> </p>
+<p>Takes care of updating the speed; must be called in order to see any change in <a class="el" href="classAccelerateController.html#acf8aa407f6e2102c0fde6a76490c54d6" title="Returns the current speed.">speed()</a> </p>
 
 <p>Implements <a class="el" href="classAccelerateController.html#a6394e23901351abb88352beb82dc7c70">AccelerateController</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>controllers/include/<a class="el" href="accelerator_8hpp_source.html">accelerator.hpp</a></li>
-<li>controllers/src/accelerator.cpp</li>
+<li>controllers/include/<a class="el" href="controllers_8hpp_source.html">controllers.hpp</a></li>
+<li>controllers/src/controllers.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['communication_20classes_299',['Communication Classes',['../group__communication__id.html',1,'']]],
-  ['create_20extra_20functionality_300',['Create Extra Functionality',['../group__create__extra__id.html',1,'']]]
+  ['movement_20control_20classes_306',['Movement Control Classes',['../group__controllers__id.html',1,'']]],
+  ['movement_20functions_307',['Movement Functions',['../group__movement__id.html',1,'']]]
 ];

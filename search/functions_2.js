@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['done_217',['done',['../classAccelerateController.html#a6eef6f9509a058f7ac3ca2861473dba9',1,'AccelerateController::done()'],['../classLinearAccelerator.html#a15e0f2f1997ba6e9381871bb6105438e',1,'LinearAccelerator::done()'],['../classSinusoidalAccelerator.html#aa43cdd5214e3ded39b82840fb9e9c5b2',1,'SinusoidalAccelerator::done()']]]
+  ['done_220',['done',['../classAccelerateController.html#a6eef6f9509a058f7ac3ca2861473dba9',1,'AccelerateController::done()'],['../classLinearController.html#ae2c9be58dd014f9b1dec82f9df7d4133',1,'LinearController::done()'],['../classSinusoidalController.html#a26eca69c53af4a60995d455b2eb49c4b',1,'SinusoidalController::done()']]]
 ];

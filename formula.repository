@@ -1,1 +1,2 @@
-\_form#0=43x15:$\int f(t)dt$
+\_form#0=200x29:\[u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{\mathrm{d} e}{\mathrm{d} x}\]
+\_form#1=43x15:$\int f(t)dt$

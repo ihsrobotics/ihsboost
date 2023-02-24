@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linearaccelerator_170',['LinearAccelerator',['../classLinearAccelerator.html',1,'']]]
+  ['linearcontroller_172',['LinearController',['../classLinearController.html',1,'']]]
 ];
