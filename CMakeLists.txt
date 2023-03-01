@@ -8,7 +8,7 @@ set(LIBRARY_DIRS communicate controllers create_extra
 # main .so file
 option(build_library "build_library" ON)
 if (${build_library})
-    add_compile_options("-std=c++17")  # if 17 is not available, 11 will do for everything except for threading test
+    add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
 
     find_library(json_libs jsoncpp REQUIRED)

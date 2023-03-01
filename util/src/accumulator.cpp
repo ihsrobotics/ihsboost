@@ -14,7 +14,7 @@ void Accumulator::start_accumulating()
     if (t == nullptr)
     {
         // accumulate values in separate thread
-        t = new Threadable(accumulate, this);
+        t = new Threadable<void(Accumulator * a), Accumulator *>(accumulate, this);
     }
 }
 
