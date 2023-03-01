@@ -1,7 +1,7 @@
 /**
  * @file small_bot_config.hpp
  * @author Eliot Hall
- * @brief Movement and gyro configs for small bot
+ * @brief Non-jsonable movement and gyro configs for small bot
  * @version 0.1
  * @date 2023-02-17
  *
