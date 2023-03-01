@@ -1,7 +1,7 @@
 #include "accumulator.hpp"
 
 Accumulator::Accumulator(std::function<double()> callable, int updates_per_sec)
-    : accumulator(0), callable(callable), flag(true), multiplier(1 / static_cast<double>(updates_per_sec)),
+    : accumulator(0), t(nullptr), callable(callable), flag(true), multiplier(1 / static_cast<double>(updates_per_sec)),
       msleep_time(1000 / updates_per_sec){};
 
 Accumulator::~Accumulator()
