@@ -49,7 +49,7 @@ when configuring the project.
 * `-Dbuild_library=ON/OFF` - build ihsboost, defaults to `ON`
 * `-Dbuild_python=ON/OFF`- build python bindings, defaults to `ON`
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9
-* `-Droomba=ON/OFF` - build for the roomba or not for the roomba
+* `-Droomba=ON/OFF` - use roomba configs or not, defaults to `ON`
 
 For example,
 `cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10`
