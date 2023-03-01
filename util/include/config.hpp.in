@@ -1,7 +1,7 @@
 /**
  * @file config.hpp
  * @author Eliot Hall
- * @brief Stub file that includes which config to use
+ * @brief File for configuring ihsboost variables
  * @version 0.1
  * @date 2023-02-15
  *
