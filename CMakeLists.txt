@@ -11,7 +11,7 @@ if (${build_library})
     add_compile_options("-std=c++17")  # if 17 is not available, 11 will do for everything except for threading test
     add_compile_options("-fPIC")
 
-    include_directories(/usr/local/include)
+    find_library(json_libs jsoncpp REQUIRED)
     
     # install path configuration, defaults to /usr/local/
     message("installing to " ${CMAKE_INSTALL_PREFIX})
@@ -27,7 +27,7 @@ if (${build_library})
 
     # link
     add_library(ihsboost SHARED empty.cpp)
-    target_link_libraries(ihsboost PUBLIC kipr pthread rt jsoncpp)
+    target_link_libraries(ihsboost PUBLIC kipr pthread rt ${json_libs})
     foreach(subdir IN LISTS LIBRARY_DIRS)
         target_link_libraries(ihsboost PUBLIC ihs_${subdir})
     endforeach()

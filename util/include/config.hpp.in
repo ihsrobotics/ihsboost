@@ -1,0 +1,34 @@
+/**
+ * @file config.hpp
+ * @author Eliot Hall
+ * @brief Stub file that includes which config to use
+ * @version 0.1
+ * @date 2023-02-15
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup util_id
+ * @{
+ */
+#ifndef CONFIG_HPP
+#define CONFIG_HPP
+
+// master config variables
+#define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@"
+#define ROBOT_CONFIG_NAME "@robot_config_name@"
+#define ROBOT_CONFIG_HPP "@robot_config_hpp@"
+
+// includes
+#include "json_config.hpp"
+#include ROBOT_CONFIG_HPP
+
+// file that holds tunable ihsboost variables
+#ifndef CONFIG_FILE
+#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string("/include/ihsboost/") + std::string(ROBOT_CONFIG_NAME)
+#endif
+
+// returns tunable ihsboost variables
+Config &get_config(std::string config_file = CONFIG_FILE);
+
+#endif
+/**@}*/

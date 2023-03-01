@@ -29,23 +29,8 @@
 #endif
 
 // gyro configs
-#ifndef MEAN_GYRO_VAL
-#define MEAN_GYRO_VAL .532 ///< default mean gyro val; used when tuning gyro filter
-#endif
-#ifndef MIN_GYRO_VAL
-#define MIN_GYRO_VAL -4 ///< default min gyro val; used when tuning gyro filter
-#endif
-#ifndef MAX_GYRO_VAL
-#define MAX_GYRO_VAL 5 ///< default max gyro val; used when tuning gyro filter
-#endif
-#ifndef RAW_TO_360_DEGREES
-#define RAW_TO_360_DEGREES 7.5122 ///< default conversion from integrated gyro values to degrees
-#endif
 #ifndef GYRO_FUNCTION
 #define GYRO_FUNCTION gyro_y ///< the function to use for gyro movement, must return a signed short
-#endif
-#ifndef GYRO_CW_MULTIPLIER
-#define GYRO_CW_MULTIPLIER -1 ///< multiply by this so that + values are CW, - values are CCW
 #endif
 
 #endif

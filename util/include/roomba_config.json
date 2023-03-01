@@ -1,0 +1,7 @@
+{
+    "mean_gyro_val": -14.65013167983465,
+    "min_gyro_val": -19,
+    "max_gyro_val": -10,
+    "raw_to_360_degrees": 7.5122,
+    "gyro_cw_multiplier": -1
+}
