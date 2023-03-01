@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classConfig-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Config Class Reference<div class="ingroups"><a class="el" href="group__util__id.html">Utility</a></div></div>  </div>
@@ -73,6 +74,15 @@ $(function() {
  <a href="classConfig.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="json__config_8hpp_source.html">json_config.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Config:</div>
+<div class="dyncontent">
+<div class="center"><img src="classConfig__inherit__graph.png" border="0" usemap="#aConfig_inherit__map" alt="Inheritance graph"/></div>
+<map name="aConfig_inherit__map" id="aConfig_inherit__map">
+<area shape="rect" title="Class for loading values from json configs." alt="" coords="26,5,89,32"/>
+<area shape="rect" href="classPartialConfig.html" title=" " alt="" coords="5,80,109,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -83,18 +93,24 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#a543dce59b66475c5108088ee4ce1cdfc">~Config</a> ()</td></tr>
 <tr class="memdesc:a543dce59b66475c5108088ee4ce1cdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classConfig.html" title="Class for loading values from json configs.">Config</a> object. <br /></td></tr>
 <tr class="separator:a543dce59b66475c5108088ee4ce1cdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6df850c1930c9b2379ca13217610e89"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#ae6df850c1930c9b2379ca13217610e89">getInt</a> (std::string key)</td></tr>
+<tr class="memitem:ae6df850c1930c9b2379ca13217610e89"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#ae6df850c1930c9b2379ca13217610e89">getInt</a> (std::string key)</td></tr>
 <tr class="memdesc:ae6df850c1930c9b2379ca13217610e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of <code>key</code> as an integer.  <a href="classConfig.html#ae6df850c1930c9b2379ca13217610e89">More...</a><br /></td></tr>
 <tr class="separator:ae6df850c1930c9b2379ca13217610e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5fdb542c98e8f0d3ad83e6c63d404a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#ae5fdb542c98e8f0d3ad83e6c63d404a6">getDouble</a> (std::string key)</td></tr>
+<tr class="memitem:ae5fdb542c98e8f0d3ad83e6c63d404a6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#ae5fdb542c98e8f0d3ad83e6c63d404a6">getDouble</a> (std::string key)</td></tr>
 <tr class="memdesc:ae5fdb542c98e8f0d3ad83e6c63d404a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of <code>key</code> as a double.  <a href="classConfig.html#ae5fdb542c98e8f0d3ad83e6c63d404a6">More...</a><br /></td></tr>
 <tr class="separator:ae5fdb542c98e8f0d3ad83e6c63d404a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d3b545ab362de2bfba26b27c14ed27f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">getBool</a> (std::string key)</td></tr>
+<tr class="memitem:a2d3b545ab362de2bfba26b27c14ed27f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">getBool</a> (std::string key)</td></tr>
 <tr class="memdesc:a2d3b545ab362de2bfba26b27c14ed27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of <code>key</code> as a bool.  <a href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">More...</a><br /></td></tr>
 <tr class="separator:a2d3b545ab362de2bfba26b27c14ed27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41513a00a34aa6b6d81d232468d83c84"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#a41513a00a34aa6b6d81d232468d83c84">getString</a> (std::string key)</td></tr>
+<tr class="memitem:a41513a00a34aa6b6d81d232468d83c84"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#a41513a00a34aa6b6d81d232468d83c84">getString</a> (std::string key)</td></tr>
 <tr class="memdesc:a41513a00a34aa6b6d81d232468d83c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of <code>key</code> as a bool.  <a href="classConfig.html#a41513a00a34aa6b6d81d232468d83c84">More...</a><br /></td></tr>
 <tr class="separator:a41513a00a34aa6b6d81d232468d83c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:abfb06228ee2927a267e57d3865b92724"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConfig.html#abfb06228ee2927a267e57d3865b92724">loadConfig</a> (std::string json_file_name)</td></tr>
+<tr class="memdesc:abfb06228ee2927a267e57d3865b92724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load values from the given json file.  <a href="classConfig.html#abfb06228ee2927a267e57d3865b92724">More...</a><br /></td></tr>
+<tr class="separator:abfb06228ee2927a267e57d3865b92724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for loading values from json configs. </p>
@@ -133,6 +149,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool Config::getBool </td>
@@ -142,6 +161,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the value of <code>key</code> as a bool. </p>
@@ -166,6 +190,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double Config::getDouble </td>
@@ -175,6 +202,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the value of <code>key</code> as a double. </p>
@@ -201,6 +233,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Config::getInt </td>
@@ -210,6 +245,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the value of <code>key</code> as an integer. </p>
@@ -234,6 +274,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">string Config::getString </td>
@@ -243,6 +286,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the value of <code>key</code> as a bool. </p>
@@ -260,6 +308,41 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string the value stored at the given key, or an empty string if the key doesn't exist </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="json_loader_8hpp-example.html#a2">json_loader.hpp</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="abfb06228ee2927a267e57d3865b92724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb06228ee2927a267e57d3865b92724">&#9670;&nbsp;</a></span>loadConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Config::loadConfig </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>json_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load values from the given json file. </p>
+<p>deletes all previously stored values</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json_file_name</td><td>the json file to load configs from </td></tr>
+  </table>
+  </dd>
 </dl>
 
 </div>

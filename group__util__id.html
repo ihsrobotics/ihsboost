@@ -64,7 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Utility</div>  </div>
 </div><!--header-->
@@ -87,34 +88,30 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ga643b6b7ac15874197420e2adbea8b6bb"><td class="memItemLeft" align="right" valign="top"><a id="ga643b6b7ac15874197420e2adbea8b6bb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>&#160;&#160;&#160;&quot;/usr/local&quot;</td></tr>
+<tr class="memdesc:ga643b6b7ac15874197420e2adbea8b6bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">where ihsboost was installed <br /></td></tr>
+<tr class="separator:ga643b6b7ac15874197420e2adbea8b6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49040b944781ef44c3f9c5e5c19db781"><td class="memItemLeft" align="right" valign="top"><a id="ga49040b944781ef44c3f9c5e5c19db781"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>&#160;&#160;&#160;&quot;roomba_config.json&quot;</td></tr>
+<tr class="memdesc:ga49040b944781ef44c3f9c5e5c19db781"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the default robot config json <br /></td></tr>
+<tr class="separator:ga49040b944781ef44c3f9c5e5c19db781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="memItemLeft" align="right" valign="top"><a id="ga940ff30f2f6e6bbd99268b05bc0a4d09"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga940ff30f2f6e6bbd99268b05bc0a4d09">ROBOT_CONFIG_HPP</a>&#160;&#160;&#160;&quot;roomba_config.hpp&quot;</td></tr>
+<tr class="memdesc:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the default robot config hpp <br /></td></tr>
+<tr class="separator:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memItemLeft" align="right" valign="top"><a id="ga42bf63540ee0039a3a23db1b5ec3202b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>&#160;&#160;&#160;std::string(<a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>) + std::string(&quot;/include/ihsboost/&quot;) + std::string(<a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>)</td></tr>
+<tr class="memdesc:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="mdescLeft">&#160;</td><td class="mdescRight">file that holds tunable ihsboost variables <br /></td></tr>
+<tr class="separator:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gade14d86fa661eb05c30cfc98bfa55c84"><td class="memItemLeft" align="right" valign="top"><a id="gade14d86fa661eb05c30cfc98bfa55c84"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gade14d86fa661eb05c30cfc98bfa55c84">MOVEMENT_FUNCTION</a>&#160;&#160;&#160;create_drive_direct</td></tr>
 <tr class="memdesc:gade14d86fa661eb05c30cfc98bfa55c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">movement function for create's <br /></td></tr>
 <tr class="separator:gade14d86fa661eb05c30cfc98bfa55c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00a52895d7be287368750e4128c53aba"><td class="memItemLeft" align="right" valign="top"><a id="ga00a52895d7be287368750e4128c53aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>&#160;&#160;&#160;-0.6737848705181358</td></tr>
-<tr class="memdesc:ga00a52895d7be287368750e4128c53aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default mean gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga00a52895d7be287368750e4128c53aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memItemLeft" align="right" valign="top"><a id="ga7aa2ea798b7a82d78ae99398e7403686"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7aa2ea798b7a82d78ae99398e7403686">MIN_GYRO_VAL</a>&#160;&#160;&#160;-5</td></tr>
-<tr class="memdesc:ga7aa2ea798b7a82d78ae99398e7403686"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2724c3f615ff8262c6a5730685628b81"><td class="memItemLeft" align="right" valign="top"><a id="ga2724c3f615ff8262c6a5730685628b81"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga2724c3f615ff8262c6a5730685628b81">MAX_GYRO_VAL</a>&#160;&#160;&#160;3</td></tr>
-<tr class="memdesc:ga2724c3f615ff8262c6a5730685628b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">default max gyro val for the roomba; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga2724c3f615ff8262c6a5730685628b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae838ea484be2338f9d0231c6af237aba"><td class="memItemLeft" align="right" valign="top"><a id="gae838ea484be2338f9d0231c6af237aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
-<tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees on the roomba <br /></td></tr>
-<tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_x</td></tr>
 <tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
 <tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memItemLeft" align="right" valign="top"><a id="ga276842c6d0fe874daa0f60c7810e6a68"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga276842c6d0fe874daa0f60c7810e6a68">GYRO_CW_MULTIPLIER</a>&#160;&#160;&#160;-1</td></tr>
-<tr class="memdesc:ga276842c6d0fe874daa0f60c7810e6a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply by this so that + values are CW, - values are CCW <br /></td></tr>
-<tr class="separator:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f5f447d33b09e7475dad88f0e42ad0b"><td class="memItemLeft" align="right" valign="top"><a id="ga7f5f447d33b09e7475dad88f0e42ad0b"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7f5f447d33b09e7475dad88f0e42ad0b">LEFT_MOTOR</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ga7f5f447d33b09e7475dad88f0e42ad0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">default left motor port <br /></td></tr>
@@ -126,30 +123,10 @@ Macros</h2></td></tr>
 <tr class="memitem:ga8a488482337405a31b41072cc3aab0c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga8a488482337405a31b41072cc3aab0c1">MOVEMENT_FUNCTION</a>(lspeed,  rspeed)</td></tr>
 <tr class="memdesc:ga8a488482337405a31b41072cc3aab0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">movement function for small bots  <a href="group__util__id.html#ga8a488482337405a31b41072cc3aab0c1">More...</a><br /></td></tr>
 <tr class="separator:ga8a488482337405a31b41072cc3aab0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00a52895d7be287368750e4128c53aba"><td class="memItemLeft" align="right" valign="top"><a id="ga00a52895d7be287368750e4128c53aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga00a52895d7be287368750e4128c53aba">MEAN_GYRO_VAL</a>&#160;&#160;&#160;.532</td></tr>
-<tr class="memdesc:ga00a52895d7be287368750e4128c53aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default mean gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga00a52895d7be287368750e4128c53aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memItemLeft" align="right" valign="top"><a id="ga7aa2ea798b7a82d78ae99398e7403686"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga7aa2ea798b7a82d78ae99398e7403686">MIN_GYRO_VAL</a>&#160;&#160;&#160;-4</td></tr>
-<tr class="memdesc:ga7aa2ea798b7a82d78ae99398e7403686"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga7aa2ea798b7a82d78ae99398e7403686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2724c3f615ff8262c6a5730685628b81"><td class="memItemLeft" align="right" valign="top"><a id="ga2724c3f615ff8262c6a5730685628b81"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga2724c3f615ff8262c6a5730685628b81">MAX_GYRO_VAL</a>&#160;&#160;&#160;5</td></tr>
-<tr class="memdesc:ga2724c3f615ff8262c6a5730685628b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">default max gyro val; used when tuning gyro filter <br /></td></tr>
-<tr class="separator:ga2724c3f615ff8262c6a5730685628b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae838ea484be2338f9d0231c6af237aba"><td class="memItemLeft" align="right" valign="top"><a id="gae838ea484be2338f9d0231c6af237aba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gae838ea484be2338f9d0231c6af237aba">RAW_TO_360_DEGREES</a>&#160;&#160;&#160;7.5122</td></tr>
-<tr class="memdesc:gae838ea484be2338f9d0231c6af237aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">default conversion from integrated gyro values to degrees <br /></td></tr>
-<tr class="separator:gae838ea484be2338f9d0231c6af237aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa9878183c8c1126306cf9688c75187fc"><td class="memItemLeft" align="right" valign="top"><a id="gaa9878183c8c1126306cf9688c75187fc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gaa9878183c8c1126306cf9688c75187fc">GYRO_FUNCTION</a>&#160;&#160;&#160;gyro_y</td></tr>
 <tr class="memdesc:gaa9878183c8c1126306cf9688c75187fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function to use for gyro movement, must return a signed short <br /></td></tr>
 <tr class="separator:gaa9878183c8c1126306cf9688c75187fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memItemLeft" align="right" valign="top"><a id="ga276842c6d0fe874daa0f60c7810e6a68"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga276842c6d0fe874daa0f60c7810e6a68">GYRO_CW_MULTIPLIER</a>&#160;&#160;&#160;-1</td></tr>
-<tr class="memdesc:ga276842c6d0fe874daa0f60c7810e6a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply by this so that + values are CW, - values are CCW <br /></td></tr>
-<tr class="separator:ga276842c6d0fe874daa0f60c7810e6a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -165,6 +142,18 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga34803f82fa175c477affdcf45ce37336"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum representing which side of the line to follow on <br /></td></tr>
 <tr class="separator:ga34803f82fa175c477affdcf45ce37336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConfig.html">Config</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a> (std::string config_file=<a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>)</td></tr>
+<tr class="memdesc:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ihsboost config object holding all tunable ihsboost variables.  <a href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">More...</a><br /></td></tr>
+<tr class="separator:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6112b4fac02d1c97044803f88987d955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a> (std::string config_file)</td></tr>
+<tr class="memdesc:ga6112b4fac02d1c97044803f88987d955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load tunable ihsboost variables from the given config file.  <a href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">More...</a><br /></td></tr>
+<tr class="separator:ga6112b4fac02d1c97044803f88987d955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e46c0f8a4eea33821e25552375978d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">set_default_config</a> (std::string config_file)</td></tr>
+<tr class="memdesc:ga1e46c0f8a4eea33821e25552375978d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load tunable ihsboost variables from the given config file.  <a href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">More...</a><br /></td></tr>
+<tr class="separator:ga1e46c0f8a4eea33821e25552375978d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -201,6 +190,95 @@ Enumerations</h2></td></tr>
 <div class="ttc" id="agroup__util__id_html_gac9564ecabfd6f53bee9dc0742d63e19d"><div class="ttname"><a href="group__util__id.html#gac9564ecabfd6f53bee9dc0742d63e19d">RIGHT_MOTOR</a></div><div class="ttdeci">#define RIGHT_MOTOR</div><div class="ttdoc">default right motor port</div><div class="ttdef"><b>Definition:</b> small_bot_config.hpp:21</div></div>
 </div><!-- fragment -->
 <p>movement function for small bots </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gacc291cc27dcb13b6f2d1c08a7476fb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc291cc27dcb13b6f2d1c08a7476fb07">&#9670;&nbsp;</a></span>get_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classConfig.html">Config</a>&amp; get_config </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>config_file</em> = <code><a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the ihsboost config object holding all tunable ihsboost variables. </p>
+<p>The tunable ihsboost variables are: </p><ul>
+<li><code>mean_gyro_val</code> - the mean raw value returned by the gyro function </li>
+<li><code>min_gyro_val</code> - the min raw value returned by the gyro function </li>
+<li><code>max_gyro_val</code> - the max raw value returned by the gyro function </li>
+<li><code>raw_to_360_degrees</code> - multiplying accumulated gyro values by this should result in degrees </li>
+<li><code>gyro_cw_multiplier</code> - multiply by this number so that positive values represent CW rotation and negative values represent CCW rotation</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_file</td><td>the name of the config file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classConfig.html" title="Class for loading values from json configs.">Config</a>&amp; - the config </dd></dl>
+
+</div>
+</div>
+<a id="ga1e46c0f8a4eea33821e25552375978d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1e46c0f8a4eea33821e25552375978d1">&#9670;&nbsp;</a></span>set_default_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_default_config </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>config_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load tunable ihsboost variables from the given config file. </p>
+<p>The default config file should contain all the tunable ihsboost variables.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_file</td><td>the name of the config file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6112b4fac02d1c97044803f88987d955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6112b4fac02d1c97044803f88987d955">&#9670;&nbsp;</a></span>set_extra_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_extra_config </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>config_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load tunable ihsboost variables from the given config file. </p>
+<p>The extra config file doesn't need to contain all the tunable ihsboost variables</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_file</td><td>the name of the config file </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

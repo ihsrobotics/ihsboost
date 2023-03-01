@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['pidcontroller_186',['PIDController',['../classPIDController.html',1,'']]],
-  ['posixqcommunicator_187',['PosixQCommunicator',['../classPosixQCommunicator.html',1,'']]]
+  ['partialconfig_190',['PartialConfig',['../classPartialConfig.html',1,'']]],
+  ['pidcontroller_191',['PIDController',['../classPIDController.html',1,'']]],
+  ['posixqcommunicator_192',['PosixQCommunicator',['../classPosixQCommunicator.html',1,'']]]
 ];

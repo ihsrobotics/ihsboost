@@ -65,27 +65,73 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">config.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Stub file that includes which config to use.  
+<p>File for configuring ihsboost variables.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="roomba__config_8hpp_source.html">roomba_config.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="json__config_8hpp_source.html">json_config.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for config.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="config_8hpp__incl.png" border="0" usemap="#autil_2include_2config_8hpp" alt=""/></div>
 <map name="autil_2include_2config_8hpp" id="autil_2include_2config_8hpp">
-<area shape="rect" title="Stub file that includes which config to use." alt="" coords="5,5,171,32"/>
-<area shape="rect" href="roomba__config_8hpp.html" title="Movement and gyro configs for roomba." alt="" coords="15,80,161,107"/>
+<area shape="rect" title="File for configuring ihsboost variables." alt="" coords="15,5,180,32"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,80,159,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" title=" " alt="" coords="88,155,235,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="config_8hpp__dep__incl.png" border="0" usemap="#autil_2include_2config_8hppdep" alt=""/></div>
+<map name="autil_2include_2config_8hppdep" id="autil_2include_2config_8hppdep">
+<area shape="rect" title="File for configuring ihsboost variables." alt="" coords="5,5,171,32"/>
+<area shape="rect" href="all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="55,80,121,107"/>
 </map>
 </div>
 </div>
 <p><a href="config_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga643b6b7ac15874197420e2adbea8b6bb"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>&#160;&#160;&#160;&quot;/usr/local&quot;</td></tr>
+<tr class="memdesc:ga643b6b7ac15874197420e2adbea8b6bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">where ihsboost was installed <br /></td></tr>
+<tr class="separator:ga643b6b7ac15874197420e2adbea8b6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49040b944781ef44c3f9c5e5c19db781"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>&#160;&#160;&#160;&quot;roomba_config.json&quot;</td></tr>
+<tr class="memdesc:ga49040b944781ef44c3f9c5e5c19db781"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the default robot config json <br /></td></tr>
+<tr class="separator:ga49040b944781ef44c3f9c5e5c19db781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga940ff30f2f6e6bbd99268b05bc0a4d09">ROBOT_CONFIG_HPP</a>&#160;&#160;&#160;&quot;roomba_config.hpp&quot;</td></tr>
+<tr class="memdesc:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the default robot config hpp <br /></td></tr>
+<tr class="separator:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>&#160;&#160;&#160;std::string(<a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>) + std::string(&quot;/include/ihsboost/&quot;) + std::string(<a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>)</td></tr>
+<tr class="memdesc:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="mdescLeft">&#160;</td><td class="mdescRight">file that holds tunable ihsboost variables <br /></td></tr>
+<tr class="separator:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConfig.html">Config</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a> (std::string config_file=<a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>)</td></tr>
+<tr class="memdesc:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ihsboost config object holding all tunable ihsboost variables.  <a href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">More...</a><br /></td></tr>
+<tr class="separator:gacc291cc27dcb13b6f2d1c08a7476fb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6112b4fac02d1c97044803f88987d955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a> (std::string config_file)</td></tr>
+<tr class="memdesc:ga6112b4fac02d1c97044803f88987d955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load tunable ihsboost variables from the given config file.  <a href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">More...</a><br /></td></tr>
+<tr class="separator:ga6112b4fac02d1c97044803f88987d955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e46c0f8a4eea33821e25552375978d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">set_default_config</a> (std::string config_file)</td></tr>
+<tr class="memdesc:ga1e46c0f8a4eea33821e25552375978d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load tunable ihsboost variables from the given config file.  <a href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">More...</a><br /></td></tr>
+<tr class="separator:ga1e46c0f8a4eea33821e25552375978d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stub file that includes which config to use. </p>
+<div class="textblock"><p>File for configuring ihsboost variables. </p>
 <dl class="section author"><dt>Author</dt><dd>Eliot Hall </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-02-15</dd></dl>
