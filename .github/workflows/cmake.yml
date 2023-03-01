@@ -44,7 +44,7 @@ jobs:
           
     - name: Configure CMake
       # Configure ihsboost CMake in 'build' subdirectory.
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -Dwith_documentation=ON -Dpython_version=3.10 -G "Ninja"
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -Dwith_documentation=OFF -Dpython_version=3.10 -G "Ninja"
 
     - name: Build
       # Build your program with the given configuration
