@@ -43,7 +43,7 @@ public:
      * @param key the name of the key from the json file
      * @return int the value stored at the given key, or 0 if the key doesn't exist
      */
-    int getInt(std::string key);
+    virtual int getInt(std::string key);
 
     /**
      * @brief Get the value of `key` as a double
@@ -53,7 +53,7 @@ public:
      * @param key the name of the key from the json file
      * @return double the value stored at the given key, or 0 if the key doesn't exist
      */
-    double getDouble(std::string key);
+    virtual double getDouble(std::string key);
 
     /**
      * @brief Get the value of `key` as a bool
@@ -63,7 +63,7 @@ public:
      * @param key the name of the key from the json file
      * @return bool the value stored at the given key, or false if the key doesn't exist
      */
-    bool getBool(std::string key);
+    virtual bool getBool(std::string key);
 
     /**
      * @brief Get the value of `key` as a bool
@@ -73,7 +73,16 @@ public:
      * @param key the name of the key from the json file
      * @return std::string the value stored at the given key, or an empty string if the key doesn't exist
      */
-    std::string getString(std::string key);
+    virtual std::string getString(std::string key);
+
+protected:
+    /**
+     * @brief Load values from the given json file
+     * @details deletes all previously stored values
+     *
+     * @param json_file_name the json file to load configs from
+     */
+    void loadConfig(std::string json_file_name);
 
 private:
     Json::Value configs; ///< stores the key/value pairs for later retreival

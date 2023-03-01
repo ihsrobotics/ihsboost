@@ -1,0 +1,63 @@
+/**
+ * @file config.hpp
+ * @author Eliot Hall
+ * @brief File for configuring ihsboost variables
+ * @version 0.1
+ * @date 2023-02-15
+ *
+ * @copyright Copyright (c) 2023
+ *
+ * @addtogroup util_id
+ * @{
+ */
+#ifndef CONFIG_HPP
+#define CONFIG_HPP
+
+// master config variables
+#define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@" ///< where ihsboost was installed
+#define ROBOT_CONFIG_NAME "@robot_config_name@" ///< the name of the default robot config json
+#define ROBOT_CONFIG_HPP "@robot_config_hpp@"   ///< the name of the default robot config hpp
+
+// includes
+#include "json_config.hpp"
+#include ROBOT_CONFIG_HPP
+
+/// file that holds tunable ihsboost variables
+#ifndef CONFIG_FILE
+#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string("/include/ihsboost/") + std::string(ROBOT_CONFIG_NAME)
+#endif
+
+/**
+ * @brief Get the ihsboost config object holding all tunable ihsboost variables
+ * @details The tunable ihsboost variables are:
+ * @li `mean_gyro_val` - the mean raw value returned by the gyro function
+ * @li `min_gyro_val` - the min raw value returned by the gyro function
+ * @li `max_gyro_val` - the max raw value returned by the gyro function
+ * @li `raw_to_360_degrees` - multiplying accumulated gyro values by this should result in degrees
+ * @li `gyro_cw_multiplier` - multiply by this number so that positive values represent CW rotation and negative
+ * values represent CCW rotation
+ *
+ * @param config_file the name of the config file
+ * @return Config& - the config
+ */
+Config &get_config(std::string config_file = CONFIG_FILE);
+
+/**
+ * @brief Load tunable ihsboost variables from the given config file
+ * @details The extra config file doesn't need to contain all the tunable ihsboost
+ * variables
+ *
+ * @param config_file the name of the config file
+ */
+void set_extra_config(std::string config_file);
+
+/**
+ * @brief Load tunable ihsboost variables from the given config file
+ * @details The default config file should contain all the tunable ihsboost variables.
+ *
+ * @param config_file the name of the config file
+ */
+void set_default_config(std::string config_file);
+
+#endif
+/**@}*/

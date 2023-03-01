@@ -9,6 +9,11 @@ Config::Config(string json_file_name) : configs()
     file.close();
 }
 
+void Config::loadConfig(string json_file_name)
+{
+    *this = Config(json_file_name);
+}
+
 Config::~Config(){};
 
 int Config::getInt(string key)

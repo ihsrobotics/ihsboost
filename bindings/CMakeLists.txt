@@ -1,4 +1,4 @@
-option(python_verion "What python version to use" 3.9)
+set(python_version "3.9" CACHE STRING "Python version to use")
 
 # set install path
 set(python_install_path /usr/local/lib/python${python_version}/dist-packages)
@@ -14,7 +14,7 @@ message("using python 3.10")
 else()
     message("Invalid python version!")
 endif()
-find_library(python_libs boost_python${python_nodot_version})
+find_library(python_libs boost_python${python_nodot_version} REQUIRED)
 include_directories(/usr/include/python${python_version})
 
 # include all the correct directories

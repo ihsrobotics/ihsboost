@@ -16,7 +16,7 @@ using std::endl;
 double get_gyro_val()
 {
     signed short val = GYRO_FUNCTION();
-    return between(val, MIN_GYRO_VAL, MAX_GYRO_VAL) ? 0 : (static_cast<double>(val) - MEAN_GYRO_VAL) * GYRO_CW_MULTIPLIER;
+    return between(val, get_config().getDouble("min_gyro_val"), get_config().getDouble("max_gyro_val")) ? 0 : (static_cast<double>(val) - get_config().getDouble("mean_gyro_val")) * get_config().getDouble("gyro_cw_multiplier");
 }
 
 // helper function
@@ -59,7 +59,7 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double acc
     LinearController right_accelerator(from_speed.right, to_speed.right, accel_per_sec, updates_per_sec);
     double accumulator = 0;
     double multiplier = static_cast<double>(left_accelerator.get_msleep_time()) / 1000.0;
-    while ((degrees > 0 && accumulator < degrees * RAW_TO_360_DEGREES) || (degrees < 0 && accumulator > degrees * RAW_TO_360_DEGREES))
+    while ((degrees > 0 && accumulator < degrees * get_config().getDouble("raw_to_360_degrees")) || (degrees < 0 && accumulator > degrees * get_config().getDouble("raw_to_360_degrees")))
     {
         accumulator += get_gyro_val() * multiplier;
         MOVEMENT_FUNCTION(static_cast<int>(left_accelerator.speed()), static_cast<int>(right_accelerator.speed()));
@@ -91,8 +91,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
 
     // accelerating part of the turn, capped at 1/2 of the turn that way, if it didn't have enough time to accelerate,
     // it will still have enough time to decelerate from its current speed
-    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES / 2) ||
-           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES / 2))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * get_config().getDouble("raw_to_360_degrees") / 2) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * get_config().getDouble("raw_to_360_degrees") / 2))
     {
         speed = accelerator.speed();
         MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
@@ -109,8 +109,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     // do any extra turning that is needed
     MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
     while (cached_accumulator != 0 &&
-           ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES - cached_accumulator) ||
-            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES - cached_accumulator)))
+           ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * get_config().getDouble("raw_to_360_degrees") - cached_accumulator) ||
+            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * get_config().getDouble("raw_to_360_degrees") - cached_accumulator)))
     {
         msleep(accelerator.get_msleep_time());
     }
@@ -118,8 +118,8 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     // decelerate from current speed to min_speed, which should be close to 0
     LinearController decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
 
-    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * RAW_TO_360_DEGREES) ||
-           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * RAW_TO_360_DEGREES))
+    while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * get_config().getDouble("raw_to_360_degrees")) ||
+           (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * get_config().getDouble("raw_to_360_degrees")))
     {
         speed = decelerator.speed();
         MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
