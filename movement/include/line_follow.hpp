@@ -22,8 +22,10 @@
 #define PROPORTIONAL_CONSTANT .90               ///< default correction
 #define LINE_FOLLOW_LINEAR_ACCELERATION 500     ///< default linear acceleration
 #define LINE_FOLLOW_SINUSOIDAL_ACCELERATION 500 ///< default sinusoidal acceleration
+#define LINE_FOLLOW_STOP true                   ///< whether or not to default to a full stop after line following
 
 #define ALIGN_UPDATES_PER_SEC 500 ///< default updates per second when aligning
+#define ALIGN_STOP true           ///< whether or not to default to a full stop after align functions
 
 /**
  * @brief Returns whether or not a sensor reading is black
@@ -50,12 +52,13 @@ bool is_white(int val);
  * @param cliff_sensor Which cliff sensor to use \see Cliff
  * @param line_side which side of the line to follow at \see LineSide
  * @param stop_condition a function that returns true when it is time to stop line-following
+ * @param stop whether or not to do a full stop after finishing
  * @param correction_proportion how large the correction should be while line following, defaults to .90,
  * should be between (0, 1)
  * @param black_val value for black, defaults to 2000
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void line_follow_basic(int speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion = PROPORTIONAL_CONSTANT, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
+void line_follow_basic(int speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = LINE_FOLLOW_STOP, double correction_proportion = PROPORTIONAL_CONSTANT, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
 
 /**
  * @brief Line follow, but accelerate linearly
@@ -65,13 +68,14 @@ void line_follow_basic(int speed, Cliff cliff_sensor, LineSide line_side, std::f
  * @param cliff_sensor which cliff sensor to use \see Cliff
  * @param line_side which side of the line to follow at \see LineSide
  * @param stop_condition a function that returns true when it is time to stop line-following
+ * @param stop whether or not to do a full stop after finishing
  * @param correction_proportion how large the correction should be while line following, defaults to .90,
  * should be between (0, 1)
  * @param accel_per_sec how fast to accelerate, defaults to 500
  * @param black_val value for black, defaults to 2000
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_LINEAR_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
+void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = LINE_FOLLOW_STOP, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_LINEAR_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
 
 /**
  * @brief Line follow, but accelerate sinusoidally
@@ -81,13 +85,14 @@ void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sen
  * @param cliff_sensor which cliff sensor to use \see Cliff
  * @param line_side which side of the line to follow at \see LineSide
  * @param stop_condition a function that returns true when it is time to stop line-following
+ * @param stop whether or not to do a full stop after finishing
  * @param correction_proportion how large the correction should be while line following, defaults to .90,
  * should be between (0, 1)
  * @param accel_per_sec how fast to accelerate, defaults to 500
  * @param black_val value for black, defaults to 2000
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_SINUSOIDAL_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
+void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = LINE_FOLLOW_STOP, double correction_proportion = PROPORTIONAL_CONSTANT, int accel_per_sec = LINE_FOLLOW_SINUSOIDAL_ACCELERATION, int black_val = BLACK, int updates_per_sec = LINE_FOLLOW_UPDATES_PER_SEC);
 
 /**
  * @brief Align with black, meaning keep moving until both `cliff_sensor_l` and `cliff_sensor_r` are on black.
@@ -96,9 +101,10 @@ void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff
  * @param correction_speed the speed to go at once on black
  * @param cliff_sensor_l the left cliff sensor to use
  * @param cliff_sensor_r the right cliff sensor to use
+ * @param stop whether or not to do a full stop after aligning
  * @param updates_per_second how many updates to do per second.
  */
-void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second = ALIGN_UPDATES_PER_SEC);
+void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop = ALIGN_STOP, int updates_per_second = ALIGN_UPDATES_PER_SEC);
 
 /**
  * @brief Align with white, meaning keep moving until both `cliff_sensor_l` and `cliff_sensor_r` are on white.
@@ -107,9 +113,10 @@ void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cli
  * @param correction_speed the speed to go at once on white
  * @param cliff_sensor_l the left cliff sensor to use
  * @param cliff_sensor_r the right cliff sensor to use
+ * @param stop whether or not to do a full stop after aligning
  * @param updates_per_second how many updates to do per second.
  */
-void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second = ALIGN_UPDATES_PER_SEC);
+void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop = ALIGN_STOP, int updates_per_second = ALIGN_UPDATES_PER_SEC);
 
 #endif
 /**@}*/
