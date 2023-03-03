@@ -109,6 +109,10 @@ void encoder_drive_straight(int speed, std::function<bool()> condition, bool sto
     {
         create_drive_direct(0, 0);
     }
+    else
+    {
+        create_drive_direct(speed, speed);
+    }
 }
 
 void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
