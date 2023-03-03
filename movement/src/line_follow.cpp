@@ -84,7 +84,7 @@ void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff
     line_follow_accelerate(cliff_sensor, line_side, stop_condition, accelerator, correction_proportion, black_val);
 }
 
-void align(std::function<bool(int)> condition, int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second)
+void align(std::function<bool(int)> condition, int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop, int updates_per_second)
 {
     std::function<int()> l_sensor = get_sensor(cliff_sensor_l);
     std::function<int()> r_sensor = get_sensor(cliff_sensor_r);
@@ -108,15 +108,22 @@ void align(std::function<bool(int)> condition, int speed, int correction_speed, 
         msleep(1000 / updates_per_second);
     }
 
-    create_drive_direct(0, 0);
+    if (stop)
+    {
+        create_drive_direct(0, 0);
+    }
+    else
+    {
+        create_drive_direct(speed, speed);
+    }
 }
 
-void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second)
+void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop, int updates_per_second)
 {
-    align(is_white, speed, correction_speed, cliff_sensor_l, cliff_sensor_r, updates_per_second);
+    align(is_white, speed, correction_speed, cliff_sensor_l, cliff_sensor_r, stop, updates_per_second);
 }
 
-void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, int updates_per_second)
+void align_with_white(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop, int updates_per_second)
 {
-    align(is_black, speed, correction_speed, cliff_sensor_l, cliff_sensor_r, updates_per_second);
+    align(is_black, speed, correction_speed, cliff_sensor_l, cliff_sensor_r, stop, updates_per_second);
 }

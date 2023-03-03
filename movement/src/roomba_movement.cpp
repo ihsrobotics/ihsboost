@@ -78,7 +78,7 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
     renc_prev = r_temp;
 }
 
-void encoder_drive_straight(int speed, std::function<bool()> condition, double correction_proportion, int updates_per_sec)
+void encoder_drive_straight(int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec)
 {
     // initialize encoder variables
     int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
@@ -105,10 +105,13 @@ void encoder_drive_straight(int speed, std::function<bool()> condition, double c
     }
 
     // stop at the end
-    create_drive_direct(0, 0);
+    if (stop)
+    {
+        create_drive_direct(0, 0);
+    }
 }
 
-void encoder_drive_straight(int max_speed, double cm, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
+void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
     // initialize misc
     double cached_distance = 0;
@@ -216,7 +219,14 @@ void encoder_drive_straight(int max_speed, double cm, int min_speed, double corr
         // update encoders
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
     }
-    create_drive_direct(0, 0);
+    if (stop)
+    {
+        create_drive_direct(0, 0);
+    }
+    else
+    {
+        create_drive_direct(min_speed, min_speed);
+    }
 }
 
 double process_speed(double correction_val, double regular_val, int min_speed)
@@ -232,7 +242,7 @@ double process_speed(double correction_val, double regular_val, int min_speed)
     return correction_val + regular_val;
 }
 
-void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed, double accel_per_sec, int updates_per_second)
+void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, bool stop, int min_speed, double accel_per_sec, int updates_per_second)
 {
     // so apparently create_drive_direct is rly in encoders/sec, not mm/sec
     create_drive_direct(0, 0);
@@ -367,7 +377,14 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
         ++updates;
     }
-    create_drive_direct(0, 0);
+    if (stop)
+    {
+        create_drive_direct(0, 0);
+    }
+    else
+    {
+        create_drive_direct(min_speed, min_speed);
+    }
 }
 
 void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
