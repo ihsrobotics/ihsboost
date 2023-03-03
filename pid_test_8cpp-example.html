@@ -79,7 +79,7 @@ $(function() {
 <div class="line">    instance-&gt;setRefreshRate(8);</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i)</div>
 <div class="line">    {</div>
-<div class="line">        <a name="a0"></a><a class="code" href="group__movement__id.html#ga4c304a78bbce527cd50adba55dc083a7">encoder_drive_straight_pid</a>(200, 200, .4, 0.25, 0);</div>
+<div class="line">        <a name="a0"></a><a class="code" href="group__movement__id.html#ga9b2d5794121a5e15c4a5e7cf738e505d">encoder_drive_straight_pid</a>(200, 200, .4, 0.25, 0);</div>
 <div class="line">        <a name="a1"></a><a class="code" href="group__movement__id.html#ga588fde3d9582e4c396fd704ed2a5b45f">encoder_turn_degrees</a>(300, (i % 2 == 0 ? 1 : -1) * 180);</div>
 <div class="line">    }</div>
 <div class="line">    instance-&gt;stop();</div>
@@ -87,8 +87,8 @@ $(function() {
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga4c304a78bbce527cd50adba55dc083a7"><div class="ttname"><a href="group__movement__id.html#ga4c304a78bbce527cd50adba55dc083a7">encoder_drive_straight_pid</a></div><div class="ttdeci">void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, int min_speed=ROOMBA_MIN_SPEED, double accel_per_sec=ROOMBA_ACCEL_PER_SEC, int updates_per_second=ROOMBA_UPDATES_PER_SEC)</div><div class="ttdoc">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:235</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga588fde3d9582e4c396fd704ed2a5b45f"><div class="ttname"><a href="group__movement__id.html#ga588fde3d9582e4c396fd704ed2a5b45f">encoder_turn_degrees</a></div><div class="ttdeci">void encoder_turn_degrees(int max_speed, int degrees, int min_speed=ROOMBA_MIN_SPEED, double accel_per_sec=ROOMBA_ACCEL_PER_SEC, int updates_per_sec=ROOMBA_UPDATES_PER_SEC)</div><div class="ttdoc">Turns a certain number of degrees using create encoders.</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:373</div></div>
+<div class="ttc" id="agroup__movement__id_html_ga588fde3d9582e4c396fd704ed2a5b45f"><div class="ttname"><a href="group__movement__id.html#ga588fde3d9582e4c396fd704ed2a5b45f">encoder_turn_degrees</a></div><div class="ttdeci">void encoder_turn_degrees(int max_speed, int degrees, int min_speed=ROOMBA_MIN_SPEED, double accel_per_sec=ROOMBA_ACCEL_PER_SEC, int updates_per_sec=ROOMBA_UPDATES_PER_SEC)</div><div class="ttdoc">Turns a certain number of degrees using create encoders.</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:390</div></div>
+<div class="ttc" id="agroup__movement__id_html_ga9b2d5794121a5e15c4a5e7cf738e505d"><div class="ttname"><a href="group__movement__id.html#ga9b2d5794121a5e15c4a5e7cf738e505d">encoder_drive_straight_pid</a></div><div class="ttdeci">void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, bool stop=ROOMBA_STOP, int min_speed=ROOMBA_MIN_SPEED, double accel_per_sec=ROOMBA_ACCEL_PER_SEC, int updates_per_second=ROOMBA_UPDATES_PER_SEC)</div><div class="ttdoc">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:245</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
