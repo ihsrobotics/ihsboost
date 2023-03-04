@@ -15,7 +15,6 @@
 
 #include "threading.hpp"
 #include <functional>
-#include <kipr/wombat.h>
 
 /**
  * @brief Integrate values returned by the given function

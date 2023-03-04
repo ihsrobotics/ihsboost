@@ -1,5 +1,7 @@
 #include <ihsboost/all.hpp>
 #include <boost/python.hpp>
+#include <sstream>
+#include <string>
 
 // actually used functions
 template <typename T, typename Container>
@@ -61,10 +63,18 @@ boost::python::list receive_bools(Communicator *communicator)
     return receive_type<bool>(communicator);
 }
 
+std::string print_speed(Speed &s)
+{
+    std::ostringstream o;
+    o << "(" << s.left << ", " << s.right << ")";
+    return o.str();
+}
+
 BOOST_PYTHON_MODULE(ihs_bindings)
 {
     using namespace boost::python;
 
+    // communicate section
     // classes
     class_<Communicator, boost::noncopyable>("CommunicatorBase", no_init);
     class_<SocketServer, bases<Communicator>>("SocketServer", init<int, optional<int>>("Start a socket server on the given port. Messages will have max size of `max_msg_size`.\n\t@param port - what port to host on \n\t@param max_msg_size the maximum size for messages"));
@@ -88,4 +98,33 @@ BOOST_PYTHON_MODULE(ihs_bindings)
     // booleans
     def("receive_bools", receive_bools, "Receive a list of booleans from the communicator.\n\t@param communicator - the communicator to receive messages through.\nExceptions:\n\tBoost.Python.ArgumentError - happens when passed arguments are of incorrect types\n\tTypeError - happens when c++ is unable to automatically typecast one of the arguments provided to the desired type");
     def("send_bools", send_bools, "Send a list of booleans through the communicator.\n\t@param communicator - the communicator to send the message with\n\t@param bools - the list of booleans to send\nExceptions:\n\tRuntimeError (BadBufCastException) - happens when trying to retreive the wrong type of values from the communicator");
+
+    // util section
+    class_<Speed>("Speed", init<int, int>("Construct a Speed object\n\t@param left_speed - the speed of the left wheel\n\t@param right_speed - the speed of the right wheel"))
+        .def("__eq__", &Speed::operator==)
+        .def("__add__", &Speed::operator+)
+        .def("__sub__", &Speed::operator-)
+        .def_readwrite("left", &Speed::left)
+        .def_readwrite("right", &Speed::right)
+        .def("__repr__", print_speed);
+
+    class_<Timer>("Timer", init<double>("Construct a Timer object\n\t@param time - how long to set the timer for, in seconds"))
+        .def("__call__", &Timer::operator(), "Returns false until it is time to stop (when it has been `time` seconds)\n\t@return true - once it has been `time` seconds\n\t@return false - if it hasn't been `time` seconds yet")
+        .def("done", &Timer::operator(), "Returns false until it is time to stop (when it has been `time` seconds)\n\t@return true - once it has been `time` seconds\n\t@return false - if it hasn't been `time` seconds yet");
+    def("set_extra_config", set_extra_config, "Load tunable ihsboost variables from the given config file\n\t@details The extra config file doesn't need to contain all the tunable ihsboost variables\n\t@param config_file the name of the config file");
+    def("set_default_config", set_default_config, "Load tunable ihsboost variables from the given config file\n\t@details The default config file should contain all the tunable ihsboost variables.\n\t@param config_file the name of the config file");
+
+    // servos
+    def("move_servo_slowly", move_servo_slowly, "Move a servo slowly to its goal position\n\t@param port the port where the servo is\n\t@param position the goal position to move the servo to\n\t@param speed how fast to move the servo, in ticks per second. Defaults to 200\n\t@param updates_per_sec How many updates to do per second, defaults to 100");
+
+    // threading
+    // N/A, python already has good threading
+
+    // create_extra
+    class_<CreateExtraController>("CreateExtraController", no_init)
+        .def("run_main_brush", &CreateExtraController::run_main_brush, "Run the main brush at the specified speed\n\t@details positive values cause it to turn inwards,\n\tnegative values cause it to turn outwards\n\t\n\t@param speed How fast to turn the main brush, ranges from -127 to 127")
+        .def("run_side_brush", &CreateExtraController::run_side_brush, "Run the side brush at the specified speed\n\t@details positive values cause it to turn CCW,\n\tnegative values cause it to turn CW\n\t\n\t@param speed How fast to turn the side brush, ranges from -127 to 127")
+        .def("run_vacuum", &CreateExtraController::run_vacuum, "Run the vacuum at the specified speed\n\t@details only positive values are valid.\n\t\n\t@param speed How fast to turn the vacuum, ranges from 0 to 127");
+
+    // movement
 };
