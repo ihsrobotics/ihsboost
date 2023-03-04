@@ -85,11 +85,11 @@ MessageBuf SocketServer::receive_msg()
     return m;
 }
 
-SocketClient::SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size) : Communicator(max_msg_size), ipv4_addr(ipv4_addr), port(port)
+SocketClient::SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
-SocketClient::SocketClient(const char *ipv4_addr, int port) : Communicator(), ipv4_addr(ipv4_addr), port(port)
+SocketClient::SocketClient(const char *ipv4_addr, int port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }

@@ -16,6 +16,14 @@ public:
      */
     PartialConfig() : Config(CONFIG_FILE), extra_config(nullptr){};
 
+    virtual ~PartialConfig()
+    {
+        if (extra_config != nullptr)
+        {
+            delete extra_config;
+        }
+    }
+
     /**
      * @brief load extra configs from the config file
      *

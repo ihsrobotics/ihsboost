@@ -82,10 +82,9 @@ void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double acce
     Accumulator gyro_accumulator(get_gyro_val, 200);
 
     double cached_accumulator = 0;
-    double speed;
+    double speed = accelerator.speed();
     int left_sign = (degrees > 0) ? 1 : -1;
     int right_sign = (degrees > 0) ? -1 : 1;
-    double multiplier = static_cast<double>(accelerator.get_msleep_time()) / 1000.0;
 
     gyro_accumulator.start_accumulating();
 

@@ -44,7 +44,7 @@ bool SinusoidalController::done()
     return _num_steps >= necessary_updates;
 }
 
-PIDController::PIDController(double Kp, double Ki, double Kd, int updates_per_second) : Kp(Kp), Ki(Ki), Kd(Kd), dt(1.0 / updates_per_second), error_integral(0), past_error(0){};
+PIDController::PIDController(double Kp, double Ki, double Kd, int updates_per_second) : Kp(Kp), Ki(Ki), Kd(Kd), error_integral(0), past_error(0), dt(1.0 / updates_per_second), cur_speed(0){};
 
 void PIDController::step(double error)
 {

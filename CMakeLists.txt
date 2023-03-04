@@ -21,6 +21,7 @@ option(build_library "build_library" ON)
 if (${build_library})
     add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
+    add_compile_options("-Wall")
 
     find_library(json_libs jsoncpp REQUIRED)
     
