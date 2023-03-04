@@ -115,7 +115,7 @@ void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed, double a
     }
 
     // decelerate from current speed to min_speed, which should be close to 0
-    LinearController decelerator(speed, min_speed, accel_per_sec, updates_per_sec);
+    LinearController decelerator(static_cast<int>(speed), min_speed, accel_per_sec, updates_per_sec);
 
     while ((degrees > 0 && gyro_accumulator.get_accumulator() < degrees * get_config().getDouble("raw_to_360_degrees")) ||
            (degrees < 0 && gyro_accumulator.get_accumulator() > degrees * get_config().getDouble("raw_to_360_degrees")))

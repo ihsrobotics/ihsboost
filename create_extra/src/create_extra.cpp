@@ -23,7 +23,7 @@ void CreateExtraController::run_vacuum(int8_t speed)
 
 void CreateExtraController::transfer()
 {
-    create_write_byte(144);
+    create_write_byte(static_cast<int8_t>(144));
     create_write_byte(main_brush_speed);
     create_write_byte(side_brush_speed);
     create_write_byte(vacuum_speed);
