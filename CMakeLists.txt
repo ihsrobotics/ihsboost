@@ -36,6 +36,7 @@ if (${build_library})
     include_directories(threading/include)
     include_directories(servos/include)
     include_directories(communicate/include)
+    include_directories(create_extra/include)
 
     get_property(local_ihs_sources GLOBAL PROPERTY IHS_SOURCES)
     message("Sources are" ${local_ihs_sources})
