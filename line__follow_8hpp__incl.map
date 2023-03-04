@@ -1,7 +1,11 @@
 <map id="movement/include/line_follow.hpp" name="movement/include/line_follow.hpp">
-<area shape="rect" id="node1" title="Line follow functions." alt="" coords="78,5,250,47"/>
-<area shape="rect" id="node2" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,95,80,121"/>
-<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="105,95,223,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="247,95,334,121"/>
-<area shape="rect" id="node4" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="119,169,209,196"/>
+<area shape="rect" id="node1" title="Line follow functions." alt="" coords="169,5,341,47"/>
+<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="135,95,254,121"/>
+<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,169,142,196"/>
+<area shape="rect" id="node8" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="277,95,352,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="377,95,463,121"/>
+<area shape="rect" id="node7" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,169,255,196"/>
+<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,244,159,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,319,64,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="88,319,235,345"/>
 </map>

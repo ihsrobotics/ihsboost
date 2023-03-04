@@ -66,7 +66,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">line_follow.hpp File Reference</div>  </div>
@@ -75,19 +74,24 @@ $(function() {
 
 <p>Line follow functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="cliff_8hpp_source.html">cliff.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="accelerate_8hpp_source.html">accelerate.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="accelerate_8hpp_source.html">accelerate.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cliff_8hpp_source.html">cliff.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for line_follow.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="line__follow_8hpp__incl.png" border="0" usemap="#amovement_2include_2line__follow_8hpp" alt=""/></div>
 <map name="amovement_2include_2line__follow_8hpp" id="amovement_2include_2line__follow_8hpp">
-<area shape="rect" title="Line follow functions." alt="" coords="78,5,250,47"/>
-<area shape="rect" href="cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,95,80,121"/>
-<area shape="rect" href="accelerate_8hpp.html" title="Acceleration functions." alt="" coords="105,95,223,121"/>
-<area shape="rect" title=" " alt="" coords="247,95,334,121"/>
-<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="119,169,209,196"/>
+<area shape="rect" title="Line follow functions." alt="" coords="169,5,341,47"/>
+<area shape="rect" href="accelerate_8hpp.html" title="Acceleration functions." alt="" coords="135,95,254,121"/>
+<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,169,142,196"/>
+<area shape="rect" href="cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="277,95,352,121"/>
+<area shape="rect" title=" " alt="" coords="377,95,463,121"/>
+<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,169,255,196"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,244,159,271"/>
+<area shape="rect" title=" " alt="" coords="5,319,64,345"/>
+<area shape="rect" title=" " alt="" coords="88,319,235,345"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -102,41 +106,6 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="line__follow_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga7b3b25cba33b07c303f3060fe41887f6"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>&#160;&#160;&#160;2000</td></tr>
-<tr class="memdesc:ga7b3b25cba33b07c303f3060fe41887f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">greater than this value is white, less than is black <br /></td></tr>
-<tr class="separator:ga7b3b25cba33b07c303f3060fe41887f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabce2207896f7035377113b27d3ca8757"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gabce2207896f7035377113b27d3ca8757">LINE_FOLLOW_UPDATES_PER_SEC</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memdesc:gabce2207896f7035377113b27d3ca8757"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second when line following <br /></td></tr>
-<tr class="separator:gabce2207896f7035377113b27d3ca8757"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga413db9cda98f86d50cf4a1229496261f"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga413db9cda98f86d50cf4a1229496261f">PROPORTIONAL_CONSTANT</a>&#160;&#160;&#160;.90</td></tr>
-<tr class="memdesc:ga413db9cda98f86d50cf4a1229496261f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default correction <br /></td></tr>
-<tr class="separator:ga413db9cda98f86d50cf4a1229496261f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd430ed6b550ce3a352dd7f5a22356c3"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gabd430ed6b550ce3a352dd7f5a22356c3">LINE_FOLLOW_LINEAR_ACCELERATION</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memdesc:gabd430ed6b550ce3a352dd7f5a22356c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">default linear acceleration <br /></td></tr>
-<tr class="separator:gabd430ed6b550ce3a352dd7f5a22356c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d231c197a86569f94d810114ac81a77"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga5d231c197a86569f94d810114ac81a77">LINE_FOLLOW_SINUSOIDAL_ACCELERATION</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memdesc:ga5d231c197a86569f94d810114ac81a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">default sinusoidal acceleration <br /></td></tr>
-<tr class="separator:ga5d231c197a86569f94d810114ac81a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf0ce9fcf0c121b72433477cb32f93f49"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf0ce9fcf0c121b72433477cb32f93f49">LINE_FOLLOW_STOP</a>&#160;&#160;&#160;true</td></tr>
-<tr class="memdesc:gaf0ce9fcf0c121b72433477cb32f93f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not to default to a full stop after line following <br /></td></tr>
-<tr class="separator:gaf0ce9fcf0c121b72433477cb32f93f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8a5fed4a6accbd4486b0b136ddb424ad"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga8a5fed4a6accbd4486b0b136ddb424ad">ALIGN_UPDATES_PER_SEC</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memdesc:ga8a5fed4a6accbd4486b0b136ddb424ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second when aligning <br /></td></tr>
-<tr class="separator:ga8a5fed4a6accbd4486b0b136ddb424ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d0a3806d6b3bf1b1efb07ebb395f898"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6d0a3806d6b3bf1b1efb07ebb395f898">ALIGN_STOP</a>&#160;&#160;&#160;true</td></tr>
-<tr class="memdesc:ga6d0a3806d6b3bf1b1efb07ebb395f898"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not to default to a full stop after align functions <br /></td></tr>
-<tr class="separator:ga6d0a3806d6b3bf1b1efb07ebb395f898"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">is_black</a> (int val)</td></tr>
@@ -145,21 +114,21 @@ Functions</h2></td></tr>
 <tr class="memitem:ga7334adea3fb0033440b2cb0a31a9f7b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7334adea3fb0033440b2cb0a31a9f7b9">is_white</a> (int val)</td></tr>
 <tr class="memdesc:ga7334adea3fb0033440b2cb0a31a9f7b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not a sensor reading is white.  <a href="group__movement__id.html#ga7334adea3fb0033440b2cb0a31a9f7b9">More...</a><br /></td></tr>
 <tr class="separator:ga7334adea3fb0033440b2cb0a31a9f7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaea3eaf06178db6a29c64630ddea3a9ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaea3eaf06178db6a29c64630ddea3a9ed">line_follow_basic</a> (int speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__movement__id.html#gaf0ce9fcf0c121b72433477cb32f93f49">LINE_FOLLOW_STOP</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga413db9cda98f86d50cf4a1229496261f">PROPORTIONAL_CONSTANT</a>, int black_val=<a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gabce2207896f7035377113b27d3ca8757">LINE_FOLLOW_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gaea3eaf06178db6a29c64630ddea3a9ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow at a given speed.  <a href="group__movement__id.html#gaea3eaf06178db6a29c64630ddea3a9ed">More...</a><br /></td></tr>
-<tr class="separator:gaea3eaf06178db6a29c64630ddea3a9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga21efeaa04e8d4b9617b4ae2a627b7db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga21efeaa04e8d4b9617b4ae2a627b7db7">line_follow_accelerate_linear</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__movement__id.html#gaf0ce9fcf0c121b72433477cb32f93f49">LINE_FOLLOW_STOP</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga413db9cda98f86d50cf4a1229496261f">PROPORTIONAL_CONSTANT</a>, int accel_per_sec=<a class="el" href="group__movement__id.html#gabd430ed6b550ce3a352dd7f5a22356c3">LINE_FOLLOW_LINEAR_ACCELERATION</a>, int black_val=<a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gabce2207896f7035377113b27d3ca8757">LINE_FOLLOW_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga21efeaa04e8d4b9617b4ae2a627b7db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate linearly.  <a href="group__movement__id.html#ga21efeaa04e8d4b9617b4ae2a627b7db7">More...</a><br /></td></tr>
-<tr class="separator:ga21efeaa04e8d4b9617b4ae2a627b7db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab5bbd7bf7e62b29071913621aab09854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab5bbd7bf7e62b29071913621aab09854">line_follow_accelerate_sinusoidal</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__movement__id.html#gaf0ce9fcf0c121b72433477cb32f93f49">LINE_FOLLOW_STOP</a>, double correction_proportion=<a class="el" href="group__movement__id.html#ga413db9cda98f86d50cf4a1229496261f">PROPORTIONAL_CONSTANT</a>, int accel_per_sec=<a class="el" href="group__movement__id.html#ga5d231c197a86569f94d810114ac81a77">LINE_FOLLOW_SINUSOIDAL_ACCELERATION</a>, int black_val=<a class="el" href="group__movement__id.html#ga7b3b25cba33b07c303f3060fe41887f6">BLACK</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gabce2207896f7035377113b27d3ca8757">LINE_FOLLOW_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gab5bbd7bf7e62b29071913621aab09854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate sinusoidally.  <a href="group__movement__id.html#gab5bbd7bf7e62b29071913621aab09854">More...</a><br /></td></tr>
-<tr class="separator:gab5bbd7bf7e62b29071913621aab09854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6096345dbd82721546aa2a637b923869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6096345dbd82721546aa2a637b923869">align_with_black</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__movement__id.html#ga6d0a3806d6b3bf1b1efb07ebb395f898">ALIGN_STOP</a>, int updates_per_second=<a class="el" href="group__movement__id.html#ga8a5fed4a6accbd4486b0b136ddb424ad">ALIGN_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga6096345dbd82721546aa2a637b923869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with black, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on black.  <a href="group__movement__id.html#ga6096345dbd82721546aa2a637b923869">More...</a><br /></td></tr>
-<tr class="separator:ga6096345dbd82721546aa2a637b923869"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga71653b497973c6ce2b74c97a099e23e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga71653b497973c6ce2b74c97a099e23e4">align_with_white</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__movement__id.html#ga6d0a3806d6b3bf1b1efb07ebb395f898">ALIGN_STOP</a>, int updates_per_second=<a class="el" href="group__movement__id.html#ga8a5fed4a6accbd4486b0b136ddb424ad">ALIGN_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga71653b497973c6ce2b74c97a099e23e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with white, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on white.  <a href="group__movement__id.html#ga71653b497973c6ce2b74c97a099e23e4">More...</a><br /></td></tr>
-<tr class="separator:ga71653b497973c6ce2b74c97a099e23e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad281bbf502aa91f48b3e6501db1982f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gad281bbf502aa91f48b3e6501db1982f0">line_follow_basic</a> (int speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gad281bbf502aa91f48b3e6501db1982f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow at a given speed.  <a href="group__movement__id.html#gad281bbf502aa91f48b3e6501db1982f0">More...</a><br /></td></tr>
+<tr class="separator:gad281bbf502aa91f48b3e6501db1982f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ed3a6676a9f13470ed29930971c4434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4ed3a6676a9f13470ed29930971c4434">line_follow_accelerate_linear</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_linear_acceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga4ed3a6676a9f13470ed29930971c4434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate linearly.  <a href="group__movement__id.html#ga4ed3a6676a9f13470ed29930971c4434">More...</a><br /></td></tr>
+<tr class="separator:ga4ed3a6676a9f13470ed29930971c4434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1c094a12a20d6ab489c3a28c2086f15e">line_follow_accelerate_sinusoidal</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_sinusoidal_aceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate sinusoidally.  <a href="group__movement__id.html#ga1c094a12a20d6ab489c3a28c2086f15e">More...</a><br /></td></tr>
+<tr class="separator:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45c6360af2fcee806597329ffa3400a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">align_with_black</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;align_stop&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;align_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga45c6360af2fcee806597329ffa3400a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with black, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on black.  <a href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">More...</a><br /></td></tr>
+<tr class="separator:ga45c6360af2fcee806597329ffa3400a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gafe29ef60cc3f3ab9dd44cb96ea19a93a">align_with_white</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;align_stop&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;align_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with white, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on white.  <a href="group__movement__id.html#gafe29ef60cc3f3ab9dd44cb96ea19a93a">More...</a><br /></td></tr>
+<tr class="separator:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Line follow functions. </p>

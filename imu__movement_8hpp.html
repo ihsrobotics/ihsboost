@@ -66,7 +66,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">imu_movement.hpp File Reference</div>  </div>
@@ -75,16 +74,21 @@ $(function() {
 
 <p>IMU (gyro/accel) based movement functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="speed_8hpp_source.html">speed.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="speed_8hpp_source.html">speed.hpp</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for imu_movement.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="imu__movement_8hpp__incl.png" border="0" usemap="#amovement_2include_2imu__movement_8hpp" alt=""/></div>
 <map name="amovement_2include_2imu__movement_8hpp" id="amovement_2include_2imu__movement_8hpp">
-<area shape="rect" title="IMU (gyro/accel) based movement functions." alt="" coords="19,5,193,47"/>
-<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="5,95,95,121"/>
-<area shape="rect" title=" " alt="" coords="119,95,205,121"/>
+<area shape="rect" title="IMU (gyro/accel) based movement functions." alt="" coords="124,5,297,47"/>
+<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,95,142,121"/>
+<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,95,255,121"/>
+<area shape="rect" title=" " alt="" coords="279,95,366,121"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,169,159,196"/>
+<area shape="rect" title=" " alt="" coords="5,244,64,271"/>
+<area shape="rect" title=" " alt="" coords="88,244,235,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -99,36 +103,17 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="imu__movement_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga7d8d8958fff3f16e78407ff58926b062"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memdesc:ga7d8d8958fff3f16e78407ff58926b062"><td class="mdescLeft">&#160;</td><td class="mdescRight">default accel for gyro functions <br /></td></tr>
-<tr class="separator:ga7d8d8958fff3f16e78407ff58926b062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7ead6af8991a258d78d5ee02ae6f54c"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>&#160;&#160;&#160;200</td></tr>
-<tr class="memdesc:gaa7ead6af8991a258d78d5ee02ae6f54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second for gyro functions <br /></td></tr>
-<tr class="separator:gaa7ead6af8991a258d78d5ee02ae6f54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga23cc77d7bf5c5938525ef42bf2e18062"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga23cc77d7bf5c5938525ef42bf2e18062">GYRO_CORRECTION_PROPORTION</a>&#160;&#160;&#160;.90</td></tr>
-<tr class="memdesc:ga23cc77d7bf5c5938525ef42bf2e18062"><td class="mdescLeft">&#160;</td><td class="mdescRight">default correction for gyro_drive_straight <br /></td></tr>
-<tr class="separator:ga23cc77d7bf5c5938525ef42bf2e18062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc73dc4e3c0abb227d72ca5338271ffb"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gadc73dc4e3c0abb227d72ca5338271ffb">GYRO_TURN_V2_MIN_SPEED</a>&#160;&#160;&#160;11</td></tr>
-<tr class="memdesc:gadc73dc4e3c0abb227d72ca5338271ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">default min speed for gyro_turn_degrees_v2 <br /></td></tr>
-<tr class="separator:gadc73dc4e3c0abb227d72ca5338271ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaeca21b5e9f333a86c2e18249401d8287"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__movement__id.html#ga23cc77d7bf5c5938525ef42bf2e18062">GYRO_CORRECTION_PROPORTION</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gaeca21b5e9f333a86c2e18249401d8287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#gaeca21b5e9f333a86c2e18249401d8287">More...</a><br /></td></tr>
-<tr class="separator:gaeca21b5e9f333a86c2e18249401d8287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga1df56cda0097ee75be6813f59a5c4f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga1df56cda0097ee75be6813f59a5c4f02">More...</a><br /></td></tr>
-<tr class="separator:ga1df56cda0097ee75be6813f59a5c4f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga600ccd020db4d489a291eeb5dde3e897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga600ccd020db4d489a291eeb5dde3e897">gyro_turn_degrees_v2</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__movement__id.html#gadc73dc4e3c0abb227d72ca5338271ffb">GYRO_TURN_V2_MIN_SPEED</a>, double accel_per_sec=<a class="el" href="group__movement__id.html#ga7d8d8958fff3f16e78407ff58926b062">GYRO_LINEAR_ACCEL</a>, int updates_per_sec=<a class="el" href="group__movement__id.html#gaa7ead6af8991a258d78d5ee02ae6f54c">GYRO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:ga600ccd020db4d489a291eeb5dde3e897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga600ccd020db4d489a291eeb5dde3e897">More...</a><br /></td></tr>
-<tr class="separator:ga600ccd020db4d489a291eeb5dde3e897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">More...</a><br /></td></tr>
+<tr class="separator:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf85c02586700743dbea810d92d9537d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf85c02586700743dbea810d92d9537d3">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gaf85c02586700743dbea810d92d9537d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#gaf85c02586700743dbea810d92d9537d3">More...</a><br /></td></tr>
+<tr class="separator:gaf85c02586700743dbea810d92d9537d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4bd97a2febec25d43c70bb2ddda89a26">gyro_turn_degrees_v2</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga4bd97a2febec25d43c70bb2ddda89a26">More...</a><br /></td></tr>
+<tr class="separator:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IMU (gyro/accel) based movement functions. </p>

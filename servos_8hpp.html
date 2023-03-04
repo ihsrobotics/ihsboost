@@ -66,7 +66,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">servos.hpp File Reference</div>  </div>
@@ -75,7 +74,20 @@ $(function() {
 
 <p>Servo movement functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for servos.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="servos_8hpp__incl.png" border="0" usemap="#aservos_2include_2servos_8hpp" alt=""/></div>
+<map name="aservos_2include_2servos_8hpp" id="aservos_2include_2servos_8hpp">
+<area shape="rect" title="Servo movement functions." alt="" coords="5,5,196,32"/>
+<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="56,80,145,107"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="39,155,162,181"/>
+<area shape="rect" title=" " alt="" coords="9,229,67,256"/>
+<area shape="rect" title=" " alt="" coords="91,229,238,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="servos_8hpp__dep__incl.png" border="0" usemap="#aservos_2include_2servos_8hppdep" alt=""/></div>
@@ -87,22 +99,11 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="servos_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga7392880ba40dd6593b631513714de48f"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>&#160;&#160;&#160;200</td></tr>
-<tr class="memdesc:ga7392880ba40dd6593b631513714de48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default number of ticks to move a servo per second <br /></td></tr>
-<tr class="separator:ga7392880ba40dd6593b631513714de48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeb4f13d52556a693a223c617d2a100ae"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:gaeb4f13d52556a693a223c617d2a100ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second when moving a servo <br /></td></tr>
-<tr class="separator:gaeb4f13d52556a693a223c617d2a100ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gafaebe503679447b03024a9e2f84ea673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">move_servo_slowly</a> (int port, int position, int speed=<a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>, int updates_per_sec=<a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gafaebe503679447b03024a9e2f84ea673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">More...</a><br /></td></tr>
-<tr class="separator:gafaebe503679447b03024a9e2f84ea673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3a4991965677a83beb0215fc85c6cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8">move_servo_slowly</a> (int port, int position, int speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_movement_speed&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gae3a4991965677a83beb0215fc85c6cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8">More...</a><br /></td></tr>
+<tr class="separator:gae3a4991965677a83beb0215fc85c6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Servo movement functions. </p>

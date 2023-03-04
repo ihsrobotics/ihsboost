@@ -93,15 +93,16 @@ $(function() {
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> accumulate(<a class="code" href="classAccumulator.html">Accumulator</a> *a);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<a class="code" href="classAccumulator.html">Accumulator</a> *a), <a class="code" href="classAccumulator.html">Accumulator</a> *&gt; *t;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> msleep_time;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">double</span> multiplier;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::function&lt;double()&gt; callable;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">double</span> accumulator;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> flag;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::function&lt;double()&gt; callable;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<a class="code" href="classAccumulator.html">Accumulator</a> *a), <a class="code" href="classAccumulator.html">Accumulator</a> *&gt; *t;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">double</span> accumulator;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> flag;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> msleep_time;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">double</span> multiplier;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassAccumulator_html"><div class="ttname"><a href="classAccumulator.html">Accumulator</a></div><div class="ttdoc">Integrate values returned by the given function.</div><div class="ttdef"><b>Definition:</b> accumulator.hpp:25</div></div>
 <div class="ttc" id="aclassAccumulator_html_a040fc975e26202c9770eeef060d3b9ca"><div class="ttname"><a href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">Accumulator::get_accumulator</a></div><div class="ttdeci">const volatile double &amp; get_accumulator()</div><div class="ttdoc">Return the current value of the accumulator.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:47</div></div>
 <div class="ttc" id="aclassAccumulator_html_a05e942e72167e48dfffd37e69e474f99"><div class="ttname"><a href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">Accumulator::~Accumulator</a></div><div class="ttdeci">~Accumulator()</div><div class="ttdoc">Destroy the Accumulator object.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:7</div></div>

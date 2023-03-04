@@ -62,34 +62,22 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Servos Functions</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga7392880ba40dd6593b631513714de48f"><td class="memItemLeft" align="right" valign="top"><a id="ga7392880ba40dd6593b631513714de48f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>&#160;&#160;&#160;200</td></tr>
-<tr class="memdesc:ga7392880ba40dd6593b631513714de48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default number of ticks to move a servo per second <br /></td></tr>
-<tr class="separator:ga7392880ba40dd6593b631513714de48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeb4f13d52556a693a223c617d2a100ae"><td class="memItemLeft" align="right" valign="top"><a id="gaeb4f13d52556a693a223c617d2a100ae"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:gaeb4f13d52556a693a223c617d2a100ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">default updates per second when moving a servo <br /></td></tr>
-<tr class="separator:gaeb4f13d52556a693a223c617d2a100ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gafaebe503679447b03024a9e2f84ea673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">move_servo_slowly</a> (int port, int position, int speed=<a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a>, int updates_per_sec=<a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a>)</td></tr>
-<tr class="memdesc:gafaebe503679447b03024a9e2f84ea673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="group__servos__id.html#gafaebe503679447b03024a9e2f84ea673">More...</a><br /></td></tr>
-<tr class="separator:gafaebe503679447b03024a9e2f84ea673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3a4991965677a83beb0215fc85c6cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8">move_servo_slowly</a> (int port, int position, int speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_movement_speed&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gae3a4991965677a83beb0215fc85c6cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a servo slowly to its goal position.  <a href="group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8">More...</a><br /></td></tr>
+<tr class="separator:gae3a4991965677a83beb0215fc85c6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gafaebe503679447b03024a9e2f84ea673"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafaebe503679447b03024a9e2f84ea673">&#9670;&nbsp;</a></span>move_servo_slowly()</h2>
+<a id="gae3a4991965677a83beb0215fc85c6cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3a4991965677a83beb0215fc85c6cd8">&#9670;&nbsp;</a></span>move_servo_slowly()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,13 +98,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>speed</em> = <code><a class="el" href="group__servos__id.html#ga7392880ba40dd6593b631513714de48f">SERVO_MOVEMENT_SPEED</a></code>, </td>
+          <td class="paramname"><em>speed</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_movement_speed&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__servos__id.html#gaeb4f13d52556a693a223c617d2a100ae">SERVO_UPDATES_PER_SEC</a></code>&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;servo_updates_per_sec&quot;)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

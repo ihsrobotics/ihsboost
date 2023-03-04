@@ -1,4 +1,9 @@
 <map id="util/include/config.hpp" name="util/include/config.hpp">
-<area shape="rect" id="node1" title="File for configuring ihsboost variables." alt="" coords="5,5,171,32"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="55,80,121,107"/>
+<area shape="rect" id="node1" title="File for configuring ihsboost variables." alt="" coords="250,5,415,32"/>
+<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="25,80,269,107"/>
+<area shape="rect" id="node3" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="28,155,200,196"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="316,244,383,271"/>
+<area shape="rect" id="node5" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="326,155,499,196"/>
+<area shape="rect" id="node6" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="524,155,722,196"/>
+<area shape="rect" id="node7" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="604,80,794,107"/>
 </map>
