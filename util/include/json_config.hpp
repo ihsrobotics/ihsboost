@@ -33,7 +33,7 @@ public:
      * @brief Destroy the Config object
      *
      */
-    ~Config();
+    virtual ~Config();
 
     /**
      * @brief Get the value of `key` as an integer

@@ -21,12 +21,12 @@ std::function<int()> get_sensor(Cliff cliff_sensor)
 
 bool is_black(int val)
 {
-    return val <= BLACK;
+    return val <= get_config().getInt("black");
 }
 
 bool is_white(int val)
 {
-    return val > BLACK;
+    return val > get_config().getInt("black");
 }
 
 void line_follow_accelerate(Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, AccelerateController &accelerator, bool stop, double correction_proportion, int black_val)

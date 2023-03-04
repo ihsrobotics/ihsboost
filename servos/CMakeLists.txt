@@ -6,6 +6,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # include dependencies
 include_directories(${CMAKE_SOURCE_DIR}/controllers/include)
+include_directories(${CMAKE_SOURCE_DIR}/util/include)
 
 # library
 add_library(ihs_servos OBJECT ${SOURCES})
