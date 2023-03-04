@@ -53,7 +53,7 @@ void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> sto
     MOVEMENT_FUNCTION(to_speed, to_speed);
 }
 
-void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double accel_per_sec, int updates_per_sec)
+void gyro_turn_degrees(Speed from_speed, Speed to_speed, double degrees, double accel_per_sec, int updates_per_sec)
 {
     LinearController left_accelerator(from_speed.left, to_speed.left, accel_per_sec, updates_per_sec);
     LinearController right_accelerator(from_speed.right, to_speed.right, accel_per_sec, updates_per_sec);
@@ -70,7 +70,7 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, int degrees, double acc
     MOVEMENT_FUNCTION(to_speed.left, to_speed.right);
 }
 
-void gyro_turn_degrees_v2(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
+void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // this function is meant to deal with 2 main turning cases:
     // 1 - where you accelerate to speed, have time to keep turning, then need to start

@@ -391,7 +391,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     }
 }
 
-void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
+void encoder_turn_degrees(int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // this function uses the following formula:
     // angle in radians = (left wheel distance (mm) – right wheel distance (mm)) / wheel base distance (mm).
@@ -463,7 +463,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
     create_drive_direct(0, 0);
 }
 
-void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec)
+void encoder_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec)
 {
     // initialize encoders
     int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;

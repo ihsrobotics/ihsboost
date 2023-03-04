@@ -107,7 +107,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
  * @param accel_per_sec How fast to accelerate per second
  * @param updates_per_sec How many updates to do per second
  */
-void encoder_turn_degrees(int max_speed, int degrees, int min_speed = get_config().getInt("roomba_min_speed"), double accel_per_sec = get_config().getDouble("roomba_accel_per_sec"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
+void encoder_turn_degrees(int max_speed, double degrees, int min_speed = get_config().getInt("roomba_min_speed"), double accel_per_sec = get_config().getDouble("roomba_accel_per_sec"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
 
 /**
  * @brief Turns a certain number of degrees using create encoders
@@ -118,7 +118,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed = get_config
  * @param degrees The number of degrees to turn, positive values for CW
  * @param updates_per_sec How many updates to do per second
  */
-void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
+void encoder_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
 
 #endif
 /**@}*/

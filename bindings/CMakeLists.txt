@@ -39,3 +39,4 @@ target_link_libraries(ihs_bindings ${python_libs} pthread util dl ihsboost)
 
 # install
 install(TARGETS ihs_bindings DESTINATION ${python_install_path})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ihs_bindings.pyi DESTINATION ${python_install_path})
