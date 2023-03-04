@@ -5,7 +5,7 @@
 #include <memory.h>
 using namespace std;
 
-CommunicationException::CommunicationException(const char *where, int error_code) : where(where), error_code(error_code)
+CommunicationException::CommunicationException(const char *where, int error_code) : where(where), msg(nullptr), error_code(error_code)
 {
     ostringstream o;
 

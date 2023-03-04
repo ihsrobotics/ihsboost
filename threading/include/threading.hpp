@@ -72,8 +72,8 @@ private:
         threadable->done_flag = true;
     }
 
-    Callable *_func;
     volatile bool done_flag;
+    Callable *_func;
     std::thread _thread;
 };
 

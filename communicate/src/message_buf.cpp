@@ -139,8 +139,8 @@ void MessageBuf::from_bytes(char *bytes, bool delete_bytes)
 }
 
 // MessageBuf::BufAttrs stuf
-MessageBuf::BufAttrs::BufAttrs() : empty(true), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(0){};
-MessageBuf::BufAttrs::BufAttrs(uint32_t buf_size) : empty(true), tp_hash(0), data_holder_size(0), data_holder_len(0), buf_size(buf_size){};
+MessageBuf::BufAttrs::BufAttrs() : tp_hash(0), data_holder_size(0), buf_size(0), data_holder_len(0), empty(true){};
+MessageBuf::BufAttrs::BufAttrs(uint32_t buf_size) : tp_hash(0), data_holder_size(0), buf_size(buf_size), data_holder_len(0), empty(true){};
 void MessageBuf::BufAttrs::reset()
 {
     empty = true;
