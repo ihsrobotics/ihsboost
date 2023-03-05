@@ -109,12 +109,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">More...</a><br /></td></tr>
 <tr class="separator:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf85c02586700743dbea810d92d9537d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf85c02586700743dbea810d92d9537d3">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, int degrees, double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:gaf85c02586700743dbea810d92d9537d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#gaf85c02586700743dbea810d92d9537d3">More...</a><br /></td></tr>
-<tr class="separator:gaf85c02586700743dbea810d92d9537d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4bd97a2febec25d43c70bb2ddda89a26">gyro_turn_degrees_v2</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga4bd97a2febec25d43c70bb2ddda89a26">More...</a><br /></td></tr>
-<tr class="separator:ga4bd97a2febec25d43c70bb2ddda89a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, double degrees, double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">More...</a><br /></td></tr>
+<tr class="separator:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a> (int max_speed, double degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">More...</a><br /></td></tr>
+<tr class="separator:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">is_black</a> (int val)</td></tr>
 <tr class="memdesc:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not a sensor reading is black.  <a href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">More...</a><br /></td></tr>
 <tr class="separator:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,12 +154,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga0da878ea2665cd58355b78b446ac5628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">encoder_drive_straight_pid</a> (int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga0da878ea2665cd58355b78b446ac5628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)  <a href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">More...</a><br /></td></tr>
 <tr class="separator:ga0da878ea2665cd58355b78b446ac5628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6cdcd3fc3d1efb72df85ccc225ed4e8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6cdcd3fc3d1efb72df85ccc225ed4e8c">encoder_turn_degrees</a> (int max_speed, int degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga6cdcd3fc3d1efb72df85ccc225ed4e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#ga6cdcd3fc3d1efb72df85ccc225ed4e8c">More...</a><br /></td></tr>
-<tr class="separator:ga6cdcd3fc3d1efb72df85ccc225ed4e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4a65e94f33a68eef4e6c9d28421dfb81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4a65e94f33a68eef4e6c9d28421dfb81">encoder_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> turn_speed, int degrees, int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga4a65e94f33a68eef4e6c9d28421dfb81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#ga4a65e94f33a68eef4e6c9d28421dfb81">More...</a><br /></td></tr>
-<tr class="separator:ga4a65e94f33a68eef4e6c9d28421dfb81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5477b70d1d2eea55385f70e2385f0dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a> (int max_speed, double degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga5477b70d1d2eea55385f70e2385f0dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">More...</a><br /></td></tr>
+<tr class="separator:ga5477b70d1d2eea55385f70e2385f0dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12b7dffa4257becbf2ef18a7c8323d02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga12b7dffa4257becbf2ef18a7c8323d02">encoder_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> turn_speed, double degrees, int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga12b7dffa4257becbf2ef18a7c8323d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a certain number of degrees using create encoders.  <a href="group__movement__id.html#ga12b7dffa4257becbf2ef18a7c8323d02">More...</a><br /></td></tr>
+<tr class="separator:ga12b7dffa4257becbf2ef18a7c8323d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -725,8 +725,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga6cdcd3fc3d1efb72df85ccc225ed4e8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6cdcd3fc3d1efb72df85ccc225ed4e8c">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[1/2]</span></h2>
+<a id="ga5477b70d1d2eea55385f70e2385f0dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5477b70d1d2eea55385f70e2385f0dea">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -740,7 +740,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
         </tr>
         <tr>
@@ -786,8 +786,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga4a65e94f33a68eef4e6c9d28421dfb81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4a65e94f33a68eef4e6c9d28421dfb81">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[2/2]</span></h2>
+<a id="ga12b7dffa4257becbf2ef18a7c8323d02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12b7dffa4257becbf2ef18a7c8323d02">&#9670;&nbsp;</a></span>encoder_turn_degrees() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -801,7 +801,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
         </tr>
         <tr>
@@ -902,8 +902,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaf85c02586700743dbea810d92d9537d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf85c02586700743dbea810d92d9537d3">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
+<a id="ga3d88c44a1cd95fad141d709af3e2ac96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d88c44a1cd95fad141d709af3e2ac96">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -923,7 +923,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
         </tr>
         <tr>
@@ -960,8 +960,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga4bd97a2febec25d43c70bb2ddda89a26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4bd97a2febec25d43c70bb2ddda89a26">&#9670;&nbsp;</a></span>gyro_turn_degrees_v2()</h2>
+<a id="ga82fd5a78ca4700cb56cd5996e5c077af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga82fd5a78ca4700cb56cd5996e5c077af">&#9670;&nbsp;</a></span>gyro_turn_degrees_v2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -975,7 +975,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>degrees</em>, </td>
         </tr>
         <tr>

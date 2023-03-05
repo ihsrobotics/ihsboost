@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['badbufcastexception_17',['BadBufCastException',['../classBadBufCastException.html',1,'']]]
+  ['badbufcastexception_24',['BadBufCastException',['../classBadBufCastException.html',1,'']]]
 ];

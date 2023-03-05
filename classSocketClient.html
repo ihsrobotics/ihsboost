@@ -94,12 +94,12 @@ Collaboration diagram for SocketClient:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac1c392bbaa260c3e29e9e8b93d4201ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#ac1c392bbaa260c3e29e9e8b93d4201ed">SocketClient</a> (const char *ipv4_addr, int port)</td></tr>
-<tr class="memdesc:ac1c392bbaa260c3e29e9e8b93d4201ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#ac1c392bbaa260c3e29e9e8b93d4201ed">More...</a><br /></td></tr>
-<tr class="separator:ac1c392bbaa260c3e29e9e8b93d4201ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a667e73baf69c2ad751d19f2ec727408b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#a667e73baf69c2ad751d19f2ec727408b">SocketClient</a> (const char *ipv4_addr, int port, uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
-<tr class="memdesc:a667e73baf69c2ad751d19f2ec727408b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#a667e73baf69c2ad751d19f2ec727408b">More...</a><br /></td></tr>
-<tr class="separator:a667e73baf69c2ad751d19f2ec727408b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a36c0c32e62f703e15a8bbcafff062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#af4a36c0c32e62f703e15a8bbcafff062">SocketClient</a> (const char *ipv4_addr, uint16_t port)</td></tr>
+<tr class="memdesc:af4a36c0c32e62f703e15a8bbcafff062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#af4a36c0c32e62f703e15a8bbcafff062">More...</a><br /></td></tr>
+<tr class="separator:af4a36c0c32e62f703e15a8bbcafff062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac569270b08dcc31c046f4452e78e7f16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#ac569270b08dcc31c046f4452e78e7f16">SocketClient</a> (const char *ipv4_addr, uint16_t port, uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
+<tr class="memdesc:ac569270b08dcc31c046f4452e78e7f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#ac569270b08dcc31c046f4452e78e7f16">More...</a><br /></td></tr>
+<tr class="separator:ac569270b08dcc31c046f4452e78e7f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4ecba63b08737b5be4fef324cef1df6"><td class="memItemLeft" align="right" valign="top"><a id="af4ecba63b08737b5be4fef324cef1df6"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#af4ecba63b08737b5be4fef324cef1df6">~SocketClient</a> ()</td></tr>
 <tr class="memdesc:af4ecba63b08737b5be4fef324cef1df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the Socket Client connection. <br /></td></tr>
@@ -139,9 +139,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classCommunicator"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCommunicator')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCommunicator.html">Communicator</a></td></tr>
-<tr class="memitem:a002891af19f86163d5b82ed42a82ca5a inherit pro_methods_classCommunicator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a002891af19f86163d5b82ed42a82ca5a">check_error</a> (int retval, const char *where)</td></tr>
-<tr class="memdesc:a002891af19f86163d5b82ed42a82ca5a inherit pro_methods_classCommunicator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if an error occured.  <a href="classCommunicator.html#a002891af19f86163d5b82ed42a82ca5a">More...</a><br /></td></tr>
-<tr class="separator:a002891af19f86163d5b82ed42a82ca5a inherit pro_methods_classCommunicator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6173521e9aa7358a8bdc3b34a839272 inherit pro_methods_classCommunicator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#ab6173521e9aa7358a8bdc3b34a839272">check_error</a> (ssize_t retval, const char *where)</td></tr>
+<tr class="memdesc:ab6173521e9aa7358a8bdc3b34a839272 inherit pro_methods_classCommunicator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if an error occured.  <a href="classCommunicator.html#ab6173521e9aa7358a8bdc3b34a839272">More...</a><br /></td></tr>
+<tr class="separator:ab6173521e9aa7358a8bdc3b34a839272 inherit pro_methods_classCommunicator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCommunicator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCommunicator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classCommunicator.html">Communicator</a></td></tr>
 <tr class="memitem:a936642bf49cfa727fdafbe9d510cefd6 inherit pro_attribs_classCommunicator"><td class="memItemLeft" align="right" valign="top"><a id="a936642bf49cfa727fdafbe9d510cefd6"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a></td></tr>
@@ -153,8 +153,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_test_8cpp-example.html#_a5">message_test.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac1c392bbaa260c3e29e9e8b93d4201ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1c392bbaa260c3e29e9e8b93d4201ed">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[1/2]</span></h2>
+<a id="af4a36c0c32e62f703e15a8bbcafff062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a36c0c32e62f703e15a8bbcafff062">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,7 +168,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>port</em>&#160;</td>
         </tr>
         <tr>
@@ -190,8 +190,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="a667e73baf69c2ad751d19f2ec727408b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a667e73baf69c2ad751d19f2ec727408b">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[2/2]</span></h2>
+<a id="ac569270b08dcc31c046f4452e78e7f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac569270b08dcc31c046f4452e78e7f16">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +205,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>port</em>, </td>
         </tr>
         <tr>

@@ -1,0 +1,8 @@
+<map id="ihs_bindings.CommunicatorBase" name="ihs_bindings.CommunicatorBase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,240,133"/>
+<area shape="rect" id="node2" href="$classihs__bindings_1_1PosixQCommunicator.html" title=" " alt="" coords="288,5,536,32"/>
+<area shape="rect" id="node3" href="$classihs__bindings_1_1SHMCommunicator.html" title=" " alt="" coords="295,56,529,83"/>
+<area shape="rect" id="node4" href="$classihs__bindings_1_1SocketClient.html" title=" " alt="" coords="318,107,506,133"/>
+<area shape="rect" id="node5" href="$classihs__bindings_1_1SocketServer.html" title=" " alt="" coords="316,157,508,184"/>
+<area shape="rect" id="node6" href="$classihs__bindings_1_1SysVCommunicator.html" title=" " alt="" coords="295,208,529,235"/>
+</map>

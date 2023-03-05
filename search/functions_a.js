@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['open_258',['open',['../classCommunicator.html#a7a821e7ea2dedb158381a712211e5802',1,'Communicator::open()'],['../classPosixQCommunicator.html#af13e17c85b69450386101c4c4755931f',1,'PosixQCommunicator::open()'],['../classSHMCommunicator.html#a44a4a3b514ccc8363d8c991497c452a2',1,'SHMCommunicator::open()'],['../classSocketServer.html#a1ece50b906c7ade75ff6ee629ae5824b',1,'SocketServer::open()'],['../classSocketClient.html#a7897b7e04522f17a55c5d1a0f46d17a3',1,'SocketClient::open()'],['../classSysVCommunicator.html#a4216cf012cee0112b75a9e920dab4944',1,'SysVCommunicator::open()']]],
-  ['operator_21_3d_259',['operator!=',['../structSpeed.html#a9c4fe60fa784cdfb1c947c383cbf3b16',1,'Speed']]],
-  ['operator_28_29_260',['operator()',['../classThreadable.html#a637178b06ca031a0be031bdbc6f3cf36',1,'Threadable::operator()()'],['../classTimer.html#a1a1c0f9e7e1e884ca27a75d331e45068',1,'Timer::operator()()']]],
-  ['operator_2b_261',['operator+',['../structSpeed.html#a7e9c36d93b73a96cead1f9f14feb54dc',1,'Speed']]],
-  ['operator_2b_3d_262',['operator+=',['../structSpeed.html#ad01d90b0e8122cba63246485ec53ce33',1,'Speed']]],
-  ['operator_2d_263',['operator-',['../structSpeed.html#a21c3e8a00d6e7d72c05ff7269a6cac0d',1,'Speed']]],
-  ['operator_2d_3d_264',['operator-=',['../structSpeed.html#a59f096bd99de24737a15bea039db03ff',1,'Speed']]],
-  ['operator_3d_265',['operator=',['../classMessageBuf.html#ad13bac0f1230e0ffaa71fdf3dae5bcbe',1,'MessageBuf']]],
-  ['operator_3d_3d_266',['operator==',['../structSpeed.html#a4ce1cad31b7c224f495187f94351730f',1,'Speed']]]
+  ['messagebuf_297',['MessageBuf',['../classMessageBuf.html#ae6b83b4f2ca36712bdd82aea6ea0cb8e',1,'MessageBuf::MessageBuf(uint32_t buf_size)'],['../classMessageBuf.html#a7aa4b9b48d52ec641a1a7172fcb17c80',1,'MessageBuf::MessageBuf(MessageBuf &amp;&amp;other)']]],
+  ['move_5fservo_5fslowly_298',['move_servo_slowly',['../group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8',1,'move_servo_slowly(int port, int position, int speed=get_config().getInt(&quot;servo_movement_speed&quot;), int updates_per_sec=get_config().getInt(&quot;servo_updates_per_sec&quot;)):&#160;servos.cpp'],['../group__servos__id.html#gae3a4991965677a83beb0215fc85c6cd8',1,'move_servo_slowly(int port, int position, int speed, int updates_per_sec):&#160;servos.cpp'],['../group__python__functions__id.html#ga95b64e4db03f63418fd02b72bb5e87fd',1,'ihs_bindings.move_servo_slowly()']]]
 ];

@@ -75,40 +75,39 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="threading_8hpp.html">threading.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;kipr/wombat.h&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classAccumulator.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAccumulator.html">Accumulator</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classAccumulator.html#a7e09fb5f2cf1adf54d86a8c3cacaed53">Accumulator</a>(std::function&lt;<span class="keywordtype">double</span>()&gt; callable, <span class="keywordtype">int</span> updates_per_sec);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">~Accumulator</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccumulator.html#a7578405464097e20053f83f1f87ec786">start_accumulating</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccumulator.html#ac90c4516af43bc9002539a804c96df63">stop_accumulating</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> <span class="keyword">volatile</span> <span class="keywordtype">double</span> &amp;<a class="code" href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">get_accumulator</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> accumulate(<a class="code" href="classAccumulator.html">Accumulator</a> *a);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::function&lt;double()&gt; callable;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<a class="code" href="classAccumulator.html">Accumulator</a> *a), <a class="code" href="classAccumulator.html">Accumulator</a> *&gt; *t;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">double</span> accumulator;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> flag;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> msleep_time;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">double</span> multiplier;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassAccumulator_html"><div class="ttname"><a href="classAccumulator.html">Accumulator</a></div><div class="ttdoc">Integrate values returned by the given function.</div><div class="ttdef"><b>Definition:</b> accumulator.hpp:25</div></div>
-<div class="ttc" id="aclassAccumulator_html_a040fc975e26202c9770eeef060d3b9ca"><div class="ttname"><a href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">Accumulator::get_accumulator</a></div><div class="ttdeci">const volatile double &amp; get_accumulator()</div><div class="ttdoc">Return the current value of the accumulator.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:47</div></div>
-<div class="ttc" id="aclassAccumulator_html_a05e942e72167e48dfffd37e69e474f99"><div class="ttname"><a href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">Accumulator::~Accumulator</a></div><div class="ttdeci">~Accumulator()</div><div class="ttdoc">Destroy the Accumulator object.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:7</div></div>
-<div class="ttc" id="aclassAccumulator_html_a7578405464097e20053f83f1f87ec786"><div class="ttname"><a href="classAccumulator.html#a7578405464097e20053f83f1f87ec786">Accumulator::start_accumulating</a></div><div class="ttdeci">void start_accumulating()</div><div class="ttdoc">Start accumulating values.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:12</div></div>
-<div class="ttc" id="aclassAccumulator_html_a7e09fb5f2cf1adf54d86a8c3cacaed53"><div class="ttname"><a href="classAccumulator.html#a7e09fb5f2cf1adf54d86a8c3cacaed53">Accumulator::Accumulator</a></div><div class="ttdeci">Accumulator(std::function&lt; double()&gt; callable, int updates_per_sec)</div><div class="ttdoc">Construct a new Accumulator object.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:3</div></div>
-<div class="ttc" id="aclassAccumulator_html_ac90c4516af43bc9002539a804c96df63"><div class="ttname"><a href="classAccumulator.html#ac90c4516af43bc9002539a804c96df63">Accumulator::stop_accumulating</a></div><div class="ttdeci">void stop_accumulating()</div><div class="ttdoc">Stop accumulating values.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:21</div></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classAccumulator.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAccumulator.html">Accumulator</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classAccumulator.html#a7e09fb5f2cf1adf54d86a8c3cacaed53">Accumulator</a>(std::function&lt;<span class="keywordtype">double</span>()&gt; callable, <span class="keywordtype">int</span> updates_per_sec);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">~Accumulator</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccumulator.html#a7578405464097e20053f83f1f87ec786">start_accumulating</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccumulator.html#ac90c4516af43bc9002539a804c96df63">stop_accumulating</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> <span class="keyword">volatile</span> <span class="keywordtype">double</span> &amp;<a class="code" href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">get_accumulator</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> accumulate(<a class="code" href="classAccumulator.html">Accumulator</a> *a);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::function&lt;double()&gt; callable;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<a class="code" href="classAccumulator.html">Accumulator</a> *a), <a class="code" href="classAccumulator.html">Accumulator</a> *&gt; *t;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">double</span> accumulator;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> flag;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> msleep_time;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">double</span> multiplier;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassAccumulator_html"><div class="ttname"><a href="classAccumulator.html">Accumulator</a></div><div class="ttdoc">Integrate values returned by the given function.</div><div class="ttdef"><b>Definition:</b> accumulator.hpp:24</div></div>
+<div class="ttc" id="aclassAccumulator_html_a040fc975e26202c9770eeef060d3b9ca"><div class="ttname"><a href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">Accumulator::get_accumulator</a></div><div class="ttdeci">const volatile double &amp; get_accumulator()</div><div class="ttdoc">Return the current value of the accumulator.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:48</div></div>
+<div class="ttc" id="aclassAccumulator_html_a05e942e72167e48dfffd37e69e474f99"><div class="ttname"><a href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">Accumulator::~Accumulator</a></div><div class="ttdeci">~Accumulator()</div><div class="ttdoc">Destroy the Accumulator object.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:8</div></div>
+<div class="ttc" id="aclassAccumulator_html_a7578405464097e20053f83f1f87ec786"><div class="ttname"><a href="classAccumulator.html#a7578405464097e20053f83f1f87ec786">Accumulator::start_accumulating</a></div><div class="ttdeci">void start_accumulating()</div><div class="ttdoc">Start accumulating values.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:13</div></div>
+<div class="ttc" id="aclassAccumulator_html_a7e09fb5f2cf1adf54d86a8c3cacaed53"><div class="ttname"><a href="classAccumulator.html#a7e09fb5f2cf1adf54d86a8c3cacaed53">Accumulator::Accumulator</a></div><div class="ttdeci">Accumulator(std::function&lt; double()&gt; callable, int updates_per_sec)</div><div class="ttdoc">Construct a new Accumulator object.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:4</div></div>
+<div class="ttc" id="aclassAccumulator_html_ac90c4516af43bc9002539a804c96df63"><div class="ttname"><a href="classAccumulator.html#ac90c4516af43bc9002539a804c96df63">Accumulator::stop_accumulating</a></div><div class="ttdeci">void stop_accumulating()</div><div class="ttdoc">Stop accumulating values.</div><div class="ttdef"><b>Definition:</b> accumulator.cpp:22</div></div>
 <div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threading.hpp:26</div></div>
 <div class="ttc" id="athreading_8hpp_html"><div class="ttname"><a href="threading_8hpp.html">threading.hpp</a></div><div class="ttdoc">Easy threading functionality.</div></div>
 </div><!-- fragment --></div><!-- contents -->
