@@ -1,3 +1,16 @@
+"""!
+@file ihs_bindings.py
+@author Eliot Hall
+@brief Python bindings for ihs boost
+@version 0.1
+@date 2023-03-04
+
+@copyright Copyright (c) 2023
+
+@defgroup python_functions_id Python Functions
+@{
+"""
+
 class CommunicatorBase:
     """
     Base class for all communication
@@ -85,9 +98,13 @@ class Speed:
             @param o the other speed
         @return Speed
         """
-    def __repr__(self) -> str: ...
-
+    def __repr__(self) -> str:
+        """
+        Return a string representation of this object
+        """
+    ## the left speed
     left: int
+    ## the right speed
     right: int
 
 class Timer:
@@ -110,17 +127,26 @@ class Timer:
         """
 
 class Cliff:
+    ## value for left cliff
     LCliff = ...
+    ## value for left front cliff
     LFCliff = ...
+    ## value for right front cliff
     RFCliff = ...
+    ## value for right cliff
     RCliff = ...
 
 class LineSide:
+    ## value for left side of the line
     LeftSide = ...
+    ## value for right side of the line
     RightSide = ...
 
 class CreateExtraController:
-    def __init__(self) -> None: ...
+    def __init__(self) -> None:
+        """
+        Create a CreateExtraController object
+        """
     def run_main_brush(self, speed: int) -> None:
         """
         Run the main brush at the specified speed. Positive values cause
@@ -589,3 +615,5 @@ def encoder_turn_degrees_v2(
         @param accel_per_sec - How fast to accelerate per second
         @param updates_per_sec - How many updates to do per second
     """
+
+## @}

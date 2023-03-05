@@ -14,7 +14,7 @@ namespace communicate_export
         {
             msg[i] = boost::python::extract<T>(l[i]);
         }
-        communicator->send_msg(communicator->create_msg<T>(msg, boost::python::len(l)));
+        communicator->send_msg(communicator->create_msg<T>(msg, static_cast<uint16_t>(boost::python::len(l))));
         delete[] msg;
         return true;
     }
