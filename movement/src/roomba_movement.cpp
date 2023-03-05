@@ -14,7 +14,7 @@ void rotate(double leftWheelSpeed, double rightWheelSpeed, double angle, double 
 
     create_drive_direct(static_cast<int>(leftWheelSpeed / left_wheel_units),
                         static_cast<int>(rightWheelSpeed / right_wheel_units));
-    msleep(time);
+    msleep(static_cast<int>(time));
     create_drive_direct(0, 0);
 }
 
@@ -184,7 +184,7 @@ void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, 
     }
 
     // start decelerating, go until both lenc and renc have reached the end
-    LinearController decelerator(accelerator.speed(), min_speed * sign_val, accel_per_sec, updates_per_sec);
+    LinearController decelerator(static_cast<int>(accelerator.speed()), min_speed * sign_val, accel_per_sec, updates_per_sec);
     while ((mm > 0 && (lenc_delta * ENC_2_MM < mm ||
                        renc_delta * ENC_2_MM < mm)) ||
            ((mm < 0 && (lenc_delta * ENC_2_MM > mm ||
@@ -273,7 +273,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
         // the desired goal val is the integral of the velocity
         // starting at velocity of 0, then going to velocity of v linearly -> forms a triangle
         // so we integrate using triangle integration
-        goal_delta = accelerator.speed() * updates * dt / 2.0;
+        goal_delta = accelerator.speed() * static_cast<double>(updates) * dt / 2.0;
 
         if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
         {
@@ -287,7 +287,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             double l_speed = -l_controller.speed() * ENC_2_MM / dt;
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
 
-            create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
+            create_drive_direct(static_cast<int>(process_speed(l_speed, accelerator.speed(), min_speed)), static_cast<int>(process_speed(r_speed, accelerator.speed(), min_speed)));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
         }
@@ -315,7 +315,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             (mm < 0 && goal_delta > (mm - cached_distance) * MM_2_ENC)))
     {
         // at this point, we assume constant velocity, so rectangle integration
-        goal_delta = min(temp_goal_delta + (accelerator.speed() * updates * dt), (mm - cached_distance) * MM_2_ENC);
+        goal_delta = min(temp_goal_delta + (accelerator.speed() * static_cast<double>(updates) * dt), (mm - cached_distance) * MM_2_ENC);
 
         if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
         {
@@ -329,7 +329,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             double l_speed = -l_controller.speed() * ENC_2_MM / dt;
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
 
-            create_drive_direct(process_speed(l_speed, accelerator.speed(), min_speed), process_speed(r_speed, accelerator.speed(), min_speed));
+            create_drive_direct(static_cast<int>(process_speed(l_speed, accelerator.speed(), min_speed)), static_cast<int>(process_speed(r_speed, accelerator.speed(), min_speed)));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
         }
@@ -346,7 +346,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     goal_delta = (mm - cached_distance) * MM_2_ENC;
     temp_goal_delta = goal_delta;
     updates = 0;
-    LinearController decelerator(accelerator.speed(), min_speed * sign_val, accel_per_sec, updates_per_second);
+    LinearController decelerator(static_cast<int>(accelerator.speed()), min_speed * sign_val, accel_per_sec, updates_per_second);
     while ((mm > 0 && (lenc_delta < mm * MM_2_ENC ||
                        renc_delta < mm * MM_2_ENC)) ||
            ((mm < 0 && (lenc_delta > mm * MM_2_ENC ||
@@ -354,7 +354,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     {
         // trapezoidal integration from accelerator.speed() to decelerator.speed() as b1 and b2
         // use (b1+b2)/2 * h, h is delta t
-        goal_delta = min(temp_goal_delta + ((accelerator.speed() + decelerator.speed()) / 2.0 * updates * dt), mm * MM_2_ENC);
+        goal_delta = min(temp_goal_delta + ((accelerator.speed() + decelerator.speed()) / 2.0 * static_cast<double>(updates) * dt), mm * MM_2_ENC);
 
         if (lenc_delta != lenc_delta_prev || renc_delta != renc_delta_prev)
         {
@@ -368,7 +368,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
             double l_speed = -l_controller.speed() * ENC_2_MM / dt;
             double r_speed = -r_controller.speed() * ENC_2_MM / dt;
 
-            create_drive_direct(process_speed(l_speed, decelerator.speed(), min_speed), process_speed(r_speed, decelerator.speed(), min_speed));
+            create_drive_direct(static_cast<int>(process_speed(l_speed, decelerator.speed(), min_speed)), static_cast<int>(process_speed(r_speed, decelerator.speed(), min_speed)));
             lenc_delta_prev = lenc_delta;
             renc_delta_prev = renc_delta;
         }
@@ -391,7 +391,7 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
     }
 }
 
-void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double accel_per_sec, int updates_per_sec)
+void encoder_turn_degrees(int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // this function uses the following formula:
     // angle in radians = (left wheel distance (mm) – right wheel distance (mm)) / wheel base distance (mm).
@@ -444,7 +444,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
     }
 
     // start decelerating, go until both lenc and renc have reached the end
-    LinearController decelerator(accelerator.speed(), min_speed, accel_per_sec, updates_per_sec);
+    LinearController decelerator(static_cast<int>(accelerator.speed()), min_speed, accel_per_sec, updates_per_sec);
     while ((degrees > 0 && angle_degrees < degrees) ||
            (degrees < 0 && angle_degrees > degrees))
 
@@ -463,7 +463,7 @@ void encoder_turn_degrees(int max_speed, int degrees, int min_speed, double acce
     create_drive_direct(0, 0);
 }
 
-void encoder_turn_degrees(Speed turn_speed, int degrees, int updates_per_sec)
+void encoder_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec)
 {
     // initialize encoders
     int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;

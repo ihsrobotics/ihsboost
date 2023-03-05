@@ -22,6 +22,7 @@ if (${build_library})
     add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
     add_compile_options("-Wall")
+    add_compile_options("-Wconversion")
 
     find_library(json_libs jsoncpp REQUIRED)
     
@@ -61,7 +62,7 @@ if (${with_documentation})
     find_package(Doxygen REQUIRED)
 
     # include the extra files
-    set(DOXYGEN_SOURCES ${LIBRARY_DIRS} ${CMAKE_SOURCE_DIR}/README.md ${CMAKE_SOURCE_DIR}/all.hpp)
+    set(DOXYGEN_SOURCES ${LIBRARY_DIRS} ${CMAKE_SOURCE_DIR}/README.md ${CMAKE_SOURCE_DIR}/all.hpp ${CMAKE_SOURCE_DIR}/bindings/)
     set(DOXYGEN_EXAMPLE_PATH ${CMAKE_SOURCE_DIR}/examples)
     set(DOXYGEN_USE_MDFILE_AS_MAINPAGE ${CMAKE_SOURCE_DIR}/README.md)
 

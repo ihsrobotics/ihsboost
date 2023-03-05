@@ -36,6 +36,30 @@
  * @li `raw_to_360_degrees` - multiplying accumulated gyro values by this should result in degrees
  * @li `gyro_cw_multiplier` - multiply by this number so that positive values represent CW rotation and negative
  * values represent CCW rotation
+ * @li `gyro_linear_accel` - default accel for gyro functions
+ * @li `gyro_updates_per_sec` - default updates per second for gyro functions
+ * @li `gyro_correction_proportion` - default correction for `gyro_drive_straight` \see gyro_drive_straight
+ * @li `gyro_turn_v2_min_speed` - default min speed for `gyro_turn_degrees_v2` \see gyro_turn_degrees_v2
+ * @li `linear_accel` - default linear acceleration to use in `accelerate_linear`; should always be positive \see accelerate_linear
+ * @li `sinusoidal_accel` - default sinusoidal acceleration to use in `accelerate_sinusoidal`; should always be positive \see accelerate_sinusoidal
+ * @li `accelerate_updates_per_sec` - default updates per second when accelerating
+ * @li `black` - greater than this value is white, less than is black
+ * @li `line_follow_updates_per_sec` - default updates per second when line following
+ * @li `line_follow_correction_proportion` - default correction for line following
+ * @li `line_follow_linear_acceleration` - default linear acceleration to use in `line_follow_accelerate_linear` \see line_follow_accelerate_linear
+ * @li `line_follow_sinusoidal_acceleration` - default sinusoidal acceleration to use in `line_follow_accelerate_sinusoidal` \see line_follow_accelerate_sinusoidal
+ * @li `line_follow_stop` - whether or not to default to a full stop after line following
+ * @li `align_updates_per_sec` - default updates per second when aligning
+ * @li `align_stop` - whether or not to default to a full stop after align functions
+ * @li `roomba_correction_proportion` - default correction for the roomba \see encoder_drive_straight
+ * @li `roomba_updates_per_sec` - default updates per second for the roomba
+ * @li `roomba_accel_per_sec` - default acceleration for the roomba
+ * @li `roomba_min_speed` - default min speed for the roomba
+ * @li `roomba_stop` - whether or not to do a full stop after roomba movement functions
+ * @li `roomba_left_wheel_units` - how far the left wheel moves, in cm/sec \see rotate
+ * @li `roomba_right_wheel_units` - how far the right wheel moves, in cm/sec \see rotate
+ * @li `servo_movement_speed` - default number of ticks to move a servo per second \see move_servo_slowly
+ * @li `servo_updates_per_sec` - default updates per second when moving a servo \see move_servo_slowly
  *
  * @param config_file the name of the config file
  * @return Config& - the config

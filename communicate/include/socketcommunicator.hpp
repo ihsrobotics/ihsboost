@@ -27,7 +27,7 @@ public:
      *
      * @param port the port to host the server on
      */
-    SocketServer(int port);
+    SocketServer(uint16_t port);
 
     /**
      * @brief Construct a new Socket Server object
@@ -35,7 +35,7 @@ public:
      * @param port the port to host the server on
      * @param max_msg_size The maximum size of your messages
      */
-    SocketServer(int port, uint32_t max_msg_size);
+    SocketServer(uint16_t port, uint32_t max_msg_size);
 
     /**
      * @brief Destroy the Socket Server object
@@ -75,7 +75,7 @@ public:
 private:
     int server_fd; ///< the server field descriptor
     int socket_fd; ///< the field descriptor for the connected socket
-    int port;      ///< the port to connect to
+    uint16_t port; ///< the port to connect to
 };
 
 /**
@@ -91,7 +91,7 @@ public:
      * @param ipv4_addr The ip address to connect to
      * @param port the port to connect to
      */
-    SocketClient(const char *ipv4_addr, int port);
+    SocketClient(const char *ipv4_addr, uint16_t port);
 
     /**
      * @brief Construct a new Socket Client object
@@ -100,7 +100,7 @@ public:
      * @param port the port to connect to
      * @param max_msg_size The maximum size of your messages
      */
-    SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size);
+    SocketClient(const char *ipv4_addr, uint16_t port, uint32_t max_msg_size);
 
     /**
      * @brief Close the Socket Client connection
@@ -140,7 +140,7 @@ public:
 private:
     int server_fd;         ///< the field descriptor of the server
     int client_fd;         ///< the field descriptor of this SocketClient
-    int port;              ///< the port to connect to
+    uint16_t port;         ///< the port to connect to
     const char *ipv4_addr; ///< the ip address to connect to
 };
 

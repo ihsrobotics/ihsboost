@@ -71,7 +71,7 @@ MessageBuf SysVCommunicator::receive_msg()
     MessageBuf m(max_msg_size);
 
     // receive message
-    int ret = msgrcv(msg_q_id, bytes, MessageBuf::get_size(max_msg_size), 0, 0);
+    ssize_t ret = msgrcv(msg_q_id, bytes, MessageBuf::get_size(max_msg_size), 0, 0);
     check_error(ret, "receiving message");
 
     // convert byte buffer to message

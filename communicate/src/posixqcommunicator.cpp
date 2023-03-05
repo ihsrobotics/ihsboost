@@ -51,7 +51,7 @@ MessageBuf PosixQCommunicator::receive_msg()
     MessageBuf m(max_msg_size);
 
     // read into byte buffer
-    int ret = mq_receive(msg_q_id, reinterpret_cast<char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
+    ssize_t ret = mq_receive(msg_q_id, reinterpret_cast<char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     check_error(ret, "receiving message");
 
     // create message from bytes

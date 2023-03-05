@@ -111,7 +111,7 @@ protected:
      * @param retval the returned value; if it is -1, then an error has occurred
      * @param where where the error did/didn't occurr
      */
-    void check_error(int retval, const char *where);
+    void check_error(ssize_t retval, const char *where);
 
     uint32_t max_msg_size; ///< the maximum size of the message
 };
