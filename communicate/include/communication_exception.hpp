@@ -68,7 +68,7 @@ private:
  * @brief Exception class to protect from bad reinterpret_cast's
  *
  */
-class BadBufCastException : public std::bad_cast
+class BadBufCastException : public std::exception
 {
 public:
     /**
@@ -86,7 +86,7 @@ public:
  * @brief Exception class to protect from nullptr segmentation faults
  *
  */
-class EmptyBufException : public std::bad_exception
+class EmptyBufException : public std::exception
 {
 public:
     /**
