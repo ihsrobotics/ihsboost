@@ -43,7 +43,7 @@ if (${build_library})
     get_property(local_ihs_sources GLOBAL PROPERTY IHS_SOURCES)
     message("Sources are" ${local_ihs_sources})
     add_library(ihsboost SHARED ${local_ihs_sources})
-    target_link_libraries(ihsboost PUBLIC kipr pthread rt)
+    target_link_libraries(ihsboost PUBLIC kipr pthread rt ${json_libs})
 
     # install
     install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
