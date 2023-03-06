@@ -59,9 +59,9 @@ public:
     virtual const char *what() const noexcept override;
 
 private:
-    int error_code;    ///! the error code that went wrong
     const char *where; ///! where it went wrong
     char *msg;         ///! msg to print
+    int error_code;    ///! the error code that went wrong
 };
 
 /**

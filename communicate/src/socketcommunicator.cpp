@@ -7,11 +7,11 @@
 
 using namespace std;
 
-SocketServer::SocketServer(int port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port)
+SocketServer::SocketServer(uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port)
 {
     open();
 }
-SocketServer::SocketServer(int port) : Communicator(), port(port)
+SocketServer::SocketServer(uint16_t port) : Communicator(), port(port)
 {
     open();
 }
@@ -65,7 +65,7 @@ void SocketServer::close()
 void SocketServer::send_msg(MessageBuf message)
 {
     char *bytes = message.to_bytes();
-    int ret = send(socket_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
+    ssize_t ret = send(socket_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
 }
@@ -77,7 +77,7 @@ MessageBuf SocketServer::receive_msg()
     MessageBuf m(max_msg_size);
 
     // read into byte buffer
-    int ret = read(socket_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
+    ssize_t ret = read(socket_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
     check_error(ret, "receiving message");
 
     // create message from bytes
@@ -85,11 +85,11 @@ MessageBuf SocketServer::receive_msg()
     return m;
 }
 
-SocketClient::SocketClient(const char *ipv4_addr, int port, uint32_t max_msg_size) : Communicator(max_msg_size), ipv4_addr(ipv4_addr), port(port)
+SocketClient::SocketClient(const char *ipv4_addr, uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
-SocketClient::SocketClient(const char *ipv4_addr, int port) : Communicator(), ipv4_addr(ipv4_addr), port(port)
+SocketClient::SocketClient(const char *ipv4_addr, uint16_t port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
@@ -127,7 +127,7 @@ void SocketClient::close()
 void SocketClient::send_msg(MessageBuf message)
 {
     char *bytes = message.to_bytes();
-    int ret = send(server_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
+    ssize_t ret = send(server_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
 }
@@ -139,7 +139,7 @@ MessageBuf SocketClient::receive_msg()
     MessageBuf m(max_msg_size);
 
     // read into bytes
-    int ret = read(server_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
+    ssize_t ret = read(server_fd, reinterpret_cast<void *>(bytes), MessageBuf::get_size(max_msg_size));
     check_error(ret, "receiving message");
 
     // get message from bytes

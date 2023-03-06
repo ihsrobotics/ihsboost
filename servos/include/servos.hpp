@@ -13,8 +13,7 @@
 #ifndef SERVOS_HPP
 #define SERVOS_HPP
 
-#define SERVO_MOVEMENT_SPEED 200  ///< default number of ticks to move a servo per second
-#define SERVO_UPDATES_PER_SEC 100 ///< default updates per second when moving a servo
+#include "config.hpp"
 
 /**
  * @brief Move a servo slowly to its goal position
@@ -24,7 +23,7 @@
  * @param speed how fast to move the servo, in ticks per second. Defaults to 200
  * @param updates_per_sec How many updates to do per second, defaults to 100
  */
-void move_servo_slowly(int port, int position, int speed = SERVO_MOVEMENT_SPEED, int updates_per_sec = SERVO_UPDATES_PER_SEC);
+void move_servo_slowly(int port, int position, int speed = get_config().getInt("servo_movement_speed"), int updates_per_sec = get_config().getInt("servo_updates_per_sec"));
 
 #endif
 /**@}*/

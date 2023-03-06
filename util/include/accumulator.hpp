@@ -15,7 +15,6 @@
 
 #include "threading.hpp"
 #include <functional>
-#include <kipr/wombat.h>
 
 /**
  * @brief Integrate values returned by the given function
@@ -64,12 +63,13 @@ public:
 private:
     static void accumulate(Accumulator *a);
 
-    Threadable<void(Accumulator *a), Accumulator *> *t;
-    int msleep_time;
-    double multiplier;
     std::function<double()> callable;
+    Threadable<void(Accumulator *a), Accumulator *> *t;
     volatile double accumulator;
     volatile bool flag;
+
+    int msleep_time;
+    double multiplier;
 };
 
 #endif

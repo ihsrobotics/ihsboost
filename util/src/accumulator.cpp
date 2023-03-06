@@ -1,8 +1,9 @@
 #include "accumulator.hpp"
+#include <kipr/wombat.h>
 
 Accumulator::Accumulator(std::function<double()> callable, int updates_per_sec)
-    : accumulator(0), callable(callable), flag(true), multiplier(1 / static_cast<double>(updates_per_sec)),
-      msleep_time(1000 / updates_per_sec){};
+    : callable(callable), t(nullptr), accumulator(0), flag(true), msleep_time(1000 / updates_per_sec),
+      multiplier(1 / static_cast<double>(updates_per_sec)){};
 
 Accumulator::~Accumulator()
 {

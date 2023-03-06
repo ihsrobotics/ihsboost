@@ -1,0 +1,51 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4.5.0
+      with:
+        # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
+        python-version: '3.10'
+        # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+        token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
+        # Set this option if you want the action to update environment variables.
+        update-environment: true
+        
+    - name: Install dependencies
+      run: sudo apt-get install libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
+    
+    - name: Install libwallaby
+      run: git clone https://github.com/chrehall68/libwallaby.git &&
+          cd ./libwallaby &&
+          git checkout refactor &&
+          mkdir build && cd build && 
+          cmake .. -Dwith_tello=OFF -Dwith_graphics=OFF -Dwith_python_binding=OFF -Dwith_documentation=OFF -Dwith_tests=OFF -DDUMMY=ON -G "Ninja" &&
+          cmake --build . --parallel &&
+          sudo cmake --install . &&
+          cd ../..
+          
+    - name: Configure CMake
+      # Configure ihsboost CMake in 'build' subdirectory.
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -Dwith_documentation=OFF -Dpython_version=3.10 -G "Ninja"
+
+    - name: Build
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}

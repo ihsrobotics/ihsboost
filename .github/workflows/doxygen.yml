@@ -18,7 +18,9 @@ jobs:
         run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
       - name: Configure
-        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
+        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF -Dbuild_python=OFF .
+      - name: Configure Doxygen Python
+        run: cp ./bindings/ihs_bindings.pyi ./bindings/ihs_bindings.py
       - name: Build
         run: make
       - name: Deploy

@@ -34,11 +34,19 @@ public:
     MessageBuf(uint32_t buf_size);
 
     /**
-     * @brief Construct a new MessageBuf object from another MessageBuf
+     * @brief Move the other MessageBuf object to this MessageBuf
      *
-     * @param other the MessageBuf to copy
+     * @param other the MessageBuf to move to this
      */
     MessageBuf(MessageBuf &&other);
+
+    /**
+     * @brief Moves the other MessageBuf object to this MessageBuf
+     *
+     * @param other the MessageBuf to move to this
+     * @return MessageBuf& *this
+     */
+    MessageBuf &operator=(MessageBuf &&other);
 
     /**
      * @brief Destroy the Message Buf object
@@ -55,18 +63,18 @@ public:
     void reset();
 
     /**
-     * @brief Get the type_info object describing data held
+     * @brief Get the type hash describing data held
      * @exception Will throw EmptyBufException if the buffer is empty
      *
-     * @return const std::type_info&
+     * @return const std::uint64_t the type hash
      */
     const std::uint64_t get_type_hash() const;
 
     /**
      * @brief Return whether or not the message buf is empty
      *
-     * @return true
-     * @return false
+     * @return true if it is empty
+     * @return false if it isn't empty
      */
     bool is_empty() const;
 
@@ -90,16 +98,16 @@ public:
      * @details value of 1 means that it only holds one of that type,
      * value of 2 means that there are 2, etc
      *
-     * @return uint16_t
+     * @return uint16_t how long the data is
      */
     uint16_t get_length() const;
 
     /**
-     * @brief Get the number of bytes that a MessageBuf
+     * @brief Get the minimum number of bytes that a MessageBuf
      * of type T will take that holds `len` number of T's
      * will take
      *
-     * @tparam T
+     * @tparam T the type of the data, regardless of whether it is a pointer or not
      * @param len how many T's the MessageBuf holds
      * @return uint32_t the number of bytes
      */
@@ -113,7 +121,7 @@ public:
      * of max size `buf_size` will take
      *
      * @param buf_size the size of the buffer
-     * @return uint32_t
+     * @return uint32_t the number of bytes
      */
     static uint32_t get_size(uint32_t buf_size)
     {
@@ -126,7 +134,7 @@ public:
      * @exception Will throw BadBufCastException if `get_val` is called
      * with the wrong type
      *
-     * @tparam T the type of the value
+     * @tparam T the type of the data, regardless of whether it is a pointer or not
      * @return T the stored value
      */
     template <typename T>
@@ -152,11 +160,11 @@ public:
 
     /**
      * @brief Get the ptr to the val object
+     * @exception Will throw EmptyBufException if the buffer is empty
+     * @exception Will throw BadBufCastException if `get_val` is called
+     * with the wrong type
      *
-     * @tparam T
-     * @tparam _Len Note that as long as this is provided
-     * it should return the correct pointer data, even if
-     * `_Len` was incorrect
+     * @tparam T the type of the data, regardless of whether it is a pointer or not
      * @return T* a pointer to the data
      */
     template <typename T>
@@ -182,7 +190,7 @@ public:
     /**
      * @brief Store a literal
      *
-     * @tparam T the type of the object
+     * @tparam T the type of the data, regardless of whether it is a pointer or not
      * @param val the value to store
      */
     template <typename T>
@@ -192,7 +200,7 @@ public:
         reset();
 
         // initialize our attributes
-        attrs.hold_data<T>(1, false);
+        attrs.hold_data<T>(1);
 
         // then set our data
         data_holder = new T[1]{val};
@@ -203,7 +211,7 @@ public:
      * @details val must be a pointer to an array
      * of T's of minimum length _Length
      *
-     * @tparam T
+     * @tparam T the type of the data, regardless of whether it is a pointer or not
      * @param val a pointer to the values to store
      * @param len how many items to store
      */
@@ -214,7 +222,7 @@ public:
         reset();
 
         // prepare attributes, this time it IS a pointer
-        attrs.hold_data<T>(len, false);
+        attrs.hold_data<T>(len, true);
 
         // initialize our data holder
         data_holder = new T[len];
@@ -224,7 +232,7 @@ public:
     /**
      * @brief Convert the buffer to bytes
      *
-     * @return char*
+     * @return char* a pointer to a newly allocated byte buffer that needs to be freed / deleted.
      */
     char *to_bytes() const;
 
@@ -236,7 +244,38 @@ public:
      */
     void from_bytes(char *bytes, bool delete_bytes = true);
 
+    /**
+     * @brief Copies the other MessageBuf onto this one, including
+     * copying the data stored in it
+     *
+     * @param other the MessageBuf to copy onto this one
+     * @return MessageBuf& *this
+     */
+    MessageBuf &copy(MessageBuf &other);
+
 private:
+    /**
+     * @brief copies the other MessageBuf, including copying
+     * the data stored in it.
+     * @details this is a private constructor so that programs
+     * will not continually allocate new data. If you want to copy
+     * a MessageBuf, call `copy` \see copy
+     *
+     * @param other the MessageBuf to copy
+     */
+    MessageBuf(MessageBuf &other);
+
+    /**
+     * @brief copies the other MessageBuf onto this one, including
+     * copying the data stored in it
+     * @details this is a private operator so that programs
+     * will not continually allocate new data. If you want to copy
+     * a MessageBuf, call `copy` \see copy
+     *
+     * @param other the MessageBuf to copy
+     */
+    MessageBuf &operator=(MessageBuf &other);
+
     /**
      * @brief Struct that MessageBuf uses to store
      * message attributes
@@ -260,21 +299,20 @@ private:
          * @brief configures this attributes object so that
          * it reflects holding data of type T
          *
-         * @tparam T
-         * @tparam len
-         * @param _was_from_bytes whether or not the data was from bytes
+         * @tparam T the type of the data, regardless of whether it is a pointer or not
+         * @param len the length of the message
+         * @param is_ptr whether or not this stores a ptr
          */
         template <typename T>
-        void hold_data(std::uint16_t len, bool _was_from_bytes)
+        void hold_data(std::uint16_t len, bool is_ptr = false)
         {
             empty = false;
-            was_from_bytes = _was_from_bytes;
 
-            if (len > 1) // holding more than 1 val -> its a pointer
+            if (is_ptr)
             {
                 tp_hash = typeid(T *).hash_code();
             }
-            else // just holding 1 val -> its a value
+            else
             {
                 tp_hash = typeid(T).hash_code();
             }
@@ -291,10 +329,9 @@ private:
 
         uint64_t tp_hash;          ///< info about type
         uint32_t data_holder_size; ///< how large the data is
-        uint16_t data_holder_len;  ///< how many items data contains
         uint32_t buf_size;         ///< how large the buffer should be when converting to bytes
+        uint16_t data_holder_len;  ///< how many items data contains
         bool empty;                ///< whether or not the buffer is empty
-        bool was_from_bytes;       ///< whether or not the buffer was constructed from bytes
     };
 
     // attributes

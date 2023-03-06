@@ -1,20 +1,32 @@
 cmake_minimum_required(VERSION 3.0)
 project(ihs_boost)
 
-option(with_documentation "with_documentation" OFF)
-if (${with_documentation})
-    find_package(Doxygen REQUIRED)
+set(LIBRARY_DIRS communicate controllers create_extra
+                movement servos threading util
+)
 
-    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
-    doxygen_add_docs(doxygen ${CMAKE_SOURCE_DIR} ALL)
+# configure config.hpp
+option(roomba "Whether to build for the roomba or not" ON)
+if (${roomba})
+    set(robot_config_name "roomba_config.json")
+    set(robot_config_hpp "roomba_config.hpp")
+else()
+    set(robot_config_name "small_bot_config.json")
+    set(robot_config_hpp "small_bot_config.hpp")
 endif()
+configure_file(${CMAKE_SOURCE_DIR}/util/include/config.hpp.in ${CMAKE_SOURCE_DIR}/util/include/config.hpp)
 
+# main .so file
 option(build_library "build_library" ON)
 if (${build_library})
-    add_compile_options("-std=c++11")  # if 17 is not available, 11 will do for everything except for threading test
+    add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
+    add_compile_options("-Wall")
+    add_compile_options("-Wconversion")
 
-    include_directories(/usr/local/include)
+    find_library(json_libs jsoncpp REQUIRED)
+    
+    # install path configuration, defaults to /usr/local/
     message("installing to " ${CMAKE_INSTALL_PREFIX})
     define_property(GLOBAL PROPERTY install_path BRIEF_DOCS "where to install" FULL_DOCS "where to install files")
     set_property(GLOBAL PROPERTY install_path ${CMAKE_INSTALL_PREFIX}/include/ihsboost/)
@@ -22,21 +34,11 @@ if (${build_library})
     define_property(GLOBAL PROPERTY IHS_SOURCES BRIEF_DOCS "the sources" FULL_DOCS "the full sources")
     message("include install_path has been set to " ${local_install_path})
 
-    add_subdirectory(util)
-    add_subdirectory(movement)
-    add_subdirectory(controllers)
-    add_subdirectory(threading)
-    add_subdirectory(servos)
-    add_subdirectory(communicate)
-    add_subdirectory(create_extra)
-
-    include_directories(util/include)
-    include_directories(movement/include)
-    include_directories(controllers/include)
-    include_directories(threading/include)
-    include_directories(servos/include)
-    include_directories(communicate/include)
-    include_directories(create_extra/include)
+    # add subdirectories
+    foreach(subdir IN LISTS LIBRARY_DIRS)
+        include_directories(${CMAKE_SOURCE_DIR}/${subdir}/include)
+        add_subdirectory(${CMAKE_SOURCE_DIR}/${subdir})
+    endforeach()
 
     get_property(local_ihs_sources GLOBAL PROPERTY IHS_SOURCES)
     message("Sources are" ${local_ihs_sources})
@@ -46,4 +48,24 @@ if (${build_library})
     # install
     install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
     install(FILES all.hpp DESTINATION ${local_install_path})
+endif()
+
+# python bindings
+option(build_python "build_python" ON)
+if (${build_python})
+    add_subdirectory(bindings)
+endif()
+
+# doxygen/documentation
+option(with_documentation "with_documentation" OFF)
+if (${with_documentation})
+    find_package(Doxygen REQUIRED)
+
+    # include the extra files
+    set(DOXYGEN_SOURCES ${LIBRARY_DIRS} ${CMAKE_SOURCE_DIR}/README.md ${CMAKE_SOURCE_DIR}/all.hpp ${CMAKE_SOURCE_DIR}/bindings/)
+    set(DOXYGEN_EXAMPLE_PATH ${CMAKE_SOURCE_DIR}/examples)
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE ${CMAKE_SOURCE_DIR}/README.md)
+
+    # doxygen it
+    doxygen_add_docs(doxygen ${DOXYGEN_SOURCES} ALL)
 endif()
