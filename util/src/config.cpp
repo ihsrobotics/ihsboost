@@ -149,10 +149,14 @@ private:
     Config *extra_config; ///< the extra config
 };
 
-std::shared_ptr<PartialConfig> ihsboost_config(make_shared<PartialConfig>());
+std::shared_ptr<PartialConfig> ihsboost_config(nullptr);
 
 Config &get_config(std::string config_file)
 {
+    if (ihsboost_config.get() == nullptr)
+    {
+        ihsboost_config = make_shared<PartialConfig>();
+    }
     return *ihsboost_config.get();
 }
 
