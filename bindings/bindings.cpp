@@ -146,7 +146,7 @@ BOOST_PYTHON_MODULE(ihs_bindings)
     // N/A, python already has good threading
 
     // create_extra
-    class_<CreateExtraController>("CreateExtraController", no_init)
+    class_<CreateExtraController>("CreateExtraController", init<>())
         .def("run_main_brush", &CreateExtraController::run_main_brush)
         .def("run_side_brush", &CreateExtraController::run_side_brush)
         .def("run_vacuum", &CreateExtraController::run_vacuum);

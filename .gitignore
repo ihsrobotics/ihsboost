@@ -9,6 +9,7 @@ out/
 *.so
 *.o
 bin/
+ihs_bindings.py
 
 # configure output
 config.hpp
