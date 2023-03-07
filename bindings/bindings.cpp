@@ -78,8 +78,8 @@ namespace util_export
 
 namespace movement_export
 {
-    void (*encoder_drive_straight_cm)(int, double, bool, int, double, double, int) = encoder_drive_straight;
-    void (*encoder_drive_straight_fn)(int, std::function<bool()>, bool, double, int) = encoder_drive_straight;
+    double (*encoder_drive_straight_cm)(int, double, bool, int, double, double, int) = encoder_drive_straight;
+    double (*encoder_drive_straight_fn)(int, std::function<bool()>, bool, double, int) = encoder_drive_straight;
     void (*encoder_turn_degrees_v1)(Speed, double, int) = encoder_turn_degrees;
     void (*encoder_turn_degrees_v2)(int, double, int, double, int) = encoder_turn_degrees;
 }
