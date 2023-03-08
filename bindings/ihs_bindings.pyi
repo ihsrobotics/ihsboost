@@ -531,7 +531,7 @@ def encoder_drive_straight_cm(
     correction_proportion: float = ...,
     accel_per_sec: float = ...,
     updates_per_sec: float = ...,
-) -> None:
+) -> float:
     """
     Drive straight using create encoders. Uses the following formula:
     `N counts * (mm in 1 wheel revolution / counts in 1 wheel revolution) = mm`
@@ -551,7 +551,7 @@ def encoder_drive_straight_fn(
     stop: bool = ...,
     correction_proportion: float = ...,
     updates_per_sec: int = ...,
-) -> None:
+) -> float:
     """
     Drive straight at `speed` until it is time to stop
         @param speed - the speed to drive at, can be positive or negative

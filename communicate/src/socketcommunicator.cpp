@@ -62,9 +62,8 @@ void SocketServer::close()
     shutdown(server_fd, SHUT_RDWR);
 }
 
-void SocketServer::send_msg(MessageBuf message)
+void SocketServer::send_bytes(char *bytes)
 {
-    char *bytes = message.to_bytes();
     ssize_t ret = send(socket_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
@@ -124,9 +123,8 @@ void SocketClient::close()
     ::close(client_fd);
 }
 
-void SocketClient::send_msg(MessageBuf message)
+void SocketClient::send_bytes(char *bytes)
 {
-    char *bytes = message.to_bytes();
     ssize_t ret = send(server_fd, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");

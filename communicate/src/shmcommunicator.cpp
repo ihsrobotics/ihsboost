@@ -49,13 +49,12 @@ void SHMCommunicator::close()
     }
 }
 
-void SHMCommunicator::send_msg(MessageBuf message)
+void SHMCommunicator::send_bytes(char *bytes)
 {
     // get shared memory
     void *buf = shmat(shm_id, NULL, 0);
 
-    // get, write, and delete bytes
-    char *bytes = message.to_bytes();
+    // write and delete bytes
     memcpy(buf, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size));
     delete[] bytes;
 

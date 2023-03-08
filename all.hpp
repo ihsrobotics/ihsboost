@@ -11,6 +11,8 @@
 /**
  * @example message_buf_test.cpp
  * @example message_test.cpp
+ * @example PosixQreceiver.cpp
+ * @example PosixQsender.cpp
  *
  * @example movement_test.cpp
  * @example encoder_test.cpp
