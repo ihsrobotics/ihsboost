@@ -68,27 +68,28 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> ihs_bindings</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> time</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># communicator = ihs_bindings.SocketServer(8080, 100)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># create the communicator to use</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;communicator = <a class="code" href="classihs__bindings_1_1PosixQCommunicator.html">ihs_bindings.PosixQCommunicator</a>(<span class="stringliteral">&quot;/our_queue&quot;</span>)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<a class="code" href="group__python__functions__id.html#ga7e408934aabadf20b0d7df10d0ef56e2">ihs_bindings.send_ints</a>(communicator, [4, 6])</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;time.sleep(1)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="group__python__functions__id.html#gaf0cb0e1493f7b947ba3e4a1a3ddac91c">ihs_bindings.send_doubles</a>(communicator, [3.14, 7.22])</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;time.sleep(1)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<a class="code" href="group__python__functions__id.html#ga2147044a51941a73da712d7ef0c0743f">ihs_bindings.send_string</a>(communicator, <span class="stringliteral">&quot;hi there cutie&quot;</span>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;time.sleep(1)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"># send individual values</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<a class="code" href="group__python__functions__id.html#ga7e408934aabadf20b0d7df10d0ef56e2">ihs_bindings.send_ints</a>(communicator, [4])</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="group__python__functions__id.html#ga2147044a51941a73da712d7ef0c0743f">ihs_bindings.send_string</a>(communicator, <span class="stringliteral">&quot;h&quot;</span>)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="group__python__functions__id.html#ga37a362ccbcdfeb310b155661de630ec3">ihs_bindings.send_bools</a>(communicator, [<span class="keyword">True</span>])</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"># cpp automatic typecasting: &lt;=0 - false, &gt;0 - true</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="group__python__functions__id.html#ga37a362ccbcdfeb310b155661de630ec3">ihs_bindings.send_bools</a>(communicator, [0, 33])</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># but cpp automatic typecasting can&#39;t deal w/ incompatible types</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"># the below line will fail</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"># ihs_bindings.send_doubles(communicator, [&quot;h&quot;, &quot;i&quot;])</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># send lists and full strings</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="group__python__functions__id.html#ga7e408934aabadf20b0d7df10d0ef56e2">ihs_bindings.send_ints</a>(communicator, [4, 6])</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;time.sleep(1)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="group__python__functions__id.html#gaf0cb0e1493f7b947ba3e4a1a3ddac91c">ihs_bindings.send_doubles</a>(communicator, [3.14, 7.22])</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;time.sleep(1)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="group__python__functions__id.html#ga2147044a51941a73da712d7ef0c0743f">ihs_bindings.send_string</a>(communicator, <span class="stringliteral">&quot;hi there cutie&quot;</span>)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;time.sleep(1)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"># send individual values</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="group__python__functions__id.html#ga7e408934aabadf20b0d7df10d0ef56e2">ihs_bindings.send_ints</a>(communicator, [4])</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="group__python__functions__id.html#ga2147044a51941a73da712d7ef0c0743f">ihs_bindings.send_string</a>(communicator, <span class="stringliteral">&quot;h&quot;</span>)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="group__python__functions__id.html#ga37a362ccbcdfeb310b155661de630ec3">ihs_bindings.send_bools</a>(communicator, [<span class="keyword">True</span>])</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># cpp automatic typecasting: &lt;=0 - false, &gt;0 - true</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="group__python__functions__id.html#ga37a362ccbcdfeb310b155661de630ec3">ihs_bindings.send_bools</a>(communicator, [0, 33])</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"># but cpp automatic typecasting can&#39;t deal w/ incompatible types</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"># the below line will fail</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"># ihs_bindings.send_doubles(communicator, [&quot;h&quot;, &quot;i&quot;])</span></div>
 <div class="ttc" id="aclassihs__bindings_1_1PosixQCommunicator_html"><div class="ttname"><a href="classihs__bindings_1_1PosixQCommunicator.html">ihs_bindings.PosixQCommunicator</a></div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:46</div></div>
 <div class="ttc" id="agroup__python__functions__id_html_ga2147044a51941a73da712d7ef0c0743f"><div class="ttname"><a href="group__python__functions__id.html#ga2147044a51941a73da712d7ef0c0743f">ihs_bindings.send_string</a></div><div class="ttdeci">bool send_string(CommunicatorBase communicator, str string)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:238</div></div>
 <div class="ttc" id="agroup__python__functions__id_html_ga37a362ccbcdfeb310b155661de630ec3"><div class="ttname"><a href="group__python__functions__id.html#ga37a362ccbcdfeb310b155661de630ec3">ihs_bindings.send_bools</a></div><div class="ttdeci">bool send_bools(CommunicatorBase communicator, list bools)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:228</div></div>

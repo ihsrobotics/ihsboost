@@ -124,12 +124,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gad281bbf502aa91f48b3e6501db1982f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gad281bbf502aa91f48b3e6501db1982f0">line_follow_basic</a> (int speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:gad281bbf502aa91f48b3e6501db1982f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow at a given speed.  <a href="group__movement__id.html#gad281bbf502aa91f48b3e6501db1982f0">More...</a><br /></td></tr>
 <tr class="separator:gad281bbf502aa91f48b3e6501db1982f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ed3a6676a9f13470ed29930971c4434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4ed3a6676a9f13470ed29930971c4434">line_follow_accelerate_linear</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_linear_acceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga4ed3a6676a9f13470ed29930971c4434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate linearly.  <a href="group__movement__id.html#ga4ed3a6676a9f13470ed29930971c4434">More...</a><br /></td></tr>
-<tr class="separator:ga4ed3a6676a9f13470ed29930971c4434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1c094a12a20d6ab489c3a28c2086f15e">line_follow_accelerate_sinusoidal</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), int accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_sinusoidal_aceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate sinusoidally.  <a href="group__movement__id.html#ga1c094a12a20d6ab489c3a28c2086f15e">More...</a><br /></td></tr>
-<tr class="separator:ga1c094a12a20d6ab489c3a28c2086f15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf76d2e1639301fa128f35cbc73373470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaf76d2e1639301fa128f35cbc73373470">line_follow_accelerate_linear</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_linear_acceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gaf76d2e1639301fa128f35cbc73373470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate linearly.  <a href="group__movement__id.html#gaf76d2e1639301fa128f35cbc73373470">More...</a><br /></td></tr>
+<tr class="separator:gaf76d2e1639301fa128f35cbc73373470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa718c258ed76e8e527f6785d238cc00f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaa718c258ed76e8e527f6785d238cc00f">line_follow_accelerate_sinusoidal</a> (int from_speed, int to_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor, <a class="el" href="group__util__id.html#ga34803f82fa175c477affdcf45ce37336">LineSide</a> line_side, std::function&lt; bool()&gt; stop_condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;line_follow_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_sinusoidal_aceleration&quot;), int black_val=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;black&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gaa718c258ed76e8e527f6785d238cc00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line follow, but accelerate sinusoidally.  <a href="group__movement__id.html#gaa718c258ed76e8e527f6785d238cc00f">More...</a><br /></td></tr>
+<tr class="separator:gaa718c258ed76e8e527f6785d238cc00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga45c6360af2fcee806597329ffa3400a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">align_with_black</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;align_stop&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;align_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga45c6360af2fcee806597329ffa3400a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with black, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on black.  <a href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">More...</a><br /></td></tr>
 <tr class="separator:ga45c6360af2fcee806597329ffa3400a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,12 +145,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gab0741049e45f1de20bbe65029181299e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">process_encoders</a> (int &amp;lenc_prev, int &amp;renc_prev, int &amp;lenc_delta, int &amp;renc_delta)</td></tr>
 <tr class="memdesc:gab0741049e45f1de20bbe65029181299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate.  <a href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">More...</a><br /></td></tr>
 <tr class="separator:gab0741049e45f1de20bbe65029181299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga91c8625fdafbcec44668480c4002f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga91c8625fdafbcec44668480c4002f213">encoder_drive_straight</a> (int speed, double cm, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga91c8625fdafbcec44668480c4002f213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#ga91c8625fdafbcec44668480c4002f213">More...</a><br /></td></tr>
-<tr class="separator:ga91c8625fdafbcec44668480c4002f213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac91d60fb05bc2d6a0f8f11d1f4d944ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gac91d60fb05bc2d6a0f8f11d1f4d944ee">encoder_drive_straight</a> (int speed, std::function&lt; bool()&gt; condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:gac91d60fb05bc2d6a0f8f11d1f4d944ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight at speed until it is time to stop.  <a href="group__movement__id.html#gac91d60fb05bc2d6a0f8f11d1f4d944ee">More...</a><br /></td></tr>
-<tr class="separator:gac91d60fb05bc2d6a0f8f11d1f4d944ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">encoder_drive_straight</a> (int speed, double cm, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">More...</a><br /></td></tr>
+<tr class="separator:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb48e557019e32d0195dd88c09461883"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gadb48e557019e32d0195dd88c09461883">encoder_drive_straight</a> (int speed, std::function&lt; bool()&gt; condition, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gadb48e557019e32d0195dd88c09461883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight at speed until it is time to stop.  <a href="group__movement__id.html#gadb48e557019e32d0195dd88c09461883">More...</a><br /></td></tr>
+<tr class="separator:gadb48e557019e32d0195dd88c09461883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0da878ea2665cd58355b78b446ac5628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">encoder_drive_straight_pid</a> (int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga0da878ea2665cd58355b78b446ac5628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)  <a href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">More...</a><br /></td></tr>
 <tr class="separator:ga0da878ea2665cd58355b78b446ac5628"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -503,14 +503,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga91c8625fdafbcec44668480c4002f213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga91c8625fdafbcec44668480c4002f213">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[1/2]</span></h2>
+<a id="ga8faaceac5a8eaa51ccff1a942f5dd6cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8faaceac5a8eaa51ccff1a942f5dd6cb">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void encoder_drive_straight </td>
+          <td class="memname">double encoder_drive_straight </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>speed</em>, </td>
@@ -573,19 +573,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>double - the number of mm driven </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="encoder_test_8cpp-example.html#a0">encoder_test.cpp</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="gac91d60fb05bc2d6a0f8f11d1f4d944ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac91d60fb05bc2d6a0f8f11d1f4d944ee">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[2/2]</span></h2>
+<a id="gadb48e557019e32d0195dd88c09461883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadb48e557019e32d0195dd88c09461883">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void encoder_drive_straight </td>
+          <td class="memname">double encoder_drive_straight </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>speed</em>, </td>
@@ -633,6 +634,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>double - the number of mm driven </dd></dl>
 
 </div>
 </div>
@@ -1076,8 +1078,8 @@ false if it isn't white </dd></dl>
 
 </div>
 </div>
-<a id="ga4ed3a6676a9f13470ed29930971c4434"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4ed3a6676a9f13470ed29930971c4434">&#9670;&nbsp;</a></span>line_follow_accelerate_linear()</h2>
+<a id="gaf76d2e1639301fa128f35cbc73373470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf76d2e1639301fa128f35cbc73373470">&#9670;&nbsp;</a></span>line_follow_accelerate_linear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1127,8 +1129,8 @@ false if it isn't white </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_linear_acceleration&quot;)</code>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_linear_acceleration&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1181,8 +1183,8 @@ false if it isn't white </dd></dl>
 
 </div>
 </div>
-<a id="ga1c094a12a20d6ab489c3a28c2086f15e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1c094a12a20d6ab489c3a28c2086f15e">&#9670;&nbsp;</a></span>line_follow_accelerate_sinusoidal()</h2>
+<a id="gaa718c258ed76e8e527f6785d238cc00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa718c258ed76e8e527f6785d238cc00f">&#9670;&nbsp;</a></span>line_follow_accelerate_sinusoidal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1232,8 +1234,8 @@ false if it isn't white </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;line_follow_sinusoidal_aceleration&quot;)</code>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;line_follow_sinusoidal_aceleration&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

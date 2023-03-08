@@ -1,33 +1,37 @@
 <map id="all.hpp" name="all.hpp">
-<area shape="rect" id="node1" title="master header that includes all other ihsboost headers" alt="" coords="957,5,1023,32"/>
-<area shape="rect" id="node2" href="$controllers_8hpp.html" title="Movement controllers." alt="" coords="5,80,124,107"/>
-<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="419,155,537,181"/>
-<area shape="rect" id="node4" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="385,229,475,256"/>
-<area shape="rect" id="node5" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="369,304,491,331"/>
-<area shape="rect" id="node8" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="907,229,996,256"/>
-<area shape="rect" id="node9" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="915,155,1068,181"/>
-<area shape="rect" id="node11" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="515,80,635,107"/>
-<area shape="rect" id="node12" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="613,155,687,181"/>
-<area shape="rect" id="node13" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="711,155,890,181"/>
-<area shape="rect" id="node14" href="$threading_8hpp.html" title="Easy threading functionality." alt="" coords="1917,80,2029,107"/>
-<area shape="rect" id="node16" href="$timer_8hpp.html" title="Timer class definition." alt="" coords="2053,80,2137,107"/>
-<area shape="rect" id="node17" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="199,155,293,181"/>
-<area shape="rect" id="node18" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="1419,155,1561,181"/>
-<area shape="rect" id="node24" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="1053,80,1239,107"/>
-<area shape="rect" id="node26" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="1512,80,1697,107"/>
-<area shape="rect" id="node27" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="1263,80,1437,107"/>
-<area shape="rect" id="node29" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="1722,80,1893,107"/>
-<area shape="rect" id="node30" href="$create__extra_8hpp.html" title="Extra functionality for the create." alt="" coords="2161,80,2293,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="1127,379,1186,405"/>
-<area shape="rect" id="node7" title=" " alt="" coords="357,379,503,405"/>
-<area shape="rect" id="node10" title=" " alt="" coords="757,229,844,256"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1941,155,2005,181"/>
-<area shape="rect" id="node19" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="1403,229,1539,256"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1571,304,1647,331"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1213,304,1300,331"/>
-<area shape="rect" id="node22" href="$communication__exception_8hpp.html" title="Exceptions that may be thrown while communicating." alt="" coords="1324,304,1547,331"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1392,379,1479,405"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1195,155,1281,181"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1306,155,1394,181"/>
-<area shape="rect" id="node31" title=" " alt="" coords="2194,155,2261,181"/>
+<area shape="rect" id="node1" title="master header that includes all other ihsboost headers" alt="" coords="1092,5,1159,32"/>
+<area shape="rect" id="node2" href="$controllers_8hpp.html" title="Movement controllers." alt="" coords="291,80,410,107"/>
+<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="434,80,555,107"/>
+<area shape="rect" id="node15" href="$threading_8hpp.html" title="Easy threading functionality." alt="" coords="1029,304,1141,331"/>
+<area shape="rect" id="node17" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="809,155,879,181"/>
+<area shape="rect" id="node20" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="1079,80,1172,107"/>
+<area shape="rect" id="node21" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="1584,80,1723,107"/>
+<area shape="rect" id="node34" href="$create__extra_8hpp.html" title="Extra functionality for the create." alt="" coords="1995,80,2127,107"/>
+<area shape="rect" id="node4" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="386,229,505,256"/>
+<area shape="rect" id="node10" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="209,229,362,256"/>
+<area shape="rect" id="node12" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="483,155,603,181"/>
+<area shape="rect" id="node14" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,229,184,256"/>
+<area shape="rect" id="node5" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="549,304,638,331"/>
+<area shape="rect" id="node9" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="262,304,351,331"/>
+<area shape="rect" id="node6" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="783,379,905,405"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1965,453,2024,480"/>
+<area shape="rect" id="node8" title=" " alt="" coords="771,453,917,480"/>
+<area shape="rect" id="node11" title=" " alt="" coords="417,304,503,331"/>
+<area shape="rect" id="node13" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="631,229,705,256"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1053,379,1117,405"/>
+<area shape="rect" id="node18" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="881,229,1012,256"/>
+<area shape="rect" id="node19" href="$timer_8hpp.html" title="Timer class definition." alt="" coords="1037,229,1121,256"/>
+<area shape="rect" id="node22" href="$communication__exception_8hpp.html" title="Exceptions that may be thrown while communicating." alt="" coords="1835,379,2058,405"/>
+<area shape="rect" id="node24" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="1647,229,1790,256"/>
+<area shape="rect" id="node25" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="1651,304,1787,331"/>
+<area shape="rect" id="node28" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="2001,155,2188,181"/>
+<area shape="rect" id="node30" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="1756,155,1927,181"/>
+<area shape="rect" id="node31" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="1495,155,1681,181"/>
+<area shape="rect" id="node32" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="1297,155,1471,181"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1854,453,1941,480"/>
+<area shape="rect" id="node26" title=" " alt="" coords="1591,379,1667,405"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1691,379,1778,405"/>
+<area shape="rect" id="node29" title=" " alt="" coords="2002,229,2089,256"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1340,229,1428,256"/>
+<area shape="rect" id="node35" title=" " alt="" coords="2212,155,2279,181"/>
 </map>

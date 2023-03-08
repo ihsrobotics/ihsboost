@@ -1,9 +1,10 @@
 <map id="communicate/include/message_buf.hpp" name="communicate/include/message_buf.hpp">
-<area shape="rect" id="node1" title="MessageBuf class for serializing and retreiving data." alt="" coords="278,5,441,47"/>
-<area shape="rect" id="node2" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="278,95,441,136"/>
-<area shape="rect" id="node3" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="5,184,196,225"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="326,273,393,300"/>
-<area shape="rect" id="node5" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="272,184,447,225"/>
-<area shape="rect" id="node6" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="471,184,661,225"/>
-<area shape="rect" id="node7" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="685,184,863,225"/>
+<area shape="rect" id="node1" title="MessageBuf class for serializing and retreiving data." alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="200,273,363,315"/>
+<area shape="rect" id="node4" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="200,95,363,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="248,363,315,389"/>
+<area shape="rect" id="node5" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="83,184,274,225"/>
+<area shape="rect" id="node6" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="298,184,473,225"/>
+<area shape="rect" id="node7" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="497,184,687,225"/>
+<area shape="rect" id="node8" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="711,184,889,225"/>
 </map>

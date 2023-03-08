@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utility_381',['Utility',['../group__util__id.html',1,'']]]
+  ['utility_20functions_387',['Utility Functions',['../group__util__id.html',1,'']]]
 ];

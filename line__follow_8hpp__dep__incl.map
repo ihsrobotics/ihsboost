@@ -1,4 +1,5 @@
 <map id="movement/include/line_follow.hpp" name="movement/include/line_follow.hpp">
-<area shape="rect" id="node1" title="Line follow functions." alt="" coords="5,5,177,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="58,95,125,121"/>
+<area shape="rect" id="node1" title="Line follow functions." alt="" coords="43,5,215,47"/>
+<area shape="rect" id="node2" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,95,252,121"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="95,169,162,196"/>
 </map>

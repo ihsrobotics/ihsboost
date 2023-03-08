@@ -1,5 +1,6 @@
 <map id="movement/include/accelerate.hpp" name="movement/include/accelerate.hpp">
 <area shape="rect" id="node1" title="Acceleration functions." alt="" coords="31,5,275,32"/>
 <area shape="rect" id="node2" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,80,177,121"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="119,169,186,196"/>
+<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="29,169,276,196"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="119,244,186,271"/>
 </map>

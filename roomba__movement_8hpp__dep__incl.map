@@ -1,4 +1,5 @@
 <map id="movement/include/roomba_movement.hpp" name="movement/include/roomba_movement.hpp">
-<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="71,95,138,121"/>
+<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="29,5,228,47"/>
+<area shape="rect" id="node2" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,95,252,121"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="95,169,162,196"/>
 </map>
