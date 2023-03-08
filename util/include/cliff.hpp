@@ -7,7 +7,7 @@
  *
  * @copyright Copyright (c) 2023
  *
- * @defgroup util_id Utility
+ * @addtogroup util_id
  * @{
  */
 #ifndef CLIFF_HPP

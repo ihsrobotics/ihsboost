@@ -66,7 +66,7 @@ void line_follow_basic(int speed, Cliff cliff_sensor, LineSide line_side, std::f
  * @param black_val value for black, defaults to 2000
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = get_config().getBool("line_follow_stop"), double correction_proportion = get_config().getDouble("line_follow_correction_proportion"), int accel_per_sec = get_config().getInt("line_follow_linear_acceleration"), int black_val = get_config().getInt("black"), int updates_per_sec = get_config().getInt("line_follow_updates_per_sec"));
+void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = get_config().getBool("line_follow_stop"), double correction_proportion = get_config().getDouble("line_follow_correction_proportion"), double accel_per_sec = get_config().getDouble("line_follow_linear_acceleration"), int black_val = get_config().getInt("black"), int updates_per_sec = get_config().getInt("line_follow_updates_per_sec"));
 
 /**
  * @brief Line follow, but accelerate sinusoidally
@@ -83,7 +83,7 @@ void line_follow_accelerate_linear(int from_speed, int to_speed, Cliff cliff_sen
  * @param black_val value for black, defaults to 2000
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = get_config().getBool("line_follow_stop"), double correction_proportion = get_config().getDouble("line_follow_correction_proportion"), int accel_per_sec = get_config().getInt("line_follow_sinusoidal_aceleration"), int black_val = get_config().getInt("black"), int updates_per_sec = get_config().getInt("line_follow_updates_per_sec"));
+void line_follow_accelerate_sinusoidal(int from_speed, int to_speed, Cliff cliff_sensor, LineSide line_side, std::function<bool()> stop_condition, bool stop = get_config().getBool("line_follow_stop"), double correction_proportion = get_config().getDouble("line_follow_correction_proportion"), double accel_per_sec = get_config().getDouble("line_follow_sinusoidal_aceleration"), int black_val = get_config().getInt("black"), int updates_per_sec = get_config().getInt("line_follow_updates_per_sec"));
 
 /**
  * @brief Align with black, meaning keep moving until both `cliff_sensor_l` and `cliff_sensor_r` are on black.

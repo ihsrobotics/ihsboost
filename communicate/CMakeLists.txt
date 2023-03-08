@@ -12,5 +12,5 @@ get_property(local_install_path GLOBAL PROPERTY install_path)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/communicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/message_buf.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/posixqcommunicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/sysvcommunicator.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/socketcommunicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/communication_exception.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/shmcommunicator.hpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/shmcommunicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/communicate.hpp
     DESTINATION ${local_install_path})

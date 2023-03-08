@@ -13,4 +13,5 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/cliff.hpp ${CMAKE_CURRENT_SOUR
     ${CMAKE_CURRENT_SOURCE_DIR}/include/roomba_config.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/small_bot_config.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/config.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/json_config.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/roomba_config.json ${CMAKE_CURRENT_SOURCE_DIR}/include/small_bot_config.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/util.hpp
     DESTINATION ${local_install_path})

@@ -7,7 +7,7 @@
  *
  * @copyright Copyright (c) 2023
  *
- * @defgroup communication_id Communication Classes
+ * @addtogroup communication_id
  * @{
  */
 #ifndef COMMUNICATION_EXCEPTION_HPP

@@ -78,7 +78,7 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
     renc_prev = r_temp;
 }
 
-void encoder_drive_straight(int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec)
+double encoder_drive_straight(int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec)
 {
     // initialize encoder variables
     int lenc_prev = 0, renc_prev = 0, lenc_delta = 0, renc_delta = 0;
@@ -113,9 +113,10 @@ void encoder_drive_straight(int speed, std::function<bool()> condition, bool sto
     {
         create_drive_direct(speed, speed);
     }
+    return (lenc_delta * ENC_2_MM + renc_delta * ENC_2_MM) / 2.0;
 }
 
-void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
+double encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, double correction_proportion, double accel_per_sec, int updates_per_sec)
 {
     // initialize misc
     double cached_distance = 0;
@@ -223,6 +224,7 @@ void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, 
         // update encoders
         process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
     }
+
     if (stop)
     {
         create_drive_direct(0, 0);
@@ -231,6 +233,7 @@ void encoder_drive_straight(int max_speed, double cm, bool stop, int min_speed, 
     {
         create_drive_direct(min_speed, min_speed);
     }
+    return (lenc_delta * ENC_2_MM + renc_delta * ENC_2_MM) / 2.0;
 }
 
 double process_speed(double correction_val, double regular_val, int min_speed)

@@ -10,4 +10,5 @@ set_property(GLOBAL PROPERTY IHS_SOURCES ${local_ihs_sources})
 get_property(local_install_path GLOBAL PROPERTY install_path)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/accelerate.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/imu_movement.hpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/line_follow.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/roomba_movement.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/movement.hpp
     DESTINATION ${local_install_path})

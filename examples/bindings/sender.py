@@ -1,9 +1,10 @@
 import ihs_bindings
 import time
 
-# communicator = ihs_bindings.SocketServer(8080, 100)
+# create the communicator to use
 communicator = ihs_bindings.PosixQCommunicator("/our_queue")
 
+# send lists and full strings
 ihs_bindings.send_ints(communicator, [4, 6])
 time.sleep(1)
 ihs_bindings.send_doubles(communicator, [3.14, 7.22])
