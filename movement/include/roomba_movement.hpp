@@ -7,7 +7,7 @@
  *
  * @copyright Copyright (c) 2023
  *
- * @defgroup movement_id Movement Functions
+ * @addtogroup movement_id
  * @{
  */
 #ifndef ROOMBA_TURNS_HPP
@@ -67,8 +67,9 @@ void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc
  * @param correction_proportion how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction.
  * @param accel_per_sec how fast to accelerate per second
  * @param updates_per_sec how many updates to do per second
+ * @return double - the number of mm driven
  */
-void encoder_drive_straight(int speed, double cm, bool stop = get_config().getBool("roomba_stop"), int min_speed = get_config().getInt("roomba_min_speed"), double correction_proportion = get_config().getDouble("roomba_correction_proportion"), double accel_per_sec = get_config().getDouble("roomba_accel_per_sec"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
+double encoder_drive_straight(int speed, double cm, bool stop = get_config().getBool("roomba_stop"), int min_speed = get_config().getInt("roomba_min_speed"), double correction_proportion = get_config().getDouble("roomba_correction_proportion"), double accel_per_sec = get_config().getDouble("roomba_accel_per_sec"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
 
 /**
  * @brief Drive straight at speed until it is time to stop
@@ -78,8 +79,9 @@ void encoder_drive_straight(int speed, double cm, bool stop = get_config().getBo
  * @param stop whether or not to do a full stop after aligning
  * @param correction_proportion how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction.
  * @param updates_per_sec how many updates to do per second
+ * @return double - the number of mm driven
  */
-void encoder_drive_straight(int speed, std::function<bool()> condition, bool stop = get_config().getBool("roomba_stop"), double correction_proportion = get_config().getDouble("roomba_correction_proportion"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
+double encoder_drive_straight(int speed, std::function<bool()> condition, bool stop = get_config().getBool("roomba_stop"), double correction_proportion = get_config().getDouble("roomba_correction_proportion"), int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
 
 /**
  * @brief Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)
