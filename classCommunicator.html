@@ -91,13 +91,6 @@ Inheritance diagram for Communicator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abd4c26c6a901e571bc9cfc4259e65de3"><td class="memItemLeft" align="right" valign="top"><a id="abd4c26c6a901e571bc9cfc4259e65de3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#abd4c26c6a901e571bc9cfc4259e65de3">Communicator</a> ()</td></tr>
-<tr class="memdesc:abd4c26c6a901e571bc9cfc4259e65de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object. <br /></td></tr>
-<tr class="separator:abd4c26c6a901e571bc9cfc4259e65de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a803f169bf3ef69c3e65d0aeed8914370"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370">Communicator</a> (uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
-<tr class="memdesc:a803f169bf3ef69c3e65d0aeed8914370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object with the given max_msg_size.  <a href="classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370">More...</a><br /></td></tr>
-<tr class="separator:a803f169bf3ef69c3e65d0aeed8914370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c406b6e6bcaf39fcee8bf0c094f8eca"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a8c406b6e6bcaf39fcee8bf0c094f8eca">~Communicator</a> ()</td></tr>
 <tr class="memdesc:a8c406b6e6bcaf39fcee8bf0c094f8eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object.  <a href="classCommunicator.html#a8c406b6e6bcaf39fcee8bf0c094f8eca">More...</a><br /></td></tr>
 <tr class="separator:a8c406b6e6bcaf39fcee8bf0c094f8eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,9 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b0d6f133b3e4c0fb053a3b3104b2347"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a6b0d6f133b3e4c0fb053a3b3104b2347">close</a> ()=0</td></tr>
 <tr class="memdesc:a6b0d6f133b3e4c0fb053a3b3104b2347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the communicator.  <a href="classCommunicator.html#a6b0d6f133b3e4c0fb053a3b3104b2347">More...</a><br /></td></tr>
 <tr class="separator:a6b0d6f133b3e4c0fb053a3b3104b2347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4673d193c22a041ead531086aa01b777"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a4673d193c22a041ead531086aa01b777">send_msg</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> message)=0</td></tr>
-<tr class="memdesc:a4673d193c22a041ead531086aa01b777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message.  <a href="classCommunicator.html#a4673d193c22a041ead531086aa01b777">More...</a><br /></td></tr>
-<tr class="separator:a4673d193c22a041ead531086aa01b777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce42137b154e51b32becdf424d82580"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&amp;message)</td></tr>
+<tr class="memdesc:abce42137b154e51b32becdf424d82580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message.  <a href="classCommunicator.html#abce42137b154e51b32becdf424d82580">More...</a><br /></td></tr>
+<tr class="separator:abce42137b154e51b32becdf424d82580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1c28394694c776bb66bf87b5d3e5377"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#ae1c28394694c776bb66bf87b5d3e5377">send_msg</a> (<a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;message)</td></tr>
+<tr class="memdesc:ae1c28394694c776bb66bf87b5d3e5377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message.  <a href="classCommunicator.html#ae1c28394694c776bb66bf87b5d3e5377">More...</a><br /></td></tr>
+<tr class="separator:ae1c28394694c776bb66bf87b5d3e5377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad88aff9166c18c803156a58500994db"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMessageBuf.html">MessageBuf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#aad88aff9166c18c803156a58500994db">receive_msg</a> ()=0</td></tr>
 <tr class="memdesc:aad88aff9166c18c803156a58500994db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait to receive a message. Blocks until message was received.  <a href="classCommunicator.html#aad88aff9166c18c803156a58500994db">More...</a><br /></td></tr>
 <tr class="separator:aad88aff9166c18c803156a58500994db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,9 +120,19 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:abd4c26c6a901e571bc9cfc4259e65de3"><td class="memItemLeft" align="right" valign="top"><a id="abd4c26c6a901e571bc9cfc4259e65de3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#abd4c26c6a901e571bc9cfc4259e65de3">Communicator</a> ()</td></tr>
+<tr class="memdesc:abd4c26c6a901e571bc9cfc4259e65de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object. <br /></td></tr>
+<tr class="separator:abd4c26c6a901e571bc9cfc4259e65de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803f169bf3ef69c3e65d0aeed8914370"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370">Communicator</a> (uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
+<tr class="memdesc:a803f169bf3ef69c3e65d0aeed8914370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object with the given max_msg_size.  <a href="classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370">More...</a><br /></td></tr>
+<tr class="separator:a803f169bf3ef69c3e65d0aeed8914370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6173521e9aa7358a8bdc3b34a839272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#ab6173521e9aa7358a8bdc3b34a839272">check_error</a> (ssize_t retval, const char *where)</td></tr>
 <tr class="memdesc:ab6173521e9aa7358a8bdc3b34a839272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if an error occured.  <a href="classCommunicator.html#ab6173521e9aa7358a8bdc3b34a839272">More...</a><br /></td></tr>
 <tr class="separator:ab6173521e9aa7358a8bdc3b34a839272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678059be00aa8b8b263e5925724b8bdc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommunicator.html#a678059be00aa8b8b263e5925724b8bdc">send_bytes</a> (char *bytes)=0</td></tr>
+<tr class="memdesc:a678059be00aa8b8b263e5925724b8bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the bytes of the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> over the communicator.  <a href="classCommunicator.html#a678059be00aa8b8b263e5925724b8bdc">More...</a><br /></td></tr>
+<tr class="separator:a678059be00aa8b8b263e5925724b8bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -140,32 +146,6 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_test_8cpp-example.html#_a0">message_test.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a803f169bf3ef69c3e65d0aeed8914370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a803f169bf3ef69c3e65d0aeed8914370">&#9670;&nbsp;</a></span>Communicator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Communicator::Communicator </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>max_msg_size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object with the given max_msg_size. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">max_msg_size</td><td>The maximum size of your messages </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a8c406b6e6bcaf39fcee8bf0c094f8eca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c406b6e6bcaf39fcee8bf0c094f8eca">&#9670;&nbsp;</a></span>~Communicator()</h2>
 
@@ -191,6 +171,40 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 <p>Destroy the <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object. </p>
 <p>This has no effect in the base class </p>
+
+</div>
+</div>
+<a id="a803f169bf3ef69c3e65d0aeed8914370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803f169bf3ef69c3e65d0aeed8914370">&#9670;&nbsp;</a></span>Communicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Communicator::Communicator </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>max_msg_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classCommunicator.html" title="Abstract class for all communicators.">Communicator</a> object with the given max_msg_size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_msg_size</td><td>The maximum size of your messages </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -437,8 +451,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a4673d193c22a041ead531086aa01b777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4673d193c22a041ead531086aa01b777">&#9670;&nbsp;</a></span>send_msg()</h2>
+<a id="a678059be00aa8b8b263e5925724b8bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678059be00aa8b8b263e5925724b8bdc">&#9670;&nbsp;</a></span>send_bytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,16 +461,51 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Communicator::send_msg </td>
+          <td class="memname">virtual void Communicator::send_bytes </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classMessageBuf.html">MessageBuf</a>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>bytes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send the bytes of the <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> over the communicator. </p>
+<dl class="section warning"><dt>Warning</dt><dd>bytes will be deleted</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>the bytes, created from <a class="el" href="classMessageBuf.html#af2a93cf92cf213565deaec2977f74f04" title="Convert the buffer to bytes.">MessageBuf.to_bytes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abce42137b154e51b32becdf424d82580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce42137b154e51b32becdf424d82580">&#9670;&nbsp;</a></span>send_msg() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Communicator::send_msg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&amp;&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -468,9 +517,41 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-
-<p>Implemented in <a class="el" href="classSysVCommunicator.html#a9cd271d649520d4bc1224e1548c17990">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#a534abbe6f2cb09a54299c6d2a68d4322">SocketClient</a>, <a class="el" href="classSocketServer.html#a728d4bfa146cacbfef4342a6ce61e9bd">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a6fa402268f848de0f7eb8a7bfb36563f">SHMCommunicator</a>, and <a class="el" href="classPosixQCommunicator.html#a6a20987dc3d83732bc72124dd4689845">PosixQCommunicator</a>.</p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_test_8cpp-example.html#a6">message_test.cpp</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1c28394694c776bb66bf87b5d3e5377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c28394694c776bb66bf87b5d3e5377">&#9670;&nbsp;</a></span>send_msg() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Communicator::send_msg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMessageBuf.html">MessageBuf</a> &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send a message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>the message to send </td></tr>
+  </table>
+  </dd>
 </dl>
 
 </div>

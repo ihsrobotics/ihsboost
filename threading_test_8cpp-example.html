@@ -97,12 +97,18 @@ $(function() {
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;starting&quot;</span> &lt;&lt; endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// in order to create a threadable, you have to pass in the template arguments</span></div>
+<div class="line">    <span class="comment">// (or compile with -std=c++17)</span></div>
+<div class="line">    <span class="comment">// the template arguments are the signature of the function and each of the parameters</span></div>
+<div class="line">    <span class="comment">// note that you don&#39;t need to actually name the parameters in the template, as you can see from</span></div>
+<div class="line">    <span class="comment">// the second example</span></div>
 <div class="line">    <a name="_a0"></a><a class="code" href="classThreadable.html">Threadable</a>&lt;void(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> sleep), int, int, <span class="keywordtype">int</span>&gt; my_thread(cool_function, 3, 11, 2300);</div>
-<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> sleep), int, int, int, <span class="keywordtype">int</span>&gt; my_other_thread(cool_other_function, 3, 11, 22, 500);</div>
-<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void()&gt; lazy(lazy_function); <span class="comment">// you can also do this with 0 parameters to your function!!!</span></div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>), int, int, int, <span class="keywordtype">int</span>&gt; my_other_thread(cool_other_function, 3, 11, 22, 500);</div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void()&gt; lazy(lazy_function); <span class="comment">// you can also do this with a 0 parameter function, just pass the function signature</span></div>
 <div class="line">    <span class="keywordtype">size_t</span> i = 0;</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;what is the current value? &quot;</span> &lt;&lt; my_thread() &lt;&lt; <span class="stringliteral">&quot; and &quot;</span> &lt;&lt; my_other_thread() &lt;&lt; endl;</div>
-<div class="line">    <span class="keywordflow">while</span> (!my_thread() || !my_other_thread() || !lazy())</div>
+<div class="line">    <span class="keywordflow">while</span> (!my_thread() || !my_other_thread() || !lazy()) <span class="comment">// calling the thread is equivalent to checking if it is done</span></div>
 <div class="line">    {</div>
 <div class="line">        ++i;</div>
 <div class="line">    }</div>

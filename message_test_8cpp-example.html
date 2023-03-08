@@ -65,7 +65,8 @@ $(function() {
 <div class="title">message_test.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;thread&gt;</span></div>
@@ -141,7 +142,7 @@ $(function() {
 <div class="line">            o &lt;&lt; <span class="stringliteral">&quot;cool &quot;</span> &lt;&lt; i &lt;&lt; endl;</div>
 <div class="line">            <span class="keywordtype">string</span> ret = o.str();</div>
 <div class="line">            cout &lt;&lt; <span class="stringliteral">&quot;sending message : &quot;</span> &lt;&lt; ret &lt;&lt; endl;</div>
-<div class="line">            c-&gt;<a name="a6"></a><a class="code" href="classCommunicator.html#a4673d193c22a041ead531086aa01b777">send_msg</a>(c-&gt;<a name="a7"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">char</span>&gt;(ret.c_str(), ret.size()));</div>
+<div class="line">            c-&gt;<a name="a6"></a><a class="code" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a>(c-&gt;<a name="a7"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">char</span>&gt;(ret.c_str(), ret.size())); <span class="comment">// send a &quot;string&quot; (it&#39;s really a list of char&#39;s)</span></div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">// send list of doubles instead</span></div>
 <div class="line">            <span class="comment">// double my_double[3] = {3.14, 2.22, 7.77};</span></div>
@@ -184,13 +185,13 @@ $(function() {
 <div class="line">}</div>
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
 <div class="ttc" id="aclassCommunicator_html"><div class="ttname"><a href="classCommunicator.html">Communicator</a></div><div class="ttdoc">Abstract class for all communicators.</div><div class="ttdef"><b>Definition:</b> communicator.hpp:23</div></div>
-<div class="ttc" id="aclassCommunicator_html_a370600e4563f24770eab10e4aa6041b8"><div class="ttname"><a href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">Communicator::create_msg</a></div><div class="ttdeci">MessageBuf create_msg(T val)</div><div class="ttdoc">Create a MessageBuf object storing the given value.</div><div class="ttdef"><b>Definition:</b> communicator.hpp:83</div></div>
-<div class="ttc" id="aclassCommunicator_html_a4673d193c22a041ead531086aa01b777"><div class="ttname"><a href="classCommunicator.html#a4673d193c22a041ead531086aa01b777">Communicator::send_msg</a></div><div class="ttdeci">virtual void send_msg(MessageBuf message)=0</div><div class="ttdoc">Send a message.</div></div>
+<div class="ttc" id="aclassCommunicator_html_a370600e4563f24770eab10e4aa6041b8"><div class="ttname"><a href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">Communicator::create_msg</a></div><div class="ttdeci">MessageBuf create_msg(T val)</div><div class="ttdoc">Create a MessageBuf object storing the given value.</div><div class="ttdef"><b>Definition:</b> communicator.hpp:76</div></div>
 <div class="ttc" id="aclassCommunicator_html_aad88aff9166c18c803156a58500994db"><div class="ttname"><a href="classCommunicator.html#aad88aff9166c18c803156a58500994db">Communicator::receive_msg</a></div><div class="ttdeci">virtual MessageBuf receive_msg()=0</div><div class="ttdoc">Wait to receive a message. Blocks until message was received.</div></div>
+<div class="ttc" id="aclassCommunicator_html_abce42137b154e51b32becdf424d82580"><div class="ttname"><a href="classCommunicator.html#abce42137b154e51b32becdf424d82580">Communicator::send_msg</a></div><div class="ttdeci">virtual void send_msg(MessageBuf &amp;&amp;message)</div><div class="ttdoc">Send a message.</div><div class="ttdef"><b>Definition:</b> communicator.cpp:17</div></div>
 <div class="ttc" id="aclassMessageBuf_html_abb523a520be84a41cc9aaff9bc34b177"><div class="ttname"><a href="classMessageBuf.html#abb523a520be84a41cc9aaff9bc34b177">MessageBuf::get_ptr_val</a></div><div class="ttdeci">T * get_ptr_val()</div><div class="ttdoc">Get the ptr to the val object.</div><div class="ttdef"><b>Definition:</b> message_buf.hpp:171</div></div>
 <div class="ttc" id="aclassPosixQCommunicator_html"><div class="ttname"><a href="classPosixQCommunicator.html">PosixQCommunicator</a></div><div class="ttdoc">Class for communicating over posix-based mqueue's.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.hpp:25</div></div>
 <div class="ttc" id="aclassSHMCommunicator_html"><div class="ttname"><a href="classSHMCommunicator.html">SHMCommunicator</a></div><div class="ttdoc">Class for communicating over shared memory.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.hpp:23</div></div>
-<div class="ttc" id="aclassSocketClient_html"><div class="ttname"><a href="classSocketClient.html">SocketClient</a></div><div class="ttdoc">Client class for communicating over sockets.</div><div class="ttdef"><b>Definition:</b> socketcommunicator.hpp:86</div></div>
+<div class="ttc" id="aclassSocketClient_html"><div class="ttname"><a href="classSocketClient.html">SocketClient</a></div><div class="ttdoc">Client class for communicating over sockets.</div><div class="ttdef"><b>Definition:</b> socketcommunicator.hpp:87</div></div>
 <div class="ttc" id="aclassSocketServer_html"><div class="ttname"><a href="classSocketServer.html">SocketServer</a></div><div class="ttdoc">Server Class for communicating over sockets.</div><div class="ttdef"><b>Definition:</b> socketcommunicator.hpp:23</div></div>
 <div class="ttc" id="aclassSysVCommunicator_html"><div class="ttname"><a href="classSysVCommunicator.html">SysVCommunicator</a></div><div class="ttdoc">Class to communicate using System V message queues.</div><div class="ttdef"><b>Definition:</b> sysvcommunicator.hpp:24</div></div>
 </div><!-- fragment --> </div><!-- contents -->
