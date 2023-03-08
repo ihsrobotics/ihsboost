@@ -26,6 +26,8 @@
  * @example json_loader.hpp
  * @example bot-config.json
  * @example other-config.json
+ * @example configure_ihsboost.cpp
+ * @example ihsboost_config.json
  *
  * @example listener.cpp
  * @example listener.py
