@@ -51,17 +51,14 @@ void SysVCommunicator::close()
     }
 }
 
-void SysVCommunicator::send_msg(MessageBuf message)
+void SysVCommunicator::send_bytes(char *bytes)
 {
-    // create message
-    char *bytes = message.to_bytes();
-
     // send the msg
     // the 0 just means don't use any fancy flags
-    int ret = msgsnd(msg_q_id, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size), 0);
-    check_error(ret, "sending message");
-
+    // (ignore the uint32_t because msgrcv deals with that already)
+    int ret = msgsnd(msg_q_id, reinterpret_cast<const void *>(bytes), MessageBuf::get_size(max_msg_size) - sizeof(uint32_t), 0);
     delete[] bytes;
+    check_error(ret, "sending message");
 }
 
 MessageBuf SysVCommunicator::receive_msg()
@@ -70,8 +67,8 @@ MessageBuf SysVCommunicator::receive_msg()
     char *bytes = new char[MessageBuf::get_size(max_msg_size)];
     MessageBuf m(max_msg_size);
 
-    // receive message
-    ssize_t ret = msgrcv(msg_q_id, bytes, MessageBuf::get_size(max_msg_size), 0, 0);
+    // receive message (ignore the uint32_t because msgrcv deals with that already)
+    ssize_t ret = msgrcv(msg_q_id, bytes, MessageBuf::get_size(max_msg_size) - sizeof(uint32_t), 0, 0);
     check_error(ret, "receiving message");
 
     // convert byte buffer to message

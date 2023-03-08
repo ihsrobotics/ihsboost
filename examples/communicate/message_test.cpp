@@ -1,3 +1,23 @@
+/**
+ * @file message_test.cpp
+ * @author Eliot Hall
+ * @brief This file, when compiled can act as both talker and listener
+ * using any of the communicators within ihsboost
+ * After compiling, you can run it.
+ * Usage: `./a.out (talker/listener) (communicator)`
+ * Example: `./a.out talker SysVCommunicator`
+ * Example: `./a.out listener SysVCommunicator`
+ * Valid communicators:
+ * @li SysVCommunicator
+ * @li PosixQCommunicator
+ * @li SocketCommunicator
+ * @li SHMCommunicator
+ * @version 0.1
+ * @date 2023-03-08
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <iostream>
 #include <sstream>
@@ -74,7 +94,7 @@ int main(int argc, const char *argv[])
             o << "cool " << i << endl;
             string ret = o.str();
             cout << "sending message : " << ret << endl;
-            c->send_msg(c->create_msg<char>(ret.c_str(), ret.size()));
+            c->send_msg(c->create_msg<char>(ret.c_str(), ret.size())); // send a "string" (it's really a list of char's)
 
             // send list of doubles instead
             // double my_double[3] = {3.14, 2.22, 7.77};

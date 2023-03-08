@@ -58,13 +58,6 @@ public:
     virtual void close();
 
     /**
-     * @brief Send a message
-     *
-     * @param message the message to send
-     */
-    virtual void send_msg(MessageBuf message);
-
-    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
@@ -73,6 +66,14 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
+    /**
+     * @brief Send the bytes of the MessageBuf over the communicator
+     * @warning bytes will be deleted
+     *
+     * @param bytes the bytes, created from MessageBuf.to_bytes
+     */
+    virtual void send_bytes(char *bytes);
+
     int server_fd; ///< the server field descriptor
     int socket_fd; ///< the field descriptor for the connected socket
     uint16_t port; ///< the port to connect to
@@ -123,13 +124,6 @@ public:
     virtual void close();
 
     /**
-     * @brief Send a message
-     *
-     * @param message the message to send
-     */
-    virtual void send_msg(MessageBuf message);
-
-    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
@@ -138,6 +132,14 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
+    /**
+     * @brief Send the bytes of the MessageBuf over the communicator
+     * @warning bytes will be deleted
+     *
+     * @param bytes the bytes, created from MessageBuf.to_bytes
+     */
+    virtual void send_bytes(char *bytes);
+
     int server_fd;         ///< the field descriptor of the server
     int client_fd;         ///< the field descriptor of this SocketClient
     uint16_t port;         ///< the port to connect to

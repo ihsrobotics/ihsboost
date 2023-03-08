@@ -36,9 +36,8 @@ void PosixQCommunicator::open()
     check_error(msg_q_id, "opening");
 }
 
-void PosixQCommunicator::send_msg(MessageBuf message)
+void PosixQCommunicator::send_bytes(char *bytes)
 {
-    char *bytes = message.to_bytes();
     int ret = mq_send(msg_q_id, reinterpret_cast<const char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");

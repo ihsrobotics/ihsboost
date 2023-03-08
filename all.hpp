@@ -11,10 +11,13 @@
 /**
  * @example message_buf_test.cpp
  * @example message_test.cpp
+ * @example PosixQreceiver.cpp
+ * @example PosixQsender.cpp
  *
  * @example movement_test.cpp
  * @example encoder_test.cpp
  * @example pid_test.cpp
+ * @example gyro_test.cpp
  *
  * @example threading_test.cpp
  *
@@ -24,6 +27,8 @@
  * @example json_loader.hpp
  * @example bot-config.json
  * @example other-config.json
+ * @example configure_ihsboost.cpp
+ * @example ihsboost_config.json
  *
  * @example listener.cpp
  * @example listener.py

@@ -327,10 +327,10 @@ private:
          */
         void reset();
 
-        uint64_t tp_hash;          ///< info about type
         uint32_t data_holder_size; ///< how large the data is
         uint32_t buf_size;         ///< how large the buffer should be when converting to bytes
         uint16_t data_holder_len;  ///< how many items data contains
+        uint64_t tp_hash;          ///< info about type
         bool empty;                ///< whether or not the buffer is empty
     };
 
