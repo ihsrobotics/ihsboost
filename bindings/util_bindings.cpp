@@ -1,4 +1,4 @@
-#include <ihsboost/util.hpp>
+#include "util.hpp"
 #include <boost/python.hpp>
 #include <sstream>
 #include <string>

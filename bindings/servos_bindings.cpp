@@ -1,4 +1,4 @@
-#include <ihsboost/servos.hpp>
+#include "servos.hpp"
 #include <boost/python.hpp>
 
 void export_servos()

@@ -1,4 +1,4 @@
-#include <ihsboost/create_extra.hpp>
+#include "create_extra.hpp"
 #include <boost/python.hpp>
 
 void export_create_extra()

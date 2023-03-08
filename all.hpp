@@ -28,6 +28,7 @@
  * @example listener.cpp
  * @example listener.py
  * @example sender.py
+ * @example movement_bindings.py
  */
 
 // controllers

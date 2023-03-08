@@ -1,4 +1,3 @@
-#include <ihsboost/all.hpp>
 #include <boost/python.hpp>
 
 void export_communicate();
@@ -9,8 +8,6 @@ void export_util();
 
 BOOST_PYTHON_MODULE(ihs_bindings)
 {
-    using namespace boost::python;
-
     export_communicate();
     export_create_extra();
     export_movement();

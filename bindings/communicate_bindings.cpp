@@ -1,4 +1,4 @@
-#include <ihsboost/communicate.hpp>
+#include "communicate.hpp"
 #include <boost/python.hpp>
 
 namespace communicate_export
