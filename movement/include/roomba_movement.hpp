@@ -10,8 +10,8 @@
  * @addtogroup movement_id
  * @{
  */
-#ifndef ROOMBA_TURNS_HPP
-#define ROOMBA_TURNS_HPP
+#ifndef IHSBOOST_ROOMBA_TURNS_HPP
+#define IHSBOOST_ROOMBA_TURNS_HPP
 
 #include "speed.hpp"
 #include "config.hpp"

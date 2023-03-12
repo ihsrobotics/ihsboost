@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef TIMER_HPP
-#define TIMER_HPP
+#ifndef IHSBOOST_TIMER_HPP
+#define IHSBOOST_TIMER_HPP
 
 /**
  * @brief A class that implements a timer, useful when you want

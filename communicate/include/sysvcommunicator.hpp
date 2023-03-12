@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef SYS_V_COMMUNICATOR_HPP
-#define SYS_V_COMMUNICATOR_HPP
+#ifndef IHSBOOST_SYS_V_COMMUNICATOR_HPP
+#define IHSBOOST_SYS_V_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 #include <sys/msg.h>

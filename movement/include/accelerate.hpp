@@ -10,8 +10,8 @@
  * @addtogroup movement_id
  * @{
  */
-#ifndef ACCELERATE_HPP
-#define ACCELERATE_HPP
+#ifndef IHSBOOST_ACCELERATE_HPP
+#define IHSBOOST_ACCELERATE_HPP
 
 #include "config.hpp"
 #include "speed.hpp"

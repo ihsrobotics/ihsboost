@@ -10,8 +10,8 @@
  * @defgroup create_extra_id Create Extra Functionality
  * @{
  */
-#ifndef CREATE_EXTRA_HPP
-#define CREATE_EXTRA_HPP
+#ifndef IHSBOOST_CREATE_EXTRA_HPP
+#define IHSBOOST_CREATE_EXTRA_HPP
 #include <cstdint>
 
 /**

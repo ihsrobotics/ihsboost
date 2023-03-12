@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef SPEED_HPP
-#define SPEED_HPP
+#ifndef IHSBOOST_SPEED_HPP
+#define IHSBOOST_SPEED_HPP
 
 /**
  * @brief An object to represent speed in terms of left and right wheel speeds

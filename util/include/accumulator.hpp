@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef ACCUMULATOR_HPP
-#define ACCUMULATOR_HPP
+#ifndef IHSBOOST_ACCUMULATOR_HPP
+#define IHSBOOST_ACCUMULATOR_HPP
 
 #include "threading.hpp"
 #include <functional>

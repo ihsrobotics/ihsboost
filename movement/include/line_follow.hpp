@@ -10,8 +10,8 @@
  * @addtogroup movement_id
  * @{
  */
-#ifndef LINE_FOLLOW_HPP
-#define LINE_FOLLOW_HPP
+#ifndef IHSBOOST_LINE_FOLLOW_HPP
+#define IHSBOOST_LINE_FOLLOW_HPP
 
 #include "accelerate.hpp"
 #include "cliff.hpp"

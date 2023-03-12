@@ -5,16 +5,18 @@ using namespace std;
 
 /**
  * @brief Class that deals with manages extra configs vs default configs
+ * @note This functions like a singleton, and should only be instantiated once
  *
  */
 class PartialConfig : public Config
 {
 public:
     /**
-     * @brief Construct a new Partial Config object from the default config file
+     * @brief Construct a new Partial Config object from the provided
+     * default config file
      *
      */
-    PartialConfig() : Config(CONFIG_FILE), extra_config(nullptr){};
+    PartialConfig(std::string default_config_file) : Config(default_config_file), extra_config(nullptr){};
 
     virtual ~PartialConfig()
     {
@@ -149,13 +151,14 @@ private:
     Config *extra_config; ///< the extra config
 };
 
+// singleton-like behavior of PartialConfig is done through this shared pointer
 std::shared_ptr<PartialConfig> ihsboost_config(nullptr);
 
 Config &get_config(std::string config_file)
 {
     if (ihsboost_config.get() == nullptr)
     {
-        ihsboost_config = make_shared<PartialConfig>();
+        ihsboost_config = make_shared<PartialConfig>(config_file);
     }
     return *ihsboost_config.get();
 }

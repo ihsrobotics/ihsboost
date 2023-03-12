@@ -10,8 +10,8 @@
  * @defgroup threading_id Threading Classes
  * @{
  */
-#ifndef THREADING_HPP
-#define THREADING_HPP
+#ifndef IHSBOOST_THREADING_HPP
+#define IHSBOOST_THREADING_HPP
 
 #include <thread>
 
