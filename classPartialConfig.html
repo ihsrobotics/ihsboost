@@ -92,10 +92,10 @@ Collaboration diagram for PartialConfig:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a83f85105ab38fd9a1aaaffc53c157728"><td class="memItemLeft" align="right" valign="top"><a id="a83f85105ab38fd9a1aaaffc53c157728"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPartialConfig.html#a83f85105ab38fd9a1aaaffc53c157728">PartialConfig</a> ()</td></tr>
-<tr class="memdesc:a83f85105ab38fd9a1aaaffc53c157728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Partial <a class="el" href="classConfig.html" title="Class for loading values from json configs.">Config</a> object from the default config file. <br /></td></tr>
-<tr class="separator:a83f85105ab38fd9a1aaaffc53c157728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d16566d152733b0120db3d2ab20f56"><td class="memItemLeft" align="right" valign="top"><a id="ae4d16566d152733b0120db3d2ab20f56"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPartialConfig.html#ae4d16566d152733b0120db3d2ab20f56">PartialConfig</a> (std::string default_config_file)</td></tr>
+<tr class="memdesc:ae4d16566d152733b0120db3d2ab20f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Partial <a class="el" href="classConfig.html" title="Class for loading values from json configs.">Config</a> object from the provided default config file. <br /></td></tr>
+<tr class="separator:ae4d16566d152733b0120db3d2ab20f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0a78fec18f450e7346caf695ef29307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPartialConfig.html#ac0a78fec18f450e7346caf695ef29307">set_extra_config</a> (string config_file)</td></tr>
 <tr class="memdesc:ac0a78fec18f450e7346caf695ef29307"><td class="mdescLeft">&#160;</td><td class="mdescRight">load extra configs from the config file  <a href="classPartialConfig.html#ac0a78fec18f450e7346caf695ef29307">More...</a><br /></td></tr>
 <tr class="separator:ac0a78fec18f450e7346caf695ef29307"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +147,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that deals with manages extra configs vs default configs. </p>
+<dl class="section note"><dt>Note</dt><dd>This functions like a singleton, and should only be instantiated once </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a703f48cdaef4808bfa521757b355005d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a703f48cdaef4808bfa521757b355005d">&#9670;&nbsp;</a></span>getBool()</h2>
