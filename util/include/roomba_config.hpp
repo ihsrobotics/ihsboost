@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef CONFIG
-#define CONFIG
+#ifndef IHSBOOST_CONFIG
+#define IHSBOOST_CONFIG
 
 // movement configs
 #ifndef MOVEMENT_FUNCTION

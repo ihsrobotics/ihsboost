@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef CONFIG_HPP
-#define CONFIG_HPP
+#ifndef IHSBOOST_CONFIG_HPP
+#define IHSBOOST_CONFIG_HPP
 
 // master config variables
 #define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@" ///< where ihsboost was installed

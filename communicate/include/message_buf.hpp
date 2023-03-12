@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef MESSAGE_BUF_HPP
-#define MESSAGE_BUF_HPP
+#ifndef IHSBOOST_MESSAGE_BUF_HPP
+#define IHSBOOST_MESSAGE_BUF_HPP
 #include <typeinfo>
 #include <memory.h>
 #include "communication_exception.hpp"

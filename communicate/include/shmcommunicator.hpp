@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef SHM_COMMUNICATOR_HPP
-#define SHM_COMMUNICATOR_HPP
+#ifndef IHSBOOST_SHM_COMMUNICATOR_HPP
+#define IHSBOOST_SHM_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 

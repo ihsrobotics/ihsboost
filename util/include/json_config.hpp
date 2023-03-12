@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef JSON_CONFIG_HPP
-#define JSON_CONFIG_HPP
+#ifndef IHSBOOST_JSON_CONFIG_HPP
+#define IHSBOOST_JSON_CONFIG_HPP
 #include <string>
 #include <jsoncpp/json/json.h>
 

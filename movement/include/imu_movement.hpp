@@ -10,8 +10,8 @@
  * @addtogroup movement_id
  * @{
  */
-#ifndef GYRO_MOVEMENT_HPP
-#define GYRO_MOVEMENT_HPP
+#ifndef IHSBOOST_GYRO_MOVEMENT_HPP
+#define IHSBOOST_GYRO_MOVEMENT_HPP
 
 #include "config.hpp"
 #include "speed.hpp"

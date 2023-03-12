@@ -10,8 +10,8 @@
  * @defgroup communication_id Communication Classes
  * @{
  */
-#ifndef COMMUNICATE_HPP
-#define COMMUNICATE_HPP
+#ifndef IHSBOOST_COMMUNICATE_HPP
+#define IHSBOOST_COMMUNICATE_HPP
 
 #include "communication_exception.hpp"
 #include "communicator.hpp"

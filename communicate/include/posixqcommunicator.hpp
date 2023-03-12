@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef POSIX_Q_COMMUNICATOR_HPP
-#define POSIX_Q_COMMUNICATOR_HPP
+#ifndef IHSBOOST_POSIX_Q_COMMUNICATOR_HPP
+#define IHSBOOST_POSIX_Q_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 #include <string>

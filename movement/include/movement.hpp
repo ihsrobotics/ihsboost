@@ -11,8 +11,8 @@
  * @{
  */
 
-#ifndef MOVEMENT_HPP
-#define MOVEMENT_HPP
+#ifndef IHSBOOST_MOVEMENT_HPP
+#define IHSBOOST_MOVEMENT_HPP
 
 #include "accelerate.hpp"
 #include "imu_movement.hpp"

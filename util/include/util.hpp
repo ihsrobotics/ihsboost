@@ -11,8 +11,8 @@
  * @{
  */
 
-#ifndef UTIL_HPP
-#define UTIL_HPP
+#ifndef IHSBOOST_UTIL_HPP
+#define IHSBOOST_UTIL_HPP
 
 #include "accumulator.hpp"
 #include "cliff.hpp"
