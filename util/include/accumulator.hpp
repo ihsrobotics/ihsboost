@@ -53,12 +53,27 @@ public:
     void stop_accumulating();
 
     /**
+     * @brief Change how many updates per second this accumulator does
+     *
+     * @param updates_per_sec how many updates to do per second
+     */
+    void set_updates_per_sec(int updates_per_sec);
+
+    /**
      * @brief Return the current value of the accumulator
      * @details the value returned is \f$\int f(t)dt\f$
      *
-     * @return const volatile&
+     * @return const volatile& - the current value
      */
     const volatile double &get_accumulator();
+
+    /**
+     * @brief Return whether or not the accumulator is currently accumulator
+     *
+     * @return true - if it is
+     * @return false - if it isn't
+     */
+    bool is_accumulating();
 
 private:
     static void accumulate(Accumulator *a);

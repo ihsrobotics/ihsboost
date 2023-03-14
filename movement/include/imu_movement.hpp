@@ -13,9 +13,94 @@
 #ifndef IHSBOOST_GYRO_MOVEMENT_HPP
 #define IHSBOOST_GYRO_MOVEMENT_HPP
 
+#include "accumulator.hpp"
 #include "config.hpp"
 #include "speed.hpp"
 #include <functional>
+#include <memory>
+
+/**
+ * @brief Singleton class who's job it is to accumulate gyro values
+ * @details Since this is a singleton class, use instance() to
+ * get a pointer to the GyroSingleton object; this pointer can
+ * be used to access the functionality of this class.
+ * Note: `get_accumulator` is equivalent to getting
+ * the current angle that the brain is at.
+ *
+ */
+class GyroSingleton : public Accumulator
+{
+public:
+    /**
+     * @brief Get the current processed gyro reading, in gyro units
+     *
+     * @return double
+     */
+    static double get_gyro_val();
+
+    /**
+     * @brief Get the processed gyro reading, in degrees
+     *
+     * @return double
+     */
+    static double get_gyro_angle();
+
+    /**
+     * @brief Get the instance
+     *
+     * @return GyroSingleton*
+     */
+    static GyroSingleton *instance();
+
+private:
+    /**
+     * @brief Construct a new Gyro Singleton object
+     * @details this is marked private to enforce the singleton behavior
+     *
+     * @param updates_per_sec how many updates to do per sec by default
+     */
+    GyroSingleton(int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
+
+    static std::shared_ptr<GyroSingleton> _instance; ///< the instance of GyroSingleton
+};
+
+/**
+ * @brief Class that takes care of setting up the GyroSingleton for use
+ * in client programs
+ *
+ */
+class GyroSubscriber
+{
+public:
+    /**
+     * @brief Construct a new Gyro Subscriber object
+     * @details this will get the GyroSingleton accumulating, record the starting
+     * angle that the brain was at at this moment in time, and whether or not the
+     * GyroSingleton was already accumulating when this subscriber was created.
+     *
+     * @param updates_per_sec how many times to read from the gyroscope per sec
+     */
+    GyroSubscriber(int updates_per_sec);
+    /**
+     * @brief Destroy the Gyro Subscriber object
+     * @details if the GyroSingleton was already accumulating when this subscriber
+     * was created, then the GyroSingleton will continue to accumulate. Else,
+     * this will stop the accumulation.
+     *
+     */
+    ~GyroSubscriber();
+
+    /**
+     * @brief Get the angle that the brain was at when this subscriber was created
+     *
+     * @return const double - the angle that the brain was at when the GyroSubscriber was created
+     */
+    const double &get_start_angle();
+
+private:
+    const double start_angle;      ///< angle that the brain was at when this subscriber was created
+    const double was_accumulating; ///< whether or not the GyroSingleton was accumulating when this subscriber was created
+};
 
 /**
  * @brief Drive the create straight using the gyroscope

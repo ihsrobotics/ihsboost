@@ -45,4 +45,11 @@ void Accumulator::accumulate(Accumulator *a)
     }
 }
 
+void Accumulator::set_updates_per_sec(int updates_per_sec)
+{
+    msleep_time = 1000 / updates_per_sec;
+    multiplier = 1 / static_cast<double>(updates_per_sec);
+}
+
 const volatile double &Accumulator::get_accumulator() { return accumulator; }
+bool Accumulator::is_accumulating() { return flag; }

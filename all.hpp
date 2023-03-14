@@ -18,6 +18,7 @@
  * @example encoder_test.cpp
  * @example pid_test.cpp
  * @example gyro_test.cpp
+ * @example gyro_client_test.cpp
  *
  * @example threading_test.cpp
  *
