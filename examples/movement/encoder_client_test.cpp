@@ -1,15 +1,18 @@
 #include <ihsboost/all.hpp>
 #include <kipr/wombat.h>
 #include <iostream>
+#include <kipr/wombat.hpp>
 using namespace std;
 
 int main()
 {
     create_connect_once();
 
+    kipr::create::Create::instance()->setRefreshRate(4);
+
     // align with black
     align_with_black(200, -50, Cliff::LCliff, Cliff::RCliff);
-    msleep(500);
+    msleep(200);
 
     // we will use this as our new zero point.
     // so, we create a subscriber that way we remember our angle
@@ -17,17 +20,17 @@ int main()
     // while we do stuff (so that we will have accurate data to
     // return to our original angle)
     int updates_per_sec = 200;
-    GyroSubscriber subscriber(updates_per_sec);
+    EncoderSubscriber subscriber(updates_per_sec);
 
     // do some moving
-    create_drive_direct(100, 75);
-    msleep(500);
-    gyro_turn_degrees_v2(200, 90); // turn 90 degrees CW
+    create_drive_direct(100, 25);
+    msleep(2000);
 
     // then, turn back to our original angle
     // since we set our zero point when we had aligned with the line,
     // this should return us back to that same angle.
     create_drive_direct(-100, 100);
+    cout << "relative angle is " << subscriber.get_relative_angle() << endl;
     while (subscriber.get_relative_angle() > 0)
     {
         msleep(1);

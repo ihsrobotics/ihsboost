@@ -37,25 +37,28 @@ std::shared_ptr<GyroSingleton> GyroSingleton::_instance = nullptr;
 // Functions in this section deal with the gyroscope subscriber class
 // --------------------------------------------------------------------------------------------------------
 GyroSubscriber::GyroSubscriber(int updates_per_sec) : start_angle(GyroSingleton::instance()->get_accumulator()),
-                                                      was_accumulating(GyroSingleton::instance()->is_accumulating())
+                                                      was_running(GyroSingleton::instance()->is_running())
 {
     // setup gyro
-    GyroSingleton *gyro_accumulator = GyroSingleton::instance();
-    gyro_accumulator->set_updates_per_sec(updates_per_sec);
+    GyroSingleton::instance()->set_updates_per_sec(updates_per_sec);
 
     // start accumulating
-    gyro_accumulator->start_accumulating();
+    GyroSingleton::instance()->start();
+}
+GyroSubscriber::~GyroSubscriber()
+{
+    if (!was_running)
+    {
+        GyroSingleton::instance()->stop();
+    }
 }
 const double &GyroSubscriber::get_start_angle()
 {
     return start_angle;
 }
-GyroSubscriber::~GyroSubscriber()
+double GyroSubscriber::get_relative_angle()
 {
-    if (!was_accumulating)
-    {
-        GyroSingleton::instance()->stop_accumulating();
-    }
+    return GyroSingleton::instance()->get_accumulator() - start_angle;
 }
 
 // --------------------------------------------- GYRO FUNCTIONS ---------------------------------------------
@@ -65,7 +68,7 @@ GyroSubscriber::~GyroSubscriber()
 // helper function
 void gyro_drive_straight_step(GyroSubscriber &subscriber, double correction_proportion, double speed)
 {
-    if ((GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() > 0 && speed > 0) || (GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() < 0 && speed < 0))
+    if ((subscriber.get_relative_angle() > 0 && speed > 0) || (subscriber.get_relative_angle() < 0 && speed < 0))
     { // go slower on left wheel, faster on right wheel
         MOVEMENT_FUNCTION(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
     }
@@ -105,7 +108,7 @@ void gyro_turn_degrees(Speed from_speed, Speed to_speed, double degrees, double 
     // setup gyro
     GyroSubscriber subscriber(updates_per_sec);
 
-    while ((degrees > 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() < degrees) || (degrees < 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() > degrees))
+    while ((degrees > 0 && subscriber.get_relative_angle() < degrees) || (degrees < 0 && subscriber.get_relative_angle() > degrees))
     {
         MOVEMENT_FUNCTION(static_cast<int>(left_accelerator.speed()), static_cast<int>(right_accelerator.speed()));
         left_accelerator.step();
@@ -134,8 +137,8 @@ void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed, double a
 
     // accelerating part of the turn, capped at 1/2 of the turn that way, if it didn't have enough time to accelerate,
     // it will still have enough time to decelerate from its current speed
-    while ((degrees > 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() < degrees / 2) ||
-           (degrees < 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() > degrees / 2))
+    while ((degrees > 0 && subscriber.get_relative_angle() < degrees / 2) ||
+           (degrees < 0 && subscriber.get_relative_angle() > degrees / 2))
     {
         speed = accelerator.speed();
         MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
@@ -144,7 +147,7 @@ void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed, double a
 
         if (accelerator.done())
         {
-            cached_accumulator = GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle();
+            cached_accumulator = subscriber.get_relative_angle();
             break;
         }
     }
@@ -152,8 +155,8 @@ void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed, double a
     // do any extra turning that is needed
     MOVEMENT_FUNCTION(static_cast<int>(speed * left_sign), static_cast<int>(speed * right_sign));
     while (cached_accumulator != 0 &&
-           ((degrees > 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() < degrees - cached_accumulator) ||
-            (degrees < 0 && GyroSingleton::instance()->get_accumulator() - subscriber.get_start_angle() > degrees - cached_accumulator)))
+           ((degrees > 0 && subscriber.get_relative_angle() < degrees - cached_accumulator) ||
+            (degrees < 0 && subscriber.get_relative_angle() > degrees - cached_accumulator)))
     {
         msleep(accelerator.get_msleep_time());
     }

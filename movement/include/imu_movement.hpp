@@ -97,9 +97,18 @@ public:
      */
     const double &get_start_angle();
 
+    /**
+     * @brief Get the angle relative to when this GyroSubscriber was created.
+     * @details For instance, a value of 90.35 means that the brain has
+     * turned 90.35 degrees CW since this GyroSubscriber was created.
+     *
+     * @return double - the angle the brain has turned through, in degrees.
+     */
+    double get_relative_angle();
+
 private:
-    const double start_angle;      ///< angle that the brain was at when this subscriber was created
-    const double was_accumulating; ///< whether or not the GyroSingleton was accumulating when this subscriber was created
+    const double start_angle; ///< angle that the brain was at when this subscriber was created
+    const double was_running; ///< whether or not the GyroSingleton was running when this subscriber was created
 };
 
 /**

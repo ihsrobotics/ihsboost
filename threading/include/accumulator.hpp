@@ -7,20 +7,21 @@
  *
  * @copyright Copyright (c) 2023
  *
- * @addtogroup util_id
+ * @addtogroup threading_id
  * @{
  */
 #ifndef IHSBOOST_ACCUMULATOR_HPP
 #define IHSBOOST_ACCUMULATOR_HPP
 
-#include "threading.hpp"
+#include "threadable.hpp"
+#include "background_task.hpp"
 #include <functional>
 
 /**
  * @brief Integrate values returned by the given function
  *
  */
-class Accumulator
+class Accumulator : public BackgroundTask
 {
 public:
     /**
@@ -41,23 +42,11 @@ public:
     ~Accumulator();
 
     /**
-     * @brief Start accumulating values
-     *
-     */
-    void start_accumulating();
-
-    /**
-     * @brief Stop accumulating values
-     *
-     */
-    void stop_accumulating();
-
-    /**
      * @brief Change how many updates per second this accumulator does
      *
      * @param updates_per_sec how many updates to do per second
      */
-    void set_updates_per_sec(int updates_per_sec);
+    virtual void set_updates_per_sec(int updates_per_sec);
 
     /**
      * @brief Return the current value of the accumulator
@@ -67,23 +56,19 @@ public:
      */
     const volatile double &get_accumulator();
 
+protected:
     /**
-     * @brief Return whether or not the accumulator is currently accumulator
+     * @brief Function stub that BackgroundTask will
+     * call
      *
-     * @return true - if it is
-     * @return false - if it isn't
      */
-    bool is_accumulating();
+    virtual void function();
 
 private:
-    static void accumulate(Accumulator *a);
-
     std::function<double()> callable;
     Threadable<void(Accumulator *a), Accumulator *> *t;
     volatile double accumulator;
-    volatile bool flag;
 
-    int msleep_time;
     double multiplier;
 };
 

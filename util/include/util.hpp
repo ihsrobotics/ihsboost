@@ -14,7 +14,6 @@
 #ifndef IHSBOOST_UTIL_HPP
 #define IHSBOOST_UTIL_HPP
 
-#include "accumulator.hpp"
 #include "cliff.hpp"
 #include "config.hpp"
 #include "json_config.hpp"
