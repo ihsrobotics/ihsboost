@@ -48,7 +48,7 @@ public:
     /**
      * @brief Get the instance
      *
-     * @return GyroSingleton*
+     * @return GyroSingleton* - a pointer to the GyroSingleton object
      */
     static GyroSingleton *instance();
 
@@ -81,6 +81,7 @@ public:
      * @param updates_per_sec how many times to read from the gyroscope per sec
      */
     GyroSubscriber(int updates_per_sec);
+
     /**
      * @brief Destroy the Gyro Subscriber object
      * @details if the GyroSingleton was already accumulating when this subscriber

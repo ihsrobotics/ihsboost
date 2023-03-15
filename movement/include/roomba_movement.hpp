@@ -36,6 +36,11 @@
 class EncoderSingleton : public BackgroundTask
 {
 public:
+    /**
+     * @brief Get the instance
+     *
+     * @return EncoderSingleton* - a pointer to the EncoderSingleton object
+     */
     static EncoderSingleton *instance();
 
     /**
@@ -91,11 +96,32 @@ private:
     static std::shared_ptr<EncoderSingleton> _instance;
 };
 
+/**
+ * @brief Class that takes care of setting up the EncoderSingleton for use
+ * in client programs
+ *
+ */
 class EncoderSubscriber
 {
 public:
+    /**
+     * @brief Construct a new EncoderSubscriber object
+     * @details this will get the EncoderSingleton running, record the starting
+     * wheel encoder deltas for the create, and whether or not the
+     * EncoderSingleton was already running when this subscriber was created.
+     *
+     * @param updates_per_sec how many times to read from the encoders per sec
+     */
+
     EncoderSubscriber(int updates_per_sec);
 
+    /**
+     * @brief Destroy the EncoderSubscriber object
+     * @details if the EncoderSingleton was already running when this subscriber
+     * was created, then the EncoderSingleton will continue to run. Else,
+     * this will stop the readings.
+     *
+     */
     ~EncoderSubscriber();
 
     /**
