@@ -40,6 +40,18 @@ void export_movement()
     using namespace boost::python;
 
     // movement
+    class_<GyroSubscriber>("GyroSubscriber", init<int>(arg("updates_per_sec")))
+        .def("get_start_angle", &GyroSubscriber::get_start_angle)
+        .def("get_relative_angle", &GyroSubscriber::get_relative_angle);
+    class_<EncoderSubscriber>("EncoderSubscriber", init<int>(arg("updates_per_sec")))
+        .def("get_start_lenc_delta", &EncoderSubscriber::get_start_lenc_delta)
+        .def("get_start_renc_delta", &EncoderSubscriber::get_start_renc_delta)
+        .def("get_relative_lenc_delta", &EncoderSubscriber::get_relative_lenc_delta)
+        .def("get_relative_renc_delta", &EncoderSubscriber::get_relative_renc_delta)
+        .def("get_relative_left_distance", &EncoderSubscriber::get_relative_left_distance)
+        .def("get_relative_right_distance", &EncoderSubscriber::get_relative_right_distance)
+        .def("get_relative_distance", &EncoderSubscriber::get_relative_distance)
+        .def("get_relative_angle", &EncoderSubscriber::get_relative_angle);
     def("accelerate_forward_linear", accelerate_forward_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec"), arg("updates_per_sec")));
     def("accelerate_forward_sin", accelerate_forward_sin, (arg("from_speed"), arg("to_speed"), arg("avg_accel_per_sec"), arg("updates_per_sec")));
     def("accelerate_linear", accelerate_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec"), arg("updates_per_sec")));
