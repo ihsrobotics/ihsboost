@@ -78,6 +78,12 @@ public:
      */
     int get_renc_delta();
 
+    /**
+     * @brief Start the reading of encoder values.
+     *
+     */
+    virtual void start();
+
 protected:
     /**
      * @brief Function stub that BackgrounTask will call

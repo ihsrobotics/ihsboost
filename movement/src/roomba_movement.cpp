@@ -10,10 +10,7 @@ using std::min;
 // Functions in this section deal with the Encoder Singleton
 // --------------------------------------------------------------------------------------------------------
 EncoderSingleton::EncoderSingleton(int updates_per_sec) : BackgroundTask(updates_per_sec), lenc_prev(0), renc_prev(0),
-                                                          lenc_delta(0), renc_delta(0)
-{
-    read_encoders(lenc_prev, renc_prev);
-}
+                                                          lenc_delta(0), renc_delta(0) {}
 EncoderSingleton *EncoderSingleton::instance()
 {
     if (_instance.get() == nullptr)
@@ -84,6 +81,14 @@ int EncoderSingleton::get_renc_delta() { return renc_delta; }
 void EncoderSingleton::function()
 {
     process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
+}
+void EncoderSingleton::start()
+{
+    if (!is_running())
+    {
+        read_encoders(lenc_prev, renc_prev);
+    }
+    BackgroundTask::start();
 }
 
 std::shared_ptr<EncoderSingleton> EncoderSingleton::_instance = nullptr;
