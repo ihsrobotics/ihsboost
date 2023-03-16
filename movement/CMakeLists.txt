@@ -14,7 +14,7 @@ include_directories(${CMAKE_SOURCE_DIR}/threading/include)
 add_library(ihs_movement OBJECT ${SOURCES})
 
 # library dependencies
-add_dependencies(ihs_movement ihs_util ihs_controllers)
+add_dependencies(ihs_movement ihs_threading ihs_util ihs_controllers)
 
 # install
 get_property(local_install_path GLOBAL PROPERTY install_path)

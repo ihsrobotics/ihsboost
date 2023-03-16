@@ -126,6 +126,90 @@ class Timer:
             @return false - if it hasn't been `time` seconds yet
         """
 
+class GyroSubscriber:
+    def __init__(self, updates_per_sec: int) -> None:
+        """
+        Construct a new Gyro Subscriber object. This will get the
+        GyroSingleton accumulating, record the starting angle that the brain
+        was at at this moment in time, and whether or not the
+        GyroSingleton was already accumulating when this subscriber was created.
+            @param updates_per_sec how many times to read from the gyroscope per sec
+        """
+    def get_start_angle() -> float:
+        """
+        Get the angle that the brain was at when this subscriber was created
+
+            @return double - the angle that the brain was at when the
+                GyroSubscriber was created
+        """
+    def get_relative_angle() -> float:
+        """
+        Get the angle relative to when this GyroSubscriber was created. For
+        instance, a value of 90.35 means that the brain has turned 90.35 degrees
+        CW since this GyroSubscriber was created.
+            @return double - the angle the brain has turned through, in degrees.
+        """
+
+class EncoderSubscriber:
+    def __init__(self, updates_per_sec: int) -> None:
+        """
+        Construct a new EncoderSubscriber object. This will get the EncoderSingleton
+        running, record the starting wheel encoder deltas for the create,
+        and whether or not the EncoderSingleton was already running when this subscriber
+        was created.
+            @param updates_per_sec how many times to read from the encoders per sec
+        """
+    def get_start_lenc_delta() -> int:
+        """
+        Get the lenc_delta that the create was at when this subscriber was created
+            @return int - the initial delta, in encoder units, of the left wheel
+        """
+    def get_start_renc_delta() -> int:
+        """
+        Get the renc_delta that the create was at when this subscriber was created
+            @return int - the initial delta, in encoder units, of the right wheel
+        """
+    def get_relative_lenc_delta() -> int:
+        """
+        Get how far the left create wheel has traveled since this EncoderSubscriber
+        was created, in encoder units
+            @return int - the delta, in encoder units, of the left wheel
+        """
+    def get_relative_renc_delta() -> int:
+        """
+        Get how far the right create wheel has traveled since this EncoderSubscriber
+        was created, in encoder units
+            @return int - the delta, in encoder units, of the right wheel
+        """
+    def get_relative_left_distance() -> float:
+        """
+        Get how far the left create wheel has traveled since this EncoderSubscriber
+        was created, in mm
+            @return double - how far, in mm, the left wheel has traveled
+        """
+    def get_relative_right_distance() -> float:
+        """
+        Get how far the right create wheel has traveled since this EncoderSubscriber
+        was created, in mm
+            @return double - how far, in mm, the right wheel has traveled
+        """
+    def get_relative_distance() -> float:
+        """
+        Get how far the create has traveled since this EncoderSubscriber
+        was created, in mm. This is equivalent to averaging the left and
+        right distances
+            @return double - how far, in mm, the create has traveled
+        """
+    def get_relative_angle() -> float:
+        """
+        Get the angle relative to when this EncoderSubscriber
+        was created, in degrees. For instance, a value of 90.35 means that the create has
+        turned 90.35 degrees CW since this EncoderSubscriber was created.
+        This is calculated using the following equation:
+        `(left_mm + right_mm) / (dist_between_wheels_in_mm) * rad_2_deg`
+            @return double - the angle the create has turned through, in degrees.
+        """
+
 class Cliff:
     ## value for left cliff
     LCliff = ...
