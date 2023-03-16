@@ -1,6 +1,4 @@
 <map id="threading/include/threading.hpp" name="threading/include/threading.hpp">
-<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="65,5,294,32"/>
-<area shape="rect" id="node2" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="5,80,212,107"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="146,229,213,256"/>
-<area shape="rect" id="node3" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="51,155,198,181"/>
+<area shape="rect" id="node1" title="Header that includes all the threading headers." alt="" coords="5,5,235,32"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="87,80,153,107"/>
 </map>

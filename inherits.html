@@ -75,9 +75,12 @@ $(function() {
 <area shape="rect" href="classSinusoidalController.html" title="Class for accelerating sinusoidally." alt="" coords="208,56,361,83"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aAccumulator" alt=""/>
-<map name="aAccumulator" id="aAccumulator">
-<area shape="rect" href="classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="5,5,109,32"/>
+<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aBackgroundTask" alt=""/>
+<map name="aBackgroundTask" id="aBackgroundTask">
+<area shape="rect" href="classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="5,31,133,57"/>
+<area shape="rect" href="classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="197,5,301,32"/>
+<area shape="rect" href="classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values." alt="" coords="181,56,316,83"/>
+<area shape="rect" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values." alt="" coords="364,5,479,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_2.png" border="0" usemap="#aBadBufCastException" alt=""/>
@@ -119,12 +122,22 @@ $(function() {
 <area shape="rect" href="classEmptyBufException.html" title="Exception class to protect from nullptr segmentation faults." alt="" coords="199,5,349,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aihs__bindings_8Cliff" alt=""/>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aEncoderSubscriber" alt=""/>
+<map name="aEncoderSubscriber" id="aEncoderSubscriber">
+<area shape="rect" href="classEncoderSubscriber.html" title="Class that takes care of setting up the EncoderSingleton for use in client programs." alt="" coords="5,5,148,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aGyroSubscriber" alt=""/>
+<map name="aGyroSubscriber" id="aGyroSubscriber">
+<area shape="rect" href="classGyroSubscriber.html" title="Class that takes care of setting up the GyroSingleton for use in client programs." alt="" coords="5,5,127,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_10.png" border="0" usemap="#aihs__bindings_8Cliff" alt=""/>
 <map name="aihs__bindings_8Cliff" id="aihs__bindings_8Cliff">
 <area shape="rect" href="classihs__bindings_1_1Cliff.html" title=" " alt="" coords="5,5,139,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aihs__bindings_8CommunicatorBase" alt=""/>
+<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aihs__bindings_8CommunicatorBase" alt=""/>
 <map name="aihs__bindings_8CommunicatorBase" id="aihs__bindings_8CommunicatorBase">
 <area shape="rect" href="classihs__bindings_1_1CommunicatorBase.html" title=" " alt="" coords="5,107,240,133"/>
 <area shape="rect" href="classihs__bindings_1_1PosixQCommunicator.html" title=" " alt="" coords="288,5,536,32"/>
@@ -134,52 +147,67 @@ $(function() {
 <area shape="rect" href="classihs__bindings_1_1SysVCommunicator.html" title=" " alt="" coords="295,208,529,235"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" usemap="#aihs__bindings_8CreateExtraController" alt=""/>
+<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aihs__bindings_8CreateExtraController" alt=""/>
 <map name="aihs__bindings_8CreateExtraController" id="aihs__bindings_8CreateExtraController">
 <area shape="rect" href="classihs__bindings_1_1CreateExtraController.html" title=" " alt="" coords="5,5,189,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aihs__bindings_8LineSide" alt=""/>
+<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aihs__bindings_8EncoderSubscriber" alt=""/>
+<map name="aihs__bindings_8EncoderSubscriber" id="aihs__bindings_8EncoderSubscriber">
+<area shape="rect" href="classihs__bindings_1_1EncoderSubscriber.html" title=" " alt="" coords="5,5,232,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aihs__bindings_8GyroSubscriber" alt=""/>
+<map name="aihs__bindings_8GyroSubscriber" id="aihs__bindings_8GyroSubscriber">
+<area shape="rect" href="classihs__bindings_1_1GyroSubscriber.html" title=" " alt="" coords="5,5,212,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_15.png" border="0" usemap="#aihs__bindings_8LineSide" alt=""/>
 <map name="aihs__bindings_8LineSide" id="aihs__bindings_8LineSide">
 <area shape="rect" href="classihs__bindings_1_1LineSide.html" title=" " alt="" coords="5,5,168,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aihs__bindings_8Speed" alt=""/>
+<tr><td><img src="inherit_graph_16.png" border="0" usemap="#aihs__bindings_8Speed" alt=""/>
 <map name="aihs__bindings_8Speed" id="aihs__bindings_8Speed">
 <area shape="rect" href="classihs__bindings_1_1Speed.html" title=" " alt="" coords="5,5,152,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aihs__bindings_8Timer" alt=""/>
+<tr><td><img src="inherit_graph_17.png" border="0" usemap="#aihs__bindings_8Timer" alt=""/>
 <map name="aihs__bindings_8Timer" id="aihs__bindings_8Timer">
 <area shape="rect" href="classihs__bindings_1_1Timer.html" title=" " alt="" coords="5,5,151,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aMessageBuf" alt=""/>
+<tr><td><img src="inherit_graph_18.png" border="0" usemap="#aMessageBuf" alt=""/>
 <map name="aMessageBuf" id="aMessageBuf">
 <area shape="rect" href="classMessageBuf.html" title="Class for storing data over communicators." alt="" coords="5,5,108,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" usemap="#aPIDController" alt=""/>
+<tr><td><img src="inherit_graph_19.png" border="0" usemap="#aPIDController" alt=""/>
 <map name="aPIDController" id="aPIDController">
 <area shape="rect" href="classPIDController.html" title="A basic PID Controller." alt="" coords="5,5,113,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" usemap="#aSpeed" alt=""/>
+<tr><td><img src="inherit_graph_20.png" border="0" usemap="#aSpeed" alt=""/>
 <map name="aSpeed" id="aSpeed">
 <area shape="rect" href="structSpeed.html" title="An object to represent speed in terms of left and right wheel speeds." alt="" coords="5,5,68,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" usemap="#aThreadable_3_01Callable_00_01Args_01_4" alt=""/>
+<tr><td><img src="inherit_graph_21.png" border="0" usemap="#aThreadable_3_01Callable_00_01Args_01_4" alt=""/>
 <map name="aThreadable_3_01Callable_00_01Args_01_4" id="aThreadable_3_01Callable_00_01Args_01_4">
 <area shape="rect" href="classThreadable.html" title="A thread that runs the given function with the given arguments." alt="" coords="5,5,172,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" usemap="#aThreadable_3_01void_07Accumulator_01_5a_08_00_01Accumulator_01_5_01_4" alt=""/>
+<tr><td><img src="inherit_graph_22.png" border="0" usemap="#aThreadable_3_01void_07Accumulator_01_5a_08_00_01Accumulator_01_5_01_4" alt=""/>
 <map name="aThreadable_3_01void_07Accumulator_01_5a_08_00_01Accumulator_01_5_01_4" id="aThreadable_3_01void_07Accumulator_01_5a_08_00_01Accumulator_01_5_01_4">
 <area shape="rect" href="classThreadable.html" title=" " alt="" coords="5,5,231,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" usemap="#aTimer" alt=""/>
+<tr><td><img src="inherit_graph_23.png" border="0" usemap="#aThreadable_3_01void_07BackgroundTask_01_5_08_00_01BackgroundTask_01_5_01_4" alt=""/>
+<map name="aThreadable_3_01void_07BackgroundTask_01_5_08_00_01BackgroundTask_01_5_01_4" id="aThreadable_3_01void_07BackgroundTask_01_5_08_00_01BackgroundTask_01_5_01_4">
+<area shape="rect" href="classThreadable.html" title=" " alt="" coords="5,5,225,47"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_24.png" border="0" usemap="#aTimer" alt=""/>
 <map name="aTimer" id="aTimer">
 <area shape="rect" href="classTimer.html" title="A class that implements a timer, useful when you want to line&#45;follow for a certain amount of time." alt="" coords="5,5,65,32"/>
 </map>

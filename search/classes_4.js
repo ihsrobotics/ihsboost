@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['linearcontroller_205',['LinearController',['../classLinearController.html',1,'']]],
-  ['lineside_206',['LineSide',['../classihs__bindings_1_1LineSide.html',1,'ihs_bindings']]]
+  ['gyrosingleton_234',['GyroSingleton',['../classGyroSingleton.html',1,'']]],
+  ['gyrosubscriber_235',['GyroSubscriber',['../classGyroSubscriber.html',1,'GyroSubscriber'],['../classihs__bindings_1_1GyroSubscriber.html',1,'ihs_bindings.GyroSubscriber']]]
 ];

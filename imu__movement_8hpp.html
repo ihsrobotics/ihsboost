@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">imu_movement.hpp File Reference</div>  </div>
@@ -74,21 +75,28 @@ $(function() {
 
 <p>IMU (gyro/accel) based movement functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="accumulator_8hpp_source.html">accumulator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="speed_8hpp_source.html">speed.hpp</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for imu_movement.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="imu__movement_8hpp__incl.png" border="0" usemap="#amovement_2include_2imu__movement_8hpp" alt=""/></div>
 <map name="amovement_2include_2imu__movement_8hpp" id="amovement_2include_2imu__movement_8hpp">
-<area shape="rect" title="IMU (gyro/accel) based movement functions." alt="" coords="124,5,297,47"/>
-<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,95,142,121"/>
-<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,95,255,121"/>
-<area shape="rect" title=" " alt="" coords="279,95,366,121"/>
-<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,169,159,196"/>
-<area shape="rect" title=" " alt="" coords="5,244,64,271"/>
-<area shape="rect" title=" " alt="" coords="88,244,235,271"/>
+<area shape="rect" title="IMU (gyro/accel) based movement functions." alt="" coords="268,5,441,47"/>
+<area shape="rect" href="accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="81,95,212,121"/>
+<area shape="rect" title=" " alt="" coords="229,169,315,196"/>
+<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="310,95,399,121"/>
+<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="423,95,513,121"/>
+<area shape="rect" title=" " alt="" coords="537,95,615,121"/>
+<area shape="rect" href="threadable_8hpp.html" title="Easy threading functionality." alt="" coords="5,244,125,271"/>
+<area shape="rect" href="background__task_8hpp.html" title="Background task class." alt="" coords="43,169,205,196"/>
+<area shape="rect" title=" " alt="" coords="33,319,97,345"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="340,169,463,196"/>
+<area shape="rect" title=" " alt="" coords="308,244,367,271"/>
+<area shape="rect" title=" " alt="" coords="391,244,537,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -104,6 +112,15 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="imu__movement_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSingleton.html">GyroSingleton</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to accumulate gyro values.  <a href="classGyroSingleton.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html">GyroSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> for use in client programs.  <a href="classGyroSubscriber.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>

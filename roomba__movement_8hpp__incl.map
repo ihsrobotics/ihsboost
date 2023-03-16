@@ -1,9 +1,13 @@
 <map id="movement/include/roomba_movement.hpp" name="movement/include/roomba_movement.hpp">
-<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="64,5,263,47"/>
-<area shape="rect" id="node2" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="5,95,95,121"/>
-<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="119,95,208,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="232,95,319,121"/>
-<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="102,169,225,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="71,244,130,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="154,244,301,271"/>
+<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="249,5,448,47"/>
+<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,95,167,121"/>
+<area shape="rect" id="node5" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="191,95,280,121"/>
+<area shape="rect" id="node6" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="304,95,393,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="417,95,504,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="529,95,606,121"/>
+<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="26,169,146,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="54,244,118,271"/>
+<area shape="rect" id="node7" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="287,169,410,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="255,244,314,271"/>
+<area shape="rect" id="node9" title=" " alt="" coords="338,244,485,271"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="BackgroundTask" name="BackgroundTask">
+<area shape="rect" id="node1" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="71,5,199,32"/>
+<area shape="rect" id="node2" href="$classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="11,80,115,107"/>
+<area shape="rect" id="node4" href="$classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values." alt="" coords="139,80,274,107"/>
+<area shape="rect" id="node3" href="$classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values." alt="" coords="5,155,120,181"/>
+</map>

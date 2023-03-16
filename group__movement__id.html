@@ -62,6 +62,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -69,6 +70,21 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSingleton.html">GyroSingleton</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to accumulate gyro values.  <a href="classGyroSingleton.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html">GyroSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> for use in client programs.  <a href="classGyroSubscriber.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSingleton.html">EncoderSingleton</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to read encoder values.  <a href="classEncoderSingleton.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html">EncoderSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values.">EncoderSingleton</a> for use in client programs.  <a href="classEncoderSubscriber.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga5094151cad87a33211c90aed4bf200f7"><td class="memItemLeft" align="right" valign="top"><a id="ga5094151cad87a33211c90aed4bf200f7"></a>
@@ -139,12 +155,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga14769cdde9ac07904c0533b96e206557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">rotate</a> (double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_left_wheel_units&quot;), double right_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_right_wheel_units&quot;))</td></tr>
 <tr class="memdesc:ga14769cdde9ac07904c0533b96e206557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate using speed-based turning on the roomba.  <a href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">More...</a><br /></td></tr>
 <tr class="separator:ga14769cdde9ac07904c0533b96e206557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">read_encoders</a> (int &amp;lenc, int &amp;renc)</td></tr>
-<tr class="memdesc:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read create encoders into lenc and renc.  <a href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">More...</a><br /></td></tr>
-<tr class="separator:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0741049e45f1de20bbe65029181299e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">process_encoders</a> (int &amp;lenc_prev, int &amp;renc_prev, int &amp;lenc_delta, int &amp;renc_delta)</td></tr>
-<tr class="memdesc:gab0741049e45f1de20bbe65029181299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate.  <a href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">More...</a><br /></td></tr>
-<tr class="separator:gab0741049e45f1de20bbe65029181299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">encoder_drive_straight</a> (int speed, double cm, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">More...</a><br /></td></tr>
 <tr class="separator:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -434,6 +444,8 @@ Functions</h2></td></tr>
     <tr><td class="paramname">updates_per_second</td><td>how many updates to do per second. </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_client_test_8cpp-example.html#a0">gyro_client_test.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -1021,7 +1033,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_test_8cpp-example.html#a3">gyro_test.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_client_test_8cpp-example.html#a2">gyro_client_test.cpp</a>, and <a class="el" href="gyro_test_8cpp-example.html#a3">gyro_test.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -1379,95 +1391,6 @@ false if it isn't white </dd></dl>
     <tr><td class="paramname">correction_proportion</td><td>how large the correction should be while line following, defaults to .90, should be between (0, 1) </td></tr>
     <tr><td class="paramname">black_val</td><td>value for black, defaults to 2000 </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="gab0741049e45f1de20bbe65029181299e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab0741049e45f1de20bbe65029181299e">&#9670;&nbsp;</a></span>process_encoders()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void process_encoders </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>lenc_prev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>renc_prev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>lenc_delta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>renc_delta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lenc_prev</td><td>the previous left encoder value. This is modified inside the function to the value of the new reading </td></tr>
-    <tr><td class="paramname">renc_prev</td><td>the previous right encoder value. This is modified inside the function to the value of the new reading </td></tr>
-    <tr><td class="paramname">lenc_delta</td><td>the change in the left encoder. This is incremented inside the function </td></tr>
-    <tr><td class="paramname">renc_delta</td><td>the change in the right encoder. This is incremeneted inside the function </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ga4b11b2aab27b0546caa7ff7c5cfd22f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4b11b2aab27b0546caa7ff7c5cfd22f1">&#9670;&nbsp;</a></span>read_encoders()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void read_encoders </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>lenc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>renc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read create encoders into lenc and renc. </p>
-<p>This gives raw encoder values, which range from [-32768, 32767]</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">lenc</td><td>the int that will store the left encoder value </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">renc</td><td>the int that will store the right encoder value </td></tr>
   </table>
   </dd>
 </dl>

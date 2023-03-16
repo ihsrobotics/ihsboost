@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -75,21 +76,27 @@ $(function() {
 
 <p>Roomba-specific movement functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="speed_8hpp_source.html">speed.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="background__task_8hpp_source.html">background_task.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="speed_8hpp_source.html">speed.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for roomba_movement.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="roomba__movement_8hpp__incl.png" border="0" usemap="#amovement_2include_2roomba__movement_8hpp" alt=""/></div>
 <map name="amovement_2include_2roomba__movement_8hpp" id="amovement_2include_2roomba__movement_8hpp">
-<area shape="rect" title="Roomba&#45;specific movement functions." alt="" coords="64,5,263,47"/>
-<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="5,95,95,121"/>
-<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="119,95,208,121"/>
-<area shape="rect" title=" " alt="" coords="232,95,319,121"/>
-<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="102,169,225,196"/>
-<area shape="rect" title=" " alt="" coords="71,244,130,271"/>
-<area shape="rect" title=" " alt="" coords="154,244,301,271"/>
+<area shape="rect" title="Roomba&#45;specific movement functions." alt="" coords="249,5,448,47"/>
+<area shape="rect" href="background__task_8hpp.html" title="Background task class." alt="" coords="5,95,167,121"/>
+<area shape="rect" href="speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="191,95,280,121"/>
+<area shape="rect" href="config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="304,95,393,121"/>
+<area shape="rect" title=" " alt="" coords="417,95,504,121"/>
+<area shape="rect" title=" " alt="" coords="529,95,606,121"/>
+<area shape="rect" href="threadable_8hpp.html" title="Easy threading functionality." alt="" coords="26,169,146,196"/>
+<area shape="rect" title=" " alt="" coords="54,244,118,271"/>
+<area shape="rect" href="json__config_8hpp.html" title="Class for loading json configs." alt="" coords="287,169,410,196"/>
+<area shape="rect" title=" " alt="" coords="255,244,314,271"/>
+<area shape="rect" title=" " alt="" coords="338,244,485,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -105,6 +112,15 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="roomba__movement_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSingleton.html">EncoderSingleton</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to read encoder values.  <a href="classEncoderSingleton.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html">EncoderSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values.">EncoderSingleton</a> for use in client programs.  <a href="classEncoderSubscriber.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga5094151cad87a33211c90aed4bf200f7"><td class="memItemLeft" align="right" valign="top">
@@ -133,12 +149,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga14769cdde9ac07904c0533b96e206557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">rotate</a> (double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_left_wheel_units&quot;), double right_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_right_wheel_units&quot;))</td></tr>
 <tr class="memdesc:ga14769cdde9ac07904c0533b96e206557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate using speed-based turning on the roomba.  <a href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">More...</a><br /></td></tr>
 <tr class="separator:ga14769cdde9ac07904c0533b96e206557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">read_encoders</a> (int &amp;lenc, int &amp;renc)</td></tr>
-<tr class="memdesc:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read create encoders into lenc and renc.  <a href="group__movement__id.html#ga4b11b2aab27b0546caa7ff7c5cfd22f1">More...</a><br /></td></tr>
-<tr class="separator:ga4b11b2aab27b0546caa7ff7c5cfd22f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0741049e45f1de20bbe65029181299e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">process_encoders</a> (int &amp;lenc_prev, int &amp;renc_prev, int &amp;lenc_delta, int &amp;renc_delta)</td></tr>
-<tr class="memdesc:gab0741049e45f1de20bbe65029181299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process encoders so that, even if overflow/underflow occurs, <code>lenc_delta</code> and <code>renc_delta</code> will be accurate.  <a href="group__movement__id.html#gab0741049e45f1de20bbe65029181299e">More...</a><br /></td></tr>
-<tr class="separator:gab0741049e45f1de20bbe65029181299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">encoder_drive_straight</a> (int speed, double cm, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;roomba_stop&quot;), int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_min_speed&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;roomba_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using create encoders.  <a href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">More...</a><br /></td></tr>
 <tr class="separator:ga8faaceac5a8eaa51ccff1a942f5dd6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>

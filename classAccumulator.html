@@ -63,9 +63,10 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classAccumulator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Accumulator Class Reference<div class="ingroups"><a class="el" href="group__util__id.html">Utility Functions</a></div></div>  </div>
+<div class="title">Accumulator Class Reference<div class="ingroups"><a class="el" href="group__threading__id.html">Threading Classes</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -73,6 +74,25 @@ $(function() {
  <a href="classAccumulator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="accumulator_8hpp_source.html">accumulator.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Accumulator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAccumulator__inherit__graph.png" border="0" usemap="#aAccumulator_inherit__map" alt="Inheritance graph"/></div>
+<map name="aAccumulator_inherit__map" id="aAccumulator_inherit__map">
+<area shape="rect" title="Integrate values returned by the given function." alt="" coords="17,80,121,107"/>
+<area shape="rect" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values." alt="" coords="12,155,127,181"/>
+<area shape="rect" href="classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="5,5,133,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Accumulator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAccumulator__coll__graph.png" border="0" usemap="#aAccumulator_coll__map" alt="Collaboration graph"/></div>
+<map name="aAccumulator_coll__map" id="aAccumulator_coll__map">
+<area shape="rect" title="Integrate values returned by the given function." alt="" coords="17,80,121,107"/>
+<area shape="rect" href="classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="5,5,133,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -82,17 +102,41 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a05e942e72167e48dfffd37e69e474f99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">~Accumulator</a> ()</td></tr>
 <tr class="memdesc:a05e942e72167e48dfffd37e69e474f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classAccumulator.html" title="Integrate values returned by the given function.">Accumulator</a> object.  <a href="classAccumulator.html#a05e942e72167e48dfffd37e69e474f99">More...</a><br /></td></tr>
 <tr class="separator:a05e942e72167e48dfffd37e69e474f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7578405464097e20053f83f1f87ec786"><td class="memItemLeft" align="right" valign="top"><a id="a7578405464097e20053f83f1f87ec786"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#a7578405464097e20053f83f1f87ec786">start_accumulating</a> ()</td></tr>
-<tr class="memdesc:a7578405464097e20053f83f1f87ec786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start accumulating values. <br /></td></tr>
-<tr class="separator:a7578405464097e20053f83f1f87ec786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90c4516af43bc9002539a804c96df63"><td class="memItemLeft" align="right" valign="top"><a id="ac90c4516af43bc9002539a804c96df63"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#ac90c4516af43bc9002539a804c96df63">stop_accumulating</a> ()</td></tr>
-<tr class="memdesc:ac90c4516af43bc9002539a804c96df63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop accumulating values. <br /></td></tr>
-<tr class="separator:ac90c4516af43bc9002539a804c96df63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad66bdfaaa68b566dab7b4db2464ccf6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#aad66bdfaaa68b566dab7b4db2464ccf6">set_updates_per_sec</a> (int updates_per_sec)</td></tr>
+<tr class="memdesc:aad66bdfaaa68b566dab7b4db2464ccf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change how many updates per second this accumulator does.  <a href="classAccumulator.html#aad66bdfaaa68b566dab7b4db2464ccf6">More...</a><br /></td></tr>
+<tr class="separator:aad66bdfaaa68b566dab7b4db2464ccf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a040fc975e26202c9770eeef060d3b9ca"><td class="memItemLeft" align="right" valign="top">const volatile double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">get_accumulator</a> ()</td></tr>
 <tr class="memdesc:a040fc975e26202c9770eeef060d3b9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current value of the accumulator.  <a href="classAccumulator.html#a040fc975e26202c9770eeef060d3b9ca">More...</a><br /></td></tr>
 <tr class="separator:a040fc975e26202c9770eeef060d3b9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classBackgroundTask"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classBackgroundTask')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classBackgroundTask.html">BackgroundTask</a></td></tr>
+<tr class="memitem:ab86c7c7c9bfc65f7468c0f746bd8f09c inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#ab86c7c7c9bfc65f7468c0f746bd8f09c">BackgroundTask</a> (int updates_per_sec)</td></tr>
+<tr class="memdesc:ab86c7c7c9bfc65f7468c0f746bd8f09c inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Background Task object.  <a href="classBackgroundTask.html#ab86c7c7c9bfc65f7468c0f746bd8f09c">More...</a><br /></td></tr>
+<tr class="separator:ab86c7c7c9bfc65f7468c0f746bd8f09c inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab08280d630e42a44baefae8f755be131 inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top"><a id="ab08280d630e42a44baefae8f755be131"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#ab08280d630e42a44baefae8f755be131">~BackgroundTask</a> ()</td></tr>
+<tr class="memdesc:ab08280d630e42a44baefae8f755be131 inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Background Task object, waiting for the thread to finish. <br /></td></tr>
+<tr class="separator:ab08280d630e42a44baefae8f755be131 inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453b4cd142c4f2c561595695a3cce3df inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top"><a id="a453b4cd142c4f2c561595695a3cce3df"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#a453b4cd142c4f2c561595695a3cce3df">start</a> ()</td></tr>
+<tr class="memdesc:a453b4cd142c4f2c561595695a3cce3df inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the Background task. <br /></td></tr>
+<tr class="separator:a453b4cd142c4f2c561595695a3cce3df inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81441fd9e6fbeb2ade488ce5bc450c7e inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top"><a id="a81441fd9e6fbeb2ade488ce5bc450c7e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#a81441fd9e6fbeb2ade488ce5bc450c7e">stop</a> ()</td></tr>
+<tr class="memdesc:a81441fd9e6fbeb2ade488ce5bc450c7e inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the background task, waiting for the thread to finish. <br /></td></tr>
+<tr class="separator:a81441fd9e6fbeb2ade488ce5bc450c7e inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156c5de3d0a7133501e47a3a18abc0e4 inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#a156c5de3d0a7133501e47a3a18abc0e4">is_running</a> ()</td></tr>
+<tr class="memdesc:a156c5de3d0a7133501e47a3a18abc0e4 inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the thread is running.  <a href="classBackgroundTask.html#a156c5de3d0a7133501e47a3a18abc0e4">More...</a><br /></td></tr>
+<tr class="separator:a156c5de3d0a7133501e47a3a18abc0e4 inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbe107626da45ceffc2c9cd9781ffda inherit pub_methods_classBackgroundTask"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBackgroundTask.html#a6dbe107626da45ceffc2c9cd9781ffda">get_msleep_time</a> ()</td></tr>
+<tr class="memdesc:a6dbe107626da45ceffc2c9cd9781ffda inherit pub_methods_classBackgroundTask"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get how long the task should sleep for.  <a href="classBackgroundTask.html#a6dbe107626da45ceffc2c9cd9781ffda">More...</a><br /></td></tr>
+<tr class="separator:a6dbe107626da45ceffc2c9cd9781ffda inherit pub_methods_classBackgroundTask"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ade1159ef6fc0131bfa43a914e3ddc500"><td class="memItemLeft" align="right" valign="top"><a id="ade1159ef6fc0131bfa43a914e3ddc500"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccumulator.html#ade1159ef6fc0131bfa43a914e3ddc500">function</a> ()</td></tr>
+<tr class="memdesc:ade1159ef6fc0131bfa43a914e3ddc500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function stub that <a class="el" href="classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second.">BackgroundTask</a> will call. <br /></td></tr>
+<tr class="separator:ade1159ef6fc0131bfa43a914e3ddc500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Integrate values returned by the given function. </p>
@@ -173,13 +217,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Return the current value of the accumulator. </p>
 <p>the value returned is <img class="formulaInl" alt="$\int f(t)dt$" src="form_1.png" width="43" height="15"/></p>
-<dl class="section return"><dt>Returns</dt><dd>const volatile&amp; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>const volatile&amp; - the current value </dd></dl>
+
+</div>
+</div>
+<a id="aad66bdfaaa68b566dab7b4db2464ccf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad66bdfaaa68b566dab7b4db2464ccf6">&#9670;&nbsp;</a></span>set_updates_per_sec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Accumulator::set_updates_per_sec </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change how many updates per second this accumulator does. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classBackgroundTask.html#aeef18b87d1a099b6458a4b5ce4cedc94">BackgroundTask</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>util/include/<a class="el" href="accumulator_8hpp_source.html">accumulator.hpp</a></li>
-<li>util/src/accumulator.cpp</li>
+<li>threading/include/<a class="el" href="accumulator_8hpp_source.html">accumulator.hpp</a></li>
+<li>threading/src/accumulator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

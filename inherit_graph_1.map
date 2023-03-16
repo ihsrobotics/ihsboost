@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="5,5,109,32"/>
+<area shape="rect" id="node1" href="$classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="node2" href="$classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="197,5,301,32"/>
+<area shape="rect" id="node4" href="$classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values." alt="" coords="181,56,316,83"/>
+<area shape="rect" id="node3" href="$classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values." alt="" coords="364,5,479,32"/>
 </map>

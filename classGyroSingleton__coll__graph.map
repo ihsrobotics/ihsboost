@@ -1,0 +1,5 @@
+<map id="GyroSingleton" name="GyroSingleton">
+<area shape="rect" id="node1" title="Singleton class who&#39;s job it is to accumulate gyro values." alt="" coords="12,155,127,181"/>
+<area shape="rect" id="node2" href="$classAccumulator.html" title="Integrate values returned by the given function." alt="" coords="17,80,121,107"/>
+<area shape="rect" id="node3" href="$classBackgroundTask.html" title="A class that is used for background tasks that have a set number of updates to do every second." alt="" coords="5,5,133,32"/>
+</map>

@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['done_270',['done',['../classAccelerateController.html#a6eef6f9509a058f7ac3ca2861473dba9',1,'AccelerateController::done()'],['../classLinearController.html#ae2c9be58dd014f9b1dec82f9df7d4133',1,'LinearController::done()'],['../classSinusoidalController.html#a26eca69c53af4a60995d455b2eb49c4b',1,'SinusoidalController::done()'],['../classihs__bindings_1_1Timer.html#afe1a176a9625b16b759841ff0e48c248',1,'ihs_bindings.Timer.done()']]]
+  ['check_5ferror_298',['check_error',['../classCommunicator.html#ab6173521e9aa7358a8bdc3b34a839272',1,'Communicator']]],
+  ['close_299',['close',['../classCommunicator.html#a6b0d6f133b3e4c0fb053a3b3104b2347',1,'Communicator::close()'],['../classPosixQCommunicator.html#a90cb881ed88749b2b3918494d8acb1c7',1,'PosixQCommunicator::close()'],['../classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72',1,'SHMCommunicator::close()'],['../classSocketServer.html#a1e673e526a459bdb3ca92e103ec212ae',1,'SocketServer::close()'],['../classSocketClient.html#aa089cda6e8320b66b1e94afd9815a559',1,'SocketClient::close()'],['../classSysVCommunicator.html#afe01fc35ad9e2fada44e5a584ecda9f6',1,'SysVCommunicator::close()']]],
+  ['communicationexception_300',['CommunicationException',['../classCommunicationException.html#a78d0341aee31c9960f581f3c6b4744cf',1,'CommunicationException::CommunicationException(const char *where, int error_code)'],['../classCommunicationException.html#acc84f438834dd04a009ceb3e796171dc',1,'CommunicationException::CommunicationException(CommunicationException &amp;c)']]],
+  ['communicator_301',['Communicator',['../classCommunicator.html#abd4c26c6a901e571bc9cfc4259e65de3',1,'Communicator::Communicator()'],['../classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370',1,'Communicator::Communicator(uint32_t max_msg_size)']]],
+  ['config_302',['Config',['../classConfig.html#ac30bbf9e4f6fac930a9f0c4cb2d46b45',1,'Config']]],
+  ['copy_303',['copy',['../classMessageBuf.html#ae2f3c5c872dbfa63c37ad80cf4a696b7',1,'MessageBuf']]],
+  ['create_5fmsg_304',['create_msg',['../classCommunicator.html#a370600e4563f24770eab10e4aa6041b8',1,'Communicator::create_msg(T val)'],['../classCommunicator.html#a02b9846eb7fce33f415822b42139f045',1,'Communicator::create_msg(const T *val, uint16_t len)']]]
 ];
