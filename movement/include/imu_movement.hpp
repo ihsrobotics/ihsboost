@@ -94,7 +94,7 @@ public:
     /**
      * @brief Get the angle that the brain was at when this subscriber was created
      *
-     * @return const double - the angle that the brain was at when the GyroSubscriber was created
+     * @return const double& - the angle that the brain was at when the GyroSubscriber was created
      */
     const double &get_start_angle();
 
