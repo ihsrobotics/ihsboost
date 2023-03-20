@@ -343,6 +343,12 @@ def set_default_config(config_file: str) -> None:
         @param config_file the name of the config file"
     """
 
+def get_version() -> str:
+    """
+    Return the current version number of ihsboost. It is in the format:
+    Major.Minor.Patch
+    """
+
 def move_servo_slowly(
     port: int, position: int, speed: int = ..., updates_per_sec: int = ...
 ) -> None:
