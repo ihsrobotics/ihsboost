@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -74,28 +75,29 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define IHSBOOST_CONFIG_HPP</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// master config variables</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">   17</a></span>&#160;<span class="preprocessor">#define INSTALL_PREFIX &quot;/usr/local&quot;</span> </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">   18</a></span>&#160;<span class="preprocessor">#define ROBOT_CONFIG_NAME &quot;roomba_config.json&quot;</span> </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__util__id.html#ga940ff30f2f6e6bbd99268b05bc0a4d09">   19</a></span>&#160;<span class="preprocessor">#define ROBOT_CONFIG_HPP &quot;roomba_config.hpp&quot;</span>   </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// includes</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="json__config_8hpp.html">json_config.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include ROBOT_CONFIG_HPP</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef CONFIG_FILE</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">   27</a></span>&#160;<span class="preprocessor">#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string(&quot;/include/ihsboost/&quot;</span>) + std::string(ROBOT_CONFIG_NAME)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<a class="code" href="classConfig.html">Config</a> &amp;<a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>(std::string config_file = <a class="code" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a>(std::string config_file);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">set_default_config</a>(std::string config_file);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="group__util__id.html#ga46fd4e7dfad3d004f821e3c311428767">   17</a></span>&#160;<span class="preprocessor">#define IHSBOOST_VERSION &quot;1.1.0&quot;</span> </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">   18</a></span>&#160;<span class="preprocessor">#define INSTALL_PREFIX &quot;/usr/local&quot;</span>    </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">   19</a></span>&#160;<span class="preprocessor">#define ROBOT_CONFIG_NAME &quot;roomba_config.json&quot;</span>    </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__util__id.html#ga940ff30f2f6e6bbd99268b05bc0a4d09">   20</a></span>&#160;<span class="preprocessor">#define ROBOT_CONFIG_HPP &quot;roomba_config.hpp&quot;</span>      </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// includes</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="json__config_8hpp.html">json_config.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include ROBOT_CONFIG_HPP</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifndef CONFIG_FILE</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">   28</a></span>&#160;<span class="preprocessor">#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string(&quot;/include/ihsboost/&quot;</span>) + std::string(ROBOT_CONFIG_NAME)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<a class="code" href="classConfig.html">Config</a> &amp;<a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>(std::string config_file = <a class="code" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a>(std::string config_file);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">   85</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">set_default_config</a>(std::string config_file);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassConfig_html"><div class="ttname"><a href="classConfig.html">Config</a></div><div class="ttdoc">Class for loading values from json configs.</div><div class="ttdef"><b>Definition:</b> json_config.hpp:23</div></div>
 <div class="ttc" id="agroup__util__id_html_ga1e46c0f8a4eea33821e25552375978d1"><div class="ttname"><a href="group__util__id.html#ga1e46c0f8a4eea33821e25552375978d1">set_default_config</a></div><div class="ttdeci">void set_default_config(std::string config_file)</div><div class="ttdoc">Load tunable ihsboost variables from the given config file.</div></div>
-<div class="ttc" id="agroup__util__id_html_ga42bf63540ee0039a3a23db1b5ec3202b"><div class="ttname"><a href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a></div><div class="ttdeci">#define CONFIG_FILE</div><div class="ttdoc">file that holds tunable ihsboost variables</div><div class="ttdef"><b>Definition:</b> config.hpp:27</div></div>
+<div class="ttc" id="agroup__util__id_html_ga42bf63540ee0039a3a23db1b5ec3202b"><div class="ttname"><a href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a></div><div class="ttdeci">#define CONFIG_FILE</div><div class="ttdoc">file that holds tunable ihsboost variables</div><div class="ttdef"><b>Definition:</b> config.hpp:28</div></div>
 <div class="ttc" id="agroup__util__id_html_ga6112b4fac02d1c97044803f88987d955"><div class="ttname"><a href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a></div><div class="ttdeci">void set_extra_config(std::string config_file)</div><div class="ttdoc">Load tunable ihsboost variables from the given config file.</div></div>
 <div class="ttc" id="agroup__util__id_html_gacc291cc27dcb13b6f2d1c08a7476fb07"><div class="ttname"><a href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a></div><div class="ttdeci">Config &amp; get_config(std::string config_file=CONFIG_FILE)</div><div class="ttdoc">Get the ihsboost config object holding all tunable ihsboost variables.</div><div class="ttdef"><b>Definition:</b> config.cpp:157</div></div>
 <div class="ttc" id="ajson__config_8hpp_html"><div class="ttname"><a href="json__config_8hpp.html">json_config.hpp</a></div><div class="ttdoc">Class for loading json configs.</div></div>
