@@ -39,7 +39,7 @@ public:
      * @brief Destroy the Accumulator object
      * @details cleans up any accumulating that is currently being done
      */
-    ~Accumulator();
+    virtual ~Accumulator();
 
     /**
      * @brief Change how many updates per second this accumulator does
