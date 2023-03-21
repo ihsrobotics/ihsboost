@@ -10,8 +10,8 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef CLIFF_HPP
-#define CLIFF_HPP
+#ifndef IHSBOOST_CLIFF_HPP
+#define IHSBOOST_CLIFF_HPP
 
 /**
  * @brief enum representing the cliff sensors on the create

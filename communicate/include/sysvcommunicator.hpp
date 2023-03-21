@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef SYS_V_COMMUNICATOR_HPP
-#define SYS_V_COMMUNICATOR_HPP
+#ifndef IHSBOOST_SYS_V_COMMUNICATOR_HPP
+#define IHSBOOST_SYS_V_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 #include <sys/msg.h>
@@ -79,13 +79,6 @@ public:
     virtual void close();
 
     /**
-     * @brief Send a message
-     *
-     * @param message the message to send
-     */
-    virtual void send_msg(MessageBuf message);
-
-    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
@@ -94,6 +87,14 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
+    /**
+     * @brief Send the bytes of the MessageBuf over the communicator
+     * @warning bytes will be deleted
+     *
+     * @param bytes the bytes, created from MessageBuf.to_bytes
+     */
+    virtual void send_bytes(char *bytes);
+
     key_t k;
     int msg_q_id;
 };

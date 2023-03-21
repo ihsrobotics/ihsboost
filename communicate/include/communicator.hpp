@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef COMMUNICATOR_HPP
-#define COMMUNICATOR_HPP
+#ifndef IHSBOOST_COMMUNICATOR_HPP
+#define IHSBOOST_COMMUNICATOR_HPP
 
 #include "message_buf.hpp"
 
@@ -22,20 +22,6 @@
 class Communicator
 {
 public:
-    /**
-     * @brief Construct a new Communicator object
-     *
-     */
-    Communicator();
-
-    /**
-     * @brief Construct a new Communicator object with the given
-     * max_msg_size
-     *
-     * @param max_msg_size The maximum size of your messages
-     */
-    Communicator(uint32_t max_msg_size);
-
     /**
      * @brief Destroy the Communicator object
      * @details This has no effect in the base class
@@ -62,7 +48,14 @@ public:
      *
      * @param message the message to send
      */
-    virtual void send_msg(MessageBuf message) = 0;
+    virtual void send_msg(MessageBuf &&message);
+
+    /**
+     * @brief Send a message
+     *
+     * @param message the message to send
+     */
+    virtual void send_msg(MessageBuf &message);
 
     /**
      * @brief Wait to receive a message.
@@ -105,6 +98,20 @@ public:
 
 protected:
     /**
+     * @brief Construct a new Communicator object
+     *
+     */
+    Communicator();
+
+    /**
+     * @brief Construct a new Communicator object with the given
+     * max_msg_size
+     *
+     * @param max_msg_size The maximum size of your messages
+     */
+    Communicator(uint32_t max_msg_size);
+
+    /**
      * @brief Check to see if an error occured
      *
      * @throws CommunicationException - if retval is -1
@@ -112,6 +119,14 @@ protected:
      * @param where where the error did/didn't occurr
      */
     void check_error(ssize_t retval, const char *where);
+
+    /**
+     * @brief Send the bytes of the MessageBuf over the communicator
+     * @warning bytes will be deleted
+     *
+     * @param bytes the bytes, created from MessageBuf.to_bytes
+     */
+    virtual void send_bytes(char *bytes) = 0;
 
     uint32_t max_msg_size; ///< the maximum size of the message
 };

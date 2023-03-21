@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef COMMUNICATION_EXCEPTION_HPP
-#define COMMUNICATION_EXCEPTION_HPP
+#ifndef IHSBOOST_COMMUNICATION_EXCEPTION_HPP
+#define IHSBOOST_COMMUNICATION_EXCEPTION_HPP
 
 #include <stdexcept>
 #include <string>

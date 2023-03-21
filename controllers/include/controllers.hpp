@@ -10,8 +10,8 @@
  * @defgroup controllers_id Movement Control Classes
  * @{
  */
-#ifndef CONTROLLERS_HPP
-#define CONTROLLERS_HPP
+#ifndef IHSBOOST_CONTROLLERS_HPP
+#define IHSBOOST_CONTROLLERS_HPP
 
 /**
  * @brief Class for accelerating

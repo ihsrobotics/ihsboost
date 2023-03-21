@@ -10,8 +10,8 @@
  * @addtogroup communication_id
  * @{
  */
-#ifndef SHM_COMMUNICATOR_HPP
-#define SHM_COMMUNICATOR_HPP
+#ifndef IHSBOOST_SHM_COMMUNICATOR_HPP
+#define IHSBOOST_SHM_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
 
@@ -80,15 +80,6 @@ public:
     virtual void close();
 
     /**
-     * @brief Send a message
-     * @exception Segmentation Fault - happens if the shared memory has already been
-     * closed by another process
-     *
-     * @param message the message to send
-     */
-    virtual void send_msg(MessageBuf message);
-
-    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      * @exception Segmentation Fault - happens if the shared memory has already been
@@ -99,6 +90,16 @@ public:
     virtual MessageBuf receive_msg();
 
 private:
+    /**
+     * @brief Send the bytes of the MessageBuf over the communicator
+     * @warning bytes will be deleted
+     * @exception Segmentation Fault - happens if the shared memory has already been
+     * closed by another process
+     *
+     * @param bytes the bytes, created from MessageBuf.to_bytes
+     */
+    virtual void send_bytes(char *bytes);
+
     int id;     ///< the id of the SHMCommunicator
     int shm_id; ///< the id of the attached shared memory
 };

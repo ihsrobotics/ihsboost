@@ -10,13 +10,14 @@
  * @addtogroup util_id
  * @{
  */
-#ifndef CONFIG_HPP
-#define CONFIG_HPP
+#ifndef IHSBOOST_CONFIG_HPP
+#define IHSBOOST_CONFIG_HPP
 
 // master config variables
-#define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@" ///< where ihsboost was installed
-#define ROBOT_CONFIG_NAME "@robot_config_name@" ///< the name of the default robot config json
-#define ROBOT_CONFIG_HPP "@robot_config_hpp@"   ///< the name of the default robot config hpp
+#define IHSBOOST_VERSION "@CMAKE_PROJECT_VERSION@" ///< version of ihsboost, in the form of Major.Minor.Patch
+#define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@"    ///< where ihsboost was installed
+#define ROBOT_CONFIG_NAME "@robot_config_name@"    ///< the name of the default robot config json
+#define ROBOT_CONFIG_HPP "@robot_config_hpp@"      ///< the name of the default robot config hpp
 
 // includes
 #include "json_config.hpp"

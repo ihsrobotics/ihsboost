@@ -13,3 +13,12 @@ void Communicator::check_error(ssize_t retval, const char *where)
         throw error;
     }
 }
+
+void Communicator::send_msg(MessageBuf &&message)
+{
+    send_bytes(message.to_bytes());
+}
+void Communicator::send_msg(MessageBuf &message)
+{
+    send_bytes(message.to_bytes());
+}

@@ -10,8 +10,8 @@
  * @defgroup servos_id Servos Functions
  * @{
  */
-#ifndef SERVOS_HPP
-#define SERVOS_HPP
+#ifndef IHSBOOST_SERVOS_HPP
+#define IHSBOOST_SERVOS_HPP
 
 #include "config.hpp"
 
