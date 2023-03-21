@@ -58,7 +58,7 @@ when configuring the project.
 
 * `-Dwith_documentation=OFF/ON` - build documentation files for the project, defaults to `OFF`
 * `-Dbuild_library=ON/OFF` - build ihsboost, defaults to `ON`
-* `-Dbuild_python=ON/OFF`- build python bindings, defaults to `ON`
+* `-Dbuild_python=OFF/ON`- build python bindings, defaults to `OFF`
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9
 * `-Droomba=ON/OFF` - use roomba configs or not, defaults to `ON`
 

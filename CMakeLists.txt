@@ -51,7 +51,7 @@ if (${build_library})
 endif()
 
 # python bindings
-option(build_python "build_python" ON)
+option(build_python "build_python" OFF)
 if (${build_python})
     add_subdirectory(bindings)
 endif()
