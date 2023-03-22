@@ -165,10 +165,10 @@ Config &get_config(std::string config_file)
 
 void set_extra_config(string config_file)
 {
-    static_cast<PartialConfig *>(&get_config(config_file))->set_extra_config(config_file);
+    static_cast<PartialConfig *>(&get_config())->set_extra_config(config_file);
 }
 
 void set_default_config(string config_file)
 {
-    static_cast<PartialConfig *>(&get_config(config_file))->set_defualt_config(config_file);
+    static_cast<PartialConfig *>(&get_config())->set_defualt_config(config_file);
 }
