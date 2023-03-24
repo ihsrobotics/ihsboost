@@ -24,6 +24,29 @@ class Threadable
 {
 public:
     /**
+     * @brief Construct a new Threadable object to run the given member function
+     * on the given instance with the given parameters in a separate thread
+     * @details upon creation, a Threadable is considered not done and not started
+     *
+     * @tparam _MemberFunc the type of the member function to call
+     * @tparam _Class_Ptr the type, as a pointer, of the instance
+     * @tparam _Args Types of the arguments to pass to the thread
+     * @tparam std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type
+     * @tparam std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type
+     * @param func the member function to call. In most circumstances, this is `&CLASS_NAME::METHOD_NAME`
+     * where CLASS_NAME is the name of the class and METHOD_NAME is the name of the method
+     * @param c a pointer to the instance from which to run the member function.
+     * @param args the arguments with which to call the member function
+     */
+    template <typename _MemberFunc, typename _Class_Ptr, typename... _Args,
+              typename std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type = true,
+              typename std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type = true>
+    Threadable(_MemberFunc &&func, _Class_Ptr c, _Args &&...args) : _started(false),
+                                                                    _done(false),
+                                                                    _thread(), _func([func, c, args...]() -> void
+                                                                                     { (c->*func)(args...); }){};
+
+    /**
      * @brief Construct a new Threadable object to run the given function
      * with the given parameters in a separate thread
      * @details upon creation, a Threadable is considered not done and not started.
