@@ -13,7 +13,6 @@
 #ifndef IHSBOOST_ACCUMULATOR_HPP
 #define IHSBOOST_ACCUMULATOR_HPP
 
-#include "threadable.hpp"
 #include "background_task.hpp"
 #include <functional>
 

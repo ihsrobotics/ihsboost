@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(ihs_boost VERSION 1.1.3)
+project(ihs_boost VERSION 1.2.0)
 
 set(LIBRARY_DIRS communicate controllers create_extra
                 movement servos threading util

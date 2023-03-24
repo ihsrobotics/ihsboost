@@ -15,10 +15,12 @@ void Threadable::start()
     }
 }
 
+// modifiers
 void Threadable::join() { _thread.join(); }
 
 // getters
 bool Threadable::done() const { return _done; }
+bool Threadable::operator()() const { return done(); }
 bool Threadable::started() const { return _started; }
 
 void Threadable::wrapper(Threadable *threadable)

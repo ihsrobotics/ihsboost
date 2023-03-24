@@ -75,12 +75,12 @@ int main()
     // threads can modify objects too!
     // syntax: &Class::function, &instance, arguments
     DummyClass dummy_class;
-    Threadable modify_by_20(&DummyClass::add_num, &dummy_class, 500, 100); // call add_num with ms time of 500 and update of 10
+    Threadable modify_by_100(&DummyClass::add_num, &dummy_class, 500, 100); // call add_num with ms time of 500 and update of 10
     Threadable modify_by_10(&DummyClass::add_num, &dummy_class, 2000, 10);
 
     modify_by_10.start();
-    modify_by_20.start();
-    while (!modify_by_10.done() || !modify_by_20.done())
+    modify_by_100.start();
+    while (!modify_by_10.done() || !modify_by_100.done())
     {
         cout << "value: " << dummy_class.get_num() << "\r";
     }

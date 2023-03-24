@@ -31,8 +31,8 @@ public:
      * @tparam _MemberFunc the type of the member function to call
      * @tparam _Class_Ptr the type, as a pointer, of the instance
      * @tparam _Args Types of the arguments to pass to the thread
-     * @tparam std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type
-     * @tparam std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type
+     * @tparam std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type used to enforce template specialization
+     * @tparam std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type used to enforce template specialization
      * @param func the member function to call. In most circumstances, this is `&CLASS_NAME::METHOD_NAME`
      * where CLASS_NAME is the name of the class and METHOD_NAME is the name of the method
      * @param c a pointer to the instance from which to run the member function.
@@ -84,6 +84,15 @@ public:
 
     /**
      * @brief Return whether or not the thread has completed
+     * @details equivalent to calling done \see done
+     *
+     * @return true - it has completed
+     * @return false - it hasn't completed yet OR it hasn't been started yet
+     */
+    bool operator()() const;
+
+    /**
+     * @brief Return whether or not the thread has completed
      *
      * @return true - it has completed
      * @return false - it hasn't completed yet OR it hasn't been started yet
@@ -95,8 +104,8 @@ public:
      * @details Once the thread has finished, it is considered
      * not started again.
      *
-     * @return true
-     * @return false
+     * @return true - it has been started
+     * @return false - it hasn't been started OR it has already completed
      */
     bool started() const;
 
