@@ -66,7 +66,6 @@ protected:
 
 private:
     std::function<double()> callable;
-    Threadable<void(Accumulator *a), Accumulator *> *t;
     volatile double accumulator;
 
     double multiplier;

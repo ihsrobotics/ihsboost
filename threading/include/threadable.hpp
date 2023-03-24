@@ -14,50 +14,68 @@
 #define IHSBOOST_THREADABLE_HPP
 
 #include <thread>
+#include <functional>
 
 /**
  * @brief A thread that runs the given function with the given arguments
  *
- * @tparam Callable - the function
- * @tparam Args - the arguments
  */
-template <typename Callable, typename... Args>
 class Threadable
 {
 public:
     /**
      * @brief Construct a new Threadable object to run the given function
      * with the given parameters in a separate thread
+     * @details upon creation, a Threadable is considered not done and not started.
      *
      * @param func the function to run
      * @param args the arguments to pass to the function
      */
-    Threadable(Callable &func, Args... args) : done_flag(false), _func(&func), _thread(wrapper, this, args...){};
+    template <typename _Callable, typename... _Args>
+    Threadable(_Callable &&func, _Args... args) : _started(false), _done(false),
+                                                  _thread(), _func([func, args...]() -> void
+                                                                   { func(args...); }){};
 
     /**
      * @brief Destroy the Threadable object
      * @details blocks execution while waiting for the thread to finish
      *
      */
-    ~Threadable()
-    {
-        _thread.join();
-    }
+    ~Threadable();
 
     /**
-     * @brief Check the status of the thread
+     * @brief Start the thread
+     * @details After calling this, the thread is considered
+     * started and not considered done until it has finished
+     * executing.
      *
-     * @return true if the thread has completed
-     * @return false if the thread has not yet completed
      */
-    bool operator()() const { return done_flag; }
+    void start();
 
     /**
      * @brief Wait for the thread to finish.
      * @details This is a blocking function
      *
      */
-    void join() { _thread.join(); }
+    void join();
+
+    /**
+     * @brief Return whether or not the thread has completed
+     *
+     * @return true - it has completed
+     * @return false - it hasn't completed yet OR it hasn't been started yet
+     */
+    bool done() const;
+
+    /**
+     * @brief Return whether or not the thread was started
+     * @details Once the thread has finished, it is considered
+     * not started again.
+     *
+     * @return true
+     * @return false
+     */
+    bool started() const;
 
 private:
     /**
@@ -66,15 +84,12 @@ private:
      * @param threadable the Threadable object
      * @param args the arguments to pass to the Threadable object's function
      */
-    static void wrapper(Threadable<Callable, Args...> *threadable, Args... args)
-    {
-        threadable->_func(args...);
-        threadable->done_flag = true;
-    }
+    static void wrapper(Threadable *threadable);
 
-    volatile bool done_flag;
-    Callable *_func;
-    std::thread _thread;
+    bool _started;               ///< whether or not the thread was started
+    volatile bool _done;         ///< whether or not the thread is done
+    std::thread _thread;         ///< the thread itself
+    std::function<void()> _func; ///< the function to call
 };
 
 #endif

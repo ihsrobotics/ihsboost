@@ -87,7 +87,7 @@ private:
     static void run_function(BackgroundTask *b);
 
     volatile bool running;
-    Threadable<void(BackgroundTask *), BackgroundTask *> *t;
+    Threadable *t;
     int msleep_time;
 };
 

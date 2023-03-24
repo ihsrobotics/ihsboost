@@ -9,7 +9,8 @@ void BackgroundTask::start()
     if (t == nullptr)
     {
         running = true;
-        t = new Threadable<void(BackgroundTask *), BackgroundTask *>(run_function, this);
+        t = new Threadable(run_function, this);
+        t->start();
     }
 }
 
@@ -19,7 +20,7 @@ void BackgroundTask::stop()
     if (t != nullptr)
     {
         // wait till finished
-        while (!(*t)())
+        while (!t->done())
             ;
 
         // cleanup

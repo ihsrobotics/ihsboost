@@ -31,17 +31,17 @@ int main()
 {
     cout << "starting" << endl;
 
-    // in order to create a threadable, you have to pass in the template arguments
-    // (or compile with -std=c++17)
-    // the template arguments are the signature of the function and each of the parameters
-    // note that you don't need to actually name the parameters in the template, as you can see from
-    // the second example
-    Threadable<void(int a, int b, int sleep), int, int, int> my_thread(cool_function, 3, 11, 2300);
-    Threadable<void(int, int, int, int), int, int, int, int> my_other_thread(cool_other_function, 3, 11, 22, 500);
-    Threadable<void()> lazy(lazy_function); // you can also do this with a 0 parameter function, just pass the function signature
+    // In order to create a threadable, it's just like creating
+    // a std::thread; just pass the function and any arguments
+    Threadable my_thread(cool_function, 3, 11, 2300);
+    Threadable my_other_thread(cool_other_function, 3, 11, 22, 500);
+    Threadable lazy(lazy_function); // you can also do this with a 0 parameter function
+    my_thread.start();
+    my_other_thread.start();
+    lazy.start();
     size_t i = 0;
-    cout << "what is the current value? " << my_thread() << " and " << my_other_thread() << endl;
-    while (!my_thread() || !my_other_thread() || !lazy()) // calling the thread is equivalent to checking if it is done
+    cout << "what is the current value? " << my_thread.done() << " and " << my_other_thread.done() << endl;
+    while (!my_thread.done() || !my_other_thread.done() || !lazy.done()) // keep going until they're all done
     {
         ++i;
     }
