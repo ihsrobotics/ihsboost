@@ -35,7 +35,6 @@ void PosixQCommunicator::open()
 
 void PosixQCommunicator::send_bytes(char *bytes)
 {
-    cout << "sending message of " << MessageBuf::get_size(max_msg_size) << endl;
     int ret = mq_send(msg_q_id, reinterpret_cast<const char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
     delete[] bytes;
     check_error(ret, "sending message");
@@ -48,9 +47,7 @@ MessageBuf PosixQCommunicator::receive_msg()
     MessageBuf m(max_msg_size);
 
     // read into byte buffer
-    cout << "receiving from " << msg_q_id << " message of " << MessageBuf::get_size(max_msg_size) << " in receive_msg posix" << endl;
     ssize_t ret = mq_receive(msg_q_id, reinterpret_cast<char *>(bytes), MessageBuf::get_size(max_msg_size), 0);
-    cout << "received in there" << endl;
     check_error(ret, "receiving message");
 
     // create message from bytes
