@@ -27,24 +27,63 @@ void lazy_function()
     cout << "done lazing" << endl;
 }
 
+class DummyClass
+{
+public:
+    DummyClass() : num(0){};
+    int get_num() { return num; }
+    void add_num(int ms, int modifier)
+    {
+        time_point<system_clock> start = system_clock::now();
+        time_point<system_clock> now = system_clock::now();
+        while (duration_cast<milliseconds>(now - start).count() < ms)
+        {
+            num += modifier;
+            this_thread::sleep_for(milliseconds(10));
+            now = system_clock::now();
+        }
+    }
+
+private:
+    int num;
+};
+
 int main()
 {
     cout << "starting" << endl;
 
-    // in order to create a threadable, you have to pass in the template arguments
-    // (or compile with -std=c++17)
-    // the template arguments are the signature of the function and each of the parameters
-    // note that you don't need to actually name the parameters in the template, as you can see from
-    // the second example
-    Threadable<void(int a, int b, int sleep), int, int, int> my_thread(cool_function, 3, 11, 2300);
-    Threadable<void(int, int, int, int), int, int, int, int> my_other_thread(cool_other_function, 3, 11, 22, 500);
-    Threadable<void()> lazy(lazy_function); // you can also do this with a 0 parameter function, just pass the function signature
+    // In order to create a threadable, it's just like creating
+    // a std::thread; just pass the function and any arguments
+    Threadable my_thread(cool_function, 3, 11, 2300);
+    Threadable my_other_thread(cool_other_function, 3, 11, 22, 500);
+    Threadable lazy(lazy_function); // you can also do this with a 0 parameter function
+
+    // start the threads; they don't start by default
+    my_thread.start();
+    my_other_thread.start();
+    lazy.start();
+
+    // wait till they finish
     size_t i = 0;
-    cout << "what is the current value? " << my_thread() << " and " << my_other_thread() << endl;
-    while (!my_thread() || !my_other_thread() || !lazy()) // calling the thread is equivalent to checking if it is done
+    cout << "what is the current value? " << my_thread.done() << " and " << my_other_thread.done() << endl;
+    while (!my_thread.done() || !my_other_thread.done() || !lazy.done()) // keep going until they're all done
     {
         ++i;
     }
     cout << "finished with i value of " << i << endl;
+
+    // threads can modify objects too!
+    // syntax: &Class::function, &instance, arguments
+    DummyClass dummy_class;
+    Threadable modify_by_100(&DummyClass::add_num, &dummy_class, 500, 100); // call add_num with ms time of 500 and update of 10
+    Threadable modify_by_10(&DummyClass::add_num, &dummy_class, 2000, 10);
+
+    modify_by_10.start();
+    modify_by_100.start();
+    while (!modify_by_10.done() || !modify_by_100.done())
+    {
+        cout << "value: " << dummy_class.get_num() << "\r";
+    }
+    cout << endl;
     return 0;
 }

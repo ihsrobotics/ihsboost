@@ -2,7 +2,8 @@ message("current source dir is " ${CMAKE_CURRENT_SOURCE_DIR})
 
 # set sources
 get_property(local_ihs_sources GLOBAL PROPERTY IHS_SOURCES)
-list(APPEND local_ihs_sources ${CMAKE_CURRENT_SOURCE_DIR}/src/background_task.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/accumulator.cpp)
+list(APPEND local_ihs_sources ${CMAKE_CURRENT_SOURCE_DIR}/src/threadable.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/background_task.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/accumulator.cpp)
 set_property(GLOBAL PROPERTY IHS_SOURCES ${local_ihs_sources})
 
 

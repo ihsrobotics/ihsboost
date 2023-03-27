@@ -79,15 +79,12 @@ protected:
 private:
     /**
      * @brief The function that runs the task
-     * @details this is static so that it can be threaded
      *
-     * @param b a pointer to the BackgroundTask that has an implemented
-     * version of function
      */
-    static void run_function(BackgroundTask *b);
+    void run_function();
 
     volatile bool running;
-    Threadable<void(BackgroundTask *), BackgroundTask *> *t;
+    Threadable *t;
     int msleep_time;
 };
 
