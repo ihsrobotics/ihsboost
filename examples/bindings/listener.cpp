@@ -45,4 +45,10 @@ int main()
         cout << ret.get_ptr_val<bool>()[i] << ", ";
     }
     cout << endl;
+
+    // receive the single vals
+    int val = communicator.receive_msg().get_val<int>();
+    cout << "got the single integer of " << val << endl;
+    bool other_val = communicator.receive_msg().get_val<bool>();
+    cout << "got the single bool of " << other_val << endl;
 }
