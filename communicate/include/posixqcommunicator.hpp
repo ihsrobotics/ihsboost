@@ -31,7 +31,7 @@ public:
      * @param max_msgs the maximum number of messages that the posix q
      * will be able to hold (defaults to 10)
      */
-    PosixQCommunicator(const char *name, size_t max_msgs = 10);
+    PosixQCommunicator(std::string name, size_t max_msgs = 10);
 
     /**
      * @brief Construct a new Posix Q Communicator object
@@ -42,7 +42,7 @@ public:
      * will be able to hold
      * @param max_msg_size The maximum size of your messages
      */
-    PosixQCommunicator(const char *name, size_t max_msgs, uint32_t max_msg_size);
+    PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size);
 
     /**
      * @brief Destroy the Posix Q Communicator object
@@ -84,7 +84,7 @@ private:
     virtual void send_bytes(char *bytes);
 
     mqd_t msg_q_id;
-    char *_name;
+    std::string _name;
     size_t max_msgs;
 };
 
