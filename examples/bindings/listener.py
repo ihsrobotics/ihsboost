@@ -36,3 +36,9 @@ print(ret)
 # this will block since will wait for message the sender will never send
 # ret = ihs_bindings.receive_doubles(communicator)
 # print(ret)
+
+# receive individual values as individual values
+ret = ihs_bindings.receive_int(communicator)
+print(ret)
+ret = ihs_bindings.receive_bool(communicator)
+print(ret)

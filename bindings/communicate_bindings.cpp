@@ -3,8 +3,9 @@
 
 namespace communicate_export
 {
+    // send values as a list
     template <typename T, typename Container>
-    bool send_type(Communicator *communicator, Container l)
+    bool send_values(Communicator *communicator, Container l)
     {
         T *msg = new T[boost::python::len(l)];
         for (ssize_t i = 0; i < boost::python::len(l); ++i)
@@ -15,8 +16,17 @@ namespace communicate_export
         delete[] msg;
         return true;
     }
+    // send single values
     template <typename T>
-    boost::python::list receive_type(Communicator *communicator)
+    bool send_val(Communicator *communicator, T val)
+    {
+        communicator->send_msg(communicator->create_msg<T>(val));
+        return true;
+    }
+
+    // receive multiple values
+    template <typename T>
+    boost::python::list receive_values(Communicator *communicator)
     {
         boost::python::list ret;
         MessageBuf m = communicator->receive_msg();
@@ -27,39 +37,70 @@ namespace communicate_export
         }
         return ret;
     }
+    // receive single value
+    template <typename T>
+    T receive_val(Communicator *communicator)
+    {
+        MessageBuf m = communicator->receive_msg();
+        return m.get_val<T>();
+    }
 
     // stubs
     bool send_ints(Communicator *communicator, boost::python::list ints)
     {
-        return send_type<int, boost::python::list>(communicator, ints);
+        return send_values<int, boost::python::list>(communicator, ints);
+    }
+    bool send_int(Communicator *communicator, int _int)
+    {
+        return send_val<int>(communicator, _int);
     }
     bool send_doubles(Communicator *communicator, boost::python::list doubles)
     {
-        return send_type<double, boost::python::list>(communicator, doubles);
+        return send_values<double, boost::python::list>(communicator, doubles);
+    }
+    bool send_double(Communicator *communicator, double _double)
+    {
+        return send_val<double>(communicator, _double);
     }
     bool send_string(Communicator *communicator, boost::python::str string)
     {
-        return send_type<char, boost::python::str>(communicator, string);
+        return send_values<char, boost::python::str>(communicator, string);
     }
     bool send_bools(Communicator *communicator, boost::python::list bools)
     {
-        return send_type<bool, boost::python::list>(communicator, bools);
+        return send_values<bool, boost::python::list>(communicator, bools);
+    }
+    bool send_bool(Communicator *communicator, bool _bool)
+    {
+        return send_val<bool>(communicator, _bool);
     }
     boost::python::list receive_ints(Communicator *communicator)
     {
-        return receive_type<int>(communicator);
+        return receive_values<int>(communicator);
+    }
+    int receive_int(Communicator *communicator)
+    {
+        return receive_val<int>(communicator);
     }
     boost::python::list receive_doubles(Communicator *communicator)
     {
-        return receive_type<double>(communicator);
+        return receive_values<double>(communicator);
+    }
+    double receive_double(Communicator *communicator)
+    {
+        return receive_val<double>(communicator);
     }
     boost::python::str receive_string(Communicator *communicator)
     {
-        return boost::python::str("").join(receive_type<char>(communicator));
+        return boost::python::str("").join(receive_values<char>(communicator));
     }
     boost::python::list receive_bools(Communicator *communicator)
     {
-        return receive_type<bool>(communicator);
+        return receive_values<bool>(communicator);
+    }
+    bool receive_bool(Communicator *communicator)
+    {
+        return receive_val<bool>(communicator);
     }
 }; // namespace communicate_export
 
@@ -79,11 +120,15 @@ void export_communicate()
 
     // ints
     def("receive_ints", receive_ints);
+    def("receive_int", receive_int);
     def("send_ints", send_ints);
+    def("send_int", send_int);
 
     // doubles
     def("receive_doubles", receive_doubles);
+    def("receive_double", receive_double);
     def("send_doubles", send_doubles);
+    def("send_double", send_double);
 
     // strings
     def("receive_string", receive_string);
@@ -91,5 +136,7 @@ void export_communicate()
 
     // booleans
     def("receive_bools", receive_bools);
+    def("receive_bool", receive_bool);
     def("send_bools", send_bools);
+    def("send_bool", send_bool);
 }

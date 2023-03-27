@@ -259,6 +259,16 @@ def receive_ints(communicator: CommunicatorBase) -> list:
         arguments provided to the desired type
     """
 
+def receive_int(communicator: CommunicatorBase) -> int:
+    """
+    Receive an integer from the communicator.
+        @param communicator - the communicator to receive messages through.
+    Exceptions:
+        Boost.Python.ArgumentError - happens when passed arguments are of incorrect types
+        TypeError - happens when c++ is unable to automatically typecast one of the
+        arguments provided to the desired type
+    """
+
 def receive_doubles(communicator: CommunicatorBase) -> list:
     """
     Receive a list of doubles from the communicator.
@@ -269,9 +279,29 @@ def receive_doubles(communicator: CommunicatorBase) -> list:
         arguments provided to the desired type
     """
 
+def receive_double(communicator: CommunicatorBase) -> float:
+    """
+    Receive a double from the communicator.
+        @param communicator - the communicator to receive messages through.
+    Exceptions:
+        Boost.Python.ArgumentError - happens when passed arguments are of incorrect types
+        TypeError - happens when c++ is unable to automatically typecast one of the
+        arguments provided to the desired type
+    """
+
 def receive_bools(communicator: CommunicatorBase) -> list:
     """
     Receive a list of booleans from the communicator.
+        @param communicator - the communicator to receive messages through.
+    Exceptions:
+        Boost.Python.ArgumentError - happens when passed arguments are of incorrect types
+        TypeError - happens when c++ is unable to automatically typecast one of the
+        arguments provided to the desired type
+    """
+
+def receive_bool(communicator: CommunicatorBase) -> bool:
+    """
+    Receive a boolean from the communicator.
         @param communicator - the communicator to receive messages through.
     Exceptions:
         Boost.Python.ArgumentError - happens when passed arguments are of incorrect types
@@ -299,6 +329,16 @@ def send_ints(communicator: CommunicatorBase, ints: list) -> bool:
         the wrong type of values from the communicator
     """
 
+def send_int(communicator: CommunicatorBase, _int: int) -> bool:
+    """
+    Send an integer through the communicator.
+        @param communicator - the communicator to send the message with
+        @param _int - the int to send
+    Exceptions:
+        RuntimeError (BadBufCastException) - happens when trying to retreive
+        the wrong type of values from the communicator
+    """
+
 def send_doubles(communicator: CommunicatorBase, doubles: list) -> bool:
     """
     Send a list of doubles through the communicator.
@@ -309,11 +349,31 @@ def send_doubles(communicator: CommunicatorBase, doubles: list) -> bool:
         the wrong type of values from the communicator
     """
 
+def send_double(communicator: CommunicatorBase, double: float) -> bool:
+    """
+    Send a double through the communicator.
+        @param communicator - the communicator to send the message with
+        @param double - the double to send
+    Exceptions:
+        RuntimeError (BadBufCastException) - happens when trying to retreive
+        the wrong type of values from the communicator
+    """
+
 def send_bools(communicator: CommunicatorBase, bools: list) -> bool:
     """
     Send a list of booleans through the communicator.
         @param communicator - the communicator to send the message with
         @param bools - the list of booleans to send
+    Exceptions:
+        RuntimeError (BadBufCastException) - happens when trying to retreive
+        the wrong type of values from the communicator
+    """
+
+def send_bool(communicator: CommunicatorBase, _bool: bool) -> bool:
+    """
+    Send a boolean through the communicator.
+        @param communicator - the communicator to send the message with
+        @param _bool - the boolean to send
     Exceptions:
         RuntimeError (BadBufCastException) - happens when trying to retreive
         the wrong type of values from the communicator
