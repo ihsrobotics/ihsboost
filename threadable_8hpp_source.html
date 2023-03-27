@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.1.3</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -75,40 +75,55 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define IHSBOOST_THREADABLE_HPP</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callable, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classThreadable.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classThreadable.html">Threadable</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classThreadable.html#a1e74dda7e7b21632a6fd0a27ccf01fe2">   35</a></span>&#160;    <a class="code" href="classThreadable.html#a1e74dda7e7b21632a6fd0a27ccf01fe2">Threadable</a>(Callable &amp;func, Args... args) : done_flag(false), _func(&amp;func), _thread(wrapper, this, args...){};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classThreadable.html#a6d5cc1d9a718bfbd12de31d5bc0a1b3a">   42</a></span>&#160;    <a class="code" href="classThreadable.html#a6d5cc1d9a718bfbd12de31d5bc0a1b3a">~Threadable</a>()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        _thread.join();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classThreadable.html#a637178b06ca031a0be031bdbc6f3cf36">   53</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classThreadable.html#a637178b06ca031a0be031bdbc6f3cf36">operator()</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> done_flag; }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classThreadable.html#ad6ebccd2835df6bb972a57c05d031894">   60</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classThreadable.html#ad6ebccd2835df6bb972a57c05d031894">join</a>() { _thread.join(); }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classThreadable.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classThreadable.html">Threadable</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> _MemberFunc, <span class="keyword">typename</span> _Class_Ptr, <span class="keyword">typename</span>... _Args,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;              <span class="keyword">typename</span> std::enable_if&lt;std::is_member_function_pointer&lt;_MemberFunc&gt;::value, <span class="keywordtype">bool</span>&gt;::type = <span class="keyword">true</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;              <span class="keyword">typename</span> std::enable_if&lt;std::is_pointer&lt;_Class_Ptr&gt;::value, <span class="keywordtype">bool</span>&gt;::type = <span class="keyword">true</span>&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classThreadable.html#a2f07f8bd1ab32243b691775d65b9dd9d">   44</a></span>&#160;    <a class="code" href="classThreadable.html#a2f07f8bd1ab32243b691775d65b9dd9d">Threadable</a>(_MemberFunc &amp;&amp;func, _Class_Ptr c, _Args &amp;&amp;...args) : _started(false),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                                    _done(false),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                                                    _thread(), _func([func, c, args...]() -&gt; void</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                                                                     { (c-&gt;*func)(args...); }){};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Callable, <span class="keyword">typename</span>... _Args&gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classThreadable.html#ac04387186752b00f00c05346e343fde8">   58</a></span>&#160;    <a class="code" href="classThreadable.html#ac04387186752b00f00c05346e343fde8">Threadable</a>(_Callable &amp;&amp;func, _Args... args) : _started(false), _done(false),</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                                  _thread(), _func([func, args...]() -&gt; void</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                                                   { func(args...); }){};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> wrapper(<a class="code" href="classThreadable.html">Threadable&lt;Callable, Args...&gt;</a> *threadable, Args... args)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        threadable-&gt;_func(args...);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        threadable-&gt;done_flag = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> done_flag;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Callable *_func;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::thread _thread;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:26</div></div>
-<div class="ttc" id="aclassThreadable_html_a1e74dda7e7b21632a6fd0a27ccf01fe2"><div class="ttname"><a href="classThreadable.html#a1e74dda7e7b21632a6fd0a27ccf01fe2">Threadable::Threadable</a></div><div class="ttdeci">Threadable(Callable &amp;func, Args... args)</div><div class="ttdoc">Construct a new Threadable object to run the given function with the given parameters in a separate t...</div><div class="ttdef"><b>Definition:</b> threadable.hpp:35</div></div>
-<div class="ttc" id="aclassThreadable_html_a637178b06ca031a0be031bdbc6f3cf36"><div class="ttname"><a href="classThreadable.html#a637178b06ca031a0be031bdbc6f3cf36">Threadable::operator()</a></div><div class="ttdeci">bool operator()() const</div><div class="ttdoc">Check the status of the thread.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:53</div></div>
-<div class="ttc" id="aclassThreadable_html_a6d5cc1d9a718bfbd12de31d5bc0a1b3a"><div class="ttname"><a href="classThreadable.html#a6d5cc1d9a718bfbd12de31d5bc0a1b3a">Threadable::~Threadable</a></div><div class="ttdeci">~Threadable()</div><div class="ttdoc">Destroy the Threadable object.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:42</div></div>
-<div class="ttc" id="aclassThreadable_html_ad6ebccd2835df6bb972a57c05d031894"><div class="ttname"><a href="classThreadable.html#ad6ebccd2835df6bb972a57c05d031894">Threadable::join</a></div><div class="ttdeci">void join()</div><div class="ttdoc">Wait for the thread to finish.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:60</div></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classThreadable.html#af3e7738d188223a4298f000dabe47f68">~Threadable</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classThreadable.html#a22197741977599fe35ff158ff03e7534">start</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classThreadable.html#a0a5de10c1b3b1db5c0aafa10822d9e57">join</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classThreadable.html#a251aaf91f04b87d521cf6e1b2a9418ba">operator()</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classThreadable.html#a956ed6e8446f6e2f194479fcda516550">done</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classThreadable.html#aed84a58106831a2cdecf14514f9fb989">started</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> wrapper(<a class="code" href="classThreadable.html">Threadable</a> *threadable);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> _started;               </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> _done;         </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    std::thread _thread;         </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    std::function&lt;void()&gt; _func; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;};</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:24</div></div>
+<div class="ttc" id="aclassThreadable_html_a0a5de10c1b3b1db5c0aafa10822d9e57"><div class="ttname"><a href="classThreadable.html#a0a5de10c1b3b1db5c0aafa10822d9e57">Threadable::join</a></div><div class="ttdeci">void join()</div><div class="ttdoc">Wait for the thread to finish.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:19</div></div>
+<div class="ttc" id="aclassThreadable_html_a22197741977599fe35ff158ff03e7534"><div class="ttname"><a href="classThreadable.html#a22197741977599fe35ff158ff03e7534">Threadable::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Start the thread.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:8</div></div>
+<div class="ttc" id="aclassThreadable_html_a251aaf91f04b87d521cf6e1b2a9418ba"><div class="ttname"><a href="classThreadable.html#a251aaf91f04b87d521cf6e1b2a9418ba">Threadable::operator()</a></div><div class="ttdeci">bool operator()() const</div><div class="ttdoc">Return whether or not the thread has completed.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:23</div></div>
+<div class="ttc" id="aclassThreadable_html_a2f07f8bd1ab32243b691775d65b9dd9d"><div class="ttname"><a href="classThreadable.html#a2f07f8bd1ab32243b691775d65b9dd9d">Threadable::Threadable</a></div><div class="ttdeci">Threadable(_MemberFunc &amp;&amp;func, _Class_Ptr c, _Args &amp;&amp;...args)</div><div class="ttdoc">Construct a new Threadable object to run the given member function on the given instance with the giv...</div><div class="ttdef"><b>Definition:</b> threadable.hpp:44</div></div>
+<div class="ttc" id="aclassThreadable_html_a956ed6e8446f6e2f194479fcda516550"><div class="ttname"><a href="classThreadable.html#a956ed6e8446f6e2f194479fcda516550">Threadable::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdoc">Return whether or not the thread has completed.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:22</div></div>
+<div class="ttc" id="aclassThreadable_html_ac04387186752b00f00c05346e343fde8"><div class="ttname"><a href="classThreadable.html#ac04387186752b00f00c05346e343fde8">Threadable::Threadable</a></div><div class="ttdeci">Threadable(_Callable &amp;&amp;func, _Args... args)</div><div class="ttdoc">Construct a new Threadable object to run the given function with the given parameters in a separate t...</div><div class="ttdef"><b>Definition:</b> threadable.hpp:58</div></div>
+<div class="ttc" id="aclassThreadable_html_aed84a58106831a2cdecf14514f9fb989"><div class="ttname"><a href="classThreadable.html#aed84a58106831a2cdecf14514f9fb989">Threadable::started</a></div><div class="ttdeci">bool started() const</div><div class="ttdoc">Return whether or not the thread was started.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:24</div></div>
+<div class="ttc" id="aclassThreadable_html_af3e7738d188223a4298f000dabe47f68"><div class="ttname"><a href="classThreadable.html#af3e7738d188223a4298f000dabe47f68">Threadable::~Threadable</a></div><div class="ttdeci">~Threadable()</div><div class="ttdoc">Destroy the Threadable object.</div><div class="ttdef"><b>Definition:</b> threadable.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

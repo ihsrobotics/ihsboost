@@ -1,7 +1,7 @@
 <map id="threading/include/accumulator.hpp" name="threading/include/accumulator.hpp">
-<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="5,5,252,32"/>
-<area shape="rect" id="node2" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="9,155,129,181"/>
-<area shape="rect" id="node4" href="$background__task_8hpp.html" title="Background task class." alt="" coords="48,80,209,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="233,80,320,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="37,229,101,256"/>
+<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="21,5,268,32"/>
+<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,80,167,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,229,244,256"/>
+<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="31,155,151,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="59,229,123,256"/>
 </map>

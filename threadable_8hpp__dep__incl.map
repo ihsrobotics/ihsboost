@@ -1,10 +1,10 @@
 <map id="threading/include/threadable.hpp" name="threading/include/threadable.hpp">
-<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="298,5,535,32"/>
-<area shape="rect" id="node2" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="228,177,475,203"/>
-<area shape="rect" id="node6" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="397,266,626,293"/>
-<area shape="rect" id="node7" href="$background__task_8hpp.html" title="Background task class." alt="" coords="309,80,524,121"/>
-<area shape="rect" id="node3" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="199,259,373,300"/>
+<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="338,5,575,32"/>
+<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="277,80,492,121"/>
+<area shape="rect" id="node8" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="397,266,626,293"/>
+<area shape="rect" id="node3" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,169,204,211"/>
+<area shape="rect" id="node6" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="228,177,475,203"/>
 <area shape="rect" id="node4" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="163,348,409,375"/>
 <area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="333,423,399,449"/>
-<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,169,204,211"/>
+<area shape="rect" id="node7" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="199,259,373,300"/>
 </map>

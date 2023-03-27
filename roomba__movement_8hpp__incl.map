@@ -1,13 +1,13 @@
 <map id="movement/include/roomba_movement.hpp" name="movement/include/roomba_movement.hpp">
-<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="249,5,448,47"/>
+<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="188,5,387,47"/>
 <area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,95,167,121"/>
-<area shape="rect" id="node5" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="191,95,280,121"/>
-<area shape="rect" id="node6" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="304,95,393,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="417,95,504,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="529,95,606,121"/>
-<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="26,169,146,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="54,244,118,271"/>
-<area shape="rect" id="node7" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="287,169,410,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="255,244,314,271"/>
-<area shape="rect" id="node9" title=" " alt="" coords="338,244,485,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,244,244,271"/>
+<area shape="rect" id="node6" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="243,95,332,121"/>
+<area shape="rect" id="node7" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="356,95,445,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="470,95,547,121"/>
+<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="31,169,151,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="59,244,123,271"/>
+<area shape="rect" id="node8" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="339,169,462,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="321,244,379,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="403,244,550,271"/>
 </map>

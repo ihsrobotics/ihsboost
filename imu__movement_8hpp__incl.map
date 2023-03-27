@@ -1,14 +1,14 @@
 <map id="movement/include/imu_movement.hpp" name="movement/include/imu_movement.hpp">
-<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="268,5,441,47"/>
-<area shape="rect" id="node2" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="81,95,212,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="229,169,315,196"/>
-<area shape="rect" id="node7" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="310,95,399,121"/>
-<area shape="rect" id="node11" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="423,95,513,121"/>
-<area shape="rect" id="node12" title=" " alt="" coords="537,95,615,121"/>
-<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="5,244,125,271"/>
-<area shape="rect" id="node5" href="$background__task_8hpp.html" title="Background task class." alt="" coords="43,169,205,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="33,319,97,345"/>
-<area shape="rect" id="node8" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="340,169,463,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="308,244,367,271"/>
-<area shape="rect" id="node10" title=" " alt="" coords="391,244,537,271"/>
+<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="251,5,425,47"/>
+<area shape="rect" id="node2" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="87,95,218,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="161,319,248,345"/>
+<area shape="rect" id="node7" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="293,95,383,121"/>
+<area shape="rect" id="node11" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="407,95,496,121"/>
+<area shape="rect" id="node12" title=" " alt="" coords="521,95,598,121"/>
+<area shape="rect" id="node3" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,169,167,196"/>
+<area shape="rect" id="node4" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="35,244,155,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="63,319,127,345"/>
+<area shape="rect" id="node8" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="293,169,415,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="309,244,367,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="391,244,538,271"/>
 </map>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.1.3</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -95,28 +95,67 @@ $(function() {
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;done lazing&quot;</span> &lt;&lt; endl;</div>
 <div class="line">}</div>
 <div class="line"> </div>
+<div class="line"><span class="keyword">class </span>DummyClass</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    DummyClass() : num(0){};</div>
+<div class="line">    <span class="keywordtype">int</span> get_num() { <span class="keywordflow">return</span> num; }</div>
+<div class="line">    <span class="keywordtype">void</span> add_num(<span class="keywordtype">int</span> ms, <span class="keywordtype">int</span> modifier)</div>
+<div class="line">    {</div>
+<div class="line">        time_point&lt;system_clock&gt; start = system_clock::now();</div>
+<div class="line">        time_point&lt;system_clock&gt; now = system_clock::now();</div>
+<div class="line">        <span class="keywordflow">while</span> (duration_cast&lt;milliseconds&gt;(now - start).count() &lt; ms)</div>
+<div class="line">        {</div>
+<div class="line">            num += modifier;</div>
+<div class="line">            this_thread::sleep_for(milliseconds(10));</div>
+<div class="line">            now = system_clock::now();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keywordtype">int</span> num;</div>
+<div class="line">};</div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;starting&quot;</span> &lt;&lt; endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// in order to create a threadable, you have to pass in the template arguments</span></div>
-<div class="line">    <span class="comment">// (or compile with -std=c++17)</span></div>
-<div class="line">    <span class="comment">// the template arguments are the signature of the function and each of the parameters</span></div>
-<div class="line">    <span class="comment">// note that you don&#39;t need to actually name the parameters in the template, as you can see from</span></div>
-<div class="line">    <span class="comment">// the second example</span></div>
-<div class="line">    <a name="_a0"></a><a class="code" href="classThreadable.html">Threadable</a>&lt;void(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> sleep), int, int, <span class="keywordtype">int</span>&gt; my_thread(cool_function, 3, 11, 2300);</div>
-<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>), int, int, int, <span class="keywordtype">int</span>&gt; my_other_thread(cool_other_function, 3, 11, 22, 500);</div>
-<div class="line">    <a class="code" href="classThreadable.html">Threadable</a>&lt;void()&gt; lazy(lazy_function); <span class="comment">// you can also do this with a 0 parameter function, just pass the function signature</span></div>
+<div class="line">    <span class="comment">// In order to create a threadable, it&#39;s just like creating</span></div>
+<div class="line">    <span class="comment">// a std::thread; just pass the function and any arguments</span></div>
+<div class="line">    <a name="_a0"></a><a class="code" href="classThreadable.html">Threadable</a> my_thread(cool_function, 3, 11, 2300);</div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a> my_other_thread(cool_other_function, 3, 11, 22, 500);</div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a> lazy(lazy_function); <span class="comment">// you can also do this with a 0 parameter function</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// start the threads; they don&#39;t start by default</span></div>
+<div class="line">    my_thread.start();</div>
+<div class="line">    my_other_thread.start();</div>
+<div class="line">    lazy.start();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// wait till they finish</span></div>
 <div class="line">    <span class="keywordtype">size_t</span> i = 0;</div>
-<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;what is the current value? &quot;</span> &lt;&lt; my_thread() &lt;&lt; <span class="stringliteral">&quot; and &quot;</span> &lt;&lt; my_other_thread() &lt;&lt; endl;</div>
-<div class="line">    <span class="keywordflow">while</span> (!my_thread() || !my_other_thread() || !lazy()) <span class="comment">// calling the thread is equivalent to checking if it is done</span></div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;what is the current value? &quot;</span> &lt;&lt; my_thread.done() &lt;&lt; <span class="stringliteral">&quot; and &quot;</span> &lt;&lt; my_other_thread.done() &lt;&lt; endl;</div>
+<div class="line">    <span class="keywordflow">while</span> (!my_thread.done() || !my_other_thread.done() || !lazy.done()) <span class="comment">// keep going until they&#39;re all done</span></div>
 <div class="line">    {</div>
 <div class="line">        ++i;</div>
 <div class="line">    }</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;finished with i value of &quot;</span> &lt;&lt; i &lt;&lt; endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// threads can modify objects too!</span></div>
+<div class="line">    <span class="comment">// syntax: &amp;Class::function, &amp;instance, arguments</span></div>
+<div class="line">    DummyClass dummy_class;</div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a> modify_by_100(&amp;DummyClass::add_num, &amp;dummy_class, 500, 100); <span class="comment">// call add_num with ms time of 500 and update of 10</span></div>
+<div class="line">    <a class="code" href="classThreadable.html">Threadable</a> modify_by_10(&amp;DummyClass::add_num, &amp;dummy_class, 2000, 10);</div>
+<div class="line"> </div>
+<div class="line">    modify_by_10.start();</div>
+<div class="line">    modify_by_100.start();</div>
+<div class="line">    <span class="keywordflow">while</span> (!modify_by_10.done() || !modify_by_100.done())</div>
+<div class="line">    {</div>
+<div class="line">        cout &lt;&lt; <span class="stringliteral">&quot;value: &quot;</span> &lt;&lt; dummy_class.get_num() &lt;&lt; <span class="stringliteral">&quot;\r&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    cout &lt;&lt; endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:26</div></div>
+<div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:24</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
