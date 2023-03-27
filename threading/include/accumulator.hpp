@@ -13,7 +13,6 @@
 #ifndef IHSBOOST_ACCUMULATOR_HPP
 #define IHSBOOST_ACCUMULATOR_HPP
 
-#include "threadable.hpp"
 #include "background_task.hpp"
 #include <functional>
 
@@ -66,7 +65,6 @@ protected:
 
 private:
     std::function<double()> callable;
-    Threadable<void(Accumulator *a), Accumulator *> *t;
     volatile double accumulator;
 
     double multiplier;

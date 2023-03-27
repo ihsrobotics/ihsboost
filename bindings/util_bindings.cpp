@@ -33,7 +33,7 @@ void export_util()
         .def("__repr__", print_speed);
     class_<Timer>("Timer", init<double>(arg("time")))
         .def("__call__", &Timer::operator())
-        .def("done", &Timer::operator());
+        .def("done", &Timer::done);
     enum_<Cliff>("Cliff")
         .value("LCliff", Cliff::LCliff)
         .value("LFCliff", Cliff::LFCliff)

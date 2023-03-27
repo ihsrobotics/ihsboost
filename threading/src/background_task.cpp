@@ -9,7 +9,8 @@ void BackgroundTask::start()
     if (t == nullptr)
     {
         running = true;
-        t = new Threadable<void(BackgroundTask *), BackgroundTask *>(run_function, this);
+        t = new Threadable(&BackgroundTask::function, this);
+        t->start();
     }
 }
 
@@ -19,7 +20,7 @@ void BackgroundTask::stop()
     if (t != nullptr)
     {
         // wait till finished
-        while (!(*t)())
+        while (!t->done())
             ;
 
         // cleanup
@@ -32,11 +33,11 @@ bool BackgroundTask::is_running() { return running; }
 int BackgroundTask::get_msleep_time() { return msleep_time; }
 void BackgroundTask::set_updates_per_sec(int updates_per_sec) { msleep_time = 1000 / updates_per_sec; }
 
-void BackgroundTask::run_function(BackgroundTask *b)
+void BackgroundTask::run_function()
 {
-    while (b->running)
+    while (this->running)
     {
-        b->function();
-        msleep(b->msleep_time);
+        this->function();
+        msleep(this->msleep_time);
     }
 }

@@ -35,7 +35,16 @@ public:
      * @return true - once it has been `time` seconds
      * @return false - if it hasn't been `time` seconds yet
      */
-    bool operator()();
+    bool operator()() const;
+
+    /**
+     * @brief Returns false until it is time to stop
+     * (when it has been `time` seconds)
+     *
+     * @return true - once it has been `time` seconds
+     * @return false - if it hasn't been `time` seconds yet
+     */
+    bool done() const;
 
 private:
     double _time;
