@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.3.0</span>
    </div>
   </td>
  </tr>
@@ -81,9 +81,9 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classPosixQCommunicator.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a> : <span class="keyword">public</span> <a class="code" href="classCommunicator.html">Communicator</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classPosixQCommunicator.html#af50bcbd43db906bef35d1590d9abc27b">PosixQCommunicator</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">size_t</span> max_msgs = 10);</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classPosixQCommunicator.html#a35002c5139f50ad7f0003fe72b947de3">   34</a></span>&#160;    <a class="code" href="classPosixQCommunicator.html#a35002c5139f50ad7f0003fe72b947de3">PosixQCommunicator</a>(std::string name, <span class="keywordtype">size_t</span> max_msgs = 10);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classPosixQCommunicator.html#af50bcbd43db906bef35d1590d9abc27b">PosixQCommunicator</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">size_t</span> max_msgs, uint32_t <a class="code" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classPosixQCommunicator.html#ae89eb90433c12f150081925833d4ac9b">   45</a></span>&#160;    <a class="code" href="classPosixQCommunicator.html#ae89eb90433c12f150081925833d4ac9b">PosixQCommunicator</a>(std::string name, <span class="keywordtype">size_t</span> max_msgs, uint32_t <a class="code" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPosixQCommunicator.html#aaa06ada60c766fcc059eb56fc6020492">~PosixQCommunicator</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
@@ -97,7 +97,7 @@ $(function() {
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> send_bytes(<span class="keywordtype">char</span> *bytes);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    mqd_t msg_q_id;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">char</span> *_name;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::string _name;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">size_t</span> max_msgs;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
@@ -106,11 +106,12 @@ $(function() {
 <div class="ttc" id="aclassCommunicator_html_a936642bf49cfa727fdafbe9d510cefd6"><div class="ttname"><a href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">Communicator::max_msg_size</a></div><div class="ttdeci">uint32_t max_msg_size</div><div class="ttdoc">the maximum size of the message</div><div class="ttdef"><b>Definition:</b> communicator.hpp:131</div></div>
 <div class="ttc" id="aclassMessageBuf_html"><div class="ttname"><a href="classMessageBuf.html">MessageBuf</a></div><div class="ttdoc">Class for storing data over communicators.</div><div class="ttdef"><b>Definition:</b> message_buf.hpp:26</div></div>
 <div class="ttc" id="aclassPosixQCommunicator_html"><div class="ttname"><a href="classPosixQCommunicator.html">PosixQCommunicator</a></div><div class="ttdoc">Class for communicating over posix-based mqueue's.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.hpp:25</div></div>
-<div class="ttc" id="aclassPosixQCommunicator_html_a59611d6b249353ecda30cfb69d14a5c0"><div class="ttname"><a href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">PosixQCommunicator::receive_msg</a></div><div class="ttdeci">virtual MessageBuf receive_msg()</div><div class="ttdoc">Wait to receive a message. Blocks until message was received.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:46</div></div>
+<div class="ttc" id="aclassPosixQCommunicator_html_a35002c5139f50ad7f0003fe72b947de3"><div class="ttname"><a href="classPosixQCommunicator.html#a35002c5139f50ad7f0003fe72b947de3">PosixQCommunicator::PosixQCommunicator</a></div><div class="ttdeci">PosixQCommunicator(std::string name, size_t max_msgs=10)</div><div class="ttdoc">Construct a new Posix Q Communicator object.</div></div>
+<div class="ttc" id="aclassPosixQCommunicator_html_a59611d6b249353ecda30cfb69d14a5c0"><div class="ttname"><a href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">PosixQCommunicator::receive_msg</a></div><div class="ttdeci">virtual MessageBuf receive_msg()</div><div class="ttdoc">Wait to receive a message. Blocks until message was received.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:44</div></div>
 <div class="ttc" id="aclassPosixQCommunicator_html_a90cb881ed88749b2b3918494d8acb1c7"><div class="ttname"><a href="classPosixQCommunicator.html#a90cb881ed88749b2b3918494d8acb1c7">PosixQCommunicator::close</a></div><div class="ttdeci">virtual void close()</div><div class="ttdoc">Close the communicator.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:61</div></div>
-<div class="ttc" id="aclassPosixQCommunicator_html_aaa06ada60c766fcc059eb56fc6020492"><div class="ttname"><a href="classPosixQCommunicator.html#aaa06ada60c766fcc059eb56fc6020492">PosixQCommunicator::~PosixQCommunicator</a></div><div class="ttdeci">virtual ~PosixQCommunicator()</div><div class="ttdoc">Destroy the Posix Q Communicator object.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:20</div></div>
-<div class="ttc" id="aclassPosixQCommunicator_html_af13e17c85b69450386101c4c4755931f"><div class="ttname"><a href="classPosixQCommunicator.html#af13e17c85b69450386101c4c4755931f">PosixQCommunicator::open</a></div><div class="ttdeci">virtual void open()</div><div class="ttdoc">Opens the communicator.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:26</div></div>
-<div class="ttc" id="aclassPosixQCommunicator_html_af50bcbd43db906bef35d1590d9abc27b"><div class="ttname"><a href="classPosixQCommunicator.html#af50bcbd43db906bef35d1590d9abc27b">PosixQCommunicator::PosixQCommunicator</a></div><div class="ttdeci">PosixQCommunicator(const char *name, size_t max_msgs=10)</div><div class="ttdoc">Construct a new Posix Q Communicator object.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:8</div></div>
+<div class="ttc" id="aclassPosixQCommunicator_html_aaa06ada60c766fcc059eb56fc6020492"><div class="ttname"><a href="classPosixQCommunicator.html#aaa06ada60c766fcc059eb56fc6020492">PosixQCommunicator::~PosixQCommunicator</a></div><div class="ttdeci">virtual ~PosixQCommunicator()</div><div class="ttdoc">Destroy the Posix Q Communicator object.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:18</div></div>
+<div class="ttc" id="aclassPosixQCommunicator_html_ae89eb90433c12f150081925833d4ac9b"><div class="ttname"><a href="classPosixQCommunicator.html#ae89eb90433c12f150081925833d4ac9b">PosixQCommunicator::PosixQCommunicator</a></div><div class="ttdeci">PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size)</div><div class="ttdoc">Construct a new Posix Q Communicator object Make sure to preface your name with /</div></div>
+<div class="ttc" id="aclassPosixQCommunicator_html_af13e17c85b69450386101c4c4755931f"><div class="ttname"><a href="classPosixQCommunicator.html#af13e17c85b69450386101c4c4755931f">PosixQCommunicator::open</a></div><div class="ttdeci">virtual void open()</div><div class="ttdoc">Opens the communicator.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.cpp:23</div></div>
 <div class="ttc" id="acommunicator_8hpp_html"><div class="ttname"><a href="communicator_8hpp.html">communicator.hpp</a></div><div class="ttdoc">Abstract communication class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
