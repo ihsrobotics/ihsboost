@@ -1,39 +1,11 @@
+#include "test.hpp"
 #include <iostream>
 #include <ihsboost/communicate.hpp>
 #include <thread>
 #include <chrono>
-#include <exception>
 #include <vector>
-#include <sstream>
 using namespace std;
 using namespace chrono;
-
-class AssertionError : public logic_error
-{
-public:
-    AssertionError(const char *what) : logic_error(what){};
-};
-
-template <typename T, typename V>
-static void assert_equals(T desired, V given, string where = "main")
-{
-    if (desired != given)
-    {
-        ostringstream temp;
-        temp << "Error in " << where << ": " << desired << " is not equal to " << given;
-        throw AssertionError(temp.str().c_str());
-    }
-}
-template <typename T, typename V>
-static void assert_notequals(T not_desired, V given, string where = "main")
-{
-    if (not_desired == given)
-    {
-        ostringstream temp;
-        temp << "Error in " << where << ": " << not_desired << " is equal to " << given << " (it shouldn't be)";
-        throw AssertionError(temp.str().c_str());
-    }
-}
 
 void send_ints(Communicator *c)
 {
@@ -89,6 +61,7 @@ void send_strings(Communicator *c, vector<string> msgs)
     // send strings
     for (string msg : msgs)
     {
+        // if sending to c++ programs, helps to have the +1
         c->send_msg(c->create_msg<char>(msg.c_str(), static_cast<uint16_t>(msg.size()) + 1));
         this_thread::sleep_for(milliseconds(50));
     }
@@ -121,21 +94,21 @@ int main(int argc, const char *argv[])
     Communicator *com_b = nullptr;
     if (string(argv[1]) == string("PosixQCommunicator"))
     {
-        com_a = new PosixQCommunicator("/test_queue");
-        com_b = new PosixQCommunicator("/test_queue");
+        com_a = new PosixQCommunicator("/communicating_test_queue");
+        com_b = new PosixQCommunicator("/communicating_test_queue");
     }
     else if (string(argv[1]) == string("SocketCommunicator"))
     {
         thread make_socket([&com_a]() -> void
-                           { com_a = new SocketServer(3060); });
+                           { com_a = new SocketServer(1111); });
         this_thread::sleep_for(milliseconds(1000)); // wait for thread to initialize
-        com_b = new SocketClient("127.0.0.1", 3060);
+        com_b = new SocketClient("127.0.0.1", 1111);
         make_socket.join();
     }
     else if (string(argv[1]) == string("SysVCommunicator"))
     {
-        com_a = new SysVCommunicator(33);
-        com_b = new SysVCommunicator(33);
+        com_a = new SysVCommunicator(11);
+        com_b = new SysVCommunicator(11);
     }
     else
     {
