@@ -2,9 +2,9 @@ name: CMake
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: set-build-status
-        # You may pin to the exact commit or the version.
-        # uses: myrotvorets/set-commit-status-action@7d7fe9a321fbe56a1339449c19422e95a025c65a
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -26,8 +24,6 @@ jobs:
           description: awaiting building
           context: build-status
       - name: set-test-status
-        # You may pin to the exact commit or the version.
-        # uses: myrotvorets/set-commit-status-action@7d7fe9a321fbe56a1339449c19422e95a025c65a
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -36,90 +32,105 @@ jobs:
           # A short description of the status.
           description: awaiting testing
           context: test-status
-    
-  build:
-    needs: setup-status  # wait for pending status before starting
+
+  build-and-test:
+    needs: setup-status # wait for pending status before starting
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Python
-      uses: actions/setup-python@v4.5.0
-      with:
-        # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
-        python-version: '3.10'
-        # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
-        token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
-        # Set this option if you want the action to update environment variables.
-        update-environment: true
-        
-    - name: Install dependencies
-      run: sudo apt-get install libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
-    
-    - name: Install libwallaby
-      run: git clone https://github.com/chrehall68/libwallaby.git &&
+      - uses: actions/checkout@v3
+
+      # ========== Dependencies ==========
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+        with:
+          # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
+          python-version: "3.10"
+          # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+          token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
+          # Set this option if you want the action to update environment variables.
+          update-environment: true
+
+      - name: Install dependencies
+        run: sudo apt-get install libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
+
+      - name: Install libwallaby
+        run: git clone https://github.com/chrehall68/libwallaby.git &&
           cd ./libwallaby &&
           git checkout refactor &&
-          mkdir build && cd build && 
+          mkdir build && cd build &&
           cmake .. -Dwith_tello=OFF -Dwith_graphics=OFF -Dwith_python_binding=OFF -Dwith_documentation=OFF -Dwith_tests=OFF -DDUMMY=ON -G "Ninja" &&
           cmake --build . --parallel &&
           sudo cmake --install . &&
           cd ../..
-          
-    - name: Configure CMake
-      # Configure ihsboost CMake in 'build' subdirectory.
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON -G "Ninja"
 
-    - name: Build
-      # Build your program with the given configuration
-      id: build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      # ========== Build ==========
+      - name: Configure CMake
+        # Configure ihsboost CMake in 'build' subdirectory.
+        run:
+          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON \
+          -G "Ninja"
 
-    - name: update-build-status
-      uses: myrotvorets/set-commit-status-action@1.1.6
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Commit status (one of "error", "failure", "pending", "success")
-        status: success
-        # A short description of the status.
-        description: build successful
-        context: build-status
-    
-    - name: test
-      id: test
-      run: ctest -j4 -C {{env.BUILD_TYPE}} -T test --output-on-failure
-    
-    - name: update-test-status
-      uses: myrotvorets/set-commit-status-action@1.1.6
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Commit status (one of "error", "failure", "pending", "success")
-        status: success
-        # A short description of the status.
-        description: all tests passed
-        context: test-status
-      
-    - name: set-build-failure
-      if: ${{ always() && (steps.build.outcome == 'failure' || steps.build.outcome == 'canceled') }}
-      uses: myrotvorets/set-commit-status-action@1.1.6
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Commit status (one of "error", "failure", "pending", "success")
-        status: failure
-        # A short description of the status.
-        description: failed to build
-        context: build-status
-      
-    - name: set-test-failure
-      if: ${{ always() && (steps.test.outcome == 'failure' || steps.test.outcome == 'canceled') }}
-      uses: myrotvorets/set-commit-status-action@1.1.6
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Commit status (one of "error", "failure", "pending", "success")
-        status: failure
-        # A short description of the status.
-        description: tests failed
-        context: test-status
+      - name: Build
+        # Build your program with the given configuration
+        id: build
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: update-build-status
+        uses: myrotvorets/set-commit-status-action@1.1.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Commit status (one of "error", "failure", "pending", "success")
+          status: success
+          # A short description of the status.
+          description: build successful
+          context: build-status
+
+      # ========== Test ==========
+      - name: test
+        id: test
+        run: ctest -j4 -C {{env.BUILD_TYPE}} -T test --output-on-failure
+
+      - name: update-test-status
+        uses: myrotvorets/set-commit-status-action@1.1.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Commit status (one of "error", "failure", "pending", "success")
+          status: success
+          # A short description of the status.
+          description: all tests passed
+          context: test-status
+
+      # ========== Exit ==========
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Artifacts
+          path: ${{github.workspace}}/build
+
+      # ========== Failure Section ==========
+      # if build fails, set it to failed
+      - name: set-build-failure
+        if: ${{ always() && (steps.build.outcome == 'failure' || steps.build.outcome == 'canceled') }}
+        uses: myrotvorets/set-commit-status-action@1.1.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Commit status (one of "error", "failure", "pending", "success")
+          status: failure
+          # A short description of the status.
+          description: failed to build
+          context: build-status
+      # if testing failed, set that to failed
+      - name: set-test-failure
+        if: ${{ always() && (steps.test.outcome == 'failure' || steps.test.outcome == 'canceled') }}
+        uses: myrotvorets/set-commit-status-action@1.1.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Commit status (one of "error", "failure", "pending", "success")
+          status: failure
+          # A short description of the status.
+          description: tests failed
+          context: test-status
