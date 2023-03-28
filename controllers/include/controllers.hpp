@@ -136,7 +136,6 @@ public:
 private:
     int delta_speed;          ///< the change in speed
     double necessary_updates; ///< how many updates are necessary
-    double sin_val;           ///< the current sin value
 };
 
 /**

@@ -1,14 +1,24 @@
 cmake_minimum_required(VERSION 3.0)
 project(ihs_boost VERSION 1.3.1)
 
+# global includes
+include(CTest)
+
+# options
+option(roomba "Whether to build for the roomba or not" ON)
+option(build_library "build_library" ON)
+option(build_tests "build_tests" OFF)
+option(build_python "build_python" ON)
+option(with_documentation "with_documentation" OFF)
+
+# setup
 set(LIBRARY_DIRS communicate controllers create_extra
                 movement servos threading util
 )
 
 # configure config.hpp
-option(roomba "Whether to build for the roomba or not" ON)
 if (${roomba})
-    set(robot_config_name "roomba_config.json")
+set(robot_config_name "roomba_config.json")
     set(robot_config_hpp "roomba_config.hpp")
 else()
     set(robot_config_name "small_bot_config.json")
@@ -17,7 +27,6 @@ endif()
 configure_file(${CMAKE_SOURCE_DIR}/util/include/config.hpp.in ${CMAKE_SOURCE_DIR}/util/include/config.hpp)
 
 # main .so file
-option(build_library "build_library" ON)
 if (${build_library})
     add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
@@ -51,13 +60,11 @@ if (${build_library})
 endif()
 
 # python bindings
-option(build_python "build_python" ON)
 if (${build_python})
     add_subdirectory(bindings)
 endif()
 
 # doxygen/documentation
-option(with_documentation "with_documentation" OFF)
 if (${with_documentation})
     find_package(Doxygen REQUIRED)
 

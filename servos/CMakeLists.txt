@@ -1,4 +1,4 @@
-message("current source dir is " ${CMAKE_CURRENT_SOURCE_DIR})
+message("building " ${CMAKE_CURRENT_SOURCE_DIR})
 
 # sources
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/servos.cpp)

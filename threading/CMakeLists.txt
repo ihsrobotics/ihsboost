@@ -1,4 +1,4 @@
-message("current source dir is " ${CMAKE_CURRENT_SOURCE_DIR})
+message("building " ${CMAKE_CURRENT_SOURCE_DIR})
 
 # set sources
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/threadable.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/background_task.cpp
