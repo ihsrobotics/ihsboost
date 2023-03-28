@@ -17,3 +17,22 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/communicator.hpp ${CMAKE_CURRE
     ${CMAKE_CURRENT_SOURCE_DIR}/include/socketcommunicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/communication_exception.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/shmcommunicator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/communicate.hpp
     DESTINATION ${local_install_path})
+
+# testing
+if (${build_tests})
+    # build test executable
+    add_executable(com_test ${CMAKE_CURRENT_SOURCE_DIR}/test/communicate_test.cpp)
+    add_dependencies(com_test ihsboost)
+    target_link_libraries(com_test ihsboost)
+
+    # add tests
+    # add posix tests
+    add_test(NAME posix_test COMMAND com_test "PosixQCommunicator")
+    set_tests_properties(posix_test PROPERTIES TIMEOUT 10)
+    # add socket test
+    add_test(NAME socket_test COMMAND com_test "SocketCommunicator")
+    set_tests_properties(socket_test PROPERTIES TIMEOUT 10)
+    # add sysv test
+    add_test(NAME sysv_test COMMAND com_test "SysVCommunicator")
+    set_tests_properties(sysv_test PROPERTIES TIMEOUT 10)
+endif()
