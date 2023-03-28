@@ -92,7 +92,7 @@ public:
      * @param ipv4_addr The ip address to connect to
      * @param port the port to connect to
      */
-    SocketClient(const char *ipv4_addr, uint16_t port);
+    SocketClient(std::string ipv4_addr, uint16_t port);
 
     /**
      * @brief Construct a new Socket Client object
@@ -101,7 +101,7 @@ public:
      * @param port the port to connect to
      * @param max_msg_size The maximum size of your messages
      */
-    SocketClient(const char *ipv4_addr, uint16_t port, uint32_t max_msg_size);
+    SocketClient(std::string ipv4_addr, uint16_t port, uint32_t max_msg_size);
 
     /**
      * @brief Close the Socket Client connection
@@ -143,7 +143,7 @@ private:
     int server_fd;         ///< the field descriptor of the server
     int client_fd;         ///< the field descriptor of this SocketClient
     uint16_t port;         ///< the port to connect to
-    const char *ipv4_addr; ///< the ip address to connect to
+    std::string ipv4_addr; ///< the ip address to connect to
 };
 
 #endif

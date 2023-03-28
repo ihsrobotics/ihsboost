@@ -84,11 +84,11 @@ MessageBuf SocketServer::receive_msg()
     return m;
 }
 
-SocketClient::SocketClient(const char *ipv4_addr, uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
+SocketClient::SocketClient(string ipv4_addr, uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
-SocketClient::SocketClient(const char *ipv4_addr, uint16_t port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
+SocketClient::SocketClient(string ipv4_addr, uint16_t port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
@@ -109,7 +109,7 @@ void SocketClient::open()
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(port);
 
-    int ret = inet_pton(AF_INET, ipv4_addr, &serv_addr.sin_addr);
+    int ret = inet_pton(AF_INET, ipv4_addr.c_str(), &serv_addr.sin_addr);
     check_error(ret, "making address");
 
     // connect

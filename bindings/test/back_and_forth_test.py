@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print("received", val)
     send_int(com, val * multiplier)
     print("sent", val * multiplier)
-    sleep(0.02)
+    sleep(0.02)  # wait a little that way we don't try to receive our own message
 
     # modify a string and send it back
     val = receive_string(com)
