@@ -95,12 +95,12 @@ Collaboration diagram for SocketClient:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4a36c0c32e62f703e15a8bbcafff062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#af4a36c0c32e62f703e15a8bbcafff062">SocketClient</a> (const char *ipv4_addr, uint16_t port)</td></tr>
-<tr class="memdesc:af4a36c0c32e62f703e15a8bbcafff062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#af4a36c0c32e62f703e15a8bbcafff062">More...</a><br /></td></tr>
-<tr class="separator:af4a36c0c32e62f703e15a8bbcafff062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac569270b08dcc31c046f4452e78e7f16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#ac569270b08dcc31c046f4452e78e7f16">SocketClient</a> (const char *ipv4_addr, uint16_t port, uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
-<tr class="memdesc:ac569270b08dcc31c046f4452e78e7f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#ac569270b08dcc31c046f4452e78e7f16">More...</a><br /></td></tr>
-<tr class="separator:ac569270b08dcc31c046f4452e78e7f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12dfab1c6066dc1b04ae9d2bf879d12b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#a12dfab1c6066dc1b04ae9d2bf879d12b">SocketClient</a> (std::string ipv4_addr, uint16_t port)</td></tr>
+<tr class="memdesc:a12dfab1c6066dc1b04ae9d2bf879d12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#a12dfab1c6066dc1b04ae9d2bf879d12b">More...</a><br /></td></tr>
+<tr class="separator:a12dfab1c6066dc1b04ae9d2bf879d12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac579a805751140fe539521d20e8740"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#acac579a805751140fe539521d20e8740">SocketClient</a> (std::string ipv4_addr, uint16_t port, uint32_t <a class="el" href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">max_msg_size</a>)</td></tr>
+<tr class="memdesc:acac579a805751140fe539521d20e8740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Socket Client object.  <a href="classSocketClient.html#acac579a805751140fe539521d20e8740">More...</a><br /></td></tr>
+<tr class="separator:acac579a805751140fe539521d20e8740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4ecba63b08737b5be4fef324cef1df6"><td class="memItemLeft" align="right" valign="top"><a id="af4ecba63b08737b5be4fef324cef1df6"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.html#af4ecba63b08737b5be4fef324cef1df6">~SocketClient</a> ()</td></tr>
 <tr class="memdesc:af4ecba63b08737b5be4fef324cef1df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the Socket Client connection. <br /></td></tr>
@@ -157,8 +157,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_test_8cpp-example.html#_a5">message_test.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af4a36c0c32e62f703e15a8bbcafff062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4a36c0c32e62f703e15a8bbcafff062">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[1/2]</span></h2>
+<a id="a12dfab1c6066dc1b04ae9d2bf879d12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12dfab1c6066dc1b04ae9d2bf879d12b">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,7 +166,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="memname">SocketClient::SocketClient </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>ipv4_addr</em>, </td>
         </tr>
         <tr>
@@ -194,8 +194,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="ac569270b08dcc31c046f4452e78e7f16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac569270b08dcc31c046f4452e78e7f16">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[2/2]</span></h2>
+<a id="acac579a805751140fe539521d20e8740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac579a805751140fe539521d20e8740">&#9670;&nbsp;</a></span>SocketClient() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +203,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="memname">SocketClient::SocketClient </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>ipv4_addr</em>, </td>
         </tr>
         <tr>
