@@ -22,7 +22,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/communicator.hpp ${CMAKE_CURRE
 if (${build_tests})
     # build test executable
     add_executable(com_test ${CMAKE_CURRENT_SOURCE_DIR}/test/communicate_test.cpp)
-    target_include_directories(com_test PUBLIC ${CMAKE_SOURCE_DIR}/test/)
+    target_include_directories(com_test PUBLIC ${CMAKE_SOURCE_DIR}/test/ ${CMAKE_CURRENT_SOURCE_DIR}/include)
     add_dependencies(com_test ihsboost)
     target_link_libraries(com_test ihsboost)
 

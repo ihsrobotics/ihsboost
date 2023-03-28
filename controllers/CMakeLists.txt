@@ -22,7 +22,7 @@ if (${build_tests})
     add_executable(accelerator_test ${CMAKE_CURRENT_SOURCE_DIR}/test/accelerator_test.cpp)
     add_dependencies(accelerator_test ihsboost)
     target_link_libraries(accelerator_test ihsboost)
-    target_include_directories(accelerator_test PUBLIC ${CMAKE_SOURCE_DIR}/test)
+    target_include_directories(accelerator_test PUBLIC ${CMAKE_SOURCE_DIR}/test ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
     add_test(NAME accel_test COMMAND accelerator_test)
     set_tests_properties(accel_test PROPERTIES TIMEOUT 5)

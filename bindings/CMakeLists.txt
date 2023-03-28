@@ -48,7 +48,7 @@ if(${build_tests})
     add_executable(back_and_forth ${CMAKE_CURRENT_SOURCE_DIR}/test/back_and_forth_test.cpp)
     add_dependencies(back_and_forth ihsboost)
     target_link_libraries(back_and_forth ihsboost)
-    target_include_directories(back_and_forth PUBLIC ${CMAKE_SOURCE_DIR}/test)
+    target_include_directories(back_and_forth PUBLIC ${CMAKE_SOURCE_DIR}/test ${CMAKE_SOURCE_DIR}/communicate/include)
     
     add_test(NAME posix_binding_test COMMAND back_and_forth "PosixQCommunicator" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/test)
     set_tests_properties(posix_binding_test PROPERTIES TIMEOUT 5)

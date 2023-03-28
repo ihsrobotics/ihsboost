@@ -2,7 +2,7 @@
 #include "test.hpp"
 #include <chrono>
 #include <thread>
-#include <ihsboost/communicate.hpp>
+#include "communicate.hpp"
 using namespace std;
 using namespace chrono;
 

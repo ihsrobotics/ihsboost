@@ -1,6 +1,6 @@
 #include "test.hpp"
 #include <iostream>
-#include <ihsboost/communicate.hpp>
+#include "communicate.hpp"
 #include <thread>
 #include <chrono>
 #include <vector>
