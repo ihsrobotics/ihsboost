@@ -96,7 +96,7 @@ jobs:
     
     - name: test
       id: test
-      run: /usr/bin/ctest -j4 -C {{env.BUILD_TYPE}} -T test --output-on-failure
+      run: ctest -j4 -C {{env.BUILD_TYPE}} -T test --output-on-failure
     
     - name: update-test-status
       uses: myrotvorets/set-commit-status-action@1.1.6
