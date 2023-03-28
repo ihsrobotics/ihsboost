@@ -26,7 +26,11 @@ bool LinearController::done()
 
 SinusoidalController::SinusoidalController(int from_speed, int to_speed, double avg_accel_per_sec, int updates_per_sec) : AccelerateController(from_speed, to_speed, avg_accel_per_sec, updates_per_sec)
 {
+    // store our delta speed
     delta_speed = to_speed - from_speed;
+
+    // calculate necessary updates
+    // delta * updates/sec / delta/sec = delta * updates / delta = updates
     necessary_updates = abs(delta_speed * updates_per_sec / avg_accel_per_sec);
 };
 void SinusoidalController::step()
@@ -35,9 +39,8 @@ void SinusoidalController::step()
     {
         return;
     }
-    sin_val = sin(_num_steps / necessary_updates * M_PI / 2);
-    _cur_speed = _from_speed + delta_speed * sin_val;
-    ++_num_steps;
+    ++_num_steps; // increment num steps first since we use it to calculate our sin val
+    _cur_speed = _from_speed + delta_speed * sin(_num_steps / necessary_updates * M_PI / 2);
 }
 bool SinusoidalController::done()
 {
