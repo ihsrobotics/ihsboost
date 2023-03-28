@@ -66,7 +66,8 @@ $(function() {
 <div class="title">back_and_forth.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
@@ -79,12 +80,24 @@ $(function() {
 <div class="line">    <span class="comment">// we can use the same queue for back and forth communication</span></div>
 <div class="line">    <a name="_a0"></a><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a> communicator(<span class="stringliteral">&quot;/my_queue&quot;</span>);</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// launch python program</span></div>
+<div class="line">    system(<span class="stringliteral">&quot;python3 ./back_and_forth.py &amp;&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// wait for python to let us know it is ready</span></div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;waiting for python to be ready&quot;</span> &lt;&lt; endl;</div>
+<div class="line">    <span class="keywordtype">int</span> status = communicator.<a name="a1"></a><a class="code" href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">receive_msg</a>().<a name="a2"></a><a class="code" href="classMessageBuf.html#a1627cbed2d7b002fecec4d339b4f482c">get_val</a>&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line">    <span class="keywordflow">if</span> (status != 1)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> status;</div>
+<div class="line">    }</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;received a 1 from python letting us know it&#39;s ready!!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;seinding 33 to python!!&quot;</span> &lt;&lt; endl;</div>
-<div class="line">    communicator.<a name="a1"></a><a class="code" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a>(communicator.<a name="a2"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">int</span>&gt;(33));</div>
+<div class="line">    communicator.<a name="a3"></a><a class="code" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a>(communicator.<a name="a4"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">int</span>&gt;(33));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// sleep before receiving that way we don&#39;t receive our own message</span></div>
 <div class="line">    this_thread::sleep_for(milliseconds(500));</div>
-<div class="line">    <span class="keywordtype">int</span> ret = communicator.<a name="a3"></a><a class="code" href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">receive_msg</a>().<a name="a4"></a><a class="code" href="classMessageBuf.html#a1627cbed2d7b002fecec4d339b4f482c">get_val</a>&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line">    <span class="keywordtype">int</span> ret = communicator.<a class="code" href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">receive_msg</a>().<a class="code" href="classMessageBuf.html#a1627cbed2d7b002fecec4d339b4f482c">get_val</a>&lt;<span class="keywordtype">int</span>&gt;();</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;received &quot;</span> &lt;&lt; ret &lt;&lt; <span class="stringliteral">&quot; from python!!&quot;</span> &lt;&lt; endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
