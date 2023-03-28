@@ -109,7 +109,7 @@ jobs:
         context: test-status
       
     - name: set-build-failure
-      if: always() && (steps.build.outcome == "failure" || steps.build.outcome == "canceled")
+      if: ${{ always() && (steps.build.outcome == 'failure' || steps.build.outcome == 'canceled') }}
       uses: myrotvorets/set-commit-status-action@1.1.6
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -120,7 +120,7 @@ jobs:
         context: build-status
       
     - name: set-test-failure
-      if: always() && (steps.test.outcome == "failure" || steps.test.outcome == "canceled")
+      if: ${{ always() && (steps.test.outcome == 'failure' || steps.test.outcome == 'canceled') }}
       uses: myrotvorets/set-commit-status-action@1.1.6
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
