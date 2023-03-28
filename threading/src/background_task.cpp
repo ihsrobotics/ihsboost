@@ -9,7 +9,7 @@ void BackgroundTask::start()
     if (t == nullptr)
     {
         running = true;
-        t = new Threadable(&BackgroundTask::function, this);
+        t = new Threadable(&BackgroundTask::run_function, this);
         t->start();
     }
 }
