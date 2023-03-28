@@ -65,10 +65,10 @@ void export_movement()
         .def("get_relative_right_distance", &EncoderSubscriber::get_relative_right_distance)
         .def("get_relative_distance", &EncoderSubscriber::get_relative_distance)
         .def("get_relative_angle", &EncoderSubscriber::get_relative_angle);
-    def("accelerate_forward_linear", accelerate_forward_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec"), arg("updates_per_sec")));
-    def("accelerate_forward_sin", accelerate_forward_sin, (arg("from_speed"), arg("to_speed"), arg("avg_accel_per_sec"), arg("updates_per_sec")));
-    def("accelerate_linear", accelerate_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec"), arg("updates_per_sec")));
-    def("accelerate_sinusoidal", accelerate_sinusoidal, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec"), arg("updates_per_sec")));
+    def("accelerate_forward_linear", accelerate_forward_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec") = get_config().getDouble("linear_accel"), arg("updates_per_sec") = get_config().getInt("accelerate_updates_per_sec")));
+    def("accelerate_forward_sin", accelerate_forward_sin, (arg("from_speed"), arg("to_speed"), arg("avg_accel_per_sec") = get_config().getDouble("sinusoidal_accel"), arg("updates_per_sec") = get_config().getInt("accelerate_updates_per_sec")));
+    def("accelerate_linear", accelerate_linear, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec") = get_config().getDouble("linear_accel"), arg("updates_per_sec") = get_config().getInt("accelerate_updates_per_sec")));
+    def("accelerate_sinusoidal", accelerate_sinusoidal, (arg("from_speed"), arg("to_speed"), arg("accel_per_sec") = get_config().getDouble("sinusoidal_accel"), arg("updates_per_sec") = get_config().getInt("accelerate_updates_per_sec")));
     def("gyro_drive_straight", gyro_drive_straight_fn, (arg("from_speed"), arg("to_speed"), arg("stop_function"), arg("correction_proportion") = get_config().getDouble("gyro_correction_proportion"), arg("accel_per_sec") = get_config().getDouble("gyro_linear_accel"), arg("updates_per_sec") = get_config().getInt("gyro_updates_per_sec")), "drive straight for `seconds` seconds using the gyroscope");
     def("gyro_turn_degrees", gyro_turn_degrees, (arg("from_speed"), arg("to_speed"), arg("degrees"), arg("accel_per_sec") = get_config().getDouble("gyro_linear_accel"), arg("updates_per_sec") = get_config().getInt("gyro_updates_per_sec")), "turn a certain number of degrees");
     def("gyro_turn_degrees_v2", gyro_turn_degrees_v2, (arg("max_speed"), arg("degrees"), arg("min_speed") = get_config().getInt("gyro_turn_v2_min_speed"), arg("accel_per_sec") = get_config().getDouble("gyro_linear_accel"), arg("updates_per_sec") = get_config().getInt("gyro_updates_per_sec")));
