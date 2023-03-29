@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(ihs_boost VERSION 1.3.1)
+project(ihs_boost VERSION 1.4.0)
 
 # global includes
 include(CTest)
