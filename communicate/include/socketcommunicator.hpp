@@ -14,6 +14,7 @@
 #define IHSBOOST_SOCKET_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
+#include <string>
 
 /**
  * @brief Server Class for communicating over sockets
