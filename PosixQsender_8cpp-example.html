@@ -87,10 +87,10 @@ $(function() {
 <div class="line">    <span class="keywordtype">int</span> value_b;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// create a posix q. THe name of the posix q must be similar to this (start with / and be a legitimate file name)</span></div>
-<div class="line">    <a name="_a0"></a><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a> c(<span class="stringliteral">&quot;/my_posix_queue&quot;</span>);</div>
+<div class="line">    <a name="_a1"></a><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a> c(<span class="stringliteral">&quot;/my_posix_queue&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// the way to send a message is you have to first create a message and specify its type</span></div>
 <div class="line">    <span class="comment">// below, we see that we create a message of type int (because int is in the brackets)</span></div>
@@ -99,7 +99,7 @@ $(function() {
 <div class="line">    this_thread::sleep_for(milliseconds(500)); <span class="comment">// sleep half a second</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Or, we can spread out the message creation and sending the message onto multiple lines</span></div>
-<div class="line">    <a name="_a1"></a><a class="code" href="classMessageBuf.html">MessageBuf</a> m = c.create_msg&lt;<span class="keywordtype">double</span>&gt;(3.141592); <span class="comment">// create a message of type double (since double is in the brackets)</span></div>
+<div class="line">    <a name="_a2"></a><a class="code" href="classMessageBuf.html">MessageBuf</a> m = c.create_msg&lt;<span class="keywordtype">double</span>&gt;(3.141592); <span class="comment">// create a message of type double (since double is in the brackets)</span></div>
 <div class="line">    c.send_msg(m);                                 <span class="comment">// send the message</span></div>
 <div class="line">    this_thread::sleep_for(milliseconds(500));</div>
 <div class="line"> </div>
@@ -125,6 +125,7 @@ $(function() {
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
 <div class="ttc" id="aclassMessageBuf_html"><div class="ttname"><a href="classMessageBuf.html">MessageBuf</a></div><div class="ttdoc">Class for storing data over communicators.</div><div class="ttdef"><b>Definition:</b> message_buf.hpp:26</div></div>
 <div class="ttc" id="aclassPosixQCommunicator_html"><div class="ttname"><a href="classPosixQCommunicator.html">PosixQCommunicator</a></div><div class="ttdoc">Class for communicating over posix-based mqueue's.</div><div class="ttdef"><b>Definition:</b> posixqcommunicator.hpp:25</div></div>
+<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

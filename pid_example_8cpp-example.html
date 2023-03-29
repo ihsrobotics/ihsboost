@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ihs_boost: pid_test.cpp</title>
+<title>ihs_boost: pid_example.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">pid_test.cpp</div>  </div>
+<div class="title">pid_example.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
@@ -73,21 +73,22 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"><span class="keyword">using</span> kipr::create::Create;</div>
-<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
 <div class="line">{</div>
 <div class="line">    Create *instance = Create::instance();</div>
 <div class="line">    instance-&gt;connect();</div>
 <div class="line">    instance-&gt;setRefreshRate(8);</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i)</div>
 <div class="line">    {</div>
-<div class="line">        <a name="a0"></a><a class="code" href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">encoder_drive_straight_pid</a>(200, 200, .4, 0.25, 0);</div>
-<div class="line">        <a name="a1"></a><a class="code" href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a>(300, (i % 2 == 0 ? 1 : -1) * 180);</div>
+<div class="line">        <a name="a1"></a><a class="code" href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">encoder_drive_straight_pid</a>(200, 200, .4, 0.25, 0);</div>
+<div class="line">        <a name="a2"></a><a class="code" href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a>(300, (i % 2 == 0 ? 1 : -1) * 180);</div>
 <div class="line">    }</div>
 <div class="line">    instance-&gt;stop();</div>
 <div class="line">    instance-&gt;disconnect();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
+<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga0da878ea2665cd58355b78b446ac5628"><div class="ttname"><a href="group__movement__id.html#ga0da878ea2665cd58355b78b446ac5628">encoder_drive_straight_pid</a></div><div class="ttdeci">void encoder_drive_straight_pid(int speed, double cm, double proportional_coefficient, double integral_coefficient, double derivative_coefficient, bool stop=get_config().getBool(&quot;roomba_stop&quot;), int min_speed=get_config().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=get_config().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_second=get_config().getInt(&quot;roomba_updates_per_sec&quot;))</div><div class="ttdoc">Drive the create straight using create encoders and PID control (Proportional/Integral/Derivative)</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:298</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga5477b70d1d2eea55385f70e2385f0dea"><div class="ttname"><a href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a></div><div class="ttdeci">void encoder_turn_degrees(int max_speed, double degrees, int min_speed=get_config().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=get_config().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=get_config().getInt(&quot;roomba_updates_per_sec&quot;))</div><div class="ttdoc">Turns a certain number of degrees using create encoders.</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:437</div></div>
 </div><!-- fragment --> </div><!-- contents -->

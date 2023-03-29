@@ -1,4 +1,7 @@
 <map id="communicate/include/communicate.hpp" name="communicate/include/communicate.hpp">
-<area shape="rect" id="node1" title="Header that includes all the communicate headers." alt="" coords="5,5,168,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="53,95,120,121"/>
+<area shape="rect" id="node1" title="Header that includes all the communicate headers." alt="" coords="339,5,502,47"/>
+<area shape="rect" id="node2" href="$communicate__test_8cpp.html" title="Test to make sure that normal communicators work." alt="" coords="5,95,239,136"/>
+<area shape="rect" id="node3" href="$shm__test_8cpp.html" title="Test to make sure shared memory is working and functions in sending large amounts of data between pro..." alt="" coords="263,95,435,136"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="459,102,526,129"/>
+<area shape="rect" id="node5" href="$back__and__forth__test_8cpp.html" title="Test to make sure that sending data back and forth between python and c++ work." alt="" coords="551,95,701,136"/>
 </map>

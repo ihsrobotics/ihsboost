@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ihs_boost: threading_test.cpp</title>
+<title>ihs_boost: threading_example.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">threading_test.cpp</div>  </div>
+<div class="title">threading_example.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -116,13 +116,13 @@ $(function() {
 <div class="line">    <span class="keywordtype">int</span> num;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
 <div class="line">{</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;starting&quot;</span> &lt;&lt; endl;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// In order to create a threadable, it&#39;s just like creating</span></div>
 <div class="line">    <span class="comment">// a std::thread; just pass the function and any arguments</span></div>
-<div class="line">    <a name="_a0"></a><a class="code" href="classThreadable.html">Threadable</a> my_thread(cool_function, 3, 11, 2300);</div>
+<div class="line">    <a name="_a1"></a><a class="code" href="classThreadable.html">Threadable</a> my_thread(cool_function, 3, 11, 2300);</div>
 <div class="line">    <a class="code" href="classThreadable.html">Threadable</a> my_other_thread(cool_other_function, 3, 11, 22, 500);</div>
 <div class="line">    <a class="code" href="classThreadable.html">Threadable</a> lazy(lazy_function); <span class="comment">// you can also do this with a 0 parameter function</span></div>
 <div class="line"> </div>
@@ -156,6 +156,7 @@ $(function() {
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassThreadable_html"><div class="ttname"><a href="classThreadable.html">Threadable</a></div><div class="ttdoc">A thread that runs the given function with the given arguments.</div><div class="ttdef"><b>Definition:</b> threadable.hpp:24</div></div>
+<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

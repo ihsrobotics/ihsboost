@@ -1,12 +1,13 @@
 <map id="util/include/json_config.hpp" name="util/include/json_config.hpp">
-<area shape="rect" id="node1" title="Class for loading json configs." alt="" coords="436,5,635,32"/>
-<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="393,80,558,107"/>
-<area shape="rect" id="node10" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="649,162,795,189"/>
-<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="57,162,301,189"/>
+<area shape="rect" id="node1" title="Class for loading json configs." alt="" coords="435,5,633,32"/>
+<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="391,80,557,107"/>
+<area shape="rect" id="node10" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="647,162,794,189"/>
+<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="56,162,300,189"/>
 <area shape="rect" id="node4" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,244,177,285"/>
 <area shape="rect" id="node7" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="253,244,426,285"/>
-<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="376,155,575,196"/>
-<area shape="rect" id="node9" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="501,251,692,278"/>
+<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="375,155,573,196"/>
+<area shape="rect" id="node9" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="489,333,680,360"/>
 <area shape="rect" id="node5" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="216,333,463,360"/>
-<area shape="rect" id="node6" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="563,408,630,435"/>
+<area shape="rect" id="node6" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="551,408,618,435"/>
+<area shape="rect" id="node11" href="$config__test_8cpp.html" title="Test to make sure configs work." alt="" coords="756,251,931,278"/>
 </map>
