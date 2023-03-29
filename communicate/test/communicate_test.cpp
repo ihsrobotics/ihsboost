@@ -1,3 +1,13 @@
+/**
+ * @file communicate_test.cpp
+ * @author Eliot Hall
+ * @brief Test to make sure that normal communicators work
+ * @version 0.1
+ * @date 2023-03-29
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include "test.hpp"
 #include <iostream>
 #include "communicate.hpp"
@@ -7,6 +17,11 @@
 using namespace std;
 using namespace chrono;
 
+/**
+ * @brief Send ints
+ *
+ * @param c
+ */
 void send_ints(Communicator *c)
 {
     // send ints
@@ -16,6 +31,11 @@ void send_ints(Communicator *c)
         this_thread::sleep_for(milliseconds(50));
     }
 }
+/**
+ * @brief Receive ints
+ *
+ * @param c
+ */
 void receive_ints(Communicator *c)
 {
     for (int i = 0; i < 15; ++i)
@@ -23,6 +43,12 @@ void receive_ints(Communicator *c)
         assert_equals(c->receive_msg().get_val<int>(), i, "receive_ints");
     }
 }
+/**
+ * @brief Test to make sure sending and receiving ints works
+ *
+ * @param sender
+ * @param receiver
+ */
 void test_ints(Communicator *sender, Communicator *receiver)
 {
     thread send_thread(send_ints, sender);
@@ -31,6 +57,12 @@ void test_ints(Communicator *sender, Communicator *receiver)
     send_thread.join();
 }
 
+/**
+ * @brief Send doubles
+ *
+ * @param c
+ * @param multiplier
+ */
 void send_doubles(Communicator *c, double multiplier)
 {
     // send doubles
@@ -40,6 +72,12 @@ void send_doubles(Communicator *c, double multiplier)
         this_thread::sleep_for(milliseconds(50));
     }
 }
+/**
+ * @brief Receive doubles
+ *
+ * @param c
+ * @param multiplier
+ */
 void receive_doubles(Communicator *c, double multiplier)
 {
     for (int i = 0; i < 15; ++i)
@@ -47,6 +85,12 @@ void receive_doubles(Communicator *c, double multiplier)
         assert_equals(c->receive_msg().get_val<double>(), i * multiplier, "receive doubles");
     }
 }
+/**
+ * @brief Test to make sure sending and receiving doubles works
+ *
+ * @param sender
+ * @param receiver
+ */
 void test_doubles(Communicator *sender, Communicator *receiver)
 {
     double multiplier = 5.72;
@@ -56,6 +100,12 @@ void test_doubles(Communicator *sender, Communicator *receiver)
     send_thread.join();
 }
 
+/**
+ * @brief Send strings
+ *
+ * @param c
+ * @param msgs
+ */
 void send_strings(Communicator *c, vector<string> msgs)
 {
     // send strings
@@ -66,6 +116,12 @@ void send_strings(Communicator *c, vector<string> msgs)
         this_thread::sleep_for(milliseconds(50));
     }
 }
+/**
+ * @brief Receive strings
+ *
+ * @param c
+ * @param msgs
+ */
 void receive_strings(Communicator *c, vector<string> msgs)
 {
     for (string msg : msgs)
@@ -73,6 +129,12 @@ void receive_strings(Communicator *c, vector<string> msgs)
         assert_equals(string(c->receive_msg().get_ptr_val<char>()), msg, "receive strings");
     }
 }
+/**
+ * @brief Test to make sure sending and receiving strings works
+ *
+ * @param sender
+ * @param receiver
+ */
 void test_strings(Communicator *sender, Communicator *receiver)
 {
     vector<string> msgs = {"testa", "test b", "hello world", "looooooooong test"};
@@ -81,6 +143,13 @@ void test_strings(Communicator *sender, Communicator *receiver)
     send_thread.join();
 }
 
+/**
+ * @brief Driver code
+ *
+ * @param argc
+ * @param argv
+ * @return int
+ */
 int main(int argc, const char *argv[])
 {
     // exit if not provided communicator
