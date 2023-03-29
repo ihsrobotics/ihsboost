@@ -43,18 +43,8 @@ jobs:
       - uses: actions/checkout@v3
 
       # ========== Dependencies ==========
-      - name: Setup Python
-        uses: actions/setup-python@v4.5.0
-        with:
-          # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
-          python-version: "3.10"
-          # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
-          token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
-          # Set this option if you want the action to update environment variables.
-          update-environment: true
-
       - name: Install dependencies
-        run: sudo apt-get install libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
+        run: sudo apt-get install python3-dev libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
 
       - name: Install libwallaby
         run: git clone https://github.com/chrehall68/libwallaby.git &&
