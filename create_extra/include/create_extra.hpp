@@ -22,6 +22,11 @@
 class CreateExtraController
 {
 public:
+    /**
+     * @brief Create a CreateExtraController for
+     * running the vacuum, main brush, and side brush
+     *
+     */
     CreateExtraController();
 
     /**

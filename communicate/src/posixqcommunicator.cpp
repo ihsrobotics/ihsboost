@@ -3,14 +3,12 @@
 #include <memory.h>
 #include <iostream>
 
-using namespace std;
-
-PosixQCommunicator::PosixQCommunicator(string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs)
 {
     open();
 }
 
-PosixQCommunicator::PosixQCommunicator(string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs)
 {
     open();
 }
@@ -29,7 +27,7 @@ void PosixQCommunicator::open()
     attr.mq_msgsize = MessageBuf::get_size(max_msg_size);
 
     msg_q_id = mq_open(_name.c_str(), O_RDWR | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO, &attr);
-    cout << "msg_q_id is " << msg_q_id << endl;
+    std::cout << "msg_q_id is " << msg_q_id << std::endl;
     check_error(msg_q_id, "opening");
 }
 
@@ -57,7 +55,7 @@ MessageBuf PosixQCommunicator::receive_msg()
 
 void PosixQCommunicator::close()
 {
-    cout << "closing and unlinking PosixQCommunicator" << endl;
+    std::cout << "closing and unlinking PosixQCommunicator" << std::endl;
     int ret = mq_close(msg_q_id);
     check_error(ret, "closing");
 
@@ -71,7 +69,7 @@ void PosixQCommunicator::close()
         // if the error = because there was no existing file / directory
         if (c.get_error_code() == ENOENT)
         {
-            cout << "The PosixQCommunicator's mqueue has already been unlinked by a separate program." << endl;
+            std::cout << "The PosixQCommunicator's mqueue has already been unlinked by a separate program." << std::endl;
         }
         else
         {

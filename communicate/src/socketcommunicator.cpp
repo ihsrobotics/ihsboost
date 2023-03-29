@@ -5,8 +5,6 @@
 #include <unistd.h>
 #include <iostream>
 
-using namespace std;
-
 SocketServer::SocketServer(uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port)
 {
     open();
@@ -46,7 +44,7 @@ void SocketServer::open()
     ret = listen(server_fd, 1); // listen for up to 1 connection
 
     // wait for connection (blocks)
-    cout << "waiting for connection ..." << endl;
+    std::cout << "waiting for connection ..." << std::endl;
 
     socket_fd = accept(server_fd, reinterpret_cast<struct sockaddr *>(&addr), reinterpret_cast<socklen_t *>(&addrlen));
     check_error(socket_fd, "accepting connection");
@@ -54,7 +52,7 @@ void SocketServer::open()
 
 void SocketServer::close()
 {
-    cout << "closing SocketServer" << endl;
+    std::cout << "closing SocketServer" << std::endl;
     // close connected socket
     ::close(socket_fd);
 
@@ -84,11 +82,11 @@ MessageBuf SocketServer::receive_msg()
     return m;
 }
 
-SocketClient::SocketClient(string ipv4_addr, uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
+SocketClient::SocketClient(std::string ipv4_addr, uint16_t port, uint32_t max_msg_size) : Communicator(max_msg_size), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
-SocketClient::SocketClient(string ipv4_addr, uint16_t port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
+SocketClient::SocketClient(std::string ipv4_addr, uint16_t port) : Communicator(), port(port), ipv4_addr(ipv4_addr)
 {
     open();
 }
@@ -119,7 +117,7 @@ void SocketClient::open()
 
 void SocketClient::close()
 {
-    cout << "closing SocketClient" << endl;
+    std::cout << "closing SocketClient" << std::endl;
     ::close(client_fd);
 }
 
