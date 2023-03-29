@@ -64,8 +64,7 @@ jobs:
           cmake .. -Dwith_tello=OFF -Dwith_graphics=OFF -Dwith_python_binding=OFF -Dwith_documentation=OFF -Dwith_tests=OFF -DDUMMY=ON -G "Ninja" &&
           cmake --build . --parallel &&
           sudo cmake --install . &&
-          cd ../.. &&
-          sudo ldconfig
+          cd ../..
 
       # ========== Build ==========
       - name: Configure CMake
@@ -81,7 +80,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: install
-        run: sudo cmake --install ${{github.workspace}}/build
+        run: sudo cmake --install ${{github.workspace}}/build && sudo ldconfig
 
       - name: update-build-status
         uses: myrotvorets/set-commit-status-action@1.1.6
