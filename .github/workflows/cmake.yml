@@ -80,6 +80,9 @@ jobs:
         id: build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+      - name: install
+        run: sudo cmake --install ${{github.workspace}}/build
+
       - name: update-build-status
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
