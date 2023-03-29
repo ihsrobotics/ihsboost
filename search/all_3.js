@@ -19,5 +19,5 @@ var searchData=
   ['create_20extra_20functionality_43',['Create Extra Functionality',['../group__create__extra__id.html',1,'']]],
   ['create_5fextra_2ehpp_44',['create_extra.hpp',['../create__extra_8hpp.html',1,'']]],
   ['create_5fmsg_45',['create_msg',['../classCommunicator.html#a02b9846eb7fce33f415822b42139f045',1,'Communicator::create_msg(const T *val, uint16_t len)'],['../classCommunicator.html#a370600e4563f24770eab10e4aa6041b8',1,'Communicator::create_msg(T val)']]],
-  ['createextracontroller_46',['CreateExtraController',['../classCreateExtraController.html',1,'CreateExtraController'],['../classihs__bindings_1_1CreateExtraController.html',1,'ihs_bindings.CreateExtraController']]]
+  ['createextracontroller_46',['CreateExtraController',['../classCreateExtraController.html#a481389f0b730f7bd873471d7b18f5fcf',1,'CreateExtraController::CreateExtraController()'],['../classCreateExtraController.html',1,'CreateExtraController'],['../classihs__bindings_1_1CreateExtraController.html',1,'ihs_bindings.CreateExtraController']]]
 ];

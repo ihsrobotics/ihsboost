@@ -6,5 +6,6 @@ var searchData=
   ['communicator_306',['Communicator',['../classCommunicator.html#abd4c26c6a901e571bc9cfc4259e65de3',1,'Communicator::Communicator()'],['../classCommunicator.html#a803f169bf3ef69c3e65d0aeed8914370',1,'Communicator::Communicator(uint32_t max_msg_size)']]],
   ['config_307',['Config',['../classConfig.html#ac30bbf9e4f6fac930a9f0c4cb2d46b45',1,'Config']]],
   ['copy_308',['copy',['../classMessageBuf.html#ae2f3c5c872dbfa63c37ad80cf4a696b7',1,'MessageBuf']]],
-  ['create_5fmsg_309',['create_msg',['../classCommunicator.html#a370600e4563f24770eab10e4aa6041b8',1,'Communicator::create_msg(T val)'],['../classCommunicator.html#a02b9846eb7fce33f415822b42139f045',1,'Communicator::create_msg(const T *val, uint16_t len)']]]
+  ['create_5fmsg_309',['create_msg',['../classCommunicator.html#a370600e4563f24770eab10e4aa6041b8',1,'Communicator::create_msg(T val)'],['../classCommunicator.html#a02b9846eb7fce33f415822b42139f045',1,'Communicator::create_msg(const T *val, uint16_t len)']]],
+  ['createextracontroller_310',['CreateExtraController',['../classCreateExtraController.html#a481389f0b730f7bd873471d7b18f5fcf',1,'CreateExtraController']]]
 ];
