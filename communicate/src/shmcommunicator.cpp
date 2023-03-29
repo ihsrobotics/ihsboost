@@ -42,7 +42,11 @@ void SHMCommunicator::close()
     {
         // allow invalid argument (because shm_id has already been removed)
         // but throw everything else
-        if (c.get_error_code() != EINVAL)
+        if (c.get_error_code() == EINVAL)
+        {
+            cout << "The shared memory has already been closed by a separate program." << endl;
+        }
+        else
         {
             throw c;
         }

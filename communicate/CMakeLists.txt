@@ -20,11 +20,17 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/communicator.hpp ${CMAKE_CURRE
 
 # testing
 if (${build_tests})
-    # build test executable
+    # build test executables
+    # regular communicator tests
     add_executable(com_test ${CMAKE_CURRENT_SOURCE_DIR}/test/communicate_test.cpp)
     target_include_directories(com_test PUBLIC ${CMAKE_SOURCE_DIR}/test/ ${CMAKE_CURRENT_SOURCE_DIR}/include)
     add_dependencies(com_test ihsboost)
     target_link_libraries(com_test ihsboost)
+    # shm tests
+    add_executable(shm_test ${CMAKE_CURRENT_SOURCE_DIR}/test/shm_test.cpp)
+    target_include_directories(shm_test PUBLIC ${CMAKE_SOURCE_DIR}/test/ ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    add_dependencies(shm_test ihsboost)
+    target_link_libraries(shm_test ihsboost)
 
     # add tests
     # add posix tests
@@ -36,4 +42,7 @@ if (${build_tests})
     # add sysv test
     add_test(NAME sysv_test COMMAND com_test "SysVCommunicator")
     set_tests_properties(sysv_test PROPERTIES TIMEOUT 10)
+    # add shm test
+    add_test(NAME shared_memory_test COMMAND shm_test "sender")
+    set_tests_properties(shared_memory_test PROPERTIES TIMEOUT 10)
 endif()
