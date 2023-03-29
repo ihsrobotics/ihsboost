@@ -1,3 +1,13 @@
+/**
+ * @file config_test.cpp
+ * @author Eliot Hall
+ * @brief Test to make sure configs work
+ * @version 0.1
+ * @date 2023-03-29
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include "util.hpp"
 #include "test.hpp"
 #include <iostream>
@@ -6,6 +16,10 @@
 using namespace std;
 using namespace chrono;
 
+/**
+ * @brief Test whether get_config and set_extra_config work
+ *
+ */
 void test_get_config()
 {
     // test to make sure getting config and setting extra config works properly
@@ -23,6 +37,10 @@ void test_get_config()
     assert_equals(retval, 0, "removing extra config");
 }
 
+/**
+ * @brief Test whether the Config class works
+ *
+ */
 void test_config()
 {
     // create a config
@@ -39,6 +57,11 @@ void test_config()
     assert_equals(retval, 0, "removing bot-config json file");
 }
 
+/**
+ * @brief Driver function
+ *
+ * @return int
+ */
 int main()
 {
     test_get_config();

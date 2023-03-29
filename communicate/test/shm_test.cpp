@@ -20,6 +20,13 @@
 using namespace std;
 using namespace chrono;
 
+/**
+ * @brief Driver code
+ *
+ * @param argc
+ * @param argv
+ * @return int
+ */
 int main(int argc, const char *argv[])
 {
     if (argc != 2)
