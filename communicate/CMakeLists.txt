@@ -31,6 +31,11 @@ if (${build_tests})
     target_include_directories(shm_test PUBLIC ${CMAKE_SOURCE_DIR}/test/ ${CMAKE_CURRENT_SOURCE_DIR}/include)
     add_dependencies(shm_test ihsboost)
     target_link_libraries(shm_test ihsboost)
+    # message buf test
+    add_executable(messagebuf ${CMAKE_CURRENT_SOURCE_DIR}/test/message_buf_test.cpp)
+    target_include_directories(messagebuf PUBLIC ${CMAKE_SOURCE_DIR}/test/ ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    add_dependencies(messagebuf ihsboost)
+    target_link_libraries(messagebuf ihsboost)
 
     # add tests
     # add posix tests
@@ -45,4 +50,7 @@ if (${build_tests})
     # add shm test
     add_test(NAME shared_memory_test COMMAND shm_test "sender")
     set_tests_properties(shared_memory_test PROPERTIES TIMEOUT 10)
+    # add messagebuf test
+    add_test(NAME messagebuf_test COMMAND messagebuf)
+    set_tests_properties(messagebuf_test PROPERTIES TIMEOUT 5)
 endif()

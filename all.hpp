@@ -9,20 +9,19 @@
  *
  */
 /**
- * @example message_buf_test.cpp
- * @example message_test.cpp
+ * @example message_example.cpp
  * @example PosixQreceiver.cpp
  * @example PosixQsender.cpp
  *
- * @example movement_test.cpp
- * @example encoder_test.cpp
- * @example pid_test.cpp
- * @example gyro_test.cpp
- * @example gyro_client_test.cpp
+ * @example movement_example.cpp
+ * @example encoder_example.cpp
+ * @example pid_example.cpp
+ * @example gyro_example.cpp
+ * @example gyro_client_example.cpp
  *
- * @example threading_test.cpp
+ * @example threading_example.cpp
  *
- * @example create_extra_test.cpp
+ * @example create_extra_example.cpp
  *
  * @example json_loader.cpp
  * @example json_loader.hpp
