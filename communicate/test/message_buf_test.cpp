@@ -1,13 +1,3 @@
-/**
- * @file message_buf_test.cpp
- * @author Eliot Hall
- * @brief Tests to make sure that MessageBuf is working
- * @version 0.1
- * @date 2023-03-29
- *
- * @copyright Copyright (c) 2023
- *
- */
 #include "test.hpp"
 #include "message_buf.hpp"
 #include <iostream>
@@ -15,12 +5,6 @@
 #include <fstream>
 using namespace std;
 
-/**
- * @brief Test to make sure get val works with ints
- *
- * @param max_msg_size
- * @param val
- */
 void test_get_val_int(int max_msg_size, int val)
 {
     MessageBuf m(max_msg_size);
@@ -28,12 +12,6 @@ void test_get_val_int(int max_msg_size, int val)
     assert_equals(val, m.get_val<int>(), "checking get val int");
 }
 
-/**
- * @brief Test to make sure get val works with doubles
- *
- * @param max_msg_size
- * @param val
- */
 void test_get_val_double(int max_msg_size, double val)
 {
     MessageBuf m(max_msg_size);
@@ -41,12 +19,6 @@ void test_get_val_double(int max_msg_size, double val)
     assert_equals(val, m.get_val<double>(), "checking get val double");
 }
 
-/**
- * @brief Test to make sure get val works with strings
- *
- * @param max_msg_size
- * @param val
- */
 void test_get_val_string(int max_msg_size, string val)
 {
     MessageBuf m(max_msg_size);
@@ -54,11 +26,6 @@ void test_get_val_string(int max_msg_size, string val)
     assert_equals(val, string(m.get_ptr_val<char>()), "checking get val string");
 }
 
-/**
- * @brief Test to make sure type info works
- *
- * @param max_msg_size
- */
 void test_type_info(int max_msg_size)
 {
     MessageBuf m(max_msg_size);
@@ -125,11 +92,6 @@ void test_type_info(int max_msg_size)
     assert_equals(true, success, "retaining type info");
 }
 
-/**
- * @brief Test to make sure from_bytes and to_bytes work
- *
- * @param max_msg_size
- */
 void test_recompose(int max_msg_size)
 {
     MessageBuf m(max_msg_size);
@@ -149,11 +111,6 @@ void test_recompose(int max_msg_size)
     assert_equals(val, m.get_val<int>(), "checking for unchanged original value");
 }
 
-/**
- * @brief Test to make sure ptrs work
- *
- * @param max_msg_size
- */
 void test_int_double_ptrs(int max_msg_size)
 {
     MessageBuf m(max_msg_size);
@@ -177,11 +134,6 @@ void test_int_double_ptrs(int max_msg_size)
     }
 }
 
-/**
- * @brief Test to make sure recomposition from a file works
- *
- * @param max_msg_size
- */
 void test_file_recomposition(int max_msg_size)
 {
     MessageBuf m(max_msg_size);
@@ -242,11 +194,6 @@ void test_file_recomposition(int max_msg_size)
     assert_equals(0, system("rm ./out.b"), "cleaning up");
 }
 
-/**
- * @brief Driver code
- *
- * @return int
- */
 int main()
 {
     int max_msg_size = 100;

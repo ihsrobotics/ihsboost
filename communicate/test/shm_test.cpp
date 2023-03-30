@@ -1,15 +1,3 @@
-/**
- * @file shm_test.cpp
- * @author Eliot Hall
- * @brief Test to make sure shared memory is working
- * and functions in sending large amounts of data between
- * processes
- * @version 0.1
- * @date 2023-03-29
- *
- * @copyright Copyright (c) 2023
- *
- */
 #include "test.hpp"
 #include "communicate.hpp"
 #include <iostream>
@@ -20,13 +8,6 @@
 using namespace std;
 using namespace chrono;
 
-/**
- * @brief Driver code
- *
- * @param argc
- * @param argv
- * @return int
- */
 int main(int argc, const char *argv[])
 {
     if (argc != 2)
