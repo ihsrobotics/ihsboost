@@ -61,7 +61,7 @@ public:
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
-     * @return std::string - the message that was received
+     * @return MessageBuf - the message that was received
      */
     virtual MessageBuf receive_msg() = 0;
 

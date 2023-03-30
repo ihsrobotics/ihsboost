@@ -28,12 +28,15 @@ configure_file(${CMAKE_SOURCE_DIR}/util/include/config.hpp.in ${CMAKE_SOURCE_DIR
 
 # main .so file
 if (${build_library})
+    # add compile options
     add_compile_options("-std=c++11")
     add_compile_options("-fPIC")
     add_compile_options("-Wall")
     add_compile_options("-Wconversion")
 
+    # find required libs
     find_library(json_libs jsoncpp REQUIRED)
+    find_library(bluetooth_libs bluetooth REQUIRED)
     
     # install path configuration, defaults to /usr/local/
     message("installing to " ${CMAKE_INSTALL_PREFIX})
@@ -49,7 +52,7 @@ if (${build_library})
 
     # link
     add_library(ihsboost SHARED empty.cpp)
-    target_link_libraries(ihsboost PUBLIC kipr pthread rt ${json_libs})
+    target_link_libraries(ihsboost PUBLIC kipr pthread rt ${bluetooth_libs} ${json_libs})
     foreach(subdir IN LISTS LIBRARY_DIRS)
         target_link_libraries(ihsboost PUBLIC ihs_${subdir})
     endforeach()
