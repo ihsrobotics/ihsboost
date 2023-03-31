@@ -61,6 +61,21 @@ class SysVCommunicator(CommunicatorBase):
             @param max_msg_size - the maximum size for messages
         """
 
+class BluetoothServer(CommunicatorBase):
+    def __init__(self, max_msg_size: int = ...) -> None:
+        """
+        Construct a new Bluetooth Server object
+            @param max_msg_size - the maximum size of your messages
+        """
+
+class BluetoothClient(CommunicatorBase):
+    def __init__(self, target_addr: str, max_msg_size: int = ...) -> None:
+        """
+        Construct a new Bluetooth Client object
+            @param target_addr - the bluetooth address to connect to
+            @param max_msg_size - the maximum size of your messages
+        """
+
 class Speed:
     def __init__(self, left_speed: int, right_speed: int) -> None:
         """
