@@ -1,0 +1,23 @@
+/**
+ * @file modules.hpp
+ * @author Eliot Hall (you@domain.com)
+ * @brief The ihsboost modules that have been build
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
+
+#ifndef IHSBOOST_MODULES_HPP
+#define IHSBOOST_MODULES_HPP
+
+#cmakedefine build_communicate
+#cmakedefine build_controllers
+#cmakedefine build_create_extra
+#cmakedefine build_movement
+#cmakedefine build_servos
+#cmakedefine build_threading
+#cmakedefine build_util
+
+#endif

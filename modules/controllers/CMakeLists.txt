@@ -1,0 +1,20 @@
+if (${build_controllers})
+    message("building controllers")
+
+    # sources
+    set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/controllers.cpp)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+    # include dependencies
+    include_directories(${CMAKE_SOURCE_DIR}/modules/util/include)
+
+    #library
+    add_library(ihs_controllers OBJECT ${SOURCES})
+
+    # library dependencies
+    add_dependencies(ihs_controllers ihs_util)
+
+    # install
+    get_property(local_install_path GLOBAL PROPERTY install_path)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers.hpp DESTINATION ${local_install_path})
+endif()

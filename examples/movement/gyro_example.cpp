@@ -1,3 +1,13 @@
+/**
+ * @file gyro_example.cpp
+ * @author Eliot Hall
+ * @brief File that demonstrates use of gyro functions
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <kipr/wombat.h>
 #include <iostream>

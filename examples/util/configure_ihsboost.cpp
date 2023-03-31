@@ -1,3 +1,13 @@
+/**
+ * @file configure_ihsboost.cpp
+ * @author Eliot Hall
+ * @brief File that demonstrates how to set ihsboost variables
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <iostream>
 using namespace std;

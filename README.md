@@ -4,10 +4,11 @@
 The ihs library of robot functions, from steady acceleration to servo movement
 ## Installing
 ### Dependencies
-ihsboost depends on the following libraries:
-* libwallaby - please use [this branch](https://github.com/chrehall68/libwallaby/tree/refactor) to install libwallaby
-* libjsoncpp - on linux, run `sudo apt-get install libjsoncpp-dev` to install
-* libbluetooth - on linux, run `sudo apt-get install libbluetooth-dev` to install
+Some ihsboost modules have dependencies. The format below is dependency - modules - installation instructions
+* libwallaby - servos, movement, create_extra - please use [this branch](https://github.com/chrehall68/libwallaby/tree/refactor) to install libwallaby
+* libjsoncpp - util - on linux, run `sudo apt-get install libjsoncpp-dev` to install
+* libbluetooth - communicate - on linux, run `sudo apt-get install libbluetooth-dev` to install
+* libboost_python - bindings - on linux, run `sudo apt-get install libboost-python-dev` to install
 ### Getting the Source files
 To get the source files on a wombat, the best way to do that is to start on your local
 computer. Run `git clone https://github.com/ihsrobotics/ihsboost.git` to get the github
@@ -41,21 +42,32 @@ Note: you will need to use either the `main` branch or the
 `older-wombat` branch depending on whether you are using a
 new wombat or an old (original OS) wombat (see `Getting the Source files`) 
 ### Cross Compile Build
-Currently, Cross compile build is unsupported.
+Currently, cross compile build is unsupported.
 ### Other Build Options
 The following are options that can be appended to the `cmake` command
 when configuring the project.
 
-* `-Dwith_documentation=OFF/ON` - build documentation files for the project, defaults to `OFF`
 * `-Dbuild_library=ON/OFF` - build ihsboost, defaults to `ON`
-* `-Dbuild_python=ON/OFF`- build python bindings, defaults to `ON`
-* `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9
+* `-Dbuild_tests=OFF/ON` - build tests to assure that ihsboost built successfully, defaults to `OFF`
+* `-Dwith_documentation=OFF/ON` - build documentation files for the project, defaults to `OFF`
 * `-Droomba=ON/OFF` - use roomba configs or not, defaults to `ON`
+* `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9,
+only relevant if building python bindings
+
+The following are options to configure which ihsboost modules to build
+* `-Dbuild_bindings=ON/OFF`- build python bindings, defaults to `ON`
+* `-Dbuild_communicate=ON/OFF` - build communicate, defaults to `ON`
+* `-Dbuild_controllers=ON/OFF` - build controllers, defaults to `ON`
+* `-Dbuild_create_extra=ON/OFF` - build extra create functionality (vacuum and brushes), defaults to `ON`
+* `-Dbuild_movement=ON/OFF` - build movement functions, defaults to `ON`
+* `-Dbuild_servos=ON/OFF` - build servo movement functions, defaults to `ON`
+* `-Dbuild_thread=ON/OFF` - build threading classes, defaults to `ON`
+* `-Dbuild_util=ON/OFF` - build util, defaults to `ON`
 
 For example,
 `cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10`
 will configure cmake to build the library and python bindings 
-(since `build_library` and `build_python` default to `ON`) but
+(since `build_library` and `build_bindings` default to `ON`) but
 will also make the documentation (since `with_documentation` was specified to `ON`)
 and use python 3.10 instean of python 3.9
 ## Compiling programs with it

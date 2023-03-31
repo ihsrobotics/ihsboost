@@ -13,3 +13,4 @@ ihs_bindings.py
 
 # configure output
 config.hpp
+modules.hpp
