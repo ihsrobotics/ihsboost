@@ -10,6 +10,7 @@ add_subdirectory(modules)
 
 # tests for ctest
 if (${build_tests})
+    include(CTest)
     add_subdirectory(tests)
 endif()
 

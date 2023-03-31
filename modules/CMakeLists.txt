@@ -48,9 +48,7 @@ if (${build_library})
     message("include install_path has been set to " ${local_install_path})
 
     # add subdirectories
-    foreach(subdir IN LISTS DIRECTORIES)
-        add_subdirectory(${subdir})
-    endforeach()
+    subdirs(${DIRECTORIES})
 
     # link library
     add_library(ihsboost SHARED ${CMAKE_SOURCE_DIR}/empty.cpp)
