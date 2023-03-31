@@ -1,3 +1,6 @@
+#include "modules.hpp"
+
+#ifdef build_util
 #include "util.hpp"
 #include <boost/python.hpp>
 #include <sstream>
@@ -46,3 +49,4 @@ void export_util()
     def("set_default_config", set_default_config);
     def("get_version", get_version);
 }
+#endif

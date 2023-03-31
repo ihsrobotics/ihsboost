@@ -1,3 +1,6 @@
+#include "modules.hpp"
+
+#ifdef build_create_extra
 #include "create_extra.hpp"
 #include <boost/python.hpp>
 
@@ -10,3 +13,4 @@ void export_create_extra()
         .def("run_side_brush", &CreateExtraController::run_side_brush)
         .def("run_vacuum", &CreateExtraController::run_vacuum);
 }
+#endif

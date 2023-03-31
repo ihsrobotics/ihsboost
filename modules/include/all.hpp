@@ -38,23 +38,39 @@
  * @example back_and_forth.cpp
  */
 
+#include "modules.hpp"
+
 // controllers
+#ifdef build_controllers
 #include "controllers.hpp"
+#endif
 
 //  movement
+#ifdef build_movement
 #include "movement.hpp"
+#endif
 
 // threading
+#ifdef build_threading
 #include "threading.hpp"
+#endif
 
 // util
+#ifdef build_util
 #include "util.hpp"
+#endif
 
 // servos
+#ifdef build_servos
 #include "servos.hpp"
+#endif
 
 // communication
+#ifdef build_communicate
 #include "communicate.hpp"
+#endif
 
 // create_extra
+#ifdef build_create_extra
 #include "create_extra.hpp"
+#endif

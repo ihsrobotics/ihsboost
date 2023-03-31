@@ -1,3 +1,6 @@
+#include "modules.hpp"
+
+#ifdef build_movement
 #include "movement.hpp"
 #include <boost/python.hpp>
 #include <functional>
@@ -86,3 +89,4 @@ void export_movement()
     def("encoder_turn_degrees", encoder_turn_degrees_v1, (arg("turn_speed"), arg("degrees"), arg("updates_per_sec") = get_config().getInt("roomba_updates_per_sec")));
     def("encoder_turn_degrees_v2", encoder_turn_degrees_v2, (arg("max_speed"), arg("degrees"), arg("min_speed") = get_config().getInt("roomba_min_speed"), arg("accel_per_sec") = get_config().getDouble("roomba_accel_per_sec"), arg("updates_per_sec") = get_config().getInt("roomba_updates_per_sec")));
 }
+#endif

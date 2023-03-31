@@ -1,3 +1,6 @@
+#include "modules.hpp"
+
+#ifdef build_communicate
 #include "communicate.hpp"
 #include <boost/python.hpp>
 
@@ -140,3 +143,4 @@ void export_communicate()
     def("send_bools", send_bools);
     def("send_bool", send_bool);
 }
+#endif

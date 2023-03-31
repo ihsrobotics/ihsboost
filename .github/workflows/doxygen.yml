@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
       - name: Configure Doxygen Python
-        run: cp ./bindings/include/ihs_bindings.pyi ./bindings/include/ihs_bindings.py
+        run: cp ./modules/bindings/include/ihs_bindings.pyi ./modules/bindings/include/ihs_bindings.py
 
         # ========== Build Doxygen ==========
       - name: Configure

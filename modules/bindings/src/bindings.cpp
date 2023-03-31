@@ -8,9 +8,19 @@ void export_util();
 
 BOOST_PYTHON_MODULE(ihs_bindings)
 {
+#ifdef COMMUNICATE
     export_communicate();
+#endif
+#ifdef CREATE_EXTRA
     export_create_extra();
+#endif
+#ifdef MOVEMENT
     export_movement();
+#endif
+#ifdef SERVOS
     export_servos();
+#endif
+#ifdef UTIL
     export_util();
+#endif
 };
