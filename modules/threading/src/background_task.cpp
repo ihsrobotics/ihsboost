@@ -1,5 +1,5 @@
 #include "background_task.hpp"
-#include <kipr/wombat.h>
+#include <chrono>
 
 BackgroundTask::BackgroundTask(int updates_per_sec) : running(false), t(nullptr), msleep_time(1000 / updates_per_sec){};
 BackgroundTask::~BackgroundTask() { stop(); }
@@ -38,6 +38,6 @@ void BackgroundTask::run_function()
     while (this->running)
     {
         this->function();
-        msleep(this->msleep_time);
+        std::this_thread::sleep_for(std::chrono::milliseconds(this->msleep_time));
     }
 }
