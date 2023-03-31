@@ -1,3 +1,4 @@
+#include "modules.hpp"
 #include <boost/python.hpp>
 
 void export_communicate();
@@ -8,19 +9,19 @@ void export_util();
 
 BOOST_PYTHON_MODULE(ihs_bindings)
 {
-#ifdef COMMUNICATE
+#ifdef build_communicate
     export_communicate();
 #endif
-#ifdef CREATE_EXTRA
+#ifdef build_create_extra
     export_create_extra();
 #endif
-#ifdef MOVEMENT
+#ifdef build_movement
     export_movement();
 #endif
-#ifdef SERVOS
+#ifdef build_servos
     export_servos();
 #endif
-#ifdef UTIL
+#ifdef build_util
     export_util();
 #endif
 };
