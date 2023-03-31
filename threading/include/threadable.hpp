@@ -24,6 +24,12 @@ class Threadable
 {
 public:
     /**
+     * @brief Construct a new Threadable object that does nothing
+     *
+     */
+    Threadable();
+
+    /**
      * @brief Construct a new Threadable object to run the given member function
      * on the given instance with the given parameters in a separate thread
      * @details upon creation, a Threadable is considered not done and not started
@@ -43,7 +49,7 @@ public:
               typename std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type = true>
     Threadable(_MemberFunc &&func, _Class_Ptr c, _Args &&...args) : _started(false),
                                                                     _done(false),
-                                                                    _thread(), _func([func, c, args...]() -> void
+                                                                    _thread(), _func([&func, &c, &args...]() -> void
                                                                                      { (c->*func)(args...); }){};
 
     /**
@@ -55,9 +61,9 @@ public:
      * @param args the arguments to pass to the function
      */
     template <typename _Callable, typename... _Args>
-    Threadable(_Callable &&func, _Args... args) : _started(false), _done(false),
-                                                  _thread(), _func([func, args...]() -> void
-                                                                   { func(args...); }){};
+    Threadable(_Callable &&func, _Args &&...args) : _started(false), _done(false),
+                                                    _thread(), _func([&func, &args...]() -> void
+                                                                     { func(args...); }){};
 
     /**
      * @brief Destroy the Threadable object
@@ -108,6 +114,9 @@ public:
      * @return false - it hasn't been started OR it has already completed
      */
     bool started() const;
+
+    Threadable &operator=(const Threadable &other) = delete;
+    Threadable &operator=(Threadable &&other);
 
 private:
     /**

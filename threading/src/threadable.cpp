@@ -1,8 +1,20 @@
 #include "threadable.hpp"
 
-Threadable::~Threadable()
+Threadable::Threadable() : _started(false), _done(false), _thread(), _func(){};
+Threadable::~Threadable() { join(); }
+Threadable &Threadable::operator=(Threadable &&other)
 {
-    _thread.join();
+    if (this == &other)
+    {
+        return *this;
+    }
+
+    // move or copy the values
+    _thread = std::move(other._thread);
+    _func = std::move(other._func);
+    _done = other._done;
+    _started = other._started;
+    return *this;
 }
 
 void Threadable::start()
@@ -16,7 +28,13 @@ void Threadable::start()
 }
 
 // modifiers
-void Threadable::join() { _thread.join(); }
+void Threadable::join()
+{
+    if (_thread.joinable())
+    {
+        _thread.join();
+    }
+}
 
 // getters
 bool Threadable::done() const { return _done; }
