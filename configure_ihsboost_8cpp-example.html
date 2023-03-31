@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.5.0</span>
    </div>
   </td>
  </tr>
@@ -70,18 +70,17 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
-<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;initially, roomba_stop is &quot;</span> &lt;&lt; <a name="a1"></a><a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().<a name="a2"></a><a class="code" href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">getBool</a>(<span class="stringliteral">&quot;roomba_stop&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;initially, roomba_stop is &quot;</span> &lt;&lt; <a name="a0"></a><a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().<a name="a1"></a><a class="code" href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">getBool</a>(<span class="stringliteral">&quot;roomba_stop&quot;</span>) &lt;&lt; endl;</div>
 <div class="line">    <span class="comment">// this json file has roomba_stop and some other variables</span></div>
-<div class="line">    <a name="a3"></a><a class="code" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a>(<span class="stringliteral">&quot;./ihsboost_config.json&quot;</span>); <span class="comment">// load ihsboost variables from the given json file</span></div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a>(<span class="stringliteral">&quot;./ihsboost_config.json&quot;</span>); <span class="comment">// load ihsboost variables from the given json file</span></div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;we&#39;ve successfully configured some ihsboost variables!&quot;</span> &lt;&lt; endl;</div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;now, roomba_stop is &quot;</span> &lt;&lt; <a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().<a class="code" href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">getBool</a>(<span class="stringliteral">&quot;roomba_stop&quot;</span>) &lt;&lt; endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
 <div class="ttc" id="aclassConfig_html_a2d3b545ab362de2bfba26b27c14ed27f"><div class="ttname"><a href="classConfig.html#a2d3b545ab362de2bfba26b27c14ed27f">Config::getBool</a></div><div class="ttdeci">virtual bool getBool(std::string key)</div><div class="ttdoc">Get the value of key as a bool.</div><div class="ttdef"><b>Definition:</b> json_config.cpp:29</div></div>
-<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 <div class="ttc" id="agroup__util__id_html_ga6112b4fac02d1c97044803f88987d955"><div class="ttname"><a href="group__util__id.html#ga6112b4fac02d1c97044803f88987d955">set_extra_config</a></div><div class="ttdeci">void set_extra_config(std::string config_file)</div><div class="ttdoc">Load tunable ihsboost variables from the given config file.</div></div>
 <div class="ttc" id="agroup__util__id_html_gacc291cc27dcb13b6f2d1c08a7476fb07"><div class="ttname"><a href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a></div><div class="ttdeci">Config &amp; get_config(std::string config_file=CONFIG_FILE)</div><div class="ttdoc">Get the ihsboost config object holding all tunable ihsboost variables.</div><div class="ttdef"><b>Definition:</b> config.cpp:157</div></div>
 </div><!-- fragment --> </div><!-- contents -->

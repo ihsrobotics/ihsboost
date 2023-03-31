@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.5.0</span>
    </div>
   </td>
  </tr>
@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"><span class="keyword">using namespace </span>chrono;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> *argv[])</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (argc != 3)</div>
 <div class="line">    {</div>
@@ -101,28 +101,28 @@ $(function() {
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *ip = <span class="stringliteral">&quot;127.0.0.1&quot;</span>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// initialize communicator to correct type</span></div>
-<div class="line">    <a name="_a1"></a><a class="code" href="classCommunicator.html">Communicator</a> *c;</div>
+<div class="line">    <a name="_a0"></a><a class="code" href="classCommunicator.html">Communicator</a> *c;</div>
 <div class="line">    <span class="keywordflow">if</span> (<span class="keywordtype">string</span>(argv[2]) == <span class="stringliteral">&quot;SysVCommunicator&quot;</span>)</div>
 <div class="line">    {</div>
-<div class="line">        c = <span class="keyword">new</span> <a name="_a2"></a><a class="code" href="classSysVCommunicator.html">SysVCommunicator</a>(<span class="keywordtype">id</span>);</div>
+<div class="line">        c = <span class="keyword">new</span> <a name="_a1"></a><a class="code" href="classSysVCommunicator.html">SysVCommunicator</a>(<span class="keywordtype">id</span>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">string</span>(argv[2]) == <span class="stringliteral">&quot;PosixQCommunicator&quot;</span>)</div>
 <div class="line">    {</div>
-<div class="line">        c = <span class="keyword">new</span> <a name="_a3"></a><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a>(name);</div>
+<div class="line">        c = <span class="keyword">new</span> <a name="_a2"></a><a class="code" href="classPosixQCommunicator.html">PosixQCommunicator</a>(name);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">string</span>(argv[2]) == <span class="stringliteral">&quot;SHMCommunicator&quot;</span>)</div>
 <div class="line">    {</div>
-<div class="line">        c = <span class="keyword">new</span> <a name="_a4"></a><a class="code" href="classSHMCommunicator.html">SHMCommunicator</a>(<span class="keywordtype">id</span>);</div>
+<div class="line">        c = <span class="keyword">new</span> <a name="_a3"></a><a class="code" href="classSHMCommunicator.html">SHMCommunicator</a>(<span class="keywordtype">id</span>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">string</span>(argv[2]) == <span class="stringliteral">&quot;SocketCommunicator&quot;</span>)</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (<span class="keywordtype">string</span>(argv[1]) == <span class="stringliteral">&quot;talker&quot;</span>)</div>
 <div class="line">        {</div>
-<div class="line">            c = <span class="keyword">new</span> <a name="_a5"></a><a class="code" href="classSocketServer.html">SocketServer</a>(port);</div>
+<div class="line">            c = <span class="keyword">new</span> <a name="_a4"></a><a class="code" href="classSocketServer.html">SocketServer</a>(port);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span></div>
 <div class="line">        {</div>
-<div class="line">            c = <span class="keyword">new</span> <a name="_a6"></a><a class="code" href="classSocketClient.html">SocketClient</a>(ip, port);</div>
+<div class="line">            c = <span class="keyword">new</span> <a name="_a5"></a><a class="code" href="classSocketClient.html">SocketClient</a>(ip, port);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
@@ -143,7 +143,7 @@ $(function() {
 <div class="line">            o &lt;&lt; <span class="stringliteral">&quot;cool &quot;</span> &lt;&lt; i &lt;&lt; endl;</div>
 <div class="line">            <span class="keywordtype">string</span> ret = o.str();</div>
 <div class="line">            cout &lt;&lt; <span class="stringliteral">&quot;sending message : &quot;</span> &lt;&lt; ret &lt;&lt; endl;</div>
-<div class="line">            c-&gt;<a name="a7"></a><a class="code" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a>(c-&gt;<a name="a8"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">char</span>&gt;(ret.c_str(), ret.size())); <span class="comment">// send a &quot;string&quot; (it&#39;s really a list of char&#39;s)</span></div>
+<div class="line">            c-&gt;<a name="a6"></a><a class="code" href="classCommunicator.html#abce42137b154e51b32becdf424d82580">send_msg</a>(c-&gt;<a name="a7"></a><a class="code" href="classCommunicator.html#a370600e4563f24770eab10e4aa6041b8">create_msg</a>&lt;<span class="keywordtype">char</span>&gt;(ret.c_str(), ret.size())); <span class="comment">// send a &quot;string&quot; (it&#39;s really a list of char&#39;s)</span></div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">// send list of doubles instead</span></div>
 <div class="line">            <span class="comment">// double my_double[3] = {3.14, 2.22, 7.77};</span></div>
@@ -177,7 +177,7 @@ $(function() {
 <div class="line">            <span class="comment">// cout &lt;&lt; endl;</span></div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">// receive char* message (basically a string)</span></div>
-<div class="line">            cout &lt;&lt; c-&gt;<a name="a9"></a><a class="code" href="classCommunicator.html#aad88aff9166c18c803156a58500994db">receive_msg</a>().<a name="a10"></a><a class="code" href="classMessageBuf.html#abb523a520be84a41cc9aaff9bc34b177">get_ptr_val</a>&lt;<span class="keywordtype">char</span>&gt;() &lt;&lt; endl;</div>
+<div class="line">            cout &lt;&lt; c-&gt;<a name="a8"></a><a class="code" href="classCommunicator.html#aad88aff9166c18c803156a58500994db">receive_msg</a>().<a name="a9"></a><a class="code" href="classMessageBuf.html#abb523a520be84a41cc9aaff9bc34b177">get_ptr_val</a>&lt;<span class="keywordtype">char</span>&gt;() &lt;&lt; endl;</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keyword">delete</span> c;</div>
@@ -195,7 +195,6 @@ $(function() {
 <div class="ttc" id="aclassSocketClient_html"><div class="ttname"><a href="classSocketClient.html">SocketClient</a></div><div class="ttdoc">Client class for communicating over sockets.</div><div class="ttdef"><b>Definition:</b> socketcommunicator.hpp:88</div></div>
 <div class="ttc" id="aclassSocketServer_html"><div class="ttname"><a href="classSocketServer.html">SocketServer</a></div><div class="ttdoc">Server Class for communicating over sockets.</div><div class="ttdef"><b>Definition:</b> socketcommunicator.hpp:24</div></div>
 <div class="ttc" id="aclassSysVCommunicator_html"><div class="ttname"><a href="classSysVCommunicator.html">SysVCommunicator</a></div><div class="ttdoc">Class to communicate using System V message queues.</div><div class="ttdef"><b>Definition:</b> sysvcommunicator.hpp:24</div></div>
-<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

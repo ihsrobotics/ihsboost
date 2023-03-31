@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.5.0</span>
    </div>
   </td>
  </tr>
@@ -71,30 +71,29 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    create_connect_once();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// go forward for 6 seconds, accelerating from 0 to 100 and checking for straightness using the gyroscope</span></div>
-<div class="line">    <a name="a1"></a><a class="code" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a>(0, 100, <a name="_a2"></a><a class="code" href="classTimer.html">Timer</a>(6));</div>
+<div class="line">    <a name="a0"></a><a class="code" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a>(0, 100, <a name="_a1"></a><a class="code" href="classTimer.html">Timer</a>(6));</div>
 <div class="line">    <span class="comment">// turn degrees using the gyroscope</span></div>
 <div class="line">    <span class="comment">// turn 90 degrees by slowing down the right wheel</span></div>
 <div class="line">    <span class="comment">// speeds are {left, right}, so we keep left wheel at speed 100 but gradually slow right wheel down to 11</span></div>
-<div class="line">    <a name="a3"></a><a class="code" href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">gyro_turn_degrees</a>({100, 100}, {100, 11}, 90);</div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">gyro_turn_degrees</a>({100, 100}, {100, 11}, 90);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// wait a little</span></div>
 <div class="line">    create_drive_direct(0, 0);</div>
 <div class="line">    msleep(500);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// the other method of turning</span></div>
-<div class="line">    <a name="a4"></a><a class="code" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a>(400, 360); <span class="comment">// turn 360 degrees at max speed of 400</span></div>
+<div class="line">    <a name="a3"></a><a class="code" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a>(400, 360); <span class="comment">// turn 360 degrees at max speed of 400</span></div>
 <div class="line"> </div>
 <div class="line">    create_disconnect();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
 <div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">A class that implements a timer, useful when you want to line-follow for a certain amount of time.</div><div class="ttdef"><b>Definition:</b> timer.hpp:22</div></div>
-<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga3268618890ae8fefdfc67a1c6cd4a32d"><div class="ttname"><a href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a></div><div class="ttdeci">void gyro_drive_straight(int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=get_config().getDouble(&quot;gyro_correction_proportion&quot;), double accel_per_sec=get_config().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;gyro_updates_per_sec&quot;))</div><div class="ttdoc">Drive the create straight using the gyroscope.</div><div class="ttdef"><b>Definition:</b> imu_movement.cpp:88</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga3d88c44a1cd95fad141d709af3e2ac96"><div class="ttname"><a href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">gyro_turn_degrees</a></div><div class="ttdeci">void gyro_turn_degrees(Speed from_speed, Speed to_speed, double degrees, double accel_per_sec=get_config().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;gyro_updates_per_sec&quot;))</div><div class="ttdoc">Turn the create a certain number of degrees using the gyroscope.</div><div class="ttdef"><b>Definition:</b> imu_movement.cpp:103</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga82fd5a78ca4700cb56cd5996e5c077af"><div class="ttname"><a href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a></div><div class="ttdeci">void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed=get_config().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=get_config().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;gyro_updates_per_sec&quot;))</div><div class="ttdoc">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.</div><div class="ttdef"><b>Definition:</b> imu_movement.cpp:121</div></div>

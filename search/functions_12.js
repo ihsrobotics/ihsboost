@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['_7eaccumulator_470',['~Accumulator',['../classAccumulator.html#a05e942e72167e48dfffd37e69e474f99',1,'Accumulator']]],
-  ['_7ebackgroundtask_471',['~BackgroundTask',['../classBackgroundTask.html#ab08280d630e42a44baefae8f755be131',1,'BackgroundTask']]],
-  ['_7ecommunicationexception_472',['~CommunicationException',['../classCommunicationException.html#acc771c274e7b469976616a56e7fe9b5d',1,'CommunicationException']]],
-  ['_7ecommunicator_473',['~Communicator',['../classCommunicator.html#a8c406b6e6bcaf39fcee8bf0c094f8eca',1,'Communicator']]],
-  ['_7econfig_474',['~Config',['../classConfig.html#a543dce59b66475c5108088ee4ce1cdfc',1,'Config']]],
-  ['_7eencodersubscriber_475',['~EncoderSubscriber',['../classEncoderSubscriber.html#a18090de27dc895bad4dc21705b013f53',1,'EncoderSubscriber']]],
-  ['_7egyrosubscriber_476',['~GyroSubscriber',['../classGyroSubscriber.html#a920d1822812840173ea3dc93336ea4fa',1,'GyroSubscriber']]],
-  ['_7emessagebuf_477',['~MessageBuf',['../classMessageBuf.html#a1a36e1187dd92e6a867d2376b8bc5925',1,'MessageBuf']]],
-  ['_7eposixqcommunicator_478',['~PosixQCommunicator',['../classPosixQCommunicator.html#aaa06ada60c766fcc059eb56fc6020492',1,'PosixQCommunicator']]],
-  ['_7eshmcommunicator_479',['~SHMCommunicator',['../classSHMCommunicator.html#a2a58ea857e070b91b122ad73d593719f',1,'SHMCommunicator']]],
-  ['_7esocketclient_480',['~SocketClient',['../classSocketClient.html#af4ecba63b08737b5be4fef324cef1df6',1,'SocketClient']]],
-  ['_7esocketserver_481',['~SocketServer',['../classSocketServer.html#af0e595690e453ef4b8e8da174069aba9',1,'SocketServer']]],
-  ['_7esysvcommunicator_482',['~SysVCommunicator',['../classSysVCommunicator.html#aa1bd9a22d9b5c6882d283459edd26a42',1,'SysVCommunicator']]],
-  ['_7ethreadable_483',['~Threadable',['../classThreadable.html#af3e7738d188223a4298f000dabe47f68',1,'Threadable']]]
+  ['_7eaccumulator_436',['~Accumulator',['../classAccumulator.html#a05e942e72167e48dfffd37e69e474f99',1,'Accumulator']]],
+  ['_7ebackgroundtask_437',['~BackgroundTask',['../classBackgroundTask.html#ab08280d630e42a44baefae8f755be131',1,'BackgroundTask']]],
+  ['_7ebluetoothclient_438',['~BluetoothClient',['../classBluetoothClient.html#a9332d63f912766c70754b5eeb52800bf',1,'BluetoothClient']]],
+  ['_7ebluetoothserver_439',['~BluetoothServer',['../classBluetoothServer.html#ac664aa6e13215aacee09e560d28d5edf',1,'BluetoothServer']]],
+  ['_7ecommunicationexception_440',['~CommunicationException',['../classCommunicationException.html#acc771c274e7b469976616a56e7fe9b5d',1,'CommunicationException']]],
+  ['_7ecommunicator_441',['~Communicator',['../classCommunicator.html#a8c406b6e6bcaf39fcee8bf0c094f8eca',1,'Communicator']]],
+  ['_7econfig_442',['~Config',['../classConfig.html#a543dce59b66475c5108088ee4ce1cdfc',1,'Config']]],
+  ['_7eencodersubscriber_443',['~EncoderSubscriber',['../classEncoderSubscriber.html#a18090de27dc895bad4dc21705b013f53',1,'EncoderSubscriber']]],
+  ['_7egyrosubscriber_444',['~GyroSubscriber',['../classGyroSubscriber.html#a920d1822812840173ea3dc93336ea4fa',1,'GyroSubscriber']]],
+  ['_7emessagebuf_445',['~MessageBuf',['../classMessageBuf.html#a1a36e1187dd92e6a867d2376b8bc5925',1,'MessageBuf']]],
+  ['_7eposixqcommunicator_446',['~PosixQCommunicator',['../classPosixQCommunicator.html#aaa06ada60c766fcc059eb56fc6020492',1,'PosixQCommunicator']]],
+  ['_7eshmcommunicator_447',['~SHMCommunicator',['../classSHMCommunicator.html#a2a58ea857e070b91b122ad73d593719f',1,'SHMCommunicator']]],
+  ['_7esocketclient_448',['~SocketClient',['../classSocketClient.html#af4ecba63b08737b5be4fef324cef1df6',1,'SocketClient']]],
+  ['_7esocketserver_449',['~SocketServer',['../classSocketServer.html#af0e595690e453ef4b8e8da174069aba9',1,'SocketServer']]],
+  ['_7esysvcommunicator_450',['~SysVCommunicator',['../classSysVCommunicator.html#aa1bd9a22d9b5c6882d283459edd26a42',1,'SysVCommunicator']]],
+  ['_7ethreadable_451',['~Threadable',['../classThreadable.html#af3e7738d188223a4298f000dabe47f68',1,'Threadable']]]
 ];

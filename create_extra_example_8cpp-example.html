@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.5.0</span>
    </div>
   </td>
  </tr>
@@ -71,18 +71,18 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.h&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a>()</div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    create_connect_once();</div>
 <div class="line">    create_full(); <span class="comment">// change mode to full in order to control vacuum, etc</span></div>
-<div class="line">    <a name="_a1"></a><a class="code" href="classCreateExtraController.html">CreateExtraController</a> c;</div>
+<div class="line">    <a name="_a0"></a><a class="code" href="classCreateExtraController.html">CreateExtraController</a> c;</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;waiting to be told to do stuff&quot;</span> &lt;&lt; endl;</div>
 <div class="line">    <span class="keywordtype">string</span> temp;</div>
 <div class="line">    cin &gt;&gt; temp;</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;going inward&quot;</span> &lt;&lt; endl;</div>
-<div class="line">    c.<a name="a2"></a><a class="code" href="classCreateExtraController.html#ad90b7014d0f33f81d6c542f8975d0eb7">run_main_brush</a>(127);</div>
+<div class="line">    c.<a name="a1"></a><a class="code" href="classCreateExtraController.html#ad90b7014d0f33f81d6c542f8975d0eb7">run_main_brush</a>(127);</div>
 <div class="line">    msleep(1000);</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;going outward&quot;</span> &lt;&lt; endl;</div>
@@ -94,7 +94,7 @@ $(function() {
 <div class="line">    msleep(1000);</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;using side brush CCW&quot;</span> &lt;&lt; endl;</div>
-<div class="line">    c.<a name="a3"></a><a class="code" href="classCreateExtraController.html#ad088278382dda8f823b65b779ad13598">run_side_brush</a>(127);</div>
+<div class="line">    c.<a name="a2"></a><a class="code" href="classCreateExtraController.html#ad088278382dda8f823b65b779ad13598">run_side_brush</a>(127);</div>
 <div class="line">    msleep(1000);</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;using side brush in CW direction&quot;</span> &lt;&lt; endl;</div>
@@ -106,7 +106,7 @@ $(function() {
 <div class="line">    msleep(1000);</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;vacuuming&quot;</span> &lt;&lt; endl;</div>
-<div class="line">    c.<a name="a4"></a><a class="code" href="classCreateExtraController.html#a51e7847b8c604256fc0e61088a8b77ca">run_vacuum</a>(127);</div>
+<div class="line">    c.<a name="a3"></a><a class="code" href="classCreateExtraController.html#a51e7847b8c604256fc0e61088a8b77ca">run_vacuum</a>(127);</div>
 <div class="line">    msleep(5000);</div>
 <div class="line"> </div>
 <div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;stopping vacuuming&quot;</span> &lt;&lt; endl;</div>
@@ -121,7 +121,6 @@ $(function() {
 <div class="ttc" id="aclassCreateExtraController_html_a51e7847b8c604256fc0e61088a8b77ca"><div class="ttname"><a href="classCreateExtraController.html#a51e7847b8c604256fc0e61088a8b77ca">CreateExtraController::run_vacuum</a></div><div class="ttdeci">void run_vacuum(int8_t speed)</div><div class="ttdoc">Run the vacuum at the specified speed.</div><div class="ttdef"><b>Definition:</b> create_extra.cpp:18</div></div>
 <div class="ttc" id="aclassCreateExtraController_html_ad088278382dda8f823b65b779ad13598"><div class="ttname"><a href="classCreateExtraController.html#ad088278382dda8f823b65b779ad13598">CreateExtraController::run_side_brush</a></div><div class="ttdeci">void run_side_brush(int8_t speed)</div><div class="ttdoc">Run the side brush at the specified speed.</div><div class="ttdef"><b>Definition:</b> create_extra.cpp:12</div></div>
 <div class="ttc" id="aclassCreateExtraController_html_ad90b7014d0f33f81d6c542f8975d0eb7"><div class="ttname"><a href="classCreateExtraController.html#ad90b7014d0f33f81d6c542f8975d0eb7">CreateExtraController::run_main_brush</a></div><div class="ttdeci">void run_main_brush(int8_t speed)</div><div class="ttdoc">Run the main brush at the specified speed.</div><div class="ttdef"><b>Definition:</b> create_extra.cpp:6</div></div>
-<div class="ttc" id="acommunicate__test_8cpp_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="communicate__test_8cpp.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdoc">Driver code.</div><div class="ttdef"><b>Definition:</b> communicate_test.cpp:153</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

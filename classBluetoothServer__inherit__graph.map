@@ -1,0 +1,4 @@
+<map id="BluetoothServer" name="BluetoothServer">
+<area shape="rect" id="node1" title="Server class for communicating over bluetooth." alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node2" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="9,5,128,32"/>
+</map>

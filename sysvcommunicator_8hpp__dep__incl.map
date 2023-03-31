@@ -1,8 +1,5 @@
 <map id="communicate/include/sysvcommunicator.hpp" name="communicate/include/sysvcommunicator.hpp">
-<area shape="rect" id="node1" title="SysV based communication." alt="" coords="332,5,509,47"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="339,95,502,136"/>
-<area shape="rect" id="node3" href="$communicate__test_8cpp.html" title="Test to make sure that normal communicators work." alt="" coords="5,184,239,225"/>
-<area shape="rect" id="node4" href="$shm__test_8cpp.html" title="Test to make sure shared memory is working and functions in sending large amounts of data between pro..." alt="" coords="263,184,435,225"/>
-<area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="459,191,526,218"/>
-<area shape="rect" id="node6" href="$back__and__forth__test_8cpp.html" title="Test to make sure that sending data back and forth between python and c++ work." alt="" coords="551,184,701,225"/>
+<area shape="rect" id="node1" title="SysV based communication." alt="" coords="5,5,183,47"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="13,95,175,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="61,184,127,211"/>
 </map>

@@ -1,12 +1,10 @@
 <map id="communicate/include/communicator.hpp" name="communicate/include/communicator.hpp">
-<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="339,5,502,47"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="339,184,502,225"/>
-<area shape="rect" id="node7" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="119,95,309,136"/>
-<area shape="rect" id="node8" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="333,95,508,136"/>
-<area shape="rect" id="node9" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="533,95,722,136"/>
-<area shape="rect" id="node10" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="747,95,924,136"/>
-<area shape="rect" id="node3" href="$communicate__test_8cpp.html" title="Test to make sure that normal communicators work." alt="" coords="5,273,239,315"/>
-<area shape="rect" id="node4" href="$shm__test_8cpp.html" title="Test to make sure shared memory is working and functions in sending large amounts of data between pro..." alt="" coords="263,273,435,315"/>
-<area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="459,281,526,307"/>
-<area shape="rect" id="node6" href="$back__and__forth__test_8cpp.html" title="Test to make sure that sending data back and forth between python and c++ work." alt="" coords="551,273,701,315"/>
+<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="360,5,523,47"/>
+<area shape="rect" id="node2" href="$btcommunicator_8hpp.html" title="Bluetooth&#45;based communication." alt="" coords="5,95,168,136"/>
+<area shape="rect" id="node3" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="464,184,627,225"/>
+<area shape="rect" id="node5" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="243,95,434,136"/>
+<area shape="rect" id="node6" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="458,95,633,136"/>
+<area shape="rect" id="node7" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="657,95,847,136"/>
+<area shape="rect" id="node8" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="871,95,1049,136"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="512,273,579,300"/>
 </map>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.5.0</span>
    </div>
   </td>
  </tr>
@@ -81,12 +81,14 @@ Inheritance diagram for Communicator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCommunicator__inherit__graph.png" border="0" usemap="#aCommunicator_inherit__map" alt="Inheritance graph"/></div>
 <map name="aCommunicator_inherit__map" id="aCommunicator_inherit__map">
-<area shape="rect" title="Abstract class for all communicators." alt="" coords="357,5,475,32"/>
-<area shape="rect" href="classPosixQCommunicator.html" title="Class for communicating over posix&#45;based mqueue&#39;s." alt="" coords="5,80,168,107"/>
-<area shape="rect" href="classSHMCommunicator.html" title="Class for communicating over shared memory." alt="" coords="193,80,341,107"/>
-<area shape="rect" href="classSocketClient.html" title="Client class for communicating over sockets." alt="" coords="365,80,467,107"/>
-<area shape="rect" href="classSocketServer.html" title="Server Class for communicating over sockets." alt="" coords="492,80,599,107"/>
-<area shape="rect" href="classSysVCommunicator.html" title="Class to communicate using System V message queues." alt="" coords="623,80,774,107"/>
+<area shape="rect" title="Abstract class for all communicators." alt="" coords="5,157,124,184"/>
+<area shape="rect" href="classBluetoothClient.html" title="Client class for communicating over bluetooth." alt="" coords="192,5,315,32"/>
+<area shape="rect" href="classBluetoothServer.html" title="Server class for communicating over bluetooth." alt="" coords="190,56,317,83"/>
+<area shape="rect" href="classPosixQCommunicator.html" title="Class for communicating over posix&#45;based mqueue&#39;s." alt="" coords="172,107,335,133"/>
+<area shape="rect" href="classSHMCommunicator.html" title="Class for communicating over shared memory." alt="" coords="179,157,327,184"/>
+<area shape="rect" href="classSocketClient.html" title="Client class for communicating over sockets." alt="" coords="202,208,305,235"/>
+<area shape="rect" href="classSocketServer.html" title="Server Class for communicating over sockets." alt="" coords="200,259,307,285"/>
+<area shape="rect" href="classSysVCommunicator.html" title="Class to communicate using System V message queues." alt="" coords="178,309,329,336"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -144,7 +146,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for all communicators. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_example_8cpp-example.html#_a1">message_example.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_example_8cpp-example.html#_a0">message_example.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8c406b6e6bcaf39fcee8bf0c094f8eca"></a>
@@ -287,7 +289,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <p>Close the communicator. </p>
 <p>This should be called automatically in the deconstructor. </p>
 
-<p>Implemented in <a class="el" href="classSysVCommunicator.html#afe01fc35ad9e2fada44e5a584ecda9f6">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#aa089cda6e8320b66b1e94afd9815a559">SocketClient</a>, <a class="el" href="classSocketServer.html#a1e673e526a459bdb3ca92e103ec212ae">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72">SHMCommunicator</a>, and <a class="el" href="classPosixQCommunicator.html#a90cb881ed88749b2b3918494d8acb1c7">PosixQCommunicator</a>.</p>
+<p>Implemented in <a class="el" href="classSysVCommunicator.html#afe01fc35ad9e2fada44e5a584ecda9f6">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#aa089cda6e8320b66b1e94afd9815a559">SocketClient</a>, <a class="el" href="classSocketServer.html#a1e673e526a459bdb3ca92e103ec212ae">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72">SHMCommunicator</a>, <a class="el" href="classPosixQCommunicator.html#a90cb881ed88749b2b3918494d8acb1c7">PosixQCommunicator</a>, <a class="el" href="classBluetoothClient.html#a2e188d18a8b11c142f8d7a906728f849">BluetoothClient</a>, and <a class="el" href="classBluetoothServer.html#aa811bd32f94f2bc73d8e1e58285f972f">BluetoothServer</a>.</p>
 
 </div>
 </div>
@@ -385,7 +387,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> - a <a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> object that can be sent using communicators </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="back_and_forth_8cpp-example.html#a5">back_and_forth.cpp</a>, and <a class="el" href="message_example_8cpp-example.html#a8">message_example.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="back_and_forth_8cpp-example.html#a4">back_and_forth.cpp</a>, and <a class="el" href="message_example_8cpp-example.html#a7">message_example.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -416,7 +418,7 @@ template&lt;typename T &gt; </div>
 <p>Opens the communicator. </p>
 <p>This should be called automatically in the constructor </p>
 
-<p>Implemented in <a class="el" href="classSysVCommunicator.html#a4216cf012cee0112b75a9e920dab4944">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#a7897b7e04522f17a55c5d1a0f46d17a3">SocketClient</a>, <a class="el" href="classSocketServer.html#a1ece50b906c7ade75ff6ee629ae5824b">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a44a4a3b514ccc8363d8c991497c452a2">SHMCommunicator</a>, and <a class="el" href="classPosixQCommunicator.html#af13e17c85b69450386101c4c4755931f">PosixQCommunicator</a>.</p>
+<p>Implemented in <a class="el" href="classSysVCommunicator.html#a4216cf012cee0112b75a9e920dab4944">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#a7897b7e04522f17a55c5d1a0f46d17a3">SocketClient</a>, <a class="el" href="classSocketServer.html#a1ece50b906c7ade75ff6ee629ae5824b">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a44a4a3b514ccc8363d8c991497c452a2">SHMCommunicator</a>, <a class="el" href="classPosixQCommunicator.html#af13e17c85b69450386101c4c4755931f">PosixQCommunicator</a>, <a class="el" href="classBluetoothClient.html#ad982c2893986d53b30151f7c1526fb9a">BluetoothClient</a>, and <a class="el" href="classBluetoothServer.html#a940cccb4f3df2b64cc48e79d931c4423">BluetoothServer</a>.</p>
 
 </div>
 </div>
@@ -444,10 +446,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Wait to receive a message. Blocks until message was received. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string - the message that was received </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> - the message that was received </dd></dl>
 
-<p>Implemented in <a class="el" href="classSysVCommunicator.html#a56ef1ab8bfddb7714ee3eb687bdaf119">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#ae24636b7085c0beb9d093df3fbe8ca63">SocketClient</a>, <a class="el" href="classSocketServer.html#aad89f7d0befc3f52341ec25059635041">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a3c2961d5e0318a52995a8f7dae068c2e">SHMCommunicator</a>, and <a class="el" href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">PosixQCommunicator</a>.</p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_example_8cpp-example.html#a9">message_example.cpp</a>.</dd>
+<p>Implemented in <a class="el" href="classSysVCommunicator.html#a56ef1ab8bfddb7714ee3eb687bdaf119">SysVCommunicator</a>, <a class="el" href="classSocketClient.html#ae24636b7085c0beb9d093df3fbe8ca63">SocketClient</a>, <a class="el" href="classSocketServer.html#aad89f7d0befc3f52341ec25059635041">SocketServer</a>, <a class="el" href="classSHMCommunicator.html#a3c2961d5e0318a52995a8f7dae068c2e">SHMCommunicator</a>, <a class="el" href="classPosixQCommunicator.html#a59611d6b249353ecda30cfb69d14a5c0">PosixQCommunicator</a>, <a class="el" href="classBluetoothClient.html#a9434948e05e2fd531ab14d668a18b5bc">BluetoothClient</a>, and <a class="el" href="classBluetoothServer.html#a956e11f8382aa018b0f6ef9144a80b46">BluetoothServer</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="message_example_8cpp-example.html#a8">message_example.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -518,7 +520,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="back_and_forth_8cpp-example.html#a4">back_and_forth.cpp</a>, and <a class="el" href="message_example_8cpp-example.html#a7">message_example.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="back_and_forth_8cpp-example.html#a3">back_and_forth.cpp</a>, and <a class="el" href="message_example_8cpp-example.html#a6">message_example.cpp</a>.</dd>
 </dl>
 
 </div>
