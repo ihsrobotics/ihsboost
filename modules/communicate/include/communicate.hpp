@@ -15,6 +15,7 @@
 
 #include "communication_exception.hpp"
 #include "communicator.hpp"
+#include "btcommunicator.hpp"
 #include "message_buf.hpp"
 #include "posixqcommunicator.hpp"
 #include "shmcommunicator.hpp"

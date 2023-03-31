@@ -1,3 +1,13 @@
+/**
+ * @file create_extra_example.cpp
+ * @author Eliot Hall
+ * @brief File to demonstrate the extra functionality of the create
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/create_extra.hpp>
 #include <iostream>
 #include <kipr/wombat.h>

@@ -12,6 +12,8 @@
  * @example message_example.cpp
  * @example PosixQreceiver.cpp
  * @example PosixQsender.cpp
+ * @example bluetooth_client.cpp
+ * @example bluetooth_server.cpp
  *
  * @example movement_example.cpp
  * @example encoder_example.cpp

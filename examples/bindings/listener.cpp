@@ -1,3 +1,13 @@
+/**
+ * @file listener.cpp
+ * @author Eliot Hall
+ * @brief FIle to listen on the c++ side for messages sent by python
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <iostream>
 using namespace std;

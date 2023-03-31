@@ -1,3 +1,13 @@
+/**
+ * @file pid_example.cpp
+ * @author Eliot Hall
+ * @brief File that uses encoder pid
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <kipr/wombat.hpp>
 #include <iostream>

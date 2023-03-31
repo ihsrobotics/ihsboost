@@ -1,3 +1,13 @@
+/**
+ * @file encoder_client_example.cpp
+ * @author Eliot Hall
+ * @brief File that demonstrates use of EncoderSubscriber
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <ihsboost/all.hpp>
 #include <kipr/wombat.h>
 #include <iostream>
@@ -8,6 +18,7 @@ int main()
 {
     create_connect_once();
 
+    // set refresh rate of the create to once every 4 ms (default is 10 ms)
     kipr::create::Create::instance()->setRefreshRate(4);
 
     // align with black

@@ -77,6 +77,9 @@ private:
 
 /**
  * @brief Client class for communicating over bluetooth
+ * @warning You cannot use a BluetoothClient to connect to a
+ * BluetoothServer hosted on the same device. Bluetooth connections
+ * can only be made between devices.
  *
  */
 class BluetoothClient : public Communicator

@@ -1,3 +1,13 @@
+/**
+ * @file json_loader.hpp
+ * @author Eliot Hall
+ * @brief File that demonstrates example config loader
+ * @version 0.1
+ * @date 2023-03-31
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #ifndef JSON_LOADER_HPP
 #define JSON_LOADER_HPP
 
