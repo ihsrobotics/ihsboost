@@ -7,6 +7,8 @@
  *
  * @copyright Copyright (c) 2023
  *
+ * @addtogroup communication_id
+ * @{
  */
 
 #ifndef IHSBOOST_BT_COMMUNICATOR_HPP
@@ -141,3 +143,4 @@ private:
 };
 
 #endif
+/**@}*/
