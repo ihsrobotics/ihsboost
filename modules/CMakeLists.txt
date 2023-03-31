@@ -56,7 +56,7 @@ if (${build_library})
     add_library(ihsboost SHARED ${CMAKE_SOURCE_DIR}/empty.cpp)
     foreach(subdir IN LISTS DIRECTORIES)
         # don't link bindings to ihsboost
-        if (NOT ${subdir} STREQUAL "bindings")
+        if ((NOT ${subdir} STREQUAL "bindings" AND ${build_${subdir}}))
             target_link_libraries(ihsboost PUBLIC ihs_${subdir})
         endif()
     endforeach()

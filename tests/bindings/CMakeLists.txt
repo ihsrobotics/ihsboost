@@ -1,5 +1,5 @@
 # testing
-if((${build_tests} AND ${build_bindings}))
+if((${build_tests} AND ${build_bindings} AND ${build_communicate}))
     message("building bindings tests")
     add_ihsboost_test_executable(back_and_forth ${CMAKE_CURRENT_SOURCE_DIR}/test/back_and_forth_test.cpp communicate)
     
