@@ -19,12 +19,13 @@ jobs:
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
+
       - name: Configure Doxygen Python
         run: cp ./modules/bindings/include/ihs_bindings.pyi ./modules/bindings/include/ihs_bindings.py
 
         # ========== Build Doxygen ==========
       - name: Configure
-        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF -Dbuild_python=OFF .
+        run: cmake -Dwith_documentation=ON -Dbuild_library=OFF .
 
       - name: Build
         run: make

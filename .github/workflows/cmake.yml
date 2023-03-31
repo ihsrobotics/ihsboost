@@ -18,26 +18,20 @@ jobs:
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Commit status (one of "error", "failure", "pending", "success")
           status: pending
-          # A short description of the status.
           description: awaiting building
           context: build-status
+
       - name: set-test-status
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Commit status (one of "error", "failure", "pending", "success")
           status: pending
-          # A short description of the status.
           description: awaiting testing
           context: test-status
 
   build-and-test:
     needs: setup-status # wait for pending status before starting
-    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
-    # You can convert this to a matrix build if you need cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -76,9 +70,7 @@ jobs:
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Commit status (one of "error", "failure", "pending", "success")
           status: success
-          # A short description of the status.
           description: build successful
           context: build-status
 
@@ -91,9 +83,7 @@ jobs:
         uses: myrotvorets/set-commit-status-action@1.1.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Commit status (one of "error", "failure", "pending", "success")
           status: success
-          # A short description of the status.
           description: all tests passed
           context: test-status
 
