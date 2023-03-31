@@ -85,7 +85,7 @@ public:
      * @exception Segmentation Fault - happens if the shared memory has already been
      * closed by another process
      *
-     * @return std::string - the message that was received
+     * @return MessageBuf - the message that was received
      */
     virtual MessageBuf receive_msg();
 

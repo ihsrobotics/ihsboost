@@ -1,27 +1,9 @@
-/**
- * @file accelerator_test.cpp
- * @author Eliot Hall
- * @brief Test to make sure linear and sinusoidal controllers work
- * @version 0.1
- * @date 2023-03-29
- *
- * @copyright Copyright (c) 2023
- *
- */
 #include "test.hpp"
 #include "controllers.hpp"
 #include <iostream>
 #include <math.h>
 using namespace std;
 
-/**
- * @brief Test to make sure linear controller works
- *
- * @param start
- * @param end
- * @param dps
- * @param ups
- */
 void test_linear(int start, int end, double dps, int ups)
 {
     double delta_per_update = dps / ups;
@@ -34,14 +16,6 @@ void test_linear(int start, int end, double dps, int ups)
     }
 }
 
-/**
- * @brief Test to make sure sinusoidal controller works
- *
- * @param start
- * @param end
- * @param dps
- * @param ups
- */
 void test_sinusoidal(int start, int end, double dps, int ups)
 {
     double necessary_updates = abs((end - start) * ups / dps);
@@ -54,11 +28,6 @@ void test_sinusoidal(int start, int end, double dps, int ups)
     }
 }
 
-/**
- * @brief Driver code
- *
- * @return int
- */
 int main()
 {
     test_linear(0, 100, 1000, 1000);

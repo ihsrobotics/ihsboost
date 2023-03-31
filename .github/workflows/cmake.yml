@@ -44,7 +44,7 @@ jobs:
 
       # ========== Dependencies ==========
       - name: Install dependencies
-        run: sudo apt-get install python3-dev libjsoncpp-dev libboost-python-dev libopencv-dev ninja-build -y
+        run: sudo apt-get install python3-dev libjsoncpp-dev libboost-python-dev libbluetooth-dev libopencv-dev ninja-build -y
 
       - name: Install libwallaby
         run: git clone https://github.com/chrehall68/libwallaby.git &&

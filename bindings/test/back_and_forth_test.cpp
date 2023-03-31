@@ -1,14 +1,3 @@
-/**
- * @file back_and_forth_test.cpp
- * @author Eliot Hall
- * @brief Test to make sure that sending data back and forth between
- * python and c++ work
- * @version 0.1
- * @date 2023-03-29
- *
- * @copyright Copyright (c) 2023
- *
- */
 #include <iostream>
 #include "test.hpp"
 #include <chrono>
@@ -17,13 +6,6 @@
 using namespace std;
 using namespace chrono;
 
-/**
- * @brief Driver code
- *
- * @param argc
- * @param argv
- * @return int
- */
 int main(int argc, const char *argv[])
 {
     // exit if not provided communicator
