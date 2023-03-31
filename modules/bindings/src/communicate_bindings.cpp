@@ -3,6 +3,7 @@
 #ifdef build_communicate
 #include "communicate.hpp"
 #include <boost/python.hpp>
+#include <string>
 
 namespace communicate_export
 {
@@ -111,15 +112,18 @@ void export_communicate()
 {
     using namespace communicate_export;
     using namespace boost::python;
+    using std::string;
 
     // communicate section
     // classes
     class_<Communicator, boost::noncopyable>("CommunicatorBase", no_init);
     class_<SocketServer, bases<Communicator>>("SocketServer", init<int, optional<int>>((arg("port"), arg("max_msg_size"))));
-    class_<SocketClient, bases<Communicator>>("SocketClient", init<const char *, int, optional<int>>((arg("ip"), arg("max_msg_size"))));
+    class_<SocketClient, bases<Communicator>>("SocketClient", init<string, int, optional<int>>((arg("ip"), arg("max_msg_size"))));
     class_<SHMCommunicator, bases<Communicator>>("SHMCommunicator", init<int, optional<int>>((arg("id"), arg("max_msg_size"))));
-    class_<PosixQCommunicator, bases<Communicator>>("PosixQCommunicator", init<const char *, optional<int, int>>((arg("name"), arg("max_msgs"), arg("max_msg_size"))));
+    class_<PosixQCommunicator, bases<Communicator>>("PosixQCommunicator", init<string, optional<int, int>>((arg("name"), arg("max_msgs"), arg("max_msg_size"))));
     class_<SysVCommunicator, bases<Communicator>>("SysVCommunicator", init<int, optional<int>>((arg("id"), arg("max_msg_size"))));
+    class_<BluetoothClient, bases<Communicator>>("BluetoothClient", init<string, optional<int>>((arg("bluetooth_addr"), arg("max_msg_size"))));
+    class_<BluetoothServer, bases<Communicator>>("BluetoothServer", init<optional<int>>((arg("max_msg_size"))));
 
     // ints
     def("receive_ints", receive_ints);

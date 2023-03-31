@@ -49,6 +49,7 @@ public:
      *
      */
     virtual void open();
+
     /**
      * @brief Close the communicator.
      * @details This should be called automatically in the deconstructor.
@@ -91,7 +92,7 @@ public:
      * @brief Construct a new Bluetooth Client object
      *
      * @param target_addr the bluetooth address to connect to
-     * @param max_msg_size the maximum size of your messages
+     * @param max_msg_size The maximum size of your messages
      */
     BluetoothClient(std::string target_addr, uint32_t max_msg_size);
 
@@ -114,6 +115,7 @@ public:
      *
      */
     virtual void open();
+
     /**
      * @brief Close the communicator.
      * @details This should be called automatically in the deconstructor.
