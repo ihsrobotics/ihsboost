@@ -1,5 +1,5 @@
-<map id="communicate/include/posixqcommunicator.hpp" name="communicate/include/posixqcommunicator.hpp">
-<area shape="rect" id="node1" title="Posix&#45;based mqueue communication." alt="" coords="380,5,571,47"/>
+<map id="modules/communicate/include/posixqcommunicator.hpp" name="modules/communicate/include/posixqcommunicator.hpp">
+<area shape="rect" id="node1" title="Posix&#45;based mqueue communication." alt="" coords="355,5,596,47"/>
 <area shape="rect" id="node2" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="187,95,329,121"/>
 <area shape="rect" id="node8" title=" " alt="" coords="421,319,479,345"/>
 <area shape="rect" id="node9" title=" " alt="" coords="513,95,600,121"/>

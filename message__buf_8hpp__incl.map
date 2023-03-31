@@ -1,5 +1,5 @@
-<map id="communicate/include/message_buf.hpp" name="communicate/include/message_buf.hpp">
-<area shape="rect" id="node1" title="MessageBuf class for serializing and retreiving data." alt="" coords="67,5,230,47"/>
+<map id="modules/communicate/include/message_buf.hpp" name="modules/communicate/include/message_buf.hpp">
+<area shape="rect" id="node1" title="MessageBuf class for serializing and retreiving data." alt="" coords="53,5,244,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,81,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="105,95,192,121"/>
 <area shape="rect" id="node4" href="$communication__exception_8hpp.html" title="Exceptions that may be thrown while communicating." alt="" coords="216,95,439,121"/>

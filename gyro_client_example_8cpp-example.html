@@ -66,7 +66,8 @@ $(function() {
 <div class="title">gyro_client_example.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;ihsboost/all.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
@@ -76,7 +77,7 @@ $(function() {
 <div class="line">    create_connect_once();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// align with black</span></div>
-<div class="line">    <a name="a0"></a><a class="code" href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">align_with_black</a>(200, -50, Cliff::LCliff, Cliff::RCliff);</div>
+<div class="line">    <a name="a0"></a><a class="code" href="group__python__functions__id.html#ga369500d1f8509e1c01d692316e1cb02e">align_with_black</a>(200, -50, Cliff::LCliff, Cliff::RCliff);</div>
 <div class="line">    msleep(500);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// we will use this as our new zero point.</span></div>
@@ -90,7 +91,7 @@ $(function() {
 <div class="line">    <span class="comment">// do some moving</span></div>
 <div class="line">    create_drive_direct(100, 75);</div>
 <div class="line">    msleep(500);</div>
-<div class="line">    <a name="a2"></a><a class="code" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a>(200, 90); <span class="comment">// turn 90 degrees CW</span></div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__python__functions__id.html#ga9449f898b9e166376ba3652091735b90">gyro_turn_degrees_v2</a>(200, 90); <span class="comment">// turn 90 degrees CW</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// then, turn back to our original angle</span></div>
 <div class="line">    <span class="comment">// since we set our zero point when we had aligned with the line,</span></div>
@@ -105,11 +106,10 @@ $(function() {
 <div class="line">    create_disconnect();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
 <div class="ttc" id="aclassGyroSubscriber_html"><div class="ttname"><a href="classGyroSubscriber.html">GyroSubscriber</a></div><div class="ttdoc">Class that takes care of setting up the GyroSingleton for use in client programs.</div><div class="ttdef"><b>Definition:</b> imu_movement.hpp:73</div></div>
 <div class="ttc" id="aclassGyroSubscriber_html_a1eef486f37ce0ab9570b50a4ec6d68f8"><div class="ttname"><a href="classGyroSubscriber.html#a1eef486f37ce0ab9570b50a4ec6d68f8">GyroSubscriber::get_relative_angle</a></div><div class="ttdeci">double get_relative_angle()</div><div class="ttdoc">Get the angle relative to when this GyroSubscriber was created.</div><div class="ttdef"><b>Definition:</b> imu_movement.cpp:59</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga45c6360af2fcee806597329ffa3400a6"><div class="ttname"><a href="group__movement__id.html#ga45c6360af2fcee806597329ffa3400a6">align_with_black</a></div><div class="ttdeci">void align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop=get_config().getBool(&quot;align_stop&quot;), int updates_per_second=get_config().getInt(&quot;align_updates_per_sec&quot;))</div><div class="ttdoc">Align with black, meaning keep moving until both cliff_sensor_l and cliff_sensor_r are on black.</div><div class="ttdef"><b>Definition:</b> line_follow.cpp:128</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga82fd5a78ca4700cb56cd5996e5c077af"><div class="ttname"><a href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a></div><div class="ttdeci">void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed=get_config().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=get_config().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;gyro_updates_per_sec&quot;))</div><div class="ttdoc">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.</div><div class="ttdef"><b>Definition:</b> imu_movement.cpp:121</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_ga369500d1f8509e1c01d692316e1cb02e"><div class="ttname"><a href="group__python__functions__id.html#ga369500d1f8509e1c01d692316e1cb02e">ihs_bindings.align_with_black</a></div><div class="ttdeci">None align_with_black(int speed, int correction_speed, Cliff cliff_sensor_l, Cliff cliff_sensor_r, bool stop=..., int updates_per_second=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:631</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_ga9449f898b9e166376ba3652091735b90"><div class="ttname"><a href="group__python__functions__id.html#ga9449f898b9e166376ba3652091735b90">ihs_bindings.gyro_turn_degrees_v2</a></div><div class="ttdeci">None gyro_turn_degrees_v2(int max_speed, float degrees, int min_speed=..., float accel_per_sec=..., float updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:520</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

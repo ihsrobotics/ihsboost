@@ -1,9 +1,9 @@
-<map id="threading/include/background_task.hpp" name="threading/include/background_task.hpp">
-<area shape="rect" id="node1" title="Background task class." alt="" coords="244,5,459,47"/>
-<area shape="rect" id="node2" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,95,204,136"/>
-<area shape="rect" id="node5" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="228,102,475,129"/>
-<area shape="rect" id="node7" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="382,191,611,218"/>
-<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="148,273,395,300"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="318,348,385,375"/>
-<area shape="rect" id="node6" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="185,184,358,225"/>
+<map id="modules/threading/include/background_task.hpp" name="modules/threading/include/background_task.hpp">
+<area shape="rect" id="node1" title="Background task class." alt="" coords="235,5,430,47"/>
+<area shape="rect" id="node2" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,95,209,136"/>
+<area shape="rect" id="node5" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="235,95,430,136"/>
+<area shape="rect" id="node7" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="371,184,566,225"/>
+<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="143,273,347,315"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="225,363,403,389"/>
+<area shape="rect" id="node6" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="143,184,347,225"/>
 </map>

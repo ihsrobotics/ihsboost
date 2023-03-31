@@ -1,5 +1,5 @@
-<map id="movement/include/roomba_movement.hpp" name="movement/include/roomba_movement.hpp">
-<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="188,5,387,47"/>
+<map id="modules/movement/include/roomba_movement.hpp" name="modules/movement/include/roomba_movement.hpp">
+<area shape="rect" id="node1" title="Roomba&#45;specific movement functions." alt="" coords="185,5,389,47"/>
 <area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,95,167,121"/>
 <area shape="rect" id="node5" title=" " alt="" coords="157,244,244,271"/>
 <area shape="rect" id="node6" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="243,95,332,121"/>

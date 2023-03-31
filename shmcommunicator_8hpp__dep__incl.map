@@ -1,5 +1,5 @@
-<map id="communicate/include/shmcommunicator.hpp" name="communicate/include/shmcommunicator.hpp">
-<area shape="rect" id="node1" title="Shared memory based communication." alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="11,95,174,136"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="59,184,126,211"/>
+<map id="modules/communicate/include/shmcommunicator.hpp" name="modules/communicate/include/shmcommunicator.hpp">
+<area shape="rect" id="node1" title="Shared memory based communication." alt="" coords="5,5,232,47"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="21,95,216,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="30,184,207,211"/>
 </map>

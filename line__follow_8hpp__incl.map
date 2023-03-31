@@ -1,5 +1,5 @@
-<map id="movement/include/line_follow.hpp" name="movement/include/line_follow.hpp">
-<area shape="rect" id="node1" title="Line follow functions." alt="" coords="169,5,341,47"/>
+<map id="modules/movement/include/line_follow.hpp" name="modules/movement/include/line_follow.hpp">
+<area shape="rect" id="node1" title="Line follow functions." alt="" coords="153,5,357,47"/>
 <area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="135,95,254,121"/>
 <area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,169,142,196"/>
 <area shape="rect" id="node8" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="277,95,352,121"/>

@@ -66,7 +66,8 @@ $(function() {
 <div class="title">encoder_example.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="all_8hpp.html">ihsboost/all.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;ihsboost/all.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.hpp&gt;</span></div>
@@ -82,15 +83,14 @@ $(function() {
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10; ++i)</div>
 <div class="line">    {</div>
 <div class="line">        <a name="a0"></a><a class="code" href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">encoder_drive_straight</a>(500, 150);</div>
-<div class="line">        <a name="a1"></a><a class="code" href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a>(300, 180 * (i % 2 == 0 ? 1 : -1));</div>
+<div class="line">        <a name="a1"></a><a class="code" href="group__python__functions__id.html#ga8ede7a3952b52fd688b01ff3f8846f8e">encoder_turn_degrees</a>(300, 180 * (i % 2 == 0 ? 1 : -1));</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    create_disconnect();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aall_8hpp_html"><div class="ttname"><a href="all_8hpp.html">all.hpp</a></div><div class="ttdoc">master header that includes all other ihsboost headers</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga5477b70d1d2eea55385f70e2385f0dea"><div class="ttname"><a href="group__movement__id.html#ga5477b70d1d2eea55385f70e2385f0dea">encoder_turn_degrees</a></div><div class="ttdeci">void encoder_turn_degrees(int max_speed, double degrees, int min_speed=get_config().getInt(&quot;roomba_min_speed&quot;), double accel_per_sec=get_config().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=get_config().getInt(&quot;roomba_updates_per_sec&quot;))</div><div class="ttdoc">Turns a certain number of degrees using create encoders.</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:437</div></div>
 <div class="ttc" id="agroup__movement__id_html_ga8faaceac5a8eaa51ccff1a942f5dd6cb"><div class="ttname"><a href="group__movement__id.html#ga8faaceac5a8eaa51ccff1a942f5dd6cb">encoder_drive_straight</a></div><div class="ttdeci">double encoder_drive_straight(int speed, double cm, bool stop=get_config().getBool(&quot;roomba_stop&quot;), int min_speed=get_config().getInt(&quot;roomba_min_speed&quot;), double correction_proportion=get_config().getDouble(&quot;roomba_correction_proportion&quot;), double accel_per_sec=get_config().getDouble(&quot;roomba_accel_per_sec&quot;), int updates_per_sec=get_config().getInt(&quot;roomba_updates_per_sec&quot;))</div><div class="ttdoc">Drive straight using create encoders.</div><div class="ttdef"><b>Definition:</b> roomba_movement.cpp:175</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_ga8ede7a3952b52fd688b01ff3f8846f8e"><div class="ttname"><a href="group__python__functions__id.html#ga8ede7a3952b52fd688b01ff3f8846f8e">ihs_bindings.encoder_turn_degrees</a></div><div class="ttdeci">None encoder_turn_degrees(Speed turn_speed, float degrees, int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:742</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

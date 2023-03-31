@@ -1,10 +1,10 @@
-<map id="communicate/include/communicator.hpp" name="communicate/include/communicator.hpp">
-<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="360,5,523,47"/>
-<area shape="rect" id="node2" href="$btcommunicator_8hpp.html" title="Bluetooth&#45;based communication." alt="" coords="5,95,168,136"/>
-<area shape="rect" id="node3" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="464,184,627,225"/>
-<area shape="rect" id="node5" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="243,95,434,136"/>
-<area shape="rect" id="node6" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="458,95,633,136"/>
-<area shape="rect" id="node7" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="657,95,847,136"/>
-<area shape="rect" id="node8" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="871,95,1049,136"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="512,273,579,300"/>
+<map id="modules/communicate/include/communicator.hpp" name="modules/communicate/include/communicator.hpp">
+<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="442,5,641,47"/>
+<area shape="rect" id="node2" href="$btcommunicator_8hpp.html" title="Bluetooth&#45;based communication." alt="" coords="5,95,216,136"/>
+<area shape="rect" id="node3" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="444,184,639,225"/>
+<area shape="rect" id="node5" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="291,95,533,136"/>
+<area shape="rect" id="node6" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="557,95,784,136"/>
+<area shape="rect" id="node7" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="808,95,1048,136"/>
+<area shape="rect" id="node8" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="1073,95,1301,136"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="453,273,630,300"/>
 </map>

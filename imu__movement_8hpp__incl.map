@@ -1,5 +1,5 @@
-<map id="movement/include/imu_movement.hpp" name="movement/include/imu_movement.hpp">
-<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="251,5,425,47"/>
+<map id="modules/movement/include/imu_movement.hpp" name="modules/movement/include/imu_movement.hpp">
+<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="236,5,440,47"/>
 <area shape="rect" id="node2" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="87,95,218,121"/>
 <area shape="rect" id="node6" title=" " alt="" coords="161,319,248,345"/>
 <area shape="rect" id="node7" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="293,95,383,121"/>

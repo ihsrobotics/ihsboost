@@ -1,5 +1,5 @@
-<map id="movement/include/imu_movement.hpp" name="movement/include/imu_movement.hpp">
-<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="42,5,215,47"/>
-<area shape="rect" id="node2" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,95,252,121"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="95,169,162,196"/>
+<map id="modules/movement/include/imu_movement.hpp" name="modules/movement/include/imu_movement.hpp">
+<area shape="rect" id="node1" title="IMU (gyro/accel) based movement functions." alt="" coords="5,5,209,47"/>
+<area shape="rect" id="node2" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,95,209,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="19,184,196,211"/>
 </map>

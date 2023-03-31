@@ -1,5 +1,5 @@
-<map id="communicate/include/sysvcommunicator.hpp" name="communicate/include/sysvcommunicator.hpp">
-<area shape="rect" id="node1" title="SysV based communication." alt="" coords="5,5,183,47"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="13,95,175,136"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="61,184,127,211"/>
+<map id="modules/communicate/include/sysvcommunicator.hpp" name="modules/communicate/include/sysvcommunicator.hpp">
+<area shape="rect" id="node1" title="SysV based communication." alt="" coords="5,5,233,47"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="22,95,217,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="31,184,208,211"/>
 </map>

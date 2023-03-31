@@ -1,5 +1,5 @@
-<map id="communicate/include/communicator.hpp" name="communicate/include/communicator.hpp">
-<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="67,5,230,47"/>
+<map id="modules/communicate/include/communicator.hpp" name="modules/communicate/include/communicator.hpp">
+<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="49,5,248,47"/>
 <area shape="rect" id="node2" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="81,95,217,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,169,81,196"/>
 <area shape="rect" id="node4" title=" " alt="" coords="105,169,192,196"/>

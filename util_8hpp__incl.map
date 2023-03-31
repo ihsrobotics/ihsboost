@@ -1,10 +1,10 @@
-<map id="util/include/util.hpp" name="util/include/util.hpp">
-<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="159,5,305,32"/>
-<area shape="rect" id="node2" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="105,80,194,107"/>
-<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="129,155,252,181"/>
-<area shape="rect" id="node7" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="270,80,359,107"/>
-<area shape="rect" id="node8" href="$timer_8hpp.html" title="Timer class definition." alt="" coords="383,80,467,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="99,229,157,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="181,229,328,256"/>
+<map id="modules/util/include/util.hpp" name="modules/util/include/util.hpp">
+<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="155,5,309,47"/>
+<area shape="rect" id="node2" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,95,80,121"/>
+<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="105,95,194,121"/>
+<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="129,169,252,196"/>
+<area shape="rect" id="node7" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="270,95,359,121"/>
+<area shape="rect" id="node8" href="$timer_8hpp.html" title="Timer class definition." alt="" coords="383,95,467,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="99,244,157,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="181,244,328,271"/>
 </map>

@@ -154,6 +154,9 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Client class for communicating over bluetooth. </p>
+<dl class="section warning"><dt>Warning</dt><dd>You cannot use a <a class="el" href="classBluetoothClient.html" title="Client class for communicating over bluetooth.">BluetoothClient</a> to connect to a <a class="el" href="classBluetoothServer.html" title="Server class for communicating over bluetooth.">BluetoothServer</a> hosted on the same device. Bluetooth connections can only be made between devices. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="bluetooth_client_8cpp-example.html#_a0">bluetooth_client.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6a4a75345bb97c7f6510f2a0f3304342"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a4a75345bb97c7f6510f2a0f3304342">&#9670;&nbsp;</a></span>BluetoothClient() <span class="overload">[1/2]</span></h2>
@@ -306,12 +309,14 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMessageBuf.html" title="Class for storing data over communicators.">MessageBuf</a> - the message that was received </dd></dl>
 
 <p>Implements <a class="el" href="classCommunicator.html#aad88aff9166c18c803156a58500994db">Communicator</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="bluetooth_client_8cpp-example.html#a1">bluetooth_client.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>communicate/include/<a class="el" href="btcommunicator_8hpp_source.html">btcommunicator.hpp</a></li>
-<li>communicate/src/btcommunicator.cpp</li>
+<li>modules/communicate/include/<a class="el" href="btcommunicator_8hpp_source.html">btcommunicator.hpp</a></li>
+<li>modules/communicate/src/btcommunicator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

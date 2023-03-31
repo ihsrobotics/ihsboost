@@ -1,5 +1,5 @@
-<map id="communicate/include/sysvcommunicator.hpp" name="communicate/include/sysvcommunicator.hpp">
-<area shape="rect" id="node1" title="SysV based communication." alt="" coords="129,5,307,47"/>
+<map id="modules/communicate/include/sysvcommunicator.hpp" name="modules/communicate/include/sysvcommunicator.hpp">
+<area shape="rect" id="node1" title="SysV based communication." alt="" coords="104,5,332,47"/>
 <area shape="rect" id="node2" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="77,95,220,121"/>
 <area shape="rect" id="node9" title=" " alt="" coords="245,95,333,121"/>
 <area shape="rect" id="node3" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="81,169,217,196"/>

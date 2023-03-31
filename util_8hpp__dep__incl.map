@@ -1,4 +1,4 @@
-<map id="util/include/util.hpp" name="util/include/util.hpp">
-<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="5,5,152,32"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="45,80,112,107"/>
+<map id="modules/util/include/util.hpp" name="modules/util/include/util.hpp">
+<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="17,5,171,47"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="5,95,183,121"/>
 </map>

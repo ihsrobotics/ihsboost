@@ -72,10 +72,11 @@ $(function() {
 Installing</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h2>
-<p>ihsboost depends on the following libraries:</p><ul>
-<li>libwallaby - please use <a href="https://github.com/chrehall68/libwallaby/tree/refactor">this branch</a> to install libwallaby</li>
-<li>libjsoncpp - on linux, run <code>sudo apt-get install libjsoncpp-dev</code> to install</li>
-<li>libbluetooth - on linux, run <code>sudo apt-get install libbluetooth-dev</code> to install </li>
+<p>Some ihsboost modules have dependencies. The format below is dependency - modules - installation instructions</p><ul>
+<li>libwallaby - servos, movement, create_extra - please use <a href="https://github.com/chrehall68/libwallaby/tree/refactor">this branch</a> to install libwallaby</li>
+<li>libjsoncpp - util - on linux, run <code>sudo apt-get install libjsoncpp-dev</code> to install</li>
+<li>libbluetooth - communicate - on linux, run <code>sudo apt-get install libbluetooth-dev</code> to install</li>
+<li>libboost_python - bindings - on linux, run <code>sudo apt-get install libboost-python-dev</code> to install </li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Getting the Source files</h2>
@@ -95,18 +96,28 @@ Wombat Build</h2>
 </div><!-- fragment --><p>Note: you will need to use either the <code>main</code> branch or the <code>older-wombat</code> branch depending on whether you are using a new wombat or an old (original OS) wombat (see <code>Getting the Source files</code>) </p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Cross Compile Build</h2>
-<p>Currently, Cross compile build is unsupported. </p>
+<p>Currently, cross compile build is unsupported. </p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Other Build Options</h2>
 <p>The following are options that can be appended to the <code>cmake</code> command when configuring the project.</p>
 <ul>
-<li><code>-Dwith_documentation=OFF/ON</code> - build documentation files for the project, defaults to <code>OFF</code></li>
 <li><code>-Dbuild_library=ON/OFF</code> - build ihsboost, defaults to <code>ON</code></li>
-<li><code>-Dbuild_python=ON/OFF</code>- build python bindings, defaults to <code>ON</code></li>
-<li><code>-Dpython_version=XXX</code> - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9</li>
+<li><code>-Dbuild_tests=OFF/ON</code> - build tests to assure that ihsboost built successfully, defaults to <code>OFF</code></li>
+<li><code>-Dwith_documentation=OFF/ON</code> - build documentation files for the project, defaults to <code>OFF</code></li>
 <li><code>-Droomba=ON/OFF</code> - use roomba configs or not, defaults to <code>ON</code></li>
+<li><code>-Dpython_version=XXX</code> - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9, only relevant if building python bindings</li>
 </ul>
-<p>For example, <code>cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10</code> will configure cmake to build the library and python bindings (since <code>build_library</code> and <code>build_python</code> default to <code>ON</code>) but will also make the documentation (since <code>with_documentation</code> was specified to <code>ON</code>) and use python 3.10 instean of python 3.9 </p>
+<p>The following are options to configure which ihsboost modules to build</p><ul>
+<li><code>-Dbuild_bindings=ON/OFF</code>- build python bindings, defaults to <code>ON</code></li>
+<li><code>-Dbuild_communicate=ON/OFF</code> - build communicate, defaults to <code>ON</code></li>
+<li><code>-Dbuild_controllers=ON/OFF</code> - build controllers, defaults to <code>ON</code></li>
+<li><code>-Dbuild_create_extra=ON/OFF</code> - build extra create functionality (vacuum and brushes), defaults to <code>ON</code></li>
+<li><code>-Dbuild_movement=ON/OFF</code> - build movement functions, defaults to <code>ON</code></li>
+<li><code>-Dbuild_servos=ON/OFF</code> - build servo movement functions, defaults to <code>ON</code></li>
+<li><code>-Dbuild_thread=ON/OFF</code> - build threading classes, defaults to <code>ON</code></li>
+<li><code>-Dbuild_util=ON/OFF</code> - build util, defaults to <code>ON</code></li>
+</ul>
+<p>For example, <code>cmake .. -DCMAKE_BUILD_TYPE=Release -Dwith_documentation=ON -Dpython_version=3.10</code> will configure cmake to build the library and python bindings (since <code>build_library</code> and <code>build_bindings</code> default to <code>ON</code>) but will also make the documentation (since <code>with_documentation</code> was specified to <code>ON</code>) and use python 3.10 instean of python 3.9 </p>
 <h1><a class="anchor" id="autotoc_md7"></a>
 Compiling programs with it</h1>
 <p>To compile a program with the ihsboost library, then assuming that you have already installed ihsboost, all you have to do is the following command to compile to form the executable <code>./a.out</code>:</p>

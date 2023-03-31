@@ -66,7 +66,8 @@ $(function() {
 <div class="title">movement_example.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;ihsboost/accelerate.hpp&gt;</span></div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;ihsboost/accelerate.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;kipr/wombat.hpp&gt;</span></div>
 <div class="line"> </div>
@@ -76,29 +77,29 @@ $(function() {
 <div class="line">    kipr::create::Create::instance()-&gt;setRefreshRate(8);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// linear</span></div>
-<div class="line">    <a name="a0"></a><a class="code" href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a>(0, 500);</div>
+<div class="line">    <a name="a0"></a><a class="code" href="group__python__functions__id.html#gac03afa4091ec52e6324c9a79eff4d7ba">accelerate_forward_linear</a>(0, 500);</div>
 <div class="line">    msleep(500);</div>
-<div class="line">    <a class="code" href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a>(500, -500);</div>
+<div class="line">    <a class="code" href="group__python__functions__id.html#gac03afa4091ec52e6324c9a79eff4d7ba">accelerate_forward_linear</a>(500, -500);</div>
 <div class="line">    msleep(500);</div>
-<div class="line">    <a class="code" href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a>(-500, 0);</div>
+<div class="line">    <a class="code" href="group__python__functions__id.html#gac03afa4091ec52e6324c9a79eff4d7ba">accelerate_forward_linear</a>(-500, 0);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// sinusoidal</span></div>
-<div class="line">    <a name="a1"></a><a class="code" href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a>(0, 500);</div>
+<div class="line">    <a name="a1"></a><a class="code" href="group__python__functions__id.html#gae89c829588bf50d5808cc1a84853b338">accelerate_forward_sin</a>(0, 500);</div>
 <div class="line">    msleep(500);</div>
-<div class="line">    <a class="code" href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a>(500, -500);</div>
+<div class="line">    <a class="code" href="group__python__functions__id.html#gae89c829588bf50d5808cc1a84853b338">accelerate_forward_sin</a>(500, -500);</div>
 <div class="line">    msleep(500);</div>
-<div class="line">    <a class="code" href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a>(-500, 0);</div>
+<div class="line">    <a class="code" href="group__python__functions__id.html#gae89c829588bf50d5808cc1a84853b338">accelerate_forward_sin</a>(-500, 0);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// turn</span></div>
-<div class="line">    <a name="a2"></a><a class="code" href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f">accelerate_linear</a>({0, 0}, {500, -500});</div>
-<div class="line">    <a class="code" href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f">accelerate_linear</a>({500, -500}, {0, 0});</div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__python__functions__id.html#gada696f33ffc4c0975b1fc4caea2800e8">accelerate_linear</a>({0, 0}, {500, -500});</div>
+<div class="line">    <a class="code" href="group__python__functions__id.html#gada696f33ffc4c0975b1fc4caea2800e8">accelerate_linear</a>({500, -500}, {0, 0});</div>
 <div class="line"> </div>
 <div class="line">    create_disconnect();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__movement__id_html_ga4ffb81e42fb8b907261911ee37c887ca"><div class="ttname"><a href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a></div><div class="ttdeci">void accelerate_forward_sin(int from_speed, int to_speed, double avg_accel_per_sec=get_config().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same sinusoidal rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:14</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga80b54a179f240432f515e62199b5fb57"><div class="ttname"><a href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a></div><div class="ttdeci">void accelerate_forward_linear(int from_speed, int to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same linear rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:9</div></div>
-<div class="ttc" id="agroup__movement__id_html_gab62164c7d92d822e4c25b27c1cf9400f"><div class="ttname"><a href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f">accelerate_linear</a></div><div class="ttdeci">void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at potentially different linear rates.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:19</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_gac03afa4091ec52e6324c9a79eff4d7ba"><div class="ttname"><a href="group__python__functions__id.html#gac03afa4091ec52e6324c9a79eff4d7ba">ihs_bindings.accelerate_forward_linear</a></div><div class="ttdeci">None accelerate_forward_linear(int from_speed, int to_speed, float accel_per_sec=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:428</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_gada696f33ffc4c0975b1fc4caea2800e8"><div class="ttname"><a href="group__python__functions__id.html#gada696f33ffc4c0975b1fc4caea2800e8">ihs_bindings.accelerate_linear</a></div><div class="ttdeci">None accelerate_linear(Speed from_speed, Speed to_speed, float accel_per_sec=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:456</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_gae89c829588bf50d5808cc1a84853b338"><div class="ttname"><a href="group__python__functions__id.html#gae89c829588bf50d5808cc1a84853b338">ihs_bindings.accelerate_forward_sin</a></div><div class="ttdeci">None accelerate_forward_sin(int from_speed, int to_speed, float avg_accel_per_sec=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:442</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

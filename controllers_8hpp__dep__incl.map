@@ -1,4 +1,4 @@
-<map id="controllers/include/controllers.hpp" name="controllers/include/controllers.hpp">
-<area shape="rect" id="node1" title="Movement controllers." alt="" coords="5,5,148,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="43,95,110,121"/>
+<map id="modules/controllers/include/controllers.hpp" name="modules/controllers/include/controllers.hpp">
+<area shape="rect" id="node1" title="Movement controllers." alt="" coords="7,5,181,47"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="5,95,183,121"/>
 </map>

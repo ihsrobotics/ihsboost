@@ -1,5 +1,5 @@
-<map id="util/include/timer.hpp" name="util/include/timer.hpp">
-<area shape="rect" id="node1" title="Timer class definition." alt="" coords="5,5,165,32"/>
-<area shape="rect" id="node2" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="12,80,159,107"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="52,155,119,181"/>
+<map id="modules/util/include/timer.hpp" name="modules/util/include/timer.hpp">
+<area shape="rect" id="node1" title="Timer class definition." alt="" coords="17,5,171,47"/>
+<area shape="rect" id="node2" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="17,95,171,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="5,184,183,211"/>
 </map>

@@ -1,5 +1,5 @@
-<map id="threading/include/threadable.hpp" name="threading/include/threadable.hpp">
-<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="5,5,243,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="43,80,107,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="131,80,218,107"/>
+<map id="modules/threading/include/threadable.hpp" name="modules/threading/include/threadable.hpp">
+<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="5,5,200,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="21,95,85,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="110,95,197,121"/>
 </map>

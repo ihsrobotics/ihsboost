@@ -1,5 +1,5 @@
-<map id="communicate/include/socketcommunicator.hpp" name="communicate/include/socketcommunicator.hpp">
-<area shape="rect" id="node1" title="Socket based communication." alt="" coords="5,5,195,47"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="19,95,181,136"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="67,184,133,211"/>
+<map id="modules/communicate/include/socketcommunicator.hpp" name="modules/communicate/include/socketcommunicator.hpp">
+<area shape="rect" id="node1" title="Socket based communication." alt="" coords="5,5,245,47"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="28,95,223,136"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="37,184,214,211"/>
 </map>
