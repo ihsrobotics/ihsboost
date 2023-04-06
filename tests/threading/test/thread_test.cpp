@@ -224,6 +224,24 @@ void test_dynamic(int val1, int val2)
     cout << "passed test dynamic" << endl;
 }
 
+void test_member_func()
+{
+    Test test(0);
+    int amt1 = 10;
+    int amt2 = 20;
+    Threadable t1(&Test::increment_val, &test, amt1);
+    Threadable t2(&Test::increment_val, &test, amt2);
+
+    t1.start();
+    t2.start();
+
+    while (!t1.done() || !t2.done())
+        ;
+
+    assert_equals(amt1 + amt2, test.get_val(), "testing members");
+    cout << "passed member funcs" << endl;
+}
+
 int main()
 {
     test_single_thread_ptr();
@@ -236,6 +254,7 @@ int main()
     test_multiple_threads();
 
     test_dynamic(rand() % 10, rand() % 50);
+    test_member_func();
 
     return 0;
 }
