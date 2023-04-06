@@ -15,7 +15,6 @@
 
 #include <thread>
 #include <type_traits>
-#include <functional>
 #include <tuple>
 
 /**
@@ -116,6 +115,13 @@ public:
     bool started() const;
 
     Threadable &operator=(const Threadable &other) = delete;
+    /**
+     * @brief Equals operator for setting a Threadable equal to
+     * a Threadable rvalue
+     *
+     * @param other the Threadable to set this equal to
+     * @return Threadable& this Threadable
+     */
     Threadable &operator=(Threadable &&other);
 
 private:
