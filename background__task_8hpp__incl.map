@@ -1,6 +1,7 @@
 <map id="modules/threading/include/background_task.hpp" name="modules/threading/include/background_task.hpp">
-<area shape="rect" id="node1" title="Background task class." alt="" coords="5,5,200,47"/>
-<area shape="rect" id="node2" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="43,95,163,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="21,169,85,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="110,169,197,196"/>
+<area shape="rect" id="node1" title="Background task class." alt="" coords="43,5,237,47"/>
+<area shape="rect" id="node2" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="80,95,200,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,169,69,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="94,169,186,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="210,169,265,196"/>
 </map>

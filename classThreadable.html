@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.6.1</span>
+   &#160;<span id="projectnumber">1.7.0</span>
    </div>
   </td>
  </tr>
@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classThreadable-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -81,10 +82,10 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadable.html#a0856212de3543556e9d990298e2baa82">Threadable</a> ()</td></tr>
 <tr class="memdesc:a0856212de3543556e9d990298e2baa82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> object that does nothing. <br /></td></tr>
 <tr class="separator:a0856212de3543556e9d990298e2baa82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f07f8bd1ab32243b691775d65b9dd9d"><td class="memTemplParams" colspan="2">template&lt;typename _MemberFunc , typename _Class_Ptr , typename... _Args, typename std::enable_if&lt; std::is_member_function_pointer&lt; _MemberFunc &gt;::value, bool &gt;::type  = true, typename std::enable_if&lt; std::is_pointer&lt; _Class_Ptr &gt;::value, bool &gt;::type  = true&gt; </td></tr>
-<tr class="memitem:a2f07f8bd1ab32243b691775d65b9dd9d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classThreadable.html#a2f07f8bd1ab32243b691775d65b9dd9d">Threadable</a> (_MemberFunc &amp;&amp;func, _Class_Ptr c, _Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:a2f07f8bd1ab32243b691775d65b9dd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> object to run the given member function on the given instance with the given parameters in a separate thread.  <a href="classThreadable.html#a2f07f8bd1ab32243b691775d65b9dd9d">More...</a><br /></td></tr>
-<tr class="separator:a2f07f8bd1ab32243b691775d65b9dd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97aeaa19468b6d4ecdaa161a4b310019"><td class="memTemplParams" colspan="2">template&lt;typename _MemberFunc , typename _Class , typename... _Args, typename std::enable_if&lt; std::is_member_function_pointer&lt; _MemberFunc &gt;::value, bool &gt;::type  = true&gt; </td></tr>
+<tr class="memitem:a97aeaa19468b6d4ecdaa161a4b310019"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classThreadable.html#a97aeaa19468b6d4ecdaa161a4b310019">Threadable</a> (_MemberFunc &amp;&amp;func, _Class *c, _Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a97aeaa19468b6d4ecdaa161a4b310019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> object to run the given member function on the given instance with the given parameters in a separate thread.  <a href="classThreadable.html#a97aeaa19468b6d4ecdaa161a4b310019">More...</a><br /></td></tr>
+<tr class="separator:a97aeaa19468b6d4ecdaa161a4b310019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf112669c5ca684bee94120682001233"><td class="memTemplParams" colspan="2">template&lt;typename _Callable , typename... _Args&gt; </td></tr>
 <tr class="memitem:adf112669c5ca684bee94120682001233"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classThreadable.html#adf112669c5ca684bee94120682001233">Threadable</a> (_Callable &amp;&amp;func, _Args &amp;&amp;...args)</td></tr>
 <tr class="memdesc:adf112669c5ca684bee94120682001233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> object to run the given function with the given parameters in a separate thread.  <a href="classThreadable.html#adf112669c5ca684bee94120682001233">More...</a><br /></td></tr>
@@ -110,8 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a854bcfb6e32c6c8a9392bbb81321f736"><td class="memItemLeft" align="right" valign="top"><a id="a854bcfb6e32c6c8a9392bbb81321f736"></a>
 <a class="el" href="classThreadable.html">Threadable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classThreadable.html">Threadable</a> &amp;other)=delete</td></tr>
 <tr class="separator:a854bcfb6e32c6c8a9392bbb81321f736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2698f83aaf656023dd0624dbe9cd7b5"><td class="memItemLeft" align="right" valign="top"><a id="ae2698f83aaf656023dd0624dbe9cd7b5"></a>
-<a class="el" href="classThreadable.html">Threadable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classThreadable.html">Threadable</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:ae2698f83aaf656023dd0624dbe9cd7b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadable.html">Threadable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadable.html#ae2698f83aaf656023dd0624dbe9cd7b5">operator=</a> (<a class="el" href="classThreadable.html">Threadable</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:ae2698f83aaf656023dd0624dbe9cd7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equals operator for setting a <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> equal to a <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> rvalue.  <a href="classThreadable.html#ae2698f83aaf656023dd0624dbe9cd7b5">More...</a><br /></td></tr>
 <tr class="separator:ae2698f83aaf656023dd0624dbe9cd7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -119,13 +120,13 @@ Public Member Functions</h2></td></tr>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="threading_example_8cpp-example.html#_a0">threading_example.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2f07f8bd1ab32243b691775d65b9dd9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f07f8bd1ab32243b691775d65b9dd9d">&#9670;&nbsp;</a></span>Threadable() <span class="overload">[1/2]</span></h2>
+<a id="a97aeaa19468b6d4ecdaa161a4b310019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97aeaa19468b6d4ecdaa161a4b310019">&#9670;&nbsp;</a></span>Threadable() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename _MemberFunc , typename _Class_Ptr , typename... _Args, typename std::enable_if&lt; std::is_member_function_pointer&lt; _MemberFunc &gt;::value, bool &gt;::type  = true, typename std::enable_if&lt; std::is_pointer&lt; _Class_Ptr &gt;::value, bool &gt;::type  = true&gt; </div>
+template&lt;typename _MemberFunc , typename _Class , typename... _Args, typename std::enable_if&lt; std::is_member_function_pointer&lt; _MemberFunc &gt;::value, bool &gt;::type  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -139,7 +140,7 @@ template&lt;typename _MemberFunc , typename _Class_Ptr , typename... _Args, type
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">_Class_Ptr&#160;</td>
+          <td class="paramtype">_Class *&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
@@ -166,10 +167,9 @@ template&lt;typename _MemberFunc , typename _Class_Ptr , typename... _Args, type
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">_MemberFunc</td><td>the type of the member function to call </td></tr>
-    <tr><td class="paramname">_Class_Ptr</td><td>the type, as a pointer, of the instance </td></tr>
-    <tr><td class="paramname">_Args</td><td>Types of the arguments to pass to the thread </td></tr>
+    <tr><td class="paramname">_Class</td><td>the type the instance </td></tr>
+    <tr><td class="paramname">_Args</td><td>the types of the arguments to pass to the thread </td></tr>
     <tr><td class="paramname">std::enable_if&lt;std::is_member_function_pointer&lt;_MemberFunc&gt;::value,bool&gt;::type</td><td>used to enforce template specialization </td></tr>
-    <tr><td class="paramname">std::enable_if&lt;std::is_pointer&lt;_Class_Ptr&gt;::value,bool&gt;::type</td><td>used to enforce template specialization </td></tr>
   </table>
   </dd>
 </dl>
@@ -177,7 +177,7 @@ template&lt;typename _MemberFunc , typename _Class_Ptr , typename... _Args, type
   <table class="params">
     <tr><td class="paramname">func</td><td>the member function to call. In most circumstances, this is <code>&amp;CLASS_NAME::METHOD_NAME</code> where CLASS_NAME is the name of the class and METHOD_NAME is the name of the method </td></tr>
     <tr><td class="paramname">c</td><td>a pointer to the instance from which to run the member function. </td></tr>
-    <tr><td class="paramname">args</td><td>the arguments with which to call the member function </td></tr>
+    <tr><td class="paramname">args</td><td>the arguments with which to call the member function. Note that these can be lvalues or rvalues </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,10 +222,17 @@ template&lt;typename _Callable , typename... _Args&gt; </div>
 
 <p>Construct a new <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> object to run the given function with the given parameters in a separate thread. </p>
 <p>upon creation, a <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> is considered not done and not started.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">_Callable</td><td>the type of the function to call </td></tr>
+    <tr><td class="paramname">_Args</td><td>the types of the arguments to pass to the thread </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">func</td><td>the function to run </td></tr>
-    <tr><td class="paramname">args</td><td>the arguments to pass to the function </td></tr>
+    <tr><td class="paramname">args</td><td>the arguments to pass to the function. Note that these can be lvalues or rvalues </td></tr>
   </table>
   </dd>
 </dl>
@@ -315,6 +322,33 @@ false - it hasn't completed yet OR it hasn't been started yet </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true - it has completed </dd>
 <dd>
 false - it hasn't completed yet OR it hasn't been started yet </dd></dl>
+
+</div>
+</div>
+<a id="ae2698f83aaf656023dd0624dbe9cd7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2698f83aaf656023dd0624dbe9cd7b5">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classThreadable.html">Threadable</a> &amp; Threadable::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadable.html">Threadable</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equals operator for setting a <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> equal to a <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> rvalue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> to set this equal to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a>&amp; this <a class="el" href="classThreadable.html" title="A thread that runs the given function with the given arguments.">Threadable</a> </dd></dl>
 
 </div>
 </div>

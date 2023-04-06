@@ -1,7 +1,9 @@
 <map id="modules/threading/include/accumulator.hpp" name="modules/threading/include/accumulator.hpp">
-<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="47,5,242,47"/>
-<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="5,95,167,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="157,244,244,271"/>
-<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="31,169,151,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="59,244,123,271"/>
+<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="116,5,311,47"/>
+<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="59,95,221,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="245,95,331,121"/>
+<area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="80,169,200,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,244,69,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="94,244,186,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="210,244,265,271"/>
 </map>

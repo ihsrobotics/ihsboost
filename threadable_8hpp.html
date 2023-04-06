@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.6.1</span>
+   &#160;<span id="projectnumber">1.7.0</span>
    </div>
   </td>
  </tr>
@@ -76,15 +76,17 @@ $(function() {
 <p>Easy threading functionality.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;thread&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for threadable.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="threadable_8hpp__incl.png" border="0" usemap="#amodules_2threading_2include_2threadable_8hpp" alt=""/></div>
 <map name="amodules_2threading_2include_2threadable_8hpp" id="amodules_2threading_2include_2threadable_8hpp">
-<area shape="rect" title="Easy threading functionality." alt="" coords="5,5,200,47"/>
-<area shape="rect" title=" " alt="" coords="21,95,85,121"/>
-<area shape="rect" title=" " alt="" coords="110,95,197,121"/>
+<area shape="rect" title="Easy threading functionality." alt="" coords="43,5,237,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,69,121"/>
+<area shape="rect" title=" " alt="" coords="94,95,186,121"/>
+<area shape="rect" title=" " alt="" coords="210,95,265,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -109,6 +111,13 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadable.html">Threadable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A thread that runs the given function with the given arguments.  <a href="classThreadable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThreadable_1_1FunctionWrapper_1_1index.html">Threadable::FunctionWrapper::index&lt; Ts &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThreadable_1_1FunctionWrapper_1_1gen__seq.html">Threadable::FunctionWrapper::gen_seq&lt; N, Ts &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThreadable_1_1FunctionWrapper_1_1gen__seq_3_010_00_01Ts_8_8_8_01_4.html">Threadable::FunctionWrapper::gen_seq&lt; 0, Ts... &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a sequence of indexes given the size of a parameter pack.  <a href="structThreadable_1_1FunctionWrapper_1_1gen__seq_3_010_00_01Ts_8_8_8_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
