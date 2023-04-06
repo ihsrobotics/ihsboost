@@ -42,7 +42,7 @@ public:
      * @param func the member function to call. In most circumstances, this is `&CLASS_NAME::METHOD_NAME`
      * where CLASS_NAME is the name of the class and METHOD_NAME is the name of the method
      * @param c a pointer to the instance from which to run the member function.
-     * @param args the arguments with which to call the member function. Note that these should be lvalues
+     * @param args the arguments with which to call the member function. Note that these can be lvalues or rvalues
      */
     template <typename _MemberFunc, typename _Class, typename... _Args,
               typename std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type = true>
@@ -58,7 +58,7 @@ public:
      * @tparam _Callable the type of the function to call
      * @tparam _Args the types of the arguments to pass to the thread
      * @param func the function to run
-     * @param args the arguments to pass to the function
+     * @param args the arguments to pass to the function. Note that these can be lvalues or rvalues
      */
     template <typename _Callable, typename... _Args>
     Threadable(_Callable &&func, _Args &&...args) : _started(false), _done(false),
