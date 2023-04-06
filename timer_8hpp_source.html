@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.0</span>
+   &#160;<span id="projectnumber">1.7.1</span>
    </div>
   </td>
  </tr>
@@ -74,25 +74,27 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef IHSBOOST_TIMER_HPP</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define IHSBOOST_TIMER_HPP</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classTimer.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTimer.html">Timer</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classTimer.html#a5e8515b8993e3ba9a17bdfc8dddbe142">Timer</a>(<span class="keywordtype">double</span> time);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimer.html#acc9cf02fbd8d96cf0397f88e0ad6d142">operator()</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimer.html#a06d25cb6198ea3919b032920e2cf7419">done</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> _time;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">double</span> _start_time;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">A class that implements a timer, useful when you want to line-follow for a certain amount of time.</div><div class="ttdef"><b>Definition:</b> timer.hpp:22</div></div>
-<div class="ttc" id="aclassTimer_html_a06d25cb6198ea3919b032920e2cf7419"><div class="ttname"><a href="classTimer.html#a06d25cb6198ea3919b032920e2cf7419">Timer::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdoc">Returns false until it is time to stop (when it has been time seconds)</div><div class="ttdef"><b>Definition:</b> timer.cpp:7</div></div>
-<div class="ttc" id="aclassTimer_html_a5e8515b8993e3ba9a17bdfc8dddbe142"><div class="ttname"><a href="classTimer.html#a5e8515b8993e3ba9a17bdfc8dddbe142">Timer::Timer</a></div><div class="ttdeci">Timer(double time)</div><div class="ttdoc">Construct a new Timer object.</div><div class="ttdef"><b>Definition:</b> timer.cpp:4</div></div>
-<div class="ttc" id="aclassTimer_html_acc9cf02fbd8d96cf0397f88e0ad6d142"><div class="ttname"><a href="classTimer.html#acc9cf02fbd8d96cf0397f88e0ad6d142">Timer::operator()</a></div><div class="ttdeci">bool operator()() const</div><div class="ttdoc">Returns false until it is time to stop (when it has been time seconds)</div><div class="ttdef"><b>Definition:</b> timer.cpp:6</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classTimer.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTimer.html">Timer</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classTimer.html#a5e8515b8993e3ba9a17bdfc8dddbe142">Timer</a>(<span class="keywordtype">double</span> time);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimer.html#acc9cf02fbd8d96cf0397f88e0ad6d142">operator()</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimer.html#a06d25cb6198ea3919b032920e2cf7419">done</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> _time;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::chrono::steady_clock::time_point _start_time;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">A class that implements a timer, useful when you want to line-follow for a certain amount of time.</div><div class="ttdef"><b>Definition:</b> timer.hpp:24</div></div>
+<div class="ttc" id="aclassTimer_html_a06d25cb6198ea3919b032920e2cf7419"><div class="ttname"><a href="classTimer.html#a06d25cb6198ea3919b032920e2cf7419">Timer::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdoc">Returns false until it is time to stop (when it has been time seconds)</div><div class="ttdef"><b>Definition:</b> timer.cpp:6</div></div>
+<div class="ttc" id="aclassTimer_html_a5e8515b8993e3ba9a17bdfc8dddbe142"><div class="ttname"><a href="classTimer.html#a5e8515b8993e3ba9a17bdfc8dddbe142">Timer::Timer</a></div><div class="ttdeci">Timer(double time)</div><div class="ttdoc">Construct a new Timer object.</div><div class="ttdef"><b>Definition:</b> timer.cpp:3</div></div>
+<div class="ttc" id="aclassTimer_html_acc9cf02fbd8d96cf0397f88e0ad6d142"><div class="ttname"><a href="classTimer.html#acc9cf02fbd8d96cf0397f88e0ad6d142">Timer::operator()</a></div><div class="ttdeci">bool operator()() const</div><div class="ttdoc">Returns false until it is time to stop (when it has been time seconds)</div><div class="ttdef"><b>Definition:</b> timer.cpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
