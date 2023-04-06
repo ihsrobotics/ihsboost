@@ -267,6 +267,21 @@ void test_rvalue_static()
     cout << "passed rvalue static" << endl;
 }
 
+void test_multiple_same_type()
+{
+    Test test(0);
+    Threadable t1(&Test::add_vals, &test, 30, 70);
+    Threadable t2(&Test::add_vals, &test, 50, 10);
+    t1.start();
+    t2.start();
+
+    while (!t1.done() || !t2.done())
+        ;
+
+    assert_equals(160, test.get_val(), "testing multiple rvalues of same type");
+    cout << "passed multiple rvalue same type" << endl;
+}
+
 int main()
 {
     test_single_thread_ptr();
@@ -282,6 +297,7 @@ int main()
     test_member_func();
     test_rvalue_member();
     test_rvalue_static();
+    test_multiple_same_type();
 
     return 0;
 }

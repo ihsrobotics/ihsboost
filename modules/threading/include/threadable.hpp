@@ -37,10 +37,9 @@ public:
      * @details upon creation, a Threadable is considered not done and not started
      *
      * @tparam _MemberFunc the type of the member function to call
-     * @tparam _Class_Ptr the type, as a pointer, of the instance
-     * @tparam _Args Types of the arguments to pass to the thread
+     * @tparam _Class the type the instance
+     * @tparam _Args the types of the arguments to pass to the thread
      * @tparam std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type used to enforce template specialization
-     * @tparam std::enable_if<std::is_pointer<_Class_Ptr>::value, bool>::type used to enforce template specialization
      * @param func the member function to call. In most circumstances, this is `&CLASS_NAME::METHOD_NAME`
      * where CLASS_NAME is the name of the class and METHOD_NAME is the name of the method
      * @param c a pointer to the instance from which to run the member function.
@@ -57,6 +56,8 @@ public:
      * with the given parameters in a separate thread
      * @details upon creation, a Threadable is considered not done and not started.
      *
+     * @tparam _Callable the type of the function to call
+     * @tparam _Args the types of the arguments to pass to the thread
      * @param func the function to run
      * @param args the arguments to pass to the function
      */
@@ -137,39 +138,68 @@ private:
          */
         virtual void call() = 0;
         virtual ~FunctionWrapper(){};
+
+    protected:
+        template <std::size_t... Ts>
+        struct index
+        {
+        };
+
+        template <std::size_t N, std::size_t... Ts>
+        struct gen_seq : gen_seq<N - 1, N - 1, Ts...>
+        {
+        };
+
+        /**
+         * @brief Generate a sequence of indexes given the size of
+         * a parameter pack
+         *
+         * @tparam Ts
+         */
+        template <std::size_t... Ts>
+        struct gen_seq<0, Ts...> : index<Ts...>
+        {
+        };
     };
 
     /**
      * @brief Function wrapper class for static functions (functions
      * that aren't member functions)
      *
+     * @tparam _StaticFunc the type of the static function to call
      * @tparam _Args the types of the arguments that will be passed
      */
     template <typename _StaticFunc, typename... _Args>
     class StaticFunctionWrapper : public FunctionWrapper
     {
     private:
-        std::tuple<_Args...> _args;
-        _StaticFunc _func;
+        std::tuple<_Args...> _args; ///< used for storing all the arguments in a tuple
+        _StaticFunc _func;          ///< the static function to call
+
+        /**
+         * @brief Unpack the tuple by getting all the arguments by index
+         *
+         * @tparam Is all the indexes
+         */
+        template <std::size_t... Is>
+        void func_caller(FunctionWrapper::index<Is...>) { _func(std::get<Is>(_args)...); }
 
     public:
         /**
          * @brief Construct a new Static Function Wrapper object
          *
-         * @tparam _StaticFunc type of the function; automatically deduced. The
-         * reason this is here is to allow universal references because of
-         * template deduction
          * @param func the function to call
          * @param args the arguments to call the function with
          */
         StaticFunctionWrapper(_StaticFunc func, _Args... args) : _args(std::forward<_Args>(args)...), _func(func) {}
         virtual ~StaticFunctionWrapper() = default;
-        virtual void call() { _func(std::get<_Args>(_args)...); }
+        virtual void call() { func_caller(gen_seq<sizeof...(_Args)>{}); }
     };
 
     /**
      * @brief Function wrapper class for member functions
      *
+     * @tparam _MemberFunc the type of the member function to call
      * @tparam _Class the type of the class that will call it
      * @tparam _Args the types of the arguments that will be passed
      */
@@ -178,10 +208,16 @@ private:
     {
     private:
         std::tuple<_Args...> _args; ///< used for storing arguments in a tuple
-        _Class *_ptr;               ///< pointer to instance that calls it
-        // std::function<void(_Class *, _Args...)> _func; ///< function to call
-        // void (_Class::*_func)(_Args...);
-        _MemberFunc _func;
+        _Class *_ptr;               ///< pointer to instance that calls the member function
+        _MemberFunc _func;          ///< pointer to the member function to call
+
+        /**
+         * @brief Unpack the tuple by getting all the arguments by index
+         *
+         * @tparam Is all the indexes
+         */
+        template <std::size_t... Is>
+        void func_caller(FunctionWrapper::index<Is...>) { (_ptr->*_func)(std::get<Is>(_args)...); }
 
     public:
         /**
@@ -193,11 +229,7 @@ private:
          */
         MemberFunctionWrapper(_MemberFunc func, _Class *ptr, _Args... args) : _args(std::forward<_Args>(args)...), _ptr(ptr), _func(func) {}
         virtual ~MemberFunctionWrapper() = default;
-        virtual void call()
-        {
-            //_func(_ptr, std::get<_Args>(_args)...);
-            (_ptr->*_func)(std::get<_Args>(_args)...);
-        }
+        virtual void call() { func_caller(gen_seq<sizeof...(_Args)>{}); }
     };
 
     bool _started;          ///< whether or not the thread was started
