@@ -4,7 +4,6 @@
 #include <chrono>
 #include <thread>
 #include <numeric>
-#include <mutex>
 #include <vector>
 
 using namespace std;
@@ -15,10 +14,10 @@ class Test
 public:
     Test(int val) : val(val){};
     void increment_val(int increment_amt) { val += increment_amt; }
+    void add_vals(int a, int b) { val += a + b; }
     int get_val() { return val; }
 
 private:
-    mutex m;
     int val;
 };
 
@@ -224,6 +223,65 @@ void test_dynamic(int val1, int val2)
     cout << "passed test dynamic" << endl;
 }
 
+void test_member_func()
+{
+    Test test(0);
+    int amt1 = 10;
+    int amt2 = 20;
+    Threadable t1(&Test::increment_val, &test, amt1);
+    Threadable t2(&Test::increment_val, &test, amt2);
+
+    t1.start();
+    t2.start();
+
+    while (!t1.done() || !t2.done())
+        ;
+
+    assert_equals(amt1 + amt2, test.get_val(), "testing members");
+    cout << "passed member funcs" << endl;
+}
+
+void test_rvalue_member()
+{
+    Test test(0);
+    Threadable t1(&Test::increment_val, &test, 10);
+    t1.start();
+
+    while (!t1.done())
+        ;
+
+    assert_equals(10, test.get_val(), "testing rvalues member");
+    cout << "passed rvalue member" << endl;
+}
+
+void test_rvalue_static()
+{
+    Test test(0);
+    Threadable t1(a, test, 35);
+    t1.start();
+
+    while (!t1.done())
+        ;
+
+    assert_equals(35, test.get_val(), "testing rvalues static");
+    cout << "passed rvalue static" << endl;
+}
+
+void test_multiple_same_type()
+{
+    Test test(0);
+    Threadable t1(&Test::add_vals, &test, 30, 70);
+    Threadable t2(&Test::add_vals, &test, 50, 10);
+    t1.start();
+    t2.start();
+
+    while (!t1.done() || !t2.done())
+        ;
+
+    assert_equals(160, test.get_val(), "testing multiple rvalues of same type");
+    cout << "passed multiple rvalue same type" << endl;
+}
+
 int main()
 {
     test_single_thread_ptr();
@@ -236,6 +294,10 @@ int main()
     test_multiple_threads();
 
     test_dynamic(rand() % 10, rand() % 50);
+    test_member_func();
+    test_rvalue_member();
+    test_rvalue_static();
+    test_multiple_same_type();
 
     return 0;
 }
