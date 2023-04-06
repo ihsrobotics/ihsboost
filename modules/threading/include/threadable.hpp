@@ -14,6 +14,7 @@
 #define IHSBOOST_THREADABLE_HPP
 
 #include <thread>
+#include <type_traits>
 #include <functional>
 #include <tuple>
 
@@ -49,7 +50,7 @@ public:
               typename std::enable_if<std::is_member_function_pointer<_MemberFunc>::value, bool>::type = true>
     Threadable(_MemberFunc &&func, _Class *c, _Args &&...args) : _started(false),
                                                                  _done(false),
-                                                                 _thread(), _func(new MemberFunctionWrapper<_Class, _Args...>(func, c, args...)){};
+                                                                 _thread(), _func(new MemberFunctionWrapper<typename std::decay<_MemberFunc>::type, typename std::decay<_Class>::type, _Args...>(func, c, args...)){};
 
     /**
      * @brief Construct a new Threadable object to run the given function
@@ -61,7 +62,7 @@ public:
      */
     template <typename _Callable, typename... _Args>
     Threadable(_Callable &&func, _Args &&...args) : _started(false), _done(false),
-                                                    _thread(), _func(new StaticFunctionWrapper<_Args...>(func, args...)){};
+                                                    _thread(), _func(new StaticFunctionWrapper<typename std::decay<_Callable>::type, _Args...>(func, args...)){};
 
     /**
      * @brief Destroy the Threadable object
@@ -144,12 +145,12 @@ private:
      *
      * @tparam _Args the types of the arguments that will be passed
      */
-    template <typename... _Args>
+    template <typename _StaticFunc, typename... _Args>
     class StaticFunctionWrapper : public FunctionWrapper
     {
     private:
         std::tuple<_Args...> _args;
-        std::function<void(_Args...)> _func;
+        _StaticFunc _func;
 
     public:
         /**
@@ -161,8 +162,7 @@ private:
          * @param func the function to call
          * @param args the arguments to call the function with
          */
-        template <typename _StaticFunc>
-        StaticFunctionWrapper(_StaticFunc &&func, _Args &&...args) : _args(std::forward<_Args>(args)...), _func(func) {}
+        StaticFunctionWrapper(_StaticFunc func, _Args... args) : _args(std::forward<_Args>(args)...), _func(func) {}
         virtual ~StaticFunctionWrapper() = default;
         virtual void call() { _func(std::get<_Args>(_args)...); }
     };
@@ -173,29 +173,31 @@ private:
      * @tparam _Class the type of the class that will call it
      * @tparam _Args the types of the arguments that will be passed
      */
-    template <typename _Class, typename... _Args>
+    template <typename _MemberFunc, typename _Class, typename... _Args>
     class MemberFunctionWrapper : public FunctionWrapper
     {
     private:
-        std::tuple<_Args...> _args;                    ///< used for storing arguments in a tuple
-        _Class *_ptr;                                  ///< pointer to instance that calls it
-        std::function<void(_Class *, _Args...)> _func; ///< function to call
+        std::tuple<_Args...> _args; ///< used for storing arguments in a tuple
+        _Class *_ptr;               ///< pointer to instance that calls it
+        // std::function<void(_Class *, _Args...)> _func; ///< function to call
+        // void (_Class::*_func)(_Args...);
+        _MemberFunc _func;
 
     public:
         /**
          * @brief Construct a new Member Function Wrapper object
          *
-         * @tparam _MemberFunc type of the function; automatically deduced. The
-         * reason this is here is to allow universal references because of
-         * template deduction
          * @param func the function to call
          * @param ptr the instance to call the function from
          * @param args the arguments to call the function with
          */
-        template <typename _MemberFunc>
-        MemberFunctionWrapper(_MemberFunc &&func, _Class *ptr, _Args &&...args) : _args(std::forward<_Args>(args)...), _ptr(ptr), _func(func) {}
+        MemberFunctionWrapper(_MemberFunc func, _Class *ptr, _Args... args) : _args(std::forward<_Args>(args)...), _ptr(ptr), _func(func) {}
         virtual ~MemberFunctionWrapper() = default;
-        virtual void call() { _func(_ptr, std::get<_Args>(_args)...); }
+        virtual void call()
+        {
+            //_func(_ptr, std::get<_Args>(_args)...);
+            (_ptr->*_func)(std::get<_Args>(_args)...);
+        }
     };
 
     bool _started;          ///< whether or not the thread was started
