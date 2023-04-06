@@ -1,5 +1,4 @@
 #include "accumulator.hpp"
-#include <kipr/wombat.h>
 
 Accumulator::Accumulator(std::function<double()> callable, int updates_per_sec)
     : BackgroundTask(updates_per_sec), callable(callable),

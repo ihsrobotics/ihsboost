@@ -13,6 +13,8 @@
 #ifndef IHSBOOST_TIMER_HPP
 #define IHSBOOST_TIMER_HPP
 
+#include <chrono>
+
 /**
  * @brief A class that implements a timer, useful when you want
  * to line-follow for a certain amount of time.
@@ -47,8 +49,8 @@ public:
     bool done() const;
 
 private:
-    double _time;
-    double _start_time;
+    int _time;
+    std::chrono::steady_clock::time_point _start_time;
 };
 
 #endif
