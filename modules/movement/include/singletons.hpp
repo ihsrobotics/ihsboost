@@ -15,6 +15,10 @@
 #include "threading.hpp"
 #include "config.hpp"
 
+/**
+ * @brief Abstract class representing a subscriber
+ *
+ */
 class Subscriber
 {
 public:
@@ -183,7 +187,7 @@ public:
      *
      * @return double - the angle the brain has turned through, in degrees.
      */
-    double get_relative_angle();
+    virtual double get_relative_angle();
 
 private:
     const double start_angle; ///< angle that the brain was at when this subscriber was created
@@ -290,7 +294,7 @@ public:
      *
      * @return double - the angle the create has turned through, in degrees.
      */
-    double get_relative_angle();
+    virtual double get_relative_angle();
 
 private:
     const int start_lenc_delta;
