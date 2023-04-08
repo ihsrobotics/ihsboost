@@ -4,7 +4,6 @@
     "max_gyro_val": -160,
     "raw_to_360_degrees": 118.56,
     "gyro_cw_multiplier": -1,
-    "gyro_linear_accel": 500.0,
     "gyro_updates_per_sec": 200,
     "gyro_correction_proportion": 0.9,
     "gyro_turn_v2_min_speed": 11,

@@ -1,126 +1,12 @@
 #include "roomba_movement.hpp"
 #include "controllers.hpp"
+#include "movement_constants.hpp"
+#include "maneuvers.hpp"
 #include <kipr/wombat.h>
 #include <algorithm>
 #include <limits>
 using std::abs;
 using std::min;
-
-// --------------------------------------------- ENCODER SINGLETON ---------------------------------------------
-// Functions in this section deal with the Encoder Singleton
-// --------------------------------------------------------------------------------------------------------
-EncoderSingleton::EncoderSingleton(int updates_per_sec) : BackgroundTask(updates_per_sec), lenc_prev(0), renc_prev(0),
-                                                          lenc_delta(0), renc_delta(0) {}
-EncoderSingleton *EncoderSingleton::instance()
-{
-    if (_instance.get() == nullptr)
-    {
-        _instance = std::shared_ptr<EncoderSingleton>(new EncoderSingleton());
-    }
-    return _instance.get();
-}
-void EncoderSingleton::read_encoders(int &lenc, int &renc)
-{
-    // read values
-    int16_t l_temp = 0, r_temp = 0;
-    _create_get_raw_encoders(&l_temp, &r_temp);
-
-    // set values
-    lenc = l_temp;
-    renc = r_temp;
-}
-void EncoderSingleton::check_overflow(int16_t &temp, int &enc_prev, int &enc_delta)
-{
-    // this function aims to stop the effects of overflow
-    // it detects overflow with the following:
-    // check if this jumped a huge amount (sign of overflow)
-    // the .8 is an arbitrary number just to make it more accepting
-
-    // check if it overflowed
-    if (abs(static_cast<int>(temp) - enc_prev) > std::numeric_limits<u_short>::max() * .8)
-    {
-        // attempt to correct it
-        // case of underflow
-        if (enc_prev < 0 && temp > 0)
-        {
-            // subtract the positive difference that it traveled on the positive side of the underflow
-            enc_delta -= std::numeric_limits<int16_t>::max() - temp;
-            // subtract the difference that it traveled on the negative side of the underflow
-            enc_delta -= enc_prev - std::numeric_limits<int16_t>::min();
-        }
-        // case of overflow
-        if (enc_prev > 0 && temp < 0)
-        {
-            // add the positive difference that it traveled on the positive side of the overflow
-            enc_delta += std::numeric_limits<int16_t>::max() - enc_prev;
-            // add the positive difference that it traveled on the negative side of the underflow
-            enc_delta += temp - std::numeric_limits<int16_t>::min();
-        }
-    }
-    else
-    {
-        // if didn't overflow, just continue as normal
-        enc_delta += temp - enc_prev;
-    }
-}
-void EncoderSingleton::process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc_delta)
-{
-    // read values
-    int16_t l_temp = 0, r_temp = 0;
-    _create_get_raw_encoders(&l_temp, &r_temp);
-
-    check_overflow(l_temp, lenc_prev, lenc_delta);
-    check_overflow(r_temp, renc_prev, renc_delta);
-
-    // set the "previous" variables to the new previous values
-    lenc_prev = l_temp;
-    renc_prev = r_temp;
-}
-int EncoderSingleton::get_lenc_delta() { return lenc_delta; }
-int EncoderSingleton::get_renc_delta() { return renc_delta; }
-void EncoderSingleton::function()
-{
-    process_encoders(lenc_prev, renc_prev, lenc_delta, renc_delta);
-}
-void EncoderSingleton::start()
-{
-    if (!is_running())
-    {
-        read_encoders(lenc_prev, renc_prev);
-    }
-    BackgroundTask::start();
-}
-
-std::shared_ptr<EncoderSingleton> EncoderSingleton::_instance = nullptr;
-
-// --------------------------------------------- ENCODER SUBSCRIBER ---------------------------------------------
-// Functions in this section deal with the encoder subscriber
-// --------------------------------------------------------------------------------------------------------
-EncoderSubscriber::EncoderSubscriber(int updates_per_sec) : start_lenc_delta(EncoderSingleton::instance()->get_lenc_delta()),
-                                                            start_renc_delta(EncoderSingleton::instance()->get_renc_delta()),
-                                                            was_running(EncoderSingleton::instance()->is_running())
-{
-    // setup
-    EncoderSingleton::instance()->set_updates_per_sec(updates_per_sec);
-
-    // start
-    EncoderSingleton::instance()->start();
-};
-EncoderSubscriber::~EncoderSubscriber()
-{
-    if (!was_running)
-    {
-        EncoderSingleton::instance()->stop();
-    }
-}
-const int &EncoderSubscriber::get_start_lenc_delta() { return start_lenc_delta; }
-const int &EncoderSubscriber::get_start_renc_delta() { return start_renc_delta; }
-int EncoderSubscriber::get_relative_lenc_delta() { return EncoderSingleton::instance()->get_lenc_delta() - start_lenc_delta; }
-int EncoderSubscriber::get_relative_renc_delta() { return EncoderSingleton::instance()->get_renc_delta() - start_renc_delta; }
-double EncoderSubscriber::get_relative_left_distance() { return get_relative_lenc_delta() * ENC_2_MM; }
-double EncoderSubscriber::get_relative_right_distance() { return get_relative_renc_delta() * ENC_2_MM; }
-double EncoderSubscriber::get_relative_distance() { return (get_relative_left_distance() + get_relative_right_distance()) / 2.0; }
-double EncoderSubscriber::get_relative_angle() { return (get_relative_left_distance() - get_relative_right_distance()) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult; }
 
 // --------------------------------------------- ENCODER FUNCTIONS ---------------------------------------------
 // Functions in this section deal with the encoder functions
@@ -143,32 +29,10 @@ double encoder_drive_straight(int speed, std::function<bool()> condition, bool s
     // initialize encoder variables
     EncoderSubscriber subscriber(updates_per_sec);
 
-    while (!condition())
-    {
-        // if left wheel going faster, go slower
-        if ((speed > 0 && subscriber.get_relative_lenc_delta() > subscriber.get_relative_renc_delta()) || (speed < 0 && subscriber.get_relative_lenc_delta() < subscriber.get_relative_renc_delta()))
-        {
-            create_drive_direct(static_cast<int>(speed * correction_proportion), static_cast<int>(speed / correction_proportion));
-        }
-        // if right wheel going faster, go slower
-        else
-        {
-            create_drive_direct(static_cast<int>(speed / correction_proportion), static_cast<int>(speed * correction_proportion));
-        }
+    // drive straight using the subscriber
+    drive_straight(&subscriber, speed, condition, stop, correction_proportion, updates_per_sec);
 
-        // sleep
-        msleep(1000 / updates_per_sec);
-    }
-
-    // stop at the end
-    if (stop)
-    {
-        create_drive_direct(0, 0);
-    }
-    else
-    {
-        create_drive_direct(speed, speed);
-    }
+    // return distance traveled
     return (subscriber.get_relative_lenc_delta() * ENC_2_MM + subscriber.get_relative_renc_delta() * ENC_2_MM) / 2.0;
 }
 
@@ -437,59 +301,11 @@ void encoder_drive_straight_pid(int speed, double cm, double proportional_coeffi
 void encoder_turn_degrees(int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // this function uses the following formula:
-    // angle in radians = (left wheel distance (mm) – right wheel distance (mm)) / wheel base distance (mm).
-
-    // initialize misc
-    double cached_angle_degrees = 0;
-    int left_sign_val = degrees > 0 ? 1 : -1;
-    int right_sign_val = degrees > 0 ? -1 : 1;
 
     // initialize encoder variables
     EncoderSubscriber subscriber(updates_per_sec);
 
-    LinearController accelerator(0, max_speed, accel_per_sec, updates_per_sec);
-
-    while ((degrees > 0 && subscriber.get_relative_angle() < degrees / 2) ||
-           (degrees < 0 && subscriber.get_relative_angle() > degrees / 2))
-    {
-        create_drive_direct(static_cast<int>(accelerator.speed() * left_sign_val), static_cast<int>(accelerator.speed() * right_sign_val));
-
-        // sleep
-        accelerator.step();
-        msleep(accelerator.get_msleep_time());
-
-        if (accelerator.done())
-        {
-            cached_angle_degrees = subscriber.get_relative_angle();
-            break;
-        }
-    }
-
-    // do any more driving until it is time to start decelerating)
-    while (cached_angle_degrees != 0 &&
-           ((degrees > 0 && subscriber.get_relative_angle() < degrees - cached_angle_degrees) ||
-            (degrees < 0 && subscriber.get_relative_angle() > degrees - cached_angle_degrees)))
-    {
-        create_drive_direct(static_cast<int>(accelerator.speed() * left_sign_val), static_cast<int>(accelerator.speed() * right_sign_val));
-
-        // sleep
-        msleep(accelerator.get_msleep_time());
-    }
-
-    // start decelerating, go until both lenc and renc have reached the end
-    LinearController decelerator(static_cast<int>(accelerator.speed()), min_speed, accel_per_sec, updates_per_sec);
-    while ((degrees > 0 && subscriber.get_relative_angle() < degrees) ||
-           (degrees < 0 && subscriber.get_relative_angle() > degrees))
-
-    {
-        // both still have places to go
-        create_drive_direct(static_cast<int>(decelerator.speed() * left_sign_val), static_cast<int>(decelerator.speed() * right_sign_val));
-
-        // sleep
-        decelerator.step();
-        msleep(decelerator.get_msleep_time());
-    }
-    create_drive_direct(0, 0);
+    turn_degrees(&subscriber, max_speed, degrees, min_speed, accel_per_sec, updates_per_sec);
 }
 
 void encoder_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec)
@@ -497,14 +313,5 @@ void encoder_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec)
     // initialize encoders
     EncoderSubscriber subscriber(updates_per_sec);
 
-    // drive until reached goal degrees
-    create_drive_direct(turn_speed.left, turn_speed.right);
-    while ((degrees > 0 && subscriber.get_relative_angle() < degrees) || (degrees < 0 && subscriber.get_relative_angle() > degrees))
-    {
-        // sleep
-        msleep(1000 / updates_per_sec);
-    }
-
-    // stop
-    create_drive_direct(0, 0);
+    turn_degrees(&subscriber, turn_speed, degrees, updates_per_sec);
 }

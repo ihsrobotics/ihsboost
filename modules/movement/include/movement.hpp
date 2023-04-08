@@ -17,7 +17,10 @@
 #include "accelerate.hpp"
 #include "imu_movement.hpp"
 #include "line_follow.hpp"
+#include "maneuvers.hpp"
+#include "movement_constants.hpp"
 #include "roomba_movement.hpp"
+#include "singletons.hpp"
 
 #endif
 /**@}*/
