@@ -103,9 +103,9 @@ private:
      */
     bool check_exists();
 
-    key_t k;
-    bool existed;
-    int msg_q_id;
+    key_t k;      ///< the key for the sysv file
+    bool existed; ///< if the sysv file existed prior to this object
+    int msg_q_id; ///< the id of the attached sysv file
 };
 
 #endif

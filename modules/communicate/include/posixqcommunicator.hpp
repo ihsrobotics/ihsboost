@@ -91,9 +91,9 @@ private:
      */
     bool check_exists();
 
-    mqd_t msg_q_id;
-    std::string _name;
-    size_t max_msgs;
+    mqd_t msg_q_id;    ///< the id of the posix message queue
+    std::string _name; ///< the name of the posix message queue
+    size_t max_msgs;   ///< the maximum number of messages for the posix queue
     bool existed;
 };
 
