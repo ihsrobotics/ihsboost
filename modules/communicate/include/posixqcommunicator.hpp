@@ -83,9 +83,18 @@ private:
      */
     virtual void send_bytes(char *bytes);
 
+    /**
+     * @brief Check if the file for the posix queue already exists
+     *
+     * @return true
+     * @return false
+     */
+    bool check_exists();
+
     mqd_t msg_q_id;
     std::string _name;
     size_t max_msgs;
+    bool existed;
 };
 
 #endif

@@ -5,13 +5,13 @@
 using namespace std;
 
 SysVCommunicator::SysVCommunicator(const char *path, int identifier, uint32_t max_msg_size) : SysVCommunicator(ftok(path, identifier), max_msg_size){};
-SysVCommunicator::SysVCommunicator(int key, uint32_t max_msg_size) : Communicator(max_msg_size), k(key)
+SysVCommunicator::SysVCommunicator(int key, uint32_t max_msg_size) : Communicator(max_msg_size), k(key), existed(check_exists())
 {
     open();
 }
 
 SysVCommunicator::SysVCommunicator(const char *path, int identifier) : SysVCommunicator(ftok(path, identifier)){};
-SysVCommunicator::SysVCommunicator(int key) : Communicator(), k(key)
+SysVCommunicator::SysVCommunicator(int key) : Communicator(), k(key), existed(check_exists())
 {
     open();
 }
@@ -19,6 +19,12 @@ SysVCommunicator::SysVCommunicator(int key) : Communicator(), k(key)
 SysVCommunicator::~SysVCommunicator()
 {
     close();
+}
+
+bool SysVCommunicator::check_exists()
+{
+    int ret = msgget(k, S_IRWXU | S_IRWXG | S_IRWXO | IPC_CREAT | IPC_EXCL);
+    return ret == -1 && errno == EEXIST;
 }
 
 void SysVCommunicator::open()
@@ -32,22 +38,12 @@ void SysVCommunicator::close()
 {
     cout << "closing SysVCommunicator" << endl;
 
-    int ret = msgctl(msg_q_id, IPC_RMID, NULL);
-    try
+    // only close the file if this is the "owner"
+    // meaning that the file didn't exist before this object
+    if (!existed)
     {
+        int ret = msgctl(msg_q_id, IPC_RMID, NULL);
         check_error(ret, "closing");
-    }
-    catch (CommunicationException &c)
-    {
-        if (c.get_error_code() == EINVAL)
-        {
-            // this happens if the sysv communicator was already closed
-            cout << "The SysVCommunicator has already been closed by a different process." << endl;
-        }
-        else
-        {
-            throw c;
-        }
     }
 }
 

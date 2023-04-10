@@ -95,7 +95,16 @@ private:
      */
     virtual void send_bytes(char *bytes);
 
+    /**
+     * @brief Check if the sysv file already exists
+     *
+     * @return true
+     * @return false
+     */
+    bool check_exists();
+
     key_t k;
+    bool existed;
     int msg_q_id;
 };
 

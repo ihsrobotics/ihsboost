@@ -100,8 +100,17 @@ private:
      */
     virtual void send_bytes(char *bytes);
 
-    int id;     ///< the id of the SHMCommunicator
-    int shm_id; ///< the id of the attached shared memory
+    /**
+     * @brief Check if the shm file already exists
+     *
+     * @return true
+     * @return false
+     */
+    bool check_exists();
+
+    int id;       ///< the id of the SHMCommunicator
+    bool existed; ///< if the shm existed prior to this object
+    int shm_id;   ///< the id of the attached shared memory
 };
 
 #endif

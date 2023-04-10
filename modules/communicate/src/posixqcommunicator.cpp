@@ -2,13 +2,14 @@
 #include "communication_exception.hpp"
 #include <memory.h>
 #include <iostream>
+#include <fstream>
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs), existed(check_exists())
 {
     open();
 }
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs), existed(check_exists())
 {
     open();
 }
@@ -16,6 +17,14 @@ PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32
 PosixQCommunicator::~PosixQCommunicator()
 {
     close();
+}
+
+bool PosixQCommunicator::check_exists()
+{
+    std::ifstream file;
+    std::string full_name = std::string("/dev/mqueue/") + _name;
+    file.open(full_name);
+    return static_cast<bool>(file);
 }
 
 void PosixQCommunicator::open()
@@ -59,21 +68,11 @@ void PosixQCommunicator::close()
     int ret = mq_close(msg_q_id);
     check_error(ret, "closing");
 
-    try
+    // only unlink (delete the posix queue) if this is the "owner"
+    // (if this was the one that created it / it didn't exist prior to this)
+    if (!existed)
     {
         ret = mq_unlink(_name.c_str());
         check_error(ret, "unlinking");
-    }
-    catch (CommunicationException &c)
-    {
-        // if the error = because there was no existing file / directory
-        if (c.get_error_code() == ENOENT)
-        {
-            std::cout << "The PosixQCommunicator's mqueue has already been unlinked by a separate program." << std::endl;
-        }
-        else
-        {
-            throw c;
-        }
     }
 }
