@@ -11,7 +11,7 @@
 #ifndef JSON_LOADER_HPP
 #define JSON_LOADER_HPP
 
-#include <ihsboost/json_config.hpp>
+#include <ihsboost/util/json_config.hpp>
 #include <iostream>
 using namespace std;
 
