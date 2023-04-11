@@ -11,7 +11,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include <ihsboost/threading.hpp>
+#include <ihsboost/threading/threading.hpp>
 
 using namespace std;
 using namespace chrono;

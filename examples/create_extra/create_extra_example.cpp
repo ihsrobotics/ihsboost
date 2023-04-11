@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2023
  *
  */
-#include <ihsboost/create_extra.hpp>
+#include <ihsboost/create_extra/create_extra.hpp>
 #include <iostream>
 #include <kipr/wombat.h>
 using namespace std;

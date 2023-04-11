@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2023
  *
  */
-#include <ihsboost/accelerate.hpp>
+#include <ihsboost/movement/accelerate.hpp>
 #include <kipr/wombat.h>
 #include <kipr/wombat.hpp>
 
