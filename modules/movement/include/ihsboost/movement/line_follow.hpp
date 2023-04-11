@@ -14,8 +14,8 @@
 #define IHSBOOST_LINE_FOLLOW_HPP
 
 #include "accelerate.hpp"
-#include "cliff.hpp"
-#include "config.hpp"
+#include "ihsboost/util/cliff.hpp"
+#include "ihsboost/util/config.hpp"
 #include <functional>
 
 /**

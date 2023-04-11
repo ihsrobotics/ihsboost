@@ -1,7 +1,5 @@
 #include "imu_movement.hpp"
-#include "controllers.hpp"
-#include "accumulator.hpp"
-#include "config.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 #include "singletons.hpp"
 #include "maneuvers.hpp"
 #include <kipr/wombat.h>

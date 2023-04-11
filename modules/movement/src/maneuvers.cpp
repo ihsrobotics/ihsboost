@@ -1,6 +1,6 @@
 #include "maneuvers.hpp"
-#include "controllers.hpp"
-#include "config.hpp"
+#include "ihsboost/controllers/controllers.hpp"
+#include "ihsboost/util/config.hpp"
 #include <kipr/wombat.h>
 
 void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)

@@ -1,6 +1,6 @@
 #include <kipr/wombat.h>
 #include "line_follow.hpp"
-#include "controllers.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 
 std::function<int()> get_sensor(Cliff cliff_sensor)
 {

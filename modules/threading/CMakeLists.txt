@@ -4,15 +4,15 @@ if (${build_threading})
     # set sources
     set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/threadable.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/background_task.cpp
                 ${CMAKE_CURRENT_SOURCE_DIR}/src/accumulator.cpp)
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+    set(EXTERNAL_DEPS pthread)
 
-    # add library
-    add_library(ihs_threading OBJECT ${SOURCES})
-    target_link_libraries(ihs_threading PUBLIC pthread)
+    add_module(threading "${SOURCES}")
+    add_external_deps(threading "${EXTERNAL_DEPS}")
 
     # install
     get_property(local_install_path GLOBAL PROPERTY install_path)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/threading.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/threadable.hpp
-                  ${CMAKE_CURRENT_SOURCE_DIR}/include/accumulator.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/background_task.hpp
-                  DESTINATION ${local_install_path})
+    set(install_file_dir ${CMAKE_CURRENT_SOURCE_DIR}/include/ihsboost/threading)
+    install(FILES ${install_file_dir}/threading.hpp ${install_file_dir}/threadable.hpp
+                  ${install_file_dir}/accumulator.hpp ${install_file_dir}/background_task.hpp
+                  DESTINATION ${local_install_path}/threading)
 endif()

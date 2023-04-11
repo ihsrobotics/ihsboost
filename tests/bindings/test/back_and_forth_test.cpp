@@ -17,7 +17,7 @@ int main(int argc, const char *argv[])
     }
 
     // run the python
-    string command = "python3 ./back_and_forth_test.py ";
+    string command = "/usr/bin/python3 ./back_and_forth_test.py ";
     command += string(argv[1]) + " &";
     int start_flag = system(command.c_str());
     assert_equals(start_flag, 0, "starting process");

@@ -13,7 +13,7 @@
 #ifndef IHSBOOST_SERVOS_HPP
 #define IHSBOOST_SERVOS_HPP
 
-#include "config.hpp"
+#include "ihsboost/util/config.hpp"
 
 /**
  * @brief Move a servo slowly to its goal position

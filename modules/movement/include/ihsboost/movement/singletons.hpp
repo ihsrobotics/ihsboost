@@ -12,8 +12,9 @@
 #define IHSBOOST_SINGLETONS_HPP
 
 #include <memory>
-#include "threading.hpp"
-#include "config.hpp"
+#include "ihsboost/threading/background_task.hpp"
+#include "ihsboost/threading/accumulator.hpp"
+#include "ihsboost/util/config.hpp"
 
 /**
  * @brief Abstract class representing a subscriber

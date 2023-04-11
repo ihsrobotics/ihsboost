@@ -25,7 +25,7 @@
 
 /// file that holds tunable ihsboost variables
 #ifndef CONFIG_FILE
-#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string("/include/ihsboost/") + std::string(ROBOT_CONFIG_NAME)
+#define CONFIG_FILE std::string(INSTALL_PREFIX) + std::string("/include/ihsboost/util/") + std::string(ROBOT_CONFIG_NAME)
 #endif
 
 /**

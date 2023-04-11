@@ -1,5 +1,5 @@
 #include "roomba_movement.hpp"
-#include "controllers.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 #include "movement_constants.hpp"
 #include "maneuvers.hpp"
 #include <kipr/wombat.h>

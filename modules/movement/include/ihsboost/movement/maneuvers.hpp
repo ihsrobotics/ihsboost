@@ -12,7 +12,7 @@
 #define IHSBOOST_MANEUVERS_HPP
 
 #include "singletons.hpp"
-#include "speed.hpp"
+#include "ihsboost/util/speed.hpp"
 
 void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec);
 

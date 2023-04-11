@@ -19,14 +19,14 @@ if(${build_bindings})
     include_directories(/usr/include/python${python_version})
 
     # include all the correct directories
-    include_directories(${CMAKE_SOURCE_DIR}/modules/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/communicate/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/controllers/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/create_extra/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/servos/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/threading/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/util/include)
-    include_directories(${CMAKE_SOURCE_DIR}/modules/movement/include)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/include/)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/communicate/include/ihsboost/communicate/)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/controllers/include/ihsboost/controllers)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/create_extra/include/ihsboost/create_extra)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/servos/include/ihsboost/servos)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/threading/include/ihsboost/threading)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/util/include/ihsboost/util)
+    include_directories(${CMAKE_SOURCE_DIR}/modules/movement/include/ihsboost/movement)
 
     # make it a python-able .so file by with the correct suffix/prefix
     set (SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/bindings.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/communicate_bindings.cpp

@@ -13,9 +13,8 @@
 #ifndef IHSBOOST_ROOMBA_TURNS_HPP
 #define IHSBOOST_ROOMBA_TURNS_HPP
 
-#include "background_task.hpp"
-#include "speed.hpp"
-#include "config.hpp"
+#include "ihsboost/util/speed.hpp"
+#include "ihsboost/util/config.hpp"
 #include <functional>
 
 /**

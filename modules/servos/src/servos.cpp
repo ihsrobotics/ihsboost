@@ -1,4 +1,4 @@
-#include "controllers.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 #include "servos.hpp"
 #include <kipr/wombat.h>
 

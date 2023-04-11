@@ -13,9 +13,9 @@
 #ifndef IHSBOOST_GYRO_MOVEMENT_HPP
 #define IHSBOOST_GYRO_MOVEMENT_HPP
 
-#include "accumulator.hpp"
-#include "config.hpp"
-#include "speed.hpp"
+#include "ihsboost/threading/accumulator.hpp"
+#include "ihsboost/util/config.hpp"
+#include "ihsboost/util/speed.hpp"
 #include <functional>
 
 /**
