@@ -20,7 +20,7 @@
  * @brief Class to communicate using System V message queues
  *
  */
-class SysVCommunicator : public Communicator
+class SysVCommunicator : public FileCommunicator
 {
 public:
     /**
@@ -79,6 +79,13 @@ public:
     virtual void close();
 
     /**
+     * @brief Close the communicator and remove the associated file
+     * even if this isn't the owner
+     *
+     */
+    virtual void force_close();
+
+    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
@@ -101,10 +108,9 @@ private:
      * @return true
      * @return false
      */
-    bool check_exists();
+    bool exists();
 
     key_t k;      ///< the key for the sysv file
-    bool existed; ///< if the sysv file existed prior to this object
     int msg_q_id; ///< the id of the attached sysv file
 };
 

@@ -30,18 +30,19 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/util/include/ihsboost/util/config.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/util/include/ihsboost/util/config.hpp)
 
 # ========== Module adding functions ==========
+# add a module; name should be the same as the directory
 function(add_module _name sources)
     add_library(${_name} OBJECT ${sources})
     target_include_directories(${_name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/ihsboost/${_name}/)
 endfunction()
+# add ihsboost dependencies
 function(add_ihsboost_deps _name ihsboost_dependencies)
-    # add the ihsboost dependencies
     foreach(dependency IN LISTS ihsboost_dependencies)
         target_include_directories(${_name} PUBLIC ${CMAKE_SOURCE_DIR}/modules/${dependency}/include/)
     endforeach()
 endfunction()
+# add the external dependencies
 function(add_external_deps _name external_dependencies)
-    # add the external dependencies
     foreach(external_dep IN LISTS external_dependencies)
         find_library(lib_${external_dep} ${external_dep} REQUIRED)
         target_link_libraries(${_name} PUBLIC ${lib_${external_dep}})

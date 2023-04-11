@@ -4,13 +4,15 @@
 #include <iostream>
 #include <fstream>
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs), existed(check_exists())
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : FileCommunicator(), _name(name), max_msgs(max_msgs)
 {
+    check_exists();
     open();
 }
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs), existed(check_exists())
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : FileCommunicator(max_msg_size), _name(name), max_msgs(max_msgs)
 {
+    check_exists();
     open();
 }
 
@@ -19,7 +21,7 @@ PosixQCommunicator::~PosixQCommunicator()
     close();
 }
 
-bool PosixQCommunicator::check_exists()
+bool PosixQCommunicator::exists()
 {
     std::ifstream file;
     std::string full_name = std::string("/dev/mqueue/") + _name;
@@ -64,15 +66,23 @@ MessageBuf PosixQCommunicator::receive_msg()
 
 void PosixQCommunicator::close()
 {
-    std::cout << "closing and unlinking PosixQCommunicator" << std::endl;
+    std::cout << "safely closing and unlinking PosixQCommunicator" << std::endl;
     int ret = mq_close(msg_q_id);
     check_error(ret, "closing");
 
     // only unlink (delete the posix queue) if this is the "owner"
-    // (if this was the one that created it / it didn't exist prior to this)
-    if (!existed)
+    if (is_owner())
     {
         ret = mq_unlink(_name.c_str());
         check_error(ret, "unlinking");
     }
+}
+void PosixQCommunicator::force_close()
+{
+    std::cout << "force closing PosixQCommunicator" << std::endl;
+    int ret = mq_close(msg_q_id);
+    check_error(ret, "closing");
+
+    ret = mq_unlink(_name.c_str());
+    check_error(ret, "unlinking");
 }

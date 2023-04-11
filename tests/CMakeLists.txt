@@ -1,6 +1,6 @@
 function(add_ihsboost_test_executable _name _file _module_depends)
     add_executable(${_name} ${_file})
-    target_include_directories(${_name} PUBLIC ${CMAKE_SOURCE_DIR}/tests/include ${CMAKE_SOURCE_DIR}/modules/${_module_depends}/include)
+    target_include_directories(${_name} PUBLIC ${CMAKE_SOURCE_DIR}/tests/include ${CMAKE_SOURCE_DIR}/modules/${_module_depends}/include/ihsboost/${_module_depends}/)
     add_dependencies(${_name} ihsboost)
     target_link_libraries(${_name} ihsboost)
 endfunction()

@@ -8,14 +8,16 @@
 using namespace std;
 
 SHMCommunicator::SHMCommunicator(const char *path, int identifier, uint32_t max_msg_size) : SHMCommunicator(ftok(path, identifier), max_msg_size){};
-SHMCommunicator::SHMCommunicator(int id, uint32_t max_msg_size) : Communicator(max_msg_size), id(id), existed(check_exists())
+SHMCommunicator::SHMCommunicator(int id, uint32_t max_msg_size) : FileCommunicator(max_msg_size), id(id)
 {
+    check_exists();
     open();
 }
 
 SHMCommunicator::SHMCommunicator(const char *path, int identifier) : SHMCommunicator(ftok(path, identifier)){};
-SHMCommunicator::SHMCommunicator(int id) : Communicator(), id(id), existed(check_exists())
+SHMCommunicator::SHMCommunicator(int id) : FileCommunicator(), id(id)
 {
+    check_exists();
     open();
 }
 
@@ -24,7 +26,7 @@ SHMCommunicator::~SHMCommunicator()
     close();
 }
 
-bool SHMCommunicator::check_exists()
+bool SHMCommunicator::exists()
 {
     int ret = shmget(id, MessageBuf::get_size(max_msg_size), S_IRWXU | S_IRWXO | S_IRWXG | IPC_CREAT | IPC_EXCL);
     return ret == -1 && errno == EEXIST;
@@ -39,14 +41,16 @@ void SHMCommunicator::open()
 void SHMCommunicator::close()
 {
     cout << "closing SHMCommunicator" << endl;
-    cout << "did it exist prior? " << existed << endl;
-    // only remove the shm file if this is the "owner",
-    // meaning the file didn't exist before this object
-    if (!existed)
+    // only remove the shm file if this is the "owner"
+    if (is_owner())
     {
-        int ret = shmctl(shm_id, IPC_RMID, NULL);
-        check_error(ret, "closing");
+        force_close();
     }
+}
+void SHMCommunicator::force_close()
+{
+    int ret = shmctl(shm_id, IPC_RMID, NULL);
+    check_error(ret, "closing");
 }
 
 void SHMCommunicator::send_bytes(char *bytes)

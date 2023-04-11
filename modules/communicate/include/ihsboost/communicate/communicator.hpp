@@ -131,5 +131,62 @@ protected:
     uint32_t max_msg_size; ///< the maximum size of the message
 };
 
+/**
+ * @brief Abstract class for all file-based communicators
+ *
+ */
+class FileCommunicator : public Communicator
+{
+public:
+    /**
+     * @brief Close the communicator and remove the associated files
+     * even if this isn't the owner
+     *
+     */
+    virtual void force_close() = 0;
+
+    /**
+     * @brief Return whether or not this object is the "owner" (creator)
+     * of the file or file-like object associated with this communicator
+     *
+     * @return true
+     * @return false
+     */
+    virtual bool is_owner() const;
+
+protected:
+    /**
+     * @brief Construct a new FileCommunicator object
+     *
+     */
+    FileCommunicator();
+
+    /**
+     * @brief Construct a new FileCommunicator object with the given
+     * max_msg_size
+     *
+     * @param max_msg_size The maximum size of your messages
+     */
+    FileCommunicator(uint32_t max_msg_size);
+
+    /**
+     * @brief Check whether the file or file-like object
+     * exists
+     *
+     * @return true - the file or file-like object exists
+     * @return false - the file or file-like object doesn't exist
+     */
+    virtual bool exists() = 0;
+
+    /**
+     * @brief Calls `exists` and sets `owner` depending on the result
+     *
+     */
+    virtual void check_exists();
+
+private:
+    bool owner; ///< whether or not this object is the "owner" (creator) of the file.
+};
+
 #endif
 /**@}*/

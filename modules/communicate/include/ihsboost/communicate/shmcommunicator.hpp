@@ -19,7 +19,7 @@
  * @brief Class for communicating over shared memory
  *
  */
-class SHMCommunicator : public Communicator
+class SHMCommunicator : public FileCommunicator
 {
 public:
     /**
@@ -80,6 +80,13 @@ public:
     virtual void close();
 
     /**
+     * @brief Close the communicator and remove the associated shm file
+     * even if this isn't the owner
+     *
+     */
+    virtual void force_close();
+
+    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      * @exception Segmentation Fault - happens if the shared memory has already been
@@ -106,11 +113,10 @@ private:
      * @return true
      * @return false
      */
-    bool check_exists();
+    virtual bool exists();
 
-    int id;       ///< the id of the SHMCommunicator
-    bool existed; ///< if the shm existed prior to this object
-    int shm_id;   ///< the id of the attached shared memory
+    int id;     ///< the id of the SHMCommunicator
+    int shm_id; ///< the id of the attached shared memory
 };
 
 #endif
