@@ -1,12 +1,14 @@
 /**
  * @file singletons.hpp
- * @author your name (you@domain.com)
- * @brief
+ * @author Eliot Hall
+ * @brief Singletons and subscribers
  * @version 0.1
  * @date 2023-04-07
  *
  * @copyright Copyright (c) 2023
  *
+ * @addtogroup movement_id
+ * @{
  */
 #ifndef IHSBOOST_SINGLETONS_HPP
 #define IHSBOOST_SINGLETONS_HPP
@@ -304,3 +306,4 @@ private:
 };
 
 #endif
+/**@}*/

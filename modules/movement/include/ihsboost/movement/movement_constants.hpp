@@ -1,12 +1,14 @@
 /**
  * @file movement_constants.hpp
- * @author your name (you@domain.com)
- * @brief
+ * @author Eliot Hall
+ * @brief Movement constants
  * @version 0.1
  * @date 2023-04-07
  *
  * @copyright Copyright (c) 2023
  *
+ * @addtogroup movement_id
+ * @{
  */
 #ifndef IHSBOOST_MOVEMENT_CONSTANTS_HPP
 #define IHSBOOST_MOVEMENT_CONSTANTS_HPP
@@ -21,3 +23,4 @@
 #define MM_2_ENC (508.8 / (72.0 * M_PI)) ///< multiply by this to convert mm to enc
 
 #endif
+/**@}*/

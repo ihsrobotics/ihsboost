@@ -19,17 +19,15 @@
 #include <functional>
 
 /**
- * @brief Drive the create straight using the gyroscope
+ * @brief Drive straight using the gyroscope until told to stop
  *
- * @param from_speed speed to start at
- * @param to_speed speed to cap at
- * @param stop_function a function that returns true when it is time to stop driving forward
- * @param correction_proportion how much the correction is by; defaults to .90,
- * should be between (0, 1)
- * @param accel_per_sec how fast the create will accelerate by, defaults to 500
- * @param updates_per_sec how many updates the function will do per sec, defaults to 200
+ * @param speed the speed to drive at, can be positive or negative
+ * @param stop_function the stop condition; it should return true when it is time to stop
+ * @param stop whether or not to stop the motors after finishing driving
+ * @param correction_proportion how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction.
+ * @param updates_per_sec how many updates to do per second
  */
-void gyro_drive_straight(int from_speed, int to_speed, std::function<bool()> stop_function, double correction_proportion = get_config().getDouble("gyro_correction_proportion"), double accel_per_sec = get_config().getDouble("gyro_linear_accel"), int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
+void gyro_drive_straight(int speed, std::function<bool()> stop_function, bool stop = get_config().getBool("gyro_stop"), double correction_proportion = get_config().getDouble("gyro_correction_proportion"), int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
 
 /**
  * @brief Turn the create a certain number of degrees using the gyroscope
