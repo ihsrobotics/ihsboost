@@ -48,7 +48,7 @@ void gyro_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec = g
  * @param accel_per_sec how fast to accelerate, defaults to 500
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
-void gyro_turn_degrees_v2(int max_speed, double degrees, int min_speed = get_config().getInt("gyro_turn_v2_min_speed"), double accel_per_sec = get_config().getDouble("gyro_linear_accel"), int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
+void gyro_turn_degrees(int max_speed, double degrees, int min_speed = get_config().getInt("gyro_min_speed"), double accel_per_sec = get_config().getDouble("gyro_accel_per_sec"), int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
 
 #endif
 /**@}*/

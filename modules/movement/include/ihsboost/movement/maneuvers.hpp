@@ -17,6 +17,44 @@
 #include "ihsboost/util/speed.hpp"
 
 /**
+ * @brief Three part loop that deals with accelerating, decelerating, and any extra driving
+ *
+ */
+#define THREE_PART_LOOP(max_speed, min_speed, accel, updates, accelerator_movement, decelerator_movement, cond_a, cond_b, cacher) \
+    double cached_amt = 0;                                                                                                        \
+    LinearController accelerator(0, max_speed, accel, updates);                                                                   \
+                                                                                                                                  \
+    while ((cond_a / 2) || (cond_b / 2))                                                                                          \
+    {                                                                                                                             \
+        accelerator_movement;                                                                                                     \
+                                                                                                                                  \
+        accelerator.step();                                                                                                       \
+        msleep(accelerator.get_msleep_time());                                                                                    \
+                                                                                                                                  \
+        if (accelerator.done())                                                                                                   \
+        {                                                                                                                         \
+            cached_amt = cacher;                                                                                                  \
+            break;                                                                                                                \
+        }                                                                                                                         \
+    }                                                                                                                             \
+                                                                                                                                  \
+    while (cached_amt != 0 && ((cond_a - cached_amt) || (cond_b - cached_amt)))                                                   \
+    {                                                                                                                             \
+        accelerator_movement;                                                                                                     \
+                                                                                                                                  \
+        msleep(accelerator.get_msleep_time());                                                                                    \
+    }                                                                                                                             \
+                                                                                                                                  \
+    LinearController decelerator(static_cast<int>(accelerator.speed()), min_speed, accel, updates);                               \
+    while ((cond_a) || (cond_b))                                                                                                  \
+    {                                                                                                                             \
+        decelerator_movement;                                                                                                     \
+                                                                                                                                  \
+        decelerator.step();                                                                                                       \
+        msleep(decelerator.get_msleep_time());                                                                                    \
+    }
+
+/**
  * @brief Turn the given number of degrees using the given subscriber
  *
  * @param subscriber the subscriber that provides information on the current angle
