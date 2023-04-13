@@ -27,7 +27,27 @@ else()
     set(robot_config_name "small_bot_config.json")
     set(robot_config_hpp "small_bot_config.hpp")
 endif()
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/util/include/config.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/util/include/config.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/util/include/ihsboost/util/config.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/util/include/ihsboost/util/config.hpp)
+
+# ========== Module adding functions ==========
+# add a module; name should be the same as the directory
+function(add_module _name sources)
+    add_library(${_name} OBJECT ${sources})
+    target_include_directories(${_name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/ihsboost/${_name}/)
+endfunction()
+# add ihsboost dependencies
+function(add_ihsboost_deps _name ihsboost_dependencies)
+    foreach(dependency IN LISTS ihsboost_dependencies)
+        target_include_directories(${_name} PUBLIC ${CMAKE_SOURCE_DIR}/modules/${dependency}/include/)
+    endforeach()
+endfunction()
+# add the external dependencies
+function(add_external_deps _name external_dependencies)
+    foreach(external_dep IN LISTS external_dependencies)
+        find_library(lib_${external_dep} ${external_dep} REQUIRED)
+        target_link_libraries(${_name} PUBLIC ${lib_${external_dep}})
+    endforeach()
+endfunction()
 
 # ========== Library Section ==========
 if (${build_library})
@@ -55,7 +75,8 @@ if (${build_library})
     foreach(subdir IN LISTS DIRECTORIES)
         # don't link bindings to ihsboost
         if ((NOT ${subdir} STREQUAL "bindings" AND ${build_${subdir}}))
-            target_link_libraries(ihsboost PUBLIC ihs_${subdir})
+            message("linking" ${subdir})
+            target_link_libraries(ihsboost PUBLIC ${subdir})
         endif()
     endforeach()
 

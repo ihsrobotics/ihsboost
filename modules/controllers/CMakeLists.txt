@@ -3,18 +3,13 @@ if (${build_controllers})
 
     # sources
     set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/controllers.cpp)
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+    set(DEPS util)
 
-    # include dependencies
-    include_directories(${CMAKE_SOURCE_DIR}/modules/util/include)
-
-    #library
-    add_library(ihs_controllers OBJECT ${SOURCES})
-
-    # library dependencies
-    add_dependencies(ihs_controllers ihs_util)
-
+    add_module(controllers "${SOURCES}")
+    add_ihsboost_deps(controllers "${DEPS}")
+    
     # install
     get_property(local_install_path GLOBAL PROPERTY install_path)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers.hpp DESTINATION ${local_install_path})
+    set(install_file_dir ${CMAKE_CURRENT_SOURCE_DIR}/include/ihsboost/controllers)
+    install(FILES ${install_file_dir}/controllers.hpp DESTINATION ${local_install_path}/controllers)
 endif()

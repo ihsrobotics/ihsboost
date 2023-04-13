@@ -38,41 +38,42 @@
  * @example movement_bindings.py
  * @example back_and_forth.py
  * @example back_and_forth.cpp
+ * @example encoder_example.py
  */
 
 #include "modules.hpp"
 
 // controllers
 #ifdef build_controllers
-#include "controllers.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 #endif
 
 //  movement
 #ifdef build_movement
-#include "movement.hpp"
+#include "ihsboost/movement/movement.hpp"
 #endif
 
 // threading
 #ifdef build_threading
-#include "threading.hpp"
+#include "ihsboost/threading/threading.hpp"
 #endif
 
 // util
 #ifdef build_util
-#include "util.hpp"
+#include "ihsboost/util/util.hpp"
 #endif
 
 // servos
 #ifdef build_servos
-#include "servos.hpp"
+#include "ihsboost/servos/servos.hpp"
 #endif
 
 // communication
 #ifdef build_communicate
-#include "communicate.hpp"
+#include "ihsboost/communicate/communicate.hpp"
 #endif
 
 // create_extra
 #ifdef build_create_extra
-#include "create_extra.hpp"
+#include "ihsboost/create_extra/create_extra.hpp"
 #endif

@@ -9,7 +9,7 @@
  *
  */
 #include <iostream>
-#include <ihsboost/json_config.hpp>
+#include <ihsboost/util/json_config.hpp>
 #include "json_loader.hpp"
 using namespace std;
 

@@ -19,7 +19,7 @@
  * @brief Class for communicating over shared memory
  *
  */
-class SHMCommunicator : public Communicator
+class SHMCommunicator : public FileCommunicator
 {
 public:
     /**
@@ -80,6 +80,13 @@ public:
     virtual void close();
 
     /**
+     * @brief Close the communicator and remove the associated shm file
+     * even if this isn't the owner
+     *
+     */
+    virtual void force_close();
+
+    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      * @exception Segmentation Fault - happens if the shared memory has already been
@@ -99,6 +106,14 @@ private:
      * @param bytes the bytes, created from MessageBuf.to_bytes
      */
     virtual void send_bytes(char *bytes);
+
+    /**
+     * @brief Check if the shm file already exists
+     *
+     * @return true
+     * @return false
+     */
+    virtual bool exists();
 
     int id;     ///< the id of the SHMCommunicator
     int shm_id; ///< the id of the attached shared memory

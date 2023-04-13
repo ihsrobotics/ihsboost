@@ -22,3 +22,8 @@ void Communicator::send_msg(MessageBuf &message)
 {
     send_bytes(message.to_bytes());
 }
+
+FileCommunicator::FileCommunicator() : Communicator(), owner(false){};
+FileCommunicator::FileCommunicator(uint32_t max_msg_size) : Communicator(max_msg_size), owner(false){};
+void FileCommunicator::check_exists() { owner = !exists(); }
+bool FileCommunicator::is_owner() const { return owner; }

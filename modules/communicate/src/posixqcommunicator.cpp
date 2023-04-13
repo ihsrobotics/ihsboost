@@ -2,20 +2,31 @@
 #include "communication_exception.hpp"
 #include <memory.h>
 #include <iostream>
+#include <fstream>
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : Communicator(), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs) : FileCommunicator(), _name(name), max_msgs(max_msgs)
 {
+    check_exists();
     open();
 }
 
-PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : Communicator(max_msg_size), _name(name), max_msgs(max_msgs)
+PosixQCommunicator::PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size) : FileCommunicator(max_msg_size), _name(name), max_msgs(max_msgs)
 {
+    check_exists();
     open();
 }
 
 PosixQCommunicator::~PosixQCommunicator()
 {
     close();
+}
+
+bool PosixQCommunicator::exists()
+{
+    std::ifstream file;
+    std::string full_name = std::string("/dev/mqueue/") + _name;
+    file.open(full_name);
+    return static_cast<bool>(file);
 }
 
 void PosixQCommunicator::open()
@@ -55,25 +66,23 @@ MessageBuf PosixQCommunicator::receive_msg()
 
 void PosixQCommunicator::close()
 {
-    std::cout << "closing and unlinking PosixQCommunicator" << std::endl;
+    std::cout << "safely closing and unlinking PosixQCommunicator" << std::endl;
     int ret = mq_close(msg_q_id);
     check_error(ret, "closing");
 
-    try
+    // only unlink (delete the posix queue) if this is the "owner"
+    if (is_owner())
     {
         ret = mq_unlink(_name.c_str());
         check_error(ret, "unlinking");
     }
-    catch (CommunicationException &c)
-    {
-        // if the error = because there was no existing file / directory
-        if (c.get_error_code() == ENOENT)
-        {
-            std::cout << "The PosixQCommunicator's mqueue has already been unlinked by a separate program." << std::endl;
-        }
-        else
-        {
-            throw c;
-        }
-    }
+}
+void PosixQCommunicator::force_close()
+{
+    std::cout << "force closing PosixQCommunicator" << std::endl;
+    int ret = mq_close(msg_q_id);
+    check_error(ret, "closing");
+
+    ret = mq_unlink(_name.c_str());
+    check_error(ret, "unlinking");
 }

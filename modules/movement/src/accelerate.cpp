@@ -1,6 +1,5 @@
 #include "accelerate.hpp"
-#include "controllers.hpp"
-#include "config.hpp"
+#include "ihsboost/controllers/controllers.hpp"
 #include <kipr/wombat.h>
 #include <iostream>
 #include <math.h>

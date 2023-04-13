@@ -8,20 +8,28 @@
 using namespace std;
 
 SHMCommunicator::SHMCommunicator(const char *path, int identifier, uint32_t max_msg_size) : SHMCommunicator(ftok(path, identifier), max_msg_size){};
-SHMCommunicator::SHMCommunicator(int id, uint32_t max_msg_size) : Communicator(max_msg_size), id(id)
+SHMCommunicator::SHMCommunicator(int id, uint32_t max_msg_size) : FileCommunicator(max_msg_size), id(id)
 {
+    check_exists();
     open();
 }
 
 SHMCommunicator::SHMCommunicator(const char *path, int identifier) : SHMCommunicator(ftok(path, identifier)){};
-SHMCommunicator::SHMCommunicator(int id) : Communicator(), id(id)
+SHMCommunicator::SHMCommunicator(int id) : FileCommunicator(), id(id)
 {
+    check_exists();
     open();
 }
 
 SHMCommunicator::~SHMCommunicator()
 {
     close();
+}
+
+bool SHMCommunicator::exists()
+{
+    int ret = shmget(id, MessageBuf::get_size(max_msg_size), S_IRWXU | S_IRWXO | S_IRWXG | IPC_CREAT | IPC_EXCL);
+    return ret == -1 && errno == EEXIST;
 }
 
 void SHMCommunicator::open()
@@ -33,24 +41,16 @@ void SHMCommunicator::open()
 void SHMCommunicator::close()
 {
     cout << "closing SHMCommunicator" << endl;
+    // only remove the shm file if this is the "owner"
+    if (is_owner())
+    {
+        force_close();
+    }
+}
+void SHMCommunicator::force_close()
+{
     int ret = shmctl(shm_id, IPC_RMID, NULL);
-    try
-    {
-        check_error(ret, "closing");
-    }
-    catch (CommunicationException &c)
-    {
-        // allow invalid argument (because shm_id has already been removed)
-        // but throw everything else
-        if (c.get_error_code() == EINVAL)
-        {
-            cout << "The shared memory has already been closed by a separate program." << endl;
-        }
-        else
-        {
-            throw c;
-        }
-    }
+    check_error(ret, "closing");
 }
 
 void SHMCommunicator::send_bytes(char *bytes)

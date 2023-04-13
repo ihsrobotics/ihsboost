@@ -21,7 +21,7 @@
  * @brief Class for communicating over posix-based mqueue's
  *
  */
-class PosixQCommunicator : public Communicator
+class PosixQCommunicator : public FileCommunicator
 {
 public:
     /**
@@ -67,6 +67,13 @@ public:
     virtual void close();
 
     /**
+     * @brief Close the communicator and remove the associated mqueue
+     * even if this isn't the owner
+     *
+     */
+    virtual void force_close();
+
+    /**
      * @brief Wait to receive a message.
      * Blocks until message was received
      *
@@ -83,9 +90,17 @@ private:
      */
     virtual void send_bytes(char *bytes);
 
-    mqd_t msg_q_id;
-    std::string _name;
-    size_t max_msgs;
+    /**
+     * @brief Check if the file for the posix queue already exists
+     *
+     * @return true
+     * @return false
+     */
+    virtual bool exists();
+
+    mqd_t msg_q_id;    ///< the id of the posix message queue
+    std::string _name; ///< the name of the posix message queue
+    size_t max_msgs;   ///< the maximum number of messages for the posix queue
 };
 
 #endif

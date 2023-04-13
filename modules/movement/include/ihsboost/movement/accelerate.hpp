@@ -13,8 +13,8 @@
 #ifndef IHSBOOST_ACCELERATE_HPP
 #define IHSBOOST_ACCELERATE_HPP
 
-#include "config.hpp"
-#include "speed.hpp"
+#include "ihsboost/util/config.hpp"
+#include "ihsboost/util/speed.hpp"
 
 /**
  * @brief Accelerate both wheels at the same linear rate
