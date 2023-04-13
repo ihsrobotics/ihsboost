@@ -32,9 +32,8 @@ void gyro_drive_straight(int speed, std::function<bool()> stop_function, bool st
 /**
  * @brief Turn the create a certain number of degrees using the gyroscope
  *
- * @param turn_speed the speed to start at
+ * @param turn_speed the speed to turn at
  * @param degrees how many degrees to turn (+ vals for CW, - vals for CCW)
- * @param accel_per_sec how fast to accelerate, defaults to 500
  * @param updates_per_sec how many updates the function will do per sec, defaults to 200
  */
 void gyro_turn_degrees(Speed turn_speed, double degrees, int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));

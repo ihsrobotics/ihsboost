@@ -492,37 +492,31 @@ def accelerate_sinusoidal(
     """
 
 def gyro_drive_straight(
-    from_speed: int,
-    to_speed: int,
+    speed: int,
     stop_function: function,
+    stop: bool = ...,
     correction_proportion: float = ...,
-    accel_per_sec: float = ...,
     updates_per_sec: int = ...,
 ) -> None:
     """
-    Drive the create straight using the gyroscope
-        @param from_speed speed to start at
-        @param to_speed speed to cap at
+    Drive straight using the gyroscope until told to stop
+        @param speed the speed to drive at, can be positive or negative
         @param stop_function a function that returns true when it is time to stop driving forward
+        @param stop whether or not to stop the motors after finishing driving
         @param correction_proportion how much the correction is by,
         should be between (0, 1)
-        @param accel_per_sec how fast the create will accelerate by
         @param updates_per_sec how many updates the function will do per sec
     """
 
 def gyro_turn_degrees(
-    from_speed: Speed,
-    to_speed: Speed,
+    turn_speed: Speed,
     degrees: float,
-    accel_per_sec: float = ...,
     updates_per_sec: int = ...,
 ) -> None:
     """
-    Turn the create a certain number of degrees using the gyroscope
-        @param from_speed the speed to start at
-        @param to_speed the speed to end at
+    Turn a certain number of degrees using the gyroscope
+        @param turn_speed the speed to turn at
         @param degrees how many degrees to turn (+ vals for CW, - vals for CCW)
-        @param accel_per_sec how fast to accelerate
         @param updates_per_sec how many updates the function will do per sec
     """
 
