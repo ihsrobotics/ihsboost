@@ -38,6 +38,7 @@
  * @example movement_bindings.py
  * @example back_and_forth.py
  * @example back_and_forth.cpp
+ * @example encoder_example.py
  */
 
 #include "modules.hpp"
