@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -77,11 +77,11 @@ $(function() {
 <div class="line">    create_connect_once();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// go forward for 6 seconds, accelerating from 0 to 100 and checking for straightness using the gyroscope</span></div>
-<div class="line">    <a name="a0"></a><a class="code" href="group__python__functions__id.html#gab0f7492d51d0744c53f56bbcc71bc9b0">gyro_drive_straight</a>(0, 100, <a name="_a1"></a><a class="code" href="classTimer.html">Timer</a>(6));</div>
+<div class="line">    <a name="a0"></a><a class="code" href="group__python__functions__id.html#gaac3cc0315904c452e1eae561653d9fa5">gyro_drive_straight</a>(0, 100, <a name="_a1"></a><a class="code" href="classTimer.html">Timer</a>(6));</div>
 <div class="line">    <span class="comment">// turn degrees using the gyroscope</span></div>
 <div class="line">    <span class="comment">// turn 90 degrees by slowing down the right wheel</span></div>
 <div class="line">    <span class="comment">// speeds are {left, right}, so we keep left wheel at speed 100 but gradually slow right wheel down to 11</span></div>
-<div class="line">    <a name="a2"></a><a class="code" href="group__python__functions__id.html#gad556e2b422695866a9e52bd8dc738a32">gyro_turn_degrees</a>({100, 100}, {100, 11}, 90);</div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__python__functions__id.html#ga66266793db8cb19452819cb529a73aea">gyro_turn_degrees</a>({100, 100}, {100, 11}, 90);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// wait a little</span></div>
 <div class="line">    create_drive_direct(0, 0);</div>
@@ -94,9 +94,9 @@ $(function() {
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">A class that implements a timer, useful when you want to line-follow for a certain amount of time.</div><div class="ttdef"><b>Definition:</b> timer.hpp:24</div></div>
-<div class="ttc" id="agroup__python__functions__id_html_ga9449f898b9e166376ba3652091735b90"><div class="ttname"><a href="group__python__functions__id.html#ga9449f898b9e166376ba3652091735b90">ihs_bindings.gyro_turn_degrees_v2</a></div><div class="ttdeci">None gyro_turn_degrees_v2(int max_speed, float degrees, int min_speed=..., float accel_per_sec=..., float updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:535</div></div>
-<div class="ttc" id="agroup__python__functions__id_html_gab0f7492d51d0744c53f56bbcc71bc9b0"><div class="ttname"><a href="group__python__functions__id.html#gab0f7492d51d0744c53f56bbcc71bc9b0">ihs_bindings.gyro_drive_straight</a></div><div class="ttdeci">None gyro_drive_straight(int from_speed, int to_speed, function stop_function, float correction_proportion=..., float accel_per_sec=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:501</div></div>
-<div class="ttc" id="agroup__python__functions__id_html_gad556e2b422695866a9e52bd8dc738a32"><div class="ttname"><a href="group__python__functions__id.html#gad556e2b422695866a9e52bd8dc738a32">ihs_bindings.gyro_turn_degrees</a></div><div class="ttdeci">None gyro_turn_degrees(Speed from_speed, Speed to_speed, float degrees, float accel_per_sec=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:519</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_ga66266793db8cb19452819cb529a73aea"><div class="ttname"><a href="group__python__functions__id.html#ga66266793db8cb19452819cb529a73aea">ihs_bindings.gyro_turn_degrees</a></div><div class="ttdeci">None gyro_turn_degrees(Speed turn_speed, float degrees, int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:515</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_ga9449f898b9e166376ba3652091735b90"><div class="ttname"><a href="group__python__functions__id.html#ga9449f898b9e166376ba3652091735b90">ihs_bindings.gyro_turn_degrees_v2</a></div><div class="ttdeci">None gyro_turn_degrees_v2(int max_speed, float degrees, int min_speed=..., float accel_per_sec=..., float updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:529</div></div>
+<div class="ttc" id="agroup__python__functions__id_html_gaac3cc0315904c452e1eae561653d9fa5"><div class="ttname"><a href="group__python__functions__id.html#gaac3cc0315904c452e1eae561653d9fa5">ihs_bindings.gyro_drive_straight</a></div><div class="ttdeci">None gyro_drive_straight(int speed, function stop_function, bool stop=..., float correction_proportion=..., int updates_per_sec=...)</div><div class="ttdef"><b>Definition:</b> ihs_bindings.py:500</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

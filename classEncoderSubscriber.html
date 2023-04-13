@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -73,7 +73,25 @@ $(function() {
 <p>Class that takes care of setting up the <a class="el" href="classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values.">EncoderSingleton</a> for use in client programs.  
  <a href="classEncoderSubscriber.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="roomba__movement_8hpp_source.html">roomba_movement.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="singletons_8hpp_source.html">singletons.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for EncoderSubscriber:</div>
+<div class="dyncontent">
+<div class="center"><img src="classEncoderSubscriber__inherit__graph.png" border="0" usemap="#aEncoderSubscriber_inherit__map" alt="Inheritance graph"/></div>
+<map name="aEncoderSubscriber_inherit__map" id="aEncoderSubscriber_inherit__map">
+<area shape="rect" title="Class that takes care of setting up the EncoderSingleton for use in client programs." alt="" coords="5,80,148,107"/>
+<area shape="rect" href="classSubscriber.html" title="Abstract class representing a subscriber." alt="" coords="31,5,122,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for EncoderSubscriber:</div>
+<div class="dyncontent">
+<div class="center"><img src="classEncoderSubscriber__coll__graph.png" border="0" usemap="#aEncoderSubscriber_coll__map" alt="Collaboration graph"/></div>
+<map name="aEncoderSubscriber_coll__map" id="aEncoderSubscriber_coll__map">
+<area shape="rect" title="Class that takes care of setting up the EncoderSingleton for use in client programs." alt="" coords="5,80,148,107"/>
+<area shape="rect" href="classSubscriber.html" title="Abstract class representing a subscriber." alt="" coords="31,5,122,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -104,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac92fc3fe90b9165d3ed451ee5f0d1b12"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html#ac92fc3fe90b9165d3ed451ee5f0d1b12">get_relative_distance</a> ()</td></tr>
 <tr class="memdesc:ac92fc3fe90b9165d3ed451ee5f0d1b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get how far the create has traveled since this <a class="el" href="classEncoderSubscriber.html" title="Class that takes care of setting up the EncoderSingleton for use in client programs.">EncoderSubscriber</a> was created, in mm.  <a href="classEncoderSubscriber.html#ac92fc3fe90b9165d3ed451ee5f0d1b12">More...</a><br /></td></tr>
 <tr class="separator:ac92fc3fe90b9165d3ed451ee5f0d1b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686cdfa6d65d3e62aa76824cc8834887"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html#a686cdfa6d65d3e62aa76824cc8834887">get_relative_angle</a> ()</td></tr>
+<tr class="memitem:a686cdfa6d65d3e62aa76824cc8834887"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html#a686cdfa6d65d3e62aa76824cc8834887">get_relative_angle</a> ()</td></tr>
 <tr class="memdesc:a686cdfa6d65d3e62aa76824cc8834887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the angle relative to when this <a class="el" href="classEncoderSubscriber.html" title="Class that takes care of setting up the EncoderSingleton for use in client programs.">EncoderSubscriber</a> was created, in degrees.  <a href="classEncoderSubscriber.html#a686cdfa6d65d3e62aa76824cc8834887">More...</a><br /></td></tr>
 <tr class="separator:a686cdfa6d65d3e62aa76824cc8834887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -164,6 +182,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double EncoderSubscriber::get_relative_angle </td>
@@ -172,12 +193,19 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the angle relative to when this <a class="el" href="classEncoderSubscriber.html" title="Class that takes care of setting up the EncoderSingleton for use in client programs.">EncoderSubscriber</a> was created, in degrees. </p>
 <p>For instance, a value of 90.35 means that the create has turned 90.35 degrees CW since this <a class="el" href="classEncoderSubscriber.html" title="Class that takes care of setting up the EncoderSingleton for use in client programs.">EncoderSubscriber</a> was created.</p>
 <p>this is calculated using the following equation: <code>(left_mm + right_mm) / (dist_between_wheels_in_mm) * rad_2_deg</code></p>
 <dl class="section return"><dt>Returns</dt><dd>double - the angle the create has turned through, in degrees. </dd></dl>
+
+<p>Implements <a class="el" href="classSubscriber.html">Subscriber</a>.</p>
 
 </div>
 </div>
@@ -323,8 +351,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>modules/movement/include/<a class="el" href="roomba__movement_8hpp_source.html">roomba_movement.hpp</a></li>
-<li>modules/movement/src/roomba_movement.cpp</li>
+<li>modules/movement/include/ihsboost/movement/<a class="el" href="singletons_8hpp_source.html">singletons.hpp</a></li>
+<li>modules/movement/src/singletons.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

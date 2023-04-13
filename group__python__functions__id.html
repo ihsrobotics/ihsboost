@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -149,10 +149,10 @@ Functions</h2></td></tr>
 <tr class="separator:gada696f33ffc4c0975b1fc4caea2800e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c3e14ab11994fa11ce06b335603a602"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#ga6c3e14ab11994fa11ce06b335603a602">ihs_bindings.accelerate_sinusoidal</a> (<a class="el" href="classihs__bindings_1_1Speed.html">Speed</a> from_speed, <a class="el" href="classihs__bindings_1_1Speed.html">Speed</a> to_speed, float accel_per_sec=..., int updates_per_sec=...)</td></tr>
 <tr class="separator:ga6c3e14ab11994fa11ce06b335603a602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0f7492d51d0744c53f56bbcc71bc9b0"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#gab0f7492d51d0744c53f56bbcc71bc9b0">ihs_bindings.gyro_drive_straight</a> (int from_speed, int to_speed, function stop_function, float correction_proportion=..., float accel_per_sec=..., int updates_per_sec=...)</td></tr>
-<tr class="separator:gab0f7492d51d0744c53f56bbcc71bc9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad556e2b422695866a9e52bd8dc738a32"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#gad556e2b422695866a9e52bd8dc738a32">ihs_bindings.gyro_turn_degrees</a> (<a class="el" href="classihs__bindings_1_1Speed.html">Speed</a> from_speed, <a class="el" href="classihs__bindings_1_1Speed.html">Speed</a> to_speed, float degrees, float accel_per_sec=..., int updates_per_sec=...)</td></tr>
-<tr class="separator:gad556e2b422695866a9e52bd8dc738a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac3cc0315904c452e1eae561653d9fa5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#gaac3cc0315904c452e1eae561653d9fa5">ihs_bindings.gyro_drive_straight</a> (int speed, function stop_function, bool stop=..., float correction_proportion=..., int updates_per_sec=...)</td></tr>
+<tr class="separator:gaac3cc0315904c452e1eae561653d9fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66266793db8cb19452819cb529a73aea"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#ga66266793db8cb19452819cb529a73aea">ihs_bindings.gyro_turn_degrees</a> (<a class="el" href="classihs__bindings_1_1Speed.html">Speed</a> turn_speed, float degrees, int updates_per_sec=...)</td></tr>
+<tr class="separator:ga66266793db8cb19452819cb529a73aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9449f898b9e166376ba3652091735b90"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#ga9449f898b9e166376ba3652091735b90">ihs_bindings.gyro_turn_degrees_v2</a> (int max_speed, float degrees, int min_speed=..., float accel_per_sec=..., float updates_per_sec=...)</td></tr>
 <tr class="separator:ga9449f898b9e166376ba3652091735b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4975c9026c2449113658e2e602a57922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__python__functions__id.html#ga4975c9026c2449113658e2e602a57922">ihs_bindings.is_black</a> (int val)</td></tr>
@@ -808,8 +808,8 @@ Major.Minor.Patch
 </pre> 
 </div>
 </div>
-<a id="gab0f7492d51d0744c53f56bbcc71bc9b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab0f7492d51d0744c53f56bbcc71bc9b0">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
+<a id="gaac3cc0315904c452e1eae561653d9fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaac3cc0315904c452e1eae561653d9fa5">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -818,13 +818,7 @@ Major.Minor.Patch
           <td class="memname"> None ihs_bindings.gyro_drive_straight </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>from_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>to_speed</em>, </td>
+          <td class="paramname"><em>speed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -835,14 +829,14 @@ Major.Minor.Patch
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float &#160;</td>
-          <td class="paramname"><em>correction_proportion</em> = <code>...</code>, </td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>stop</em> = <code>...</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float &#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code>...</code>, </td>
+          <td class="paramname"><em>correction_proportion</em> = <code>...</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -857,21 +851,20 @@ Major.Minor.Patch
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Drive the create straight using the gyroscope
-    @param from_speed speed to start at
-    @param to_speed speed to cap at
+<pre class="fragment">Drive straight using the gyroscope until told to stop
+    @param speed the speed to drive at, can be positive or negative
     @param stop_function a function that returns true when it is time to stop driving forward
+    @param stop whether or not to stop the motors after finishing driving
     @param correction_proportion how much the correction is by,
     should be between (0, 1)
-    @param accel_per_sec how fast the create will accelerate by
     @param updates_per_sec how many updates the function will do per sec
 </pre> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_example_8cpp-example.html#a0">gyro_example.cpp</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="gad556e2b422695866a9e52bd8dc738a32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad556e2b422695866a9e52bd8dc738a32">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
+<a id="ga66266793db8cb19452819cb529a73aea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66266793db8cb19452819cb529a73aea">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -880,13 +873,7 @@ Major.Minor.Patch
           <td class="memname"> None ihs_bindings.gyro_turn_degrees </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classihs__bindings_1_1Speed.html">Speed</a>&#160;</td>
-          <td class="paramname"><em>from_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classihs__bindings_1_1Speed.html">Speed</a>&#160;</td>
-          <td class="paramname"><em>to_speed</em>, </td>
+          <td class="paramname"><em>turn_speed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -897,12 +884,6 @@ Major.Minor.Patch
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float &#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code>...</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int &#160;</td>
           <td class="paramname"><em>updates_per_sec</em> = <code>...</code>&#160;</td>
         </tr>
@@ -913,11 +894,9 @@ Major.Minor.Patch
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Turn the create a certain number of degrees using the gyroscope
-    @param from_speed the speed to start at
-    @param to_speed the speed to end at
+<pre class="fragment">Turn a certain number of degrees using the gyroscope
+    @param turn_speed the speed to turn at
     @param degrees how many degrees to turn (+ vals for CW, - vals for CCW)
-    @param accel_per_sec how fast to accelerate
     @param updates_per_sec how many updates the function will do per sec
 </pre> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_example_8cpp-example.html#a2">gyro_example.cpp</a>.</dd>
 </dl>

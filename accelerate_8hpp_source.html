@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ihs_boost: modules/movement/include/accelerate.hpp Source File</title>
+<title>ihs_boost: modules/movement/include/ihsboost/movement/accelerate.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_72a30694de53acbf6676eb1c5af2eaaf.html">movement</a></li><li class="navelem"><a class="el" href="dir_72960f6d829aaf355f4d89dd8c6a9335.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_72a30694de53acbf6676eb1c5af2eaaf.html">movement</a></li><li class="navelem"><a class="el" href="dir_72960f6d829aaf355f4d89dd8c6a9335.html">include</a></li><li class="navelem"><a class="el" href="dir_eca12e01dd0de51060293f081ac44134.html">ihsboost</a></li><li class="navelem"><a class="el" href="dir_d55eb022849a89c757f7a5802390eec7.html">movement</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,8 +74,8 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef IHSBOOST_ACCELERATE_HPP</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define IHSBOOST_ACCELERATE_HPP</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="speed_8hpp.html">speed.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">ihsboost/util/config.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="speed_8hpp.html">ihsboost/util/speed.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a>(<span class="keywordtype">int</span> from_speed, <span class="keywordtype">int</span> to_speed, <span class="keywordtype">double</span> accel_per_sec = <a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(<span class="stringliteral">&quot;linear_accel&quot;</span>), <span class="keywordtype">int</span> updates_per_sec = <a class="code" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(<span class="stringliteral">&quot;accelerate_updates_per_sec&quot;</span>));</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
@@ -87,10 +87,10 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">File for configuring ihsboost variables.</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga4ffb81e42fb8b907261911ee37c887ca"><div class="ttname"><a href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a></div><div class="ttdeci">void accelerate_forward_sin(int from_speed, int to_speed, double avg_accel_per_sec=get_config().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same sinusoidal rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:14</div></div>
-<div class="ttc" id="agroup__movement__id_html_ga80b54a179f240432f515e62199b5fb57"><div class="ttname"><a href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a></div><div class="ttdeci">void accelerate_forward_linear(int from_speed, int to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same linear rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:9</div></div>
-<div class="ttc" id="agroup__movement__id_html_gab62164c7d92d822e4c25b27c1cf9400f"><div class="ttname"><a href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f">accelerate_linear</a></div><div class="ttdeci">void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at potentially different linear rates.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:19</div></div>
-<div class="ttc" id="agroup__movement__id_html_gabe9ca16ac8e8fcf9f003d6bd19f6b84a"><div class="ttname"><a href="group__movement__id.html#gabe9ca16ac8e8fcf9f003d6bd19f6b84a">accelerate_sinusoidal</a></div><div class="ttdeci">void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec=get_config().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at potentially different sinusoidal rates.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:44</div></div>
+<div class="ttc" id="agroup__movement__id_html_ga4ffb81e42fb8b907261911ee37c887ca"><div class="ttname"><a href="group__movement__id.html#ga4ffb81e42fb8b907261911ee37c887ca">accelerate_forward_sin</a></div><div class="ttdeci">void accelerate_forward_sin(int from_speed, int to_speed, double avg_accel_per_sec=get_config().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same sinusoidal rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:13</div></div>
+<div class="ttc" id="agroup__movement__id_html_ga80b54a179f240432f515e62199b5fb57"><div class="ttname"><a href="group__movement__id.html#ga80b54a179f240432f515e62199b5fb57">accelerate_forward_linear</a></div><div class="ttdeci">void accelerate_forward_linear(int from_speed, int to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at the same linear rate.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:8</div></div>
+<div class="ttc" id="agroup__movement__id_html_gab62164c7d92d822e4c25b27c1cf9400f"><div class="ttname"><a href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f">accelerate_linear</a></div><div class="ttdeci">void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec=get_config().getDouble(&quot;linear_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at potentially different linear rates.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:18</div></div>
+<div class="ttc" id="agroup__movement__id_html_gabe9ca16ac8e8fcf9f003d6bd19f6b84a"><div class="ttname"><a href="group__movement__id.html#gabe9ca16ac8e8fcf9f003d6bd19f6b84a">accelerate_sinusoidal</a></div><div class="ttdeci">void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec=get_config().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=get_config().getInt(&quot;accelerate_updates_per_sec&quot;))</div><div class="ttdoc">Accelerate both wheels at potentially different sinusoidal rates.</div><div class="ttdef"><b>Definition:</b> accelerate.cpp:43</div></div>
 <div class="ttc" id="agroup__util__id_html_gacc291cc27dcb13b6f2d1c08a7476fb07"><div class="ttname"><a href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a></div><div class="ttdeci">Config &amp; get_config(std::string config_file=CONFIG_FILE)</div><div class="ttdoc">Get the ihsboost config object holding all tunable ihsboost variables.</div><div class="ttdef"><b>Definition:</b> config.cpp:157</div></div>
 <div class="ttc" id="aspeed_8hpp_html"><div class="ttname"><a href="speed_8hpp.html">speed.hpp</a></div><div class="ttdoc">Speed struct for representing speeds.</div></div>
 <div class="ttc" id="astructSpeed_html"><div class="ttname"><a href="structSpeed.html">Speed</a></div><div class="ttdoc">An object to represent speed in terms of left and right wheel speeds.</div><div class="ttdef"><b>Definition:</b> speed.hpp:21</div></div>

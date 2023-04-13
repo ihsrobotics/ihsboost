@@ -1,0 +1,4 @@
+<map id="FileCommunicator" name="FileCommunicator">
+<area shape="rect" id="node1" title="Abstract class for all file&#45;based communicators." alt="" coords="5,80,147,107"/>
+<area shape="rect" id="node2" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="17,5,135,32"/>
+</map>

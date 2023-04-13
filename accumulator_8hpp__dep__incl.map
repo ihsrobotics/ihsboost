@@ -1,7 +1,9 @@
-<map id="modules/threading/include/accumulator.hpp" name="modules/threading/include/accumulator.hpp">
-<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="121,5,315,47"/>
-<area shape="rect" id="node2" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="47,95,251,136"/>
-<area shape="rect" id="node5" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="234,184,429,225"/>
-<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,184,209,225"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="131,273,308,300"/>
+<map id="modules/threading/include/ihsboost/threading/accumulator.hpp" name="modules/threading/include/ihsboost/threading/accumulator.hpp">
+<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="215,5,474,47"/>
+<area shape="rect" id="node2" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="5,184,209,240"/>
+<area shape="rect" id="node5" href="$singletons_8hpp.html" title="Singletons and subscribers." alt="" coords="217,95,472,136"/>
+<area shape="rect" id="node7" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="447,288,688,329"/>
+<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="149,288,407,329"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="327,377,504,404"/>
+<area shape="rect" id="node6" href="$maneuvers_8hpp.html" title="Abstract maneuvers." alt="" coords="285,191,546,233"/>
 </map>

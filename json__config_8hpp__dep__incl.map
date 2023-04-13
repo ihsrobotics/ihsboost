@@ -1,12 +1,14 @@
-<map id="modules/util/include/json_config.hpp" name="modules/util/include/json_config.hpp">
-<area shape="rect" id="node1" title="Class for loading json configs." alt="" coords="507,5,662,47"/>
-<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="450,95,605,136"/>
-<area shape="rect" id="node10" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="705,184,859,225"/>
-<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="145,184,349,225"/>
-<area shape="rect" id="node4" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,273,209,315"/>
-<area shape="rect" id="node7" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="285,273,489,315"/>
-<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="425,184,629,225"/>
-<area shape="rect" id="node9" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="569,273,745,315"/>
-<area shape="rect" id="node5" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="285,363,489,404"/>
-<area shape="rect" id="node6" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="568,452,745,479"/>
+<map id="modules/util/include/ihsboost/util/json_config.hpp" name="modules/util/include/ihsboost/util/json_config.hpp">
+<area shape="rect" id="node1" title="Class for loading json configs." alt="" coords="659,5,870,47"/>
+<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="613,95,791,136"/>
+<area shape="rect" id="node12" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="1136,184,1295,225"/>
+<area shape="rect" id="node3" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="145,184,401,225"/>
+<area shape="rect" id="node4" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,273,209,329"/>
+<area shape="rect" id="node7" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="285,273,489,329"/>
+<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="514,273,725,329"/>
+<area shape="rect" id="node9" href="$singletons_8hpp.html" title="Singletons and subscribers." alt="" coords="657,184,912,225"/>
+<area shape="rect" id="node11" href="$servos_8hpp.html" title="Servo movement functions." alt="" coords="975,377,1178,419"/>
+<area shape="rect" id="node5" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="490,377,749,419"/>
+<area shape="rect" id="node6" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="988,467,1165,493"/>
+<area shape="rect" id="node10" href="$maneuvers_8hpp.html" title="Abstract maneuvers." alt="" coords="799,281,1061,322"/>
 </map>

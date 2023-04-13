@@ -1,10 +1,11 @@
-<map id="modules/threading/include/threadable.hpp" name="modules/threading/include/threadable.hpp">
-<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="326,5,521,47"/>
-<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="259,95,454,136"/>
-<area shape="rect" id="node8" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="374,273,569,315"/>
-<area shape="rect" id="node3" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="5,184,209,225"/>
-<area shape="rect" id="node6" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="234,184,429,225"/>
-<area shape="rect" id="node4" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="145,363,349,404"/>
-<area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="228,452,405,479"/>
-<area shape="rect" id="node7" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="145,273,349,315"/>
+<map id="modules/threading/include/ihsboost/threading/threadable.hpp" name="modules/threading/include/ihsboost/threading/threadable.hpp">
+<area shape="rect" id="node1" title="Easy threading functionality." alt="" coords="419,5,669,47"/>
+<area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="356,95,583,151"/>
+<area shape="rect" id="node9" href="$threading_8hpp.html" title="Header that includes all the threading headers." alt="" coords="479,288,721,329"/>
+<area shape="rect" id="node3" href="$singletons_8hpp.html" title="Singletons and subscribers." alt="" coords="142,288,397,329"/>
+<area shape="rect" id="node7" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="307,199,565,240"/>
+<area shape="rect" id="node4" href="$maneuvers_8hpp.html" title="Abstract maneuvers." alt="" coords="5,385,267,426"/>
+<area shape="rect" id="node5" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="237,481,496,523"/>
+<area shape="rect" id="node6" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="361,571,538,597"/>
+<area shape="rect" id="node8" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="342,377,546,433"/>
 </map>

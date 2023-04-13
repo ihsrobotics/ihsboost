@@ -1,4 +1,4 @@
-<map id="modules/movement/include/movement.hpp" name="modules/movement/include/movement.hpp">
-<area shape="rect" id="node1" title="Header that includes all the movement headers." alt="" coords="5,5,209,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="19,95,196,121"/>
+<map id="modules/movement/include/ihsboost/movement/movement.hpp" name="modules/movement/include/ihsboost/movement/movement.hpp">
+<area shape="rect" id="node1" title="Header that includes all the movement headers." alt="" coords="5,5,264,47"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="46,95,223,121"/>
 </map>

@@ -1,5 +1,5 @@
-<map id="modules/util/include/util.hpp" name="modules/util/include/util.hpp">
-<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="155,5,309,47"/>
+<map id="modules/util/include/ihsboost/util/util.hpp" name="modules/util/include/ihsboost/util/util.hpp">
+<area shape="rect" id="node1" title="Header that includes all utility headers." alt="" coords="153,5,311,47"/>
 <area shape="rect" id="node2" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="5,95,80,121"/>
 <area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="105,95,194,121"/>
 <area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="129,169,252,196"/>

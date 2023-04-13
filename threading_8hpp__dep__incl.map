@@ -1,4 +1,4 @@
-<map id="modules/threading/include/threading.hpp" name="modules/threading/include/threading.hpp">
-<area shape="rect" id="node1" title="Header that includes all the threading headers." alt="" coords="5,5,200,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="14,95,191,121"/>
+<map id="modules/threading/include/ihsboost/threading/threading.hpp" name="modules/threading/include/ihsboost/threading/threading.hpp">
+<area shape="rect" id="node1" title="Header that includes all the threading headers." alt="" coords="5,5,247,47"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="37,95,215,121"/>
 </map>

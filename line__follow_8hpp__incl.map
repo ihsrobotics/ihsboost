@@ -1,11 +1,11 @@
-<map id="modules/movement/include/line_follow.hpp" name="modules/movement/include/line_follow.hpp">
-<area shape="rect" id="node1" title="Line follow functions." alt="" coords="153,5,357,47"/>
-<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="135,95,254,121"/>
-<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,169,142,196"/>
-<area shape="rect" id="node8" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="277,95,352,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="377,95,463,121"/>
-<area shape="rect" id="node7" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,169,255,196"/>
-<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,244,159,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,319,64,345"/>
-<area shape="rect" id="node6" title=" " alt="" coords="88,319,235,345"/>
+<map id="modules/movement/include/ihsboost/movement/line_follow.hpp" name="modules/movement/include/ihsboost/movement/line_follow.hpp">
+<area shape="rect" id="node1" title="Line follow functions." alt="" coords="174,5,378,61"/>
+<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="135,109,254,136"/>
+<area shape="rect" id="node3" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="11,184,184,211"/>
+<area shape="rect" id="node8" href="$cliff_8hpp.html" title="Cliff and Line definitions." alt="" coords="278,109,437,136"/>
+<area shape="rect" id="node9" title=" " alt="" coords="461,109,547,136"/>
+<area shape="rect" id="node7" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="208,184,381,211"/>
+<area shape="rect" id="node4" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,259,159,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,333,64,360"/>
+<area shape="rect" id="node6" title=" " alt="" coords="88,333,235,360"/>
 </map>

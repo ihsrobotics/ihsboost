@@ -1,5 +1,5 @@
-<map id="modules/threading/include/accumulator.hpp" name="modules/threading/include/accumulator.hpp">
-<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="116,5,311,47"/>
+<map id="modules/threading/include/ihsboost/threading/accumulator.hpp" name="modules/threading/include/ihsboost/threading/accumulator.hpp">
+<area shape="rect" id="node1" title="Accumulator class for integrating values." alt="" coords="84,5,343,47"/>
 <area shape="rect" id="node2" href="$background__task_8hpp.html" title="Background task class." alt="" coords="59,95,221,121"/>
 <area shape="rect" id="node7" title=" " alt="" coords="245,95,331,121"/>
 <area shape="rect" id="node3" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="80,169,200,196"/>

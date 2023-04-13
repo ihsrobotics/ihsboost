@@ -1,9 +1,9 @@
-<map id="modules/communicate/include/communicator.hpp" name="modules/communicate/include/communicator.hpp">
-<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="49,5,248,47"/>
-<area shape="rect" id="node2" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="81,95,217,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,81,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,169,192,196"/>
-<area shape="rect" id="node5" href="$communication__exception_8hpp.html" title="Exceptions that may be thrown while communicating." alt="" coords="216,169,439,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="235,244,321,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="346,244,405,271"/>
+<map id="modules/communicate/include/ihsboost/communicate/communicator.hpp" name="modules/communicate/include/ihsboost/communicate/communicator.hpp">
+<area shape="rect" id="node1" title="Abstract communication class." alt="" coords="36,5,261,61"/>
+<area shape="rect" id="node2" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="81,109,217,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,184,81,211"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,184,192,211"/>
+<area shape="rect" id="node5" href="$communication__exception_8hpp.html" title="Exceptions that may be thrown while communicating." alt="" coords="216,184,439,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="235,259,321,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="346,259,405,285"/>
 </map>

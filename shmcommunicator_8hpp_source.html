@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ihs_boost: modules/communicate/include/shmcommunicator.hpp Source File</title>
+<title>ihs_boost: modules/communicate/include/ihsboost/communicate/shmcommunicator.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_0f2bde0c495caf97132f12df004208ef.html">communicate</a></li><li class="navelem"><a class="el" href="dir_a22dab63c84e5a98343ce548404dae5c.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_0f2bde0c495caf97132f12df004208ef.html">communicate</a></li><li class="navelem"><a class="el" href="dir_a22dab63c84e5a98343ce548404dae5c.html">include</a></li><li class="navelem"><a class="el" href="dir_0857457a573c99af133e641929682b75.html">ihsboost</a></li><li class="navelem"><a class="el" href="dir_6c7049111b7e1f1b62bd92c348d840cb.html">communicate</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,7 +76,7 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="communicator_8hpp.html">communicator.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classSHMCommunicator.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSHMCommunicator.html">SHMCommunicator</a> : <span class="keyword">public</span> <a class="code" href="classCommunicator.html">Communicator</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classSHMCommunicator.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSHMCommunicator.html">SHMCommunicator</a> : <span class="keyword">public</span> <a class="code" href="classFileCommunicator.html">FileCommunicator</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classSHMCommunicator.html#a8fb0283662365b0ab8fd523fdeb1f37e">SHMCommunicator</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keywordtype">int</span> identifier);</div>
@@ -93,25 +93,30 @@ $(function() {
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72">close</a>();</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classMessageBuf.html">MessageBuf</a> <a class="code" href="classSHMCommunicator.html#a3c2961d5e0318a52995a8f7dae068c2e">receive_msg</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> send_bytes(<span class="keywordtype">char</span> *bytes);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">int</span> id;     </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">int</span> shm_id; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassCommunicator_html"><div class="ttname"><a href="classCommunicator.html">Communicator</a></div><div class="ttdoc">Abstract class for all communicators.</div><div class="ttdef"><b>Definition:</b> communicator.hpp:23</div></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSHMCommunicator.html#a20000fe2aece2f585f72e632455154b6">force_close</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classMessageBuf.html">MessageBuf</a> <a class="code" href="classSHMCommunicator.html#a3c2961d5e0318a52995a8f7dae068c2e">receive_msg</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> send_bytes(<span class="keywordtype">char</span> *bytes);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> exists();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">int</span> id;     </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">int</span> shm_id; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassCommunicator_html_a936642bf49cfa727fdafbe9d510cefd6"><div class="ttname"><a href="classCommunicator.html#a936642bf49cfa727fdafbe9d510cefd6">Communicator::max_msg_size</a></div><div class="ttdeci">uint32_t max_msg_size</div><div class="ttdoc">the maximum size of the message</div><div class="ttdef"><b>Definition:</b> communicator.hpp:131</div></div>
+<div class="ttc" id="aclassFileCommunicator_html"><div class="ttname"><a href="classFileCommunicator.html">FileCommunicator</a></div><div class="ttdoc">Abstract class for all file-based communicators.</div><div class="ttdef"><b>Definition:</b> communicator.hpp:139</div></div>
 <div class="ttc" id="aclassMessageBuf_html"><div class="ttname"><a href="classMessageBuf.html">MessageBuf</a></div><div class="ttdoc">Class for storing data over communicators.</div><div class="ttdef"><b>Definition:</b> message_buf.hpp:26</div></div>
 <div class="ttc" id="aclassSHMCommunicator_html"><div class="ttname"><a href="classSHMCommunicator.html">SHMCommunicator</a></div><div class="ttdoc">Class for communicating over shared memory.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.hpp:23</div></div>
-<div class="ttc" id="aclassSHMCommunicator_html_a2a58ea857e070b91b122ad73d593719f"><div class="ttname"><a href="classSHMCommunicator.html#a2a58ea857e070b91b122ad73d593719f">SHMCommunicator::~SHMCommunicator</a></div><div class="ttdeci">virtual ~SHMCommunicator()</div><div class="ttdoc">Destroy the SHMCommunicator object and the shared memory associated with it.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:22</div></div>
-<div class="ttc" id="aclassSHMCommunicator_html_a33359b5f1f9502eebcc699d663e69e72"><div class="ttname"><a href="classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72">SHMCommunicator::close</a></div><div class="ttdeci">virtual void close()</div><div class="ttdoc">Close the communicator.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:33</div></div>
+<div class="ttc" id="aclassSHMCommunicator_html_a20000fe2aece2f585f72e632455154b6"><div class="ttname"><a href="classSHMCommunicator.html#a20000fe2aece2f585f72e632455154b6">SHMCommunicator::force_close</a></div><div class="ttdeci">virtual void force_close()</div><div class="ttdoc">Close the communicator and remove the associated shm file even if this isn't the owner.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:50</div></div>
+<div class="ttc" id="aclassSHMCommunicator_html_a2a58ea857e070b91b122ad73d593719f"><div class="ttname"><a href="classSHMCommunicator.html#a2a58ea857e070b91b122ad73d593719f">SHMCommunicator::~SHMCommunicator</a></div><div class="ttdeci">virtual ~SHMCommunicator()</div><div class="ttdoc">Destroy the SHMCommunicator object and the shared memory associated with it.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:24</div></div>
+<div class="ttc" id="aclassSHMCommunicator_html_a33359b5f1f9502eebcc699d663e69e72"><div class="ttname"><a href="classSHMCommunicator.html#a33359b5f1f9502eebcc699d663e69e72">SHMCommunicator::close</a></div><div class="ttdeci">virtual void close()</div><div class="ttdoc">Close the communicator.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:41</div></div>
 <div class="ttc" id="aclassSHMCommunicator_html_a3c2961d5e0318a52995a8f7dae068c2e"><div class="ttname"><a href="classSHMCommunicator.html#a3c2961d5e0318a52995a8f7dae068c2e">SHMCommunicator::receive_msg</a></div><div class="ttdeci">virtual MessageBuf receive_msg()</div><div class="ttdoc">Wait to receive a message. Blocks until message was received.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:70</div></div>
-<div class="ttc" id="aclassSHMCommunicator_html_a44a4a3b514ccc8363d8c991497c452a2"><div class="ttname"><a href="classSHMCommunicator.html#a44a4a3b514ccc8363d8c991497c452a2">SHMCommunicator::open</a></div><div class="ttdeci">virtual void open()</div><div class="ttdoc">Opens the communicator.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:27</div></div>
-<div class="ttc" id="aclassSHMCommunicator_html_a8fb0283662365b0ab8fd523fdeb1f37e"><div class="ttname"><a href="classSHMCommunicator.html#a8fb0283662365b0ab8fd523fdeb1f37e">SHMCommunicator::SHMCommunicator</a></div><div class="ttdeci">SHMCommunicator(const char *path, int identifier)</div><div class="ttdoc">Construct a new SHMCommunicator object. In order to connect to the same msg queue,...</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:16</div></div>
+<div class="ttc" id="aclassSHMCommunicator_html_a44a4a3b514ccc8363d8c991497c452a2"><div class="ttname"><a href="classSHMCommunicator.html#a44a4a3b514ccc8363d8c991497c452a2">SHMCommunicator::open</a></div><div class="ttdeci">virtual void open()</div><div class="ttdoc">Opens the communicator.</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:35</div></div>
+<div class="ttc" id="aclassSHMCommunicator_html_a8fb0283662365b0ab8fd523fdeb1f37e"><div class="ttname"><a href="classSHMCommunicator.html#a8fb0283662365b0ab8fd523fdeb1f37e">SHMCommunicator::SHMCommunicator</a></div><div class="ttdeci">SHMCommunicator(const char *path, int identifier)</div><div class="ttdoc">Construct a new SHMCommunicator object. In order to connect to the same msg queue,...</div><div class="ttdef"><b>Definition:</b> shmcommunicator.cpp:17</div></div>
 <div class="ttc" id="acommunicator_8hpp_html"><div class="ttname"><a href="communicator_8hpp.html">communicator.hpp</a></div><div class="ttdoc">Abstract communication class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

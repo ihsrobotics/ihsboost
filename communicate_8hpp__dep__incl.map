@@ -1,4 +1,4 @@
-<map id="modules/communicate/include/communicate.hpp" name="modules/communicate/include/communicate.hpp">
-<area shape="rect" id="node1" title="Header that includes all the communicate headers." alt="" coords="5,5,200,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="14,95,191,121"/>
+<map id="modules/communicate/include/ihsboost/communicate/communicate.hpp" name="modules/communicate/include/ihsboost/communicate/communicate.hpp">
+<area shape="rect" id="node1" title="Header that includes all the communicate headers." alt="" coords="5,5,231,61"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="29,109,207,136"/>
 </map>

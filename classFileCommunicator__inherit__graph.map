@@ -1,0 +1,7 @@
+<map id="FileCommunicator" name="FileCommunicator">
+<area shape="rect" id="node1" title="Abstract class for all file&#45;based communicators." alt="" coords="196,80,337,107"/>
+<area shape="rect" id="node3" href="$classPosixQCommunicator.html" title="Class for communicating over posix&#45;based mqueue&#39;s." alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="$classSHMCommunicator.html" title="Class for communicating over shared memory." alt="" coords="193,155,341,181"/>
+<area shape="rect" id="node5" href="$classSysVCommunicator.html" title="Class to communicate using System V message queues." alt="" coords="365,155,515,181"/>
+<area shape="rect" id="node2" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="207,5,326,32"/>
+</map>

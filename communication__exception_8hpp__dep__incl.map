@@ -1,12 +1,12 @@
-<map id="modules/communicate/include/communication_exception.hpp" name="modules/communicate/include/communication_exception.hpp">
-<area shape="rect" id="node1" title="Exceptions that may be thrown while communicating." alt="" coords="5,5,184,61"/>
-<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="300,377,495,419"/>
-<area shape="rect" id="node4" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="66,109,257,151"/>
-<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="309,467,486,493"/>
-<area shape="rect" id="node5" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="423,199,622,240"/>
-<area shape="rect" id="node6" href="$btcommunicator_8hpp.html" title="Bluetooth&#45;based communication." alt="" coords="167,288,377,329"/>
-<area shape="rect" id="node7" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="402,288,643,329"/>
-<area shape="rect" id="node8" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="668,288,895,329"/>
-<area shape="rect" id="node9" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="919,288,1159,329"/>
-<area shape="rect" id="node10" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="1183,288,1411,329"/>
+<map id="modules/communicate/include/ihsboost/communicate/communication_exception.hpp" name="modules/communicate/include/ihsboost/communicate/communication_exception.hpp">
+<area shape="rect" id="node1" title="Exceptions that may be thrown while communicating." alt="" coords="5,5,232,61"/>
+<area shape="rect" id="node2" href="$communicate_8hpp.html" title="Header that includes all the communicate headers." alt="" coords="306,421,531,477"/>
+<area shape="rect" id="node4" href="$message__buf_8hpp.html" title="MessageBuf class for serializing and retreiving data." alt="" coords="81,109,306,165"/>
+<area shape="rect" id="node3" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="330,525,507,552"/>
+<area shape="rect" id="node5" href="$communicator_8hpp.html" title="Abstract communication class." alt="" coords="431,213,657,269"/>
+<area shape="rect" id="node6" href="$btcommunicator_8hpp.html" title="Bluetooth&#45;based communication." alt="" coords="182,317,407,373"/>
+<area shape="rect" id="node7" href="$posixqcommunicator_8hpp.html" title="Posix&#45;based mqueue communication." alt="" coords="431,317,657,373"/>
+<area shape="rect" id="node8" href="$shmcommunicator_8hpp.html" title="Shared memory based communication." alt="" coords="681,317,906,373"/>
+<area shape="rect" id="node9" href="$socketcommunicator_8hpp.html" title="Socket based communication." alt="" coords="930,317,1155,373"/>
+<area shape="rect" id="node10" href="$sysvcommunicator_8hpp.html" title="SysV based communication." alt="" coords="1179,317,1405,373"/>
 </map>

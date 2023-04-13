@@ -1,10 +1,11 @@
-<map id="modules/util/include/speed.hpp" name="modules/util/include/speed.hpp">
-<area shape="rect" id="node1" title="Speed struct for representing speeds." alt="" coords="379,5,534,47"/>
-<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="145,95,349,136"/>
-<area shape="rect" id="node6" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="285,184,489,225"/>
-<area shape="rect" id="node7" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="425,95,629,136"/>
-<area shape="rect" id="node8" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="578,184,733,225"/>
-<area shape="rect" id="node3" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,184,209,225"/>
-<area shape="rect" id="node4" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="285,273,489,315"/>
-<area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="368,363,545,389"/>
+<map id="modules/util/include/ihsboost/util/speed.hpp" name="modules/util/include/ihsboost/util/speed.hpp">
+<area shape="rect" id="node1" title="Speed struct for representing speeds." alt="" coords="395,5,572,47"/>
+<area shape="rect" id="node2" href="$accelerate_8hpp.html" title="Acceleration functions." alt="" coords="22,102,278,143"/>
+<area shape="rect" id="node6" href="$imu__movement_8hpp.html" title="IMU (gyro/accel) based movement functions." alt="" coords="285,199,489,255"/>
+<area shape="rect" id="node7" href="$maneuvers_8hpp.html" title="Abstract maneuvers." alt="" coords="353,102,614,143"/>
+<area shape="rect" id="node8" href="$roomba__movement_8hpp.html" title="Roomba&#45;specific movement functions." alt="" coords="638,95,849,151"/>
+<area shape="rect" id="node9" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="752,206,911,247"/>
+<area shape="rect" id="node3" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="5,199,209,255"/>
+<area shape="rect" id="node4" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="327,303,586,344"/>
+<area shape="rect" id="node5" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="451,392,628,419"/>
 </map>

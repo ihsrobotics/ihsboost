@@ -1,7 +1,7 @@
-<map id="modules/util/include/cliff.hpp" name="modules/util/include/cliff.hpp">
-<area shape="rect" id="node1" title="Cliff and Line definitions." alt="" coords="131,5,286,47"/>
-<area shape="rect" id="node2" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="37,95,241,136"/>
-<area shape="rect" id="node5" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="234,184,389,225"/>
-<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,184,209,225"/>
-<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="120,273,297,300"/>
+<map id="modules/util/include/ihsboost/util/cliff.hpp" name="modules/util/include/ihsboost/util/cliff.hpp">
+<area shape="rect" id="node1" title="Cliff and Line definitions." alt="" coords="169,5,332,47"/>
+<area shape="rect" id="node2" href="$line__follow_8hpp.html" title="Line follow functions." alt="" coords="79,95,283,151"/>
+<area shape="rect" id="node5" href="$util_8hpp.html" title="Header that includes all utility headers." alt="" coords="289,199,447,240"/>
+<area shape="rect" id="node3" href="$movement_8hpp.html" title="Header that includes all the movement headers." alt="" coords="5,199,264,240"/>
+<area shape="rect" id="node4" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="162,288,339,315"/>
 </map>

@@ -1,4 +1,4 @@
-<map id="modules/create_extra/include/create_extra.hpp" name="modules/create_extra/include/create_extra.hpp">
-<area shape="rect" id="node1" title="Extra functionality for the create." alt="" coords="5,5,192,47"/>
-<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="10,95,187,121"/>
+<map id="modules/create_extra/include/ihsboost/create_extra/create_extra.hpp" name="modules/create_extra/include/ihsboost/create_extra/create_extra.hpp">
+<area shape="rect" id="node1" title="Extra functionality for the create." alt="" coords="5,5,183,61"/>
+<area shape="rect" id="node2" href="$all_8hpp.html" title="master header that includes all other ihsboost headers" alt="" coords="5,109,183,136"/>
 </map>

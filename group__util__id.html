@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -87,7 +87,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga46fd4e7dfad3d004f821e3c311428767"><td class="memItemLeft" align="right" valign="top"><a id="ga46fd4e7dfad3d004f821e3c311428767"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga46fd4e7dfad3d004f821e3c311428767">IHSBOOST_VERSION</a>&#160;&#160;&#160;&quot;1.7.1&quot;</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga46fd4e7dfad3d004f821e3c311428767">IHSBOOST_VERSION</a>&#160;&#160;&#160;&quot;1.8.0&quot;</td></tr>
 <tr class="memdesc:ga46fd4e7dfad3d004f821e3c311428767"><td class="mdescLeft">&#160;</td><td class="mdescRight">version of ihsboost, in the form of Major.Minor.Patch <br /></td></tr>
 <tr class="separator:ga46fd4e7dfad3d004f821e3c311428767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga643b6b7ac15874197420e2adbea8b6bb"><td class="memItemLeft" align="right" valign="top"><a id="ga643b6b7ac15874197420e2adbea8b6bb"></a>
@@ -103,7 +103,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the default robot config hpp <br /></td></tr>
 <tr class="separator:ga940ff30f2f6e6bbd99268b05bc0a4d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memItemLeft" align="right" valign="top"><a id="ga42bf63540ee0039a3a23db1b5ec3202b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>&#160;&#160;&#160;std::string(<a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>) + std::string(&quot;/include/ihsboost/&quot;) + std::string(<a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util__id.html#ga42bf63540ee0039a3a23db1b5ec3202b">CONFIG_FILE</a>&#160;&#160;&#160;std::string(<a class="el" href="group__util__id.html#ga643b6b7ac15874197420e2adbea8b6bb">INSTALL_PREFIX</a>) + std::string(&quot;/include/ihsboost/util/&quot;) + std::string(<a class="el" href="group__util__id.html#ga49040b944781ef44c3f9c5e5c19db781">ROBOT_CONFIG_NAME</a>)</td></tr>
 <tr class="memdesc:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="mdescLeft">&#160;</td><td class="mdescRight">file that holds tunable ihsboost variables <br /></td></tr>
 <tr class="separator:ga42bf63540ee0039a3a23db1b5ec3202b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gade14d86fa661eb05c30cfc98bfa55c84"><td class="memItemLeft" align="right" valign="top"><a id="gade14d86fa661eb05c30cfc98bfa55c84"></a>
@@ -221,9 +221,9 @@ Functions</h2></td></tr>
 <li><code>gyro_cw_multiplier</code> - multiply by this number so that positive values represent CW rotation and negative values represent CCW rotation </li>
 <li><code>gyro_linear_accel</code> - default accel for gyro functions </li>
 <li><code>gyro_updates_per_sec</code> - default updates per second for gyro functions </li>
-<li><code>gyro_correction_proportion</code> - default correction for <code>gyro_drive_straight</code> <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d" title="Drive the create straight using the gyroscope.">gyro_drive_straight</a> </dd></dl>
+<li><code>gyro_correction_proportion</code> - default correction for <code>gyro_drive_straight</code> <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#ga1260e1e1822f6d107708a12f08c79375" title="Drive straight using the gyroscope until told to stop.">gyro_drive_straight</a> </dd></dl>
 </li>
-<li><code>gyro_turn_v2_min_speed</code> - default min speed for <code>gyro_turn_degrees_v2</code> <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af" title="Turns the create, starting at rest and ending at rest, and turning at max at max_speed.">gyro_turn_degrees_v2</a> </dd></dl>
+<li><code>gyro_turn_v2_min_speed</code> - default min speed for <code>gyro_turn_degrees_v2</code> <dl class="section see"><dt>See also</dt><dd>gyro_turn_degrees_v2 </dd></dl>
 </li>
 <li><code>linear_accel</code> - default linear acceleration to use in <code>accelerate_linear</code>; should always be positive <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f" title="Accelerate both wheels at potentially different linear rates.">accelerate_linear</a> </dd></dl>
 </li>

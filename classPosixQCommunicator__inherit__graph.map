@@ -1,4 +1,5 @@
 <map id="PosixQCommunicator" name="PosixQCommunicator">
-<area shape="rect" id="node1" title="Class for communicating over posix&#45;based mqueue&#39;s." alt="" coords="5,80,168,107"/>
-<area shape="rect" id="node2" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="27,5,146,32"/>
+<area shape="rect" id="node1" title="Class for communicating over posix&#45;based mqueue&#39;s." alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node2" href="$classFileCommunicator.html" title="Abstract class for all file&#45;based communicators." alt="" coords="16,80,157,107"/>
+<area shape="rect" id="node3" href="$classCommunicator.html" title="Abstract class for all communicators." alt="" coords="27,5,146,32"/>
 </map>

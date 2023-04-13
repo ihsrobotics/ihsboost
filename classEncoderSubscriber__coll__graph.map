@@ -1,0 +1,4 @@
+<map id="EncoderSubscriber" name="EncoderSubscriber">
+<area shape="rect" id="node1" title="Class that takes care of setting up the EncoderSingleton for use in client programs." alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node2" href="$classSubscriber.html" title="Abstract class representing a subscriber." alt="" coords="31,5,122,32"/>
+</map>

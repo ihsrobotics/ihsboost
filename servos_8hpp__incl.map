@@ -1,7 +1,7 @@
-<map id="modules/servos/include/servos.hpp" name="modules/servos/include/servos.hpp">
-<area shape="rect" id="node1" title="Servo movement functions." alt="" coords="9,5,185,47"/>
-<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,95,142,121"/>
-<area shape="rect" id="node3" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,169,159,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,64,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="88,244,235,271"/>
+<map id="modules/servos/include/ihsboost/servos/servos.hpp" name="modules/servos/include/ihsboost/servos/servos.hpp">
+<area shape="rect" id="node1" title="Servo movement functions." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="20,95,193,121"/>
+<area shape="rect" id="node3" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="45,169,168,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="15,244,73,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="97,244,244,271"/>
 </map>

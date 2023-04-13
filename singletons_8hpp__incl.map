@@ -1,0 +1,15 @@
+<map id="modules/movement/include/ihsboost/movement/singletons.hpp" name="modules/movement/include/ihsboost/movement/singletons.hpp">
+<area shape="rect" id="node1" title="Singletons and subscribers." alt="" coords="67,5,322,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="25,102,103,129"/>
+<area shape="rect" id="node3" href="$background__task_8hpp.html" title="Background task class." alt="" coords="57,184,223,225"/>
+<area shape="rect" id="node8" href="$accumulator_8hpp.html" title="Accumulator class for integrating values." alt="" coords="178,95,321,136"/>
+<area shape="rect" id="node10" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="345,102,519,129"/>
+<area shape="rect" id="node4" href="$threadable_8hpp.html" title="Easy threading functionality." alt="" coords="80,273,200,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,348,69,375"/>
+<area shape="rect" id="node6" title=" " alt="" coords="94,348,186,375"/>
+<area shape="rect" id="node7" title=" " alt="" coords="210,348,265,375"/>
+<area shape="rect" id="node9" title=" " alt="" coords="247,191,334,218"/>
+<area shape="rect" id="node11" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="371,191,493,218"/>
+<area shape="rect" id="node12" title=" " alt="" coords="339,273,397,300"/>
+<area shape="rect" id="node13" title=" " alt="" coords="421,273,568,300"/>
+</map>

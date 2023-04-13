@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -73,14 +73,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSubscriber.html">Subscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class representing a subscriber.  <a href="classSubscriber.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSingleton.html">GyroSingleton</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to accumulate gyro values.  <a href="classGyroSingleton.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html">GyroSubscriber</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> for use in client programs.  <a href="classGyroSubscriber.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSingleton.html">EncoderSingleton</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class who's job it is to read encoder values.  <a href="classEncoderSingleton.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html">GyroSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> for use in client programs.  <a href="classGyroSubscriber.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoderSubscriber.html">EncoderSubscriber</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that takes care of setting up the <a class="el" href="classEncoderSingleton.html" title="Singleton class who&#39;s job it is to read encoder values.">EncoderSingleton</a> for use in client programs.  <a href="classEncoderSubscriber.html#details">More...</a><br /></td></tr>
@@ -88,6 +91,10 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ga4ed8002e36b4899607510d99c8caf86e"><td class="memItemLeft" align="right" valign="top"><a id="ga4ed8002e36b4899607510d99c8caf86e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga4ed8002e36b4899607510d99c8caf86e">THREE_PART_LOOP</a>(max_speed,  min_speed,  accel,  updates,  accelerator_movement,  decelerator_movement,  cond_a,  cond_b,  cacher)</td></tr>
+<tr class="memdesc:ga4ed8002e36b4899607510d99c8caf86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Three part loop that deals with accelerating, decelerating, and any extra driving. <br /></td></tr>
+<tr class="separator:ga4ed8002e36b4899607510d99c8caf86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5094151cad87a33211c90aed4bf200f7"><td class="memItemLeft" align="right" valign="top"><a id="ga5094151cad87a33211c90aed4bf200f7"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga5094151cad87a33211c90aed4bf200f7">deg2rad_mult</a>&#160;&#160;&#160;0.017453292519943296</td></tr>
 <tr class="memdesc:ga5094151cad87a33211c90aed4bf200f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert degrees to radians by multiplying by this <br /></td></tr>
@@ -123,15 +130,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gabe9ca16ac8e8fcf9f003d6bd19f6b84a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gabe9ca16ac8e8fcf9f003d6bd19f6b84a">accelerate_sinusoidal</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;sinusoidal_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;accelerate_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:gabe9ca16ac8e8fcf9f003d6bd19f6b84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accelerate both wheels at potentially different sinusoidal rates.  <a href="group__movement__id.html#gabe9ca16ac8e8fcf9f003d6bd19f6b84a">More...</a><br /></td></tr>
 <tr class="separator:gabe9ca16ac8e8fcf9f003d6bd19f6b84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">gyro_drive_straight</a> (int from_speed, int to_speed, std::function&lt; bool()&gt; stop_function, double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive the create straight using the gyroscope.  <a href="group__movement__id.html#ga3268618890ae8fefdfc67a1c6cd4a32d">More...</a><br /></td></tr>
-<tr class="separator:ga3268618890ae8fefdfc67a1c6cd4a32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> from_speed, <a class="el" href="structSpeed.html">Speed</a> to_speed, double degrees, double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#ga3d88c44a1cd95fad141d709af3e2ac96">More...</a><br /></td></tr>
-<tr class="separator:ga3d88c44a1cd95fad141d709af3e2ac96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">gyro_turn_degrees_v2</a> (int max_speed, double degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_turn_v2_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
-<tr class="memdesc:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga82fd5a78ca4700cb56cd5996e5c077af">More...</a><br /></td></tr>
-<tr class="separator:ga82fd5a78ca4700cb56cd5996e5c077af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1260e1e1822f6d107708a12f08c79375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga1260e1e1822f6d107708a12f08c79375">gyro_drive_straight</a> (int speed, std::function&lt; bool()&gt; stop_function, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;gyro_stop&quot;), double correction_proportion=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga1260e1e1822f6d107708a12f08c79375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using the gyroscope until told to stop.  <a href="group__movement__id.html#ga1260e1e1822f6d107708a12f08c79375">More...</a><br /></td></tr>
+<tr class="separator:ga1260e1e1822f6d107708a12f08c79375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1df73b386ab4281435e69b1f7f93e71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gab1df73b386ab4281435e69b1f7f93e71">gyro_turn_degrees</a> (<a class="el" href="structSpeed.html">Speed</a> turn_speed, double degrees, int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:gab1df73b386ab4281435e69b1f7f93e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the create a certain number of degrees using the gyroscope.  <a href="group__movement__id.html#gab1df73b386ab4281435e69b1f7f93e71">More...</a><br /></td></tr>
+<tr class="separator:gab1df73b386ab4281435e69b1f7f93e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70fc08298e96bad57ccb0aaa1bd41969"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga70fc08298e96bad57ccb0aaa1bd41969">gyro_turn_degrees</a> (int max_speed, double degrees, int min_speed=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_min_speed&quot;), double accel_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_accel_per_sec&quot;), int updates_per_sec=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;))</td></tr>
+<tr class="memdesc:ga70fc08298e96bad57ccb0aaa1bd41969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the create, starting at rest and ending at rest, and turning at max at max_speed.  <a href="group__movement__id.html#ga70fc08298e96bad57ccb0aaa1bd41969">More...</a><br /></td></tr>
+<tr class="separator:ga70fc08298e96bad57ccb0aaa1bd41969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">is_black</a> (int val)</td></tr>
 <tr class="memdesc:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not a sensor reading is black.  <a href="group__movement__id.html#ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7">More...</a><br /></td></tr>
 <tr class="separator:ga6fa5db8fe66e8e3e13eb0d5c3ebaafa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +160,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gafe29ef60cc3f3ab9dd44cb96ea19a93a">align_with_white</a> (int speed, int correction_speed, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_l, <a class="el" href="group__util__id.html#ga819a4f17bd602eb9e0f30c32e8c0520a">Cliff</a> cliff_sensor_r, bool stop=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;align_stop&quot;), int updates_per_second=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;align_updates_per_sec&quot;))</td></tr>
 <tr class="memdesc:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align with white, meaning keep moving until both <code>cliff_sensor_l</code> and <code>cliff_sensor_r</code> are on white.  <a href="group__movement__id.html#gafe29ef60cc3f3ab9dd44cb96ea19a93a">More...</a><br /></td></tr>
 <tr class="separator:gafe29ef60cc3f3ab9dd44cb96ea19a93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ebbe9c249eeb33f4bf79269534cc2c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga3ebbe9c249eeb33f4bf79269534cc2c3">turn_degrees</a> (<a class="el" href="classSubscriber.html">Subscriber</a> *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)</td></tr>
+<tr class="memdesc:ga3ebbe9c249eeb33f4bf79269534cc2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the given number of degrees using the given subscriber.  <a href="group__movement__id.html#ga3ebbe9c249eeb33f4bf79269534cc2c3">More...</a><br /></td></tr>
+<tr class="separator:ga3ebbe9c249eeb33f4bf79269534cc2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaece633b0dc027d5a6e2284d2ab390b26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#gaece633b0dc027d5a6e2284d2ab390b26">turn_degrees</a> (<a class="el" href="classSubscriber.html">Subscriber</a> *subscriber, <a class="el" href="structSpeed.html">Speed</a> turn_speed, double degrees, int updates_per_sec)</td></tr>
+<tr class="memdesc:gaece633b0dc027d5a6e2284d2ab390b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the given number of degrees sat the given speed using the given subscriber.  <a href="group__movement__id.html#gaece633b0dc027d5a6e2284d2ab390b26">More...</a><br /></td></tr>
+<tr class="separator:gaece633b0dc027d5a6e2284d2ab390b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ce698b796329be0acc5e1864afeea4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga0ce698b796329be0acc5e1864afeea4c">drive_straight</a> (<a class="el" href="classSubscriber.html">Subscriber</a> *subscriber, int speed, std::function&lt; bool()&gt; condition, bool stop, double correction_proportion, int updates_per_sec)</td></tr>
+<tr class="memdesc:ga0ce698b796329be0acc5e1864afeea4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drive straight using the given subscriber until told to stop.  <a href="group__movement__id.html#ga0ce698b796329be0acc5e1864afeea4c">More...</a><br /></td></tr>
+<tr class="separator:ga0ce698b796329be0acc5e1864afeea4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga14769cdde9ac07904c0533b96e206557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">rotate</a> (double leftWheelSpeed, double rightWheelSpeed, double angle, double left_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_left_wheel_units&quot;), double right_wheel_units=<a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;roomba_right_wheel_units&quot;))</td></tr>
 <tr class="memdesc:ga14769cdde9ac07904c0533b96e206557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate using speed-based turning on the roomba.  <a href="group__movement__id.html#ga14769cdde9ac07904c0533b96e206557">More...</a><br /></td></tr>
 <tr class="separator:ga14769cdde9ac07904c0533b96e206557"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -508,6 +524,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga0ce698b796329be0acc5e1864afeea4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ce698b796329be0acc5e1864afeea4c">&#9670;&nbsp;</a></span>drive_straight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drive_straight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSubscriber.html">Subscriber</a> *&#160;</td>
+          <td class="paramname"><em>subscriber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>correction_proportion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drive straight using the given subscriber until told to stop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>the subscriber that provides information on the current angle </td></tr>
+    <tr><td class="paramname">speed</td><td>the speed to drive at, can be positive or negative </td></tr>
+    <tr><td class="paramname">condition</td><td>the stop condition; it should return true when it is time to stop </td></tr>
+    <tr><td class="paramname">stop</td><td>whether or not to stop the motors after finishing driving; if it is false, the motors will continue spinning, if it is true, they will not continue spinning </td></tr>
+    <tr><td class="paramname">correction_proportion</td><td>how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction. </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga8faaceac5a8eaa51ccff1a942f5dd6cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8faaceac5a8eaa51ccff1a942f5dd6cb">&#9670;&nbsp;</a></span>encoder_drive_straight() <span class="overload">[1/2]</span></h2>
 
@@ -840,8 +921,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga3268618890ae8fefdfc67a1c6cd4a32d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3268618890ae8fefdfc67a1c6cd4a32d">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
+<a id="ga1260e1e1822f6d107708a12f08c79375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1260e1e1822f6d107708a12f08c79375">&#9670;&nbsp;</a></span>gyro_drive_straight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -850,13 +931,7 @@ Functions</h2></td></tr>
           <td class="memname">void gyro_drive_straight </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>from_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>to_speed</em>, </td>
+          <td class="paramname"><em>speed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -867,18 +942,18 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stop</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getBool(&quot;gyro_stop&quot;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>correction_proportion</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_correction_proportion&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;)</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;)</code>&#160;</td>
         </tr>
@@ -890,87 +965,28 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Drive the create straight using the gyroscope. </p>
+<p>Drive straight using the gyroscope until told to stop. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">from_speed</td><td>speed to start at </td></tr>
-    <tr><td class="paramname">to_speed</td><td>speed to cap at </td></tr>
-    <tr><td class="paramname">stop_function</td><td>a function that returns true when it is time to stop driving forward </td></tr>
-    <tr><td class="paramname">correction_proportion</td><td>how much the correction is by; defaults to .90, should be between (0, 1) </td></tr>
-    <tr><td class="paramname">accel_per_sec</td><td>how fast the create will accelerate by, defaults to 500 </td></tr>
-    <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
+    <tr><td class="paramname">speed</td><td>the speed to drive at, can be positive or negative </td></tr>
+    <tr><td class="paramname">stop_function</td><td>the stop condition; it should return true when it is time to stop </td></tr>
+    <tr><td class="paramname">stop</td><td>whether or not to stop the motors after finishing driving </td></tr>
+    <tr><td class="paramname">correction_proportion</td><td>how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction. </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ga3d88c44a1cd95fad141d709af3e2ac96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3d88c44a1cd95fad141d709af3e2ac96">&#9670;&nbsp;</a></span>gyro_turn_degrees()</h2>
+<a id="ga70fc08298e96bad57ccb0aaa1bd41969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70fc08298e96bad57ccb0aaa1bd41969">&#9670;&nbsp;</a></span>gyro_turn_degrees() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void gyro_turn_degrees </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structSpeed.html">Speed</a>&#160;</td>
-          <td class="paramname"><em>from_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structSpeed.html">Speed</a>&#160;</td>
-          <td class="paramname"><em>to_speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>degrees</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;)</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Turn the create a certain number of degrees using the gyroscope. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">from_speed</td><td>the speed to start at </td></tr>
-    <tr><td class="paramname">to_speed</td><td>the speed to end at </td></tr>
-    <tr><td class="paramname">degrees</td><td>how many degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
-    <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate, defaults to 500 </td></tr>
-    <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ga82fd5a78ca4700cb56cd5996e5c077af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga82fd5a78ca4700cb56cd5996e5c077af">&#9670;&nbsp;</a></span>gyro_turn_degrees_v2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gyro_turn_degrees_v2 </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>max_speed</em>, </td>
@@ -985,13 +1001,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>min_speed</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_turn_v2_min_speed&quot;)</code>, </td>
+          <td class="paramname"><em>min_speed</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_min_speed&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_linear_accel&quot;)</code>, </td>
+          <td class="paramname"><em>accel_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getDouble(&quot;gyro_accel_per_sec&quot;)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1014,6 +1030,50 @@ Functions</h2></td></tr>
     <tr><td class="paramname">degrees</td><td>how many degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
     <tr><td class="paramname">min_speed</td><td>the minimum speed to turn at, use a positive value, defaults to 11 </td></tr>
     <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate, defaults to 500 </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab1df73b386ab4281435e69b1f7f93e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1df73b386ab4281435e69b1f7f93e71">&#9670;&nbsp;</a></span>gyro_turn_degrees() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gyro_turn_degrees </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSpeed.html">Speed</a>&#160;</td>
+          <td class="paramname"><em>turn_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>degrees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em> = <code><a class="el" href="group__util__id.html#gacc291cc27dcb13b6f2d1c08a7476fb07">get_config</a>().getInt(&quot;gyro_updates_per_sec&quot;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turn the create a certain number of degrees using the gyroscope. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turn_speed</td><td>the speed to turn at </td></tr>
+    <tr><td class="paramname">degrees</td><td>how many degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
     <tr><td class="paramname">updates_per_sec</td><td>how many updates the function will do per sec, defaults to 200 </td></tr>
   </table>
   </dd>
@@ -1432,6 +1492,122 @@ false if it isn't white </dd></dl>
     <tr><td class="paramname">angle</td><td>- double - angle to turn to in degrees </td></tr>
     <tr><td class="paramname">left_wheel_units</td><td>how far the left wheel moves, in cm/sec </td></tr>
     <tr><td class="paramname">right_wheel_units</td><td>how far the right wheel moves, in cm/sec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3ebbe9c249eeb33f4bf79269534cc2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ebbe9c249eeb33f4bf79269534cc2c3">&#9670;&nbsp;</a></span>turn_degrees() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turn_degrees </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSubscriber.html">Subscriber</a> *&#160;</td>
+          <td class="paramname"><em>subscriber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>degrees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>min_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>accel_per_sec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turn the given number of degrees using the given subscriber. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>the subscriber that provides information on the current angle </td></tr>
+    <tr><td class="paramname">max_speed</td><td>the maximum speed to turn at, should be positive </td></tr>
+    <tr><td class="paramname">degrees</td><td>the number of degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
+    <tr><td class="paramname">min_speed</td><td>the minimum speed to turn at, should be positive </td></tr>
+    <tr><td class="paramname">accel_per_sec</td><td>how fast to accelerate </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaece633b0dc027d5a6e2284d2ab390b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaece633b0dc027d5a6e2284d2ab390b26">&#9670;&nbsp;</a></span>turn_degrees() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turn_degrees </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSubscriber.html">Subscriber</a> *&#160;</td>
+          <td class="paramname"><em>subscriber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSpeed.html">Speed</a>&#160;</td>
+          <td class="paramname"><em>turn_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>degrees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>updates_per_sec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turn the given number of degrees sat the given speed using the given subscriber. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>the subscriber that provides information on the current angle </td></tr>
+    <tr><td class="paramname">turn_speed</td><td>the speed to turn at </td></tr>
+    <tr><td class="paramname">degrees</td><td>the number of degrees to turn (+ vals for CW, - vals for CCW) </td></tr>
+    <tr><td class="paramname">updates_per_sec</td><td>how many updates to do per second </td></tr>
   </table>
   </dd>
 </dl>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.7.1</span>
+   &#160;<span id="projectnumber">1.8.0</span>
    </div>
   </td>
  </tr>
@@ -73,20 +73,38 @@ $(function() {
 <p>Class that takes care of setting up the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> for use in client programs.  
  <a href="classGyroSubscriber.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="imu__movement_8hpp_source.html">imu_movement.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="singletons_8hpp_source.html">singletons.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GyroSubscriber:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGyroSubscriber__inherit__graph.png" border="0" usemap="#aGyroSubscriber_inherit__map" alt="Inheritance graph"/></div>
+<map name="aGyroSubscriber_inherit__map" id="aGyroSubscriber_inherit__map">
+<area shape="rect" title="Class that takes care of setting up the GyroSingleton for use in client programs." alt="" coords="5,80,127,107"/>
+<area shape="rect" href="classSubscriber.html" title="Abstract class representing a subscriber." alt="" coords="21,5,111,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for GyroSubscriber:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGyroSubscriber__coll__graph.png" border="0" usemap="#aGyroSubscriber_coll__map" alt="Collaboration graph"/></div>
+<map name="aGyroSubscriber_coll__map" id="aGyroSubscriber_coll__map">
+<area shape="rect" title="Class that takes care of setting up the GyroSingleton for use in client programs." alt="" coords="5,80,127,107"/>
+<area shape="rect" href="classSubscriber.html" title="Abstract class representing a subscriber." alt="" coords="21,5,111,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeb40295a80b24c3901c69d3c3b0be875"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html#aeb40295a80b24c3901c69d3c3b0be875">GyroSubscriber</a> (int updates_per_sec)</td></tr>
-<tr class="memdesc:aeb40295a80b24c3901c69d3c3b0be875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Gyro Subscriber object.  <a href="classGyroSubscriber.html#aeb40295a80b24c3901c69d3c3b0be875">More...</a><br /></td></tr>
+<tr class="memdesc:aeb40295a80b24c3901c69d3c3b0be875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Gyro <a class="el" href="classSubscriber.html" title="Abstract class representing a subscriber.">Subscriber</a> object.  <a href="classGyroSubscriber.html#aeb40295a80b24c3901c69d3c3b0be875">More...</a><br /></td></tr>
 <tr class="separator:aeb40295a80b24c3901c69d3c3b0be875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a920d1822812840173ea3dc93336ea4fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html#a920d1822812840173ea3dc93336ea4fa">~GyroSubscriber</a> ()</td></tr>
-<tr class="memdesc:a920d1822812840173ea3dc93336ea4fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Gyro Subscriber object.  <a href="classGyroSubscriber.html#a920d1822812840173ea3dc93336ea4fa">More...</a><br /></td></tr>
+<tr class="memdesc:a920d1822812840173ea3dc93336ea4fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Gyro <a class="el" href="classSubscriber.html" title="Abstract class representing a subscriber.">Subscriber</a> object.  <a href="classGyroSubscriber.html#a920d1822812840173ea3dc93336ea4fa">More...</a><br /></td></tr>
 <tr class="separator:a920d1822812840173ea3dc93336ea4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad01164d521674316453cfbd0a7a80c4b"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html#ad01164d521674316453cfbd0a7a80c4b">get_start_angle</a> ()</td></tr>
 <tr class="memdesc:ad01164d521674316453cfbd0a7a80c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the angle that the brain was at when this subscriber was created.  <a href="classGyroSubscriber.html#ad01164d521674316453cfbd0a7a80c4b">More...</a><br /></td></tr>
 <tr class="separator:ad01164d521674316453cfbd0a7a80c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1eef486f37ce0ab9570b50a4ec6d68f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html#a1eef486f37ce0ab9570b50a4ec6d68f8">get_relative_angle</a> ()</td></tr>
+<tr class="memitem:a1eef486f37ce0ab9570b50a4ec6d68f8"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGyroSubscriber.html#a1eef486f37ce0ab9570b50a4ec6d68f8">get_relative_angle</a> ()</td></tr>
 <tr class="memdesc:a1eef486f37ce0ab9570b50a4ec6d68f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the angle relative to when this <a class="el" href="classGyroSubscriber.html" title="Class that takes care of setting up the GyroSingleton for use in client programs.">GyroSubscriber</a> was created.  <a href="classGyroSubscriber.html#a1eef486f37ce0ab9570b50a4ec6d68f8">More...</a><br /></td></tr>
 <tr class="separator:a1eef486f37ce0ab9570b50a4ec6d68f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -111,7 +129,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new Gyro Subscriber object. </p>
+<p>Construct a new Gyro <a class="el" href="classSubscriber.html" title="Abstract class representing a subscriber.">Subscriber</a> object. </p>
 <p>this will get the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> accumulating, record the starting angle that the brain was at at this moment in time, and whether or not the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> was already accumulating when this subscriber was created.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -137,7 +155,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destroy the Gyro Subscriber object. </p>
+<p>Destroy the Gyro <a class="el" href="classSubscriber.html" title="Abstract class representing a subscriber.">Subscriber</a> object. </p>
 <p>if the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> was already accumulating when this subscriber was created, then the <a class="el" href="classGyroSingleton.html" title="Singleton class who&#39;s job it is to accumulate gyro values.">GyroSingleton</a> will continue to accumulate. Else, this will stop the accumulation. </p>
 
 </div>
@@ -148,6 +166,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double GyroSubscriber::get_relative_angle </td>
@@ -156,11 +177,18 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get the angle relative to when this <a class="el" href="classGyroSubscriber.html" title="Class that takes care of setting up the GyroSingleton for use in client programs.">GyroSubscriber</a> was created. </p>
 <p>For instance, a value of 90.35 means that the brain has turned 90.35 degrees CW since this <a class="el" href="classGyroSubscriber.html" title="Class that takes care of setting up the GyroSingleton for use in client programs.">GyroSubscriber</a> was created.</p>
 <dl class="section return"><dt>Returns</dt><dd>double - the angle the brain has turned through, in degrees. </dd></dl>
+
+<p>Implements <a class="el" href="classSubscriber.html">Subscriber</a>.</p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="gyro_client_example_8cpp-example.html#a3">gyro_client_example.cpp</a>.</dd>
 </dl>
 
@@ -187,8 +215,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>modules/movement/include/<a class="el" href="imu__movement_8hpp_source.html">imu_movement.hpp</a></li>
-<li>modules/movement/src/imu_movement.cpp</li>
+<li>modules/movement/include/ihsboost/movement/<a class="el" href="singletons_8hpp_source.html">singletons.hpp</a></li>
+<li>modules/movement/src/singletons.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

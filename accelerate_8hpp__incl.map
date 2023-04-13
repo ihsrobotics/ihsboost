@@ -1,7 +1,7 @@
-<map id="modules/movement/include/accelerate.hpp" name="modules/movement/include/accelerate.hpp">
-<area shape="rect" id="node1" title="Acceleration functions." alt="" coords="51,5,255,47"/>
-<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="53,95,142,121"/>
-<area shape="rect" id="node6" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="166,95,255,121"/>
+<map id="modules/movement/include/ihsboost/movement/accelerate.hpp" name="modules/movement/include/ihsboost/movement/accelerate.hpp">
+<area shape="rect" id="node1" title="Acceleration functions." alt="" coords="68,5,324,47"/>
+<area shape="rect" id="node2" href="$config_8hpp.html" title="File for configuring ihsboost variables." alt="" coords="11,95,184,121"/>
+<area shape="rect" id="node6" href="$speed_8hpp.html" title="Speed struct for representing speeds." alt="" coords="208,95,381,121"/>
 <area shape="rect" id="node3" href="$json__config_8hpp.html" title="Class for loading json configs." alt="" coords="36,169,159,196"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,244,64,271"/>
 <area shape="rect" id="node5" title=" " alt="" coords="88,244,235,271"/>

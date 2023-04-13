@@ -1,10 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classihs__bindings_1_1CommunicatorBase.html" title=" " alt="" coords="5,157,240,184"/>
-<area shape="rect" id="node2" href="$classihs__bindings_1_1BluetoothClient.html" title=" " alt="" coords="308,5,516,32"/>
-<area shape="rect" id="node3" href="$classihs__bindings_1_1BluetoothServer.html" title=" " alt="" coords="306,56,518,83"/>
-<area shape="rect" id="node4" href="$classihs__bindings_1_1PosixQCommunicator.html" title=" " alt="" coords="288,107,536,133"/>
-<area shape="rect" id="node5" href="$classihs__bindings_1_1SHMCommunicator.html" title=" " alt="" coords="295,157,529,184"/>
-<area shape="rect" id="node6" href="$classihs__bindings_1_1SocketClient.html" title=" " alt="" coords="318,208,506,235"/>
-<area shape="rect" id="node7" href="$classihs__bindings_1_1SocketServer.html" title=" " alt="" coords="316,259,508,285"/>
-<area shape="rect" id="node8" href="$classihs__bindings_1_1SysVCommunicator.html" title=" " alt="" coords="295,309,529,336"/>
+<area shape="rect" id="node1" href="$classihs__bindings_1_1EncoderSubscriber.html" title=" " alt="" coords="5,5,232,32"/>
 </map>
