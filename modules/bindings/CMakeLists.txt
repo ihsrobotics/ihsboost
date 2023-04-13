@@ -35,6 +35,7 @@ if(${build_bindings})
     add_library(ihs_bindings SHARED ${SOURCES})
     set_target_properties(ihs_bindings PROPERTIES PREFIX "")
     set_target_properties(ihs_bindings PROPERTIES SUFFIX .cpython-${python_nodot_version}-${CMAKE_HOST_SYSTEM_PROCESSOR}-linux-gnu.so)
+    target_compile_definitions(ihs_bindings PUBLIC BOOST_BIND_GLOBAL_PLACEHOLDERS BOOST_ALLOW_DEPRECATED_HEADERS)  # ignore warnings
 
     # link to dependency libraries
     add_dependencies(ihs_bindings ihsboost)
