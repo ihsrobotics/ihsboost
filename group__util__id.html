@@ -219,12 +219,13 @@ Functions</h2></td></tr>
 <li><code>max_gyro_val</code> - the max raw value returned by the gyro function </li>
 <li><code>raw_to_360_degrees</code> - multiplying accumulated gyro values by this should result in degrees </li>
 <li><code>gyro_cw_multiplier</code> - multiply by this number so that positive values represent CW rotation and negative values represent CCW rotation </li>
-<li><code>gyro_linear_accel</code> - default accel for gyro functions </li>
 <li><code>gyro_updates_per_sec</code> - default updates per second for gyro functions </li>
 <li><code>gyro_correction_proportion</code> - default correction for <code>gyro_drive_straight</code> <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#ga1260e1e1822f6d107708a12f08c79375" title="Drive straight using the gyroscope until told to stop.">gyro_drive_straight</a> </dd></dl>
 </li>
-<li><code>gyro_turn_v2_min_speed</code> - default min speed for <code>gyro_turn_degrees_v2</code> <dl class="section see"><dt>See also</dt><dd>gyro_turn_degrees_v2 </dd></dl>
+<li><code>gyro_min_speed</code> - default min speed for <code>gyro_turn_degrees_v2</code> <dl class="section see"><dt>See also</dt><dd>gyro_turn_degrees_v2 </dd></dl>
 </li>
+<li><code>gyro_accel_per_sec</code> - default accel for gyro functions </li>
+<li><code>gyro_stop</code> - whether or not to do a full stop after gyro movement functions </li>
 <li><code>linear_accel</code> - default linear acceleration to use in <code>accelerate_linear</code>; should always be positive <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#gab62164c7d92d822e4c25b27c1cf9400f" title="Accelerate both wheels at potentially different linear rates.">accelerate_linear</a> </dd></dl>
 </li>
 <li><code>sinusoidal_accel</code> - default sinusoidal acceleration to use in <code>accelerate_sinusoidal</code>; should always be positive <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__movement__id.html#gabe9ca16ac8e8fcf9f003d6bd19f6b84a" title="Accelerate both wheels at potentially different sinusoidal rates.">accelerate_sinusoidal</a> </dd></dl>
