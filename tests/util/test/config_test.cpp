@@ -1,10 +1,7 @@
 #include "util.hpp"
 #include "test.hpp"
 #include <iostream>
-#include <thread>
-#include <chrono>
 using namespace std;
-using namespace chrono;
 
 void test_get_config()
 {
@@ -21,6 +18,32 @@ void test_get_config()
     // cleanup
     retval = system("rm cool.json");
     assert_equals(retval, 0, "removing extra config");
+}
+
+void test_save_config()
+{
+    // create a config
+    int retval = system("echo '{ \"linear_accel\" : 20000.0 }' > cool.json");
+    assert_equals(retval, 0, "creating extra config");
+
+    // make sure it works regularly
+    Config conf("cool.json");
+    assert_equals(20000.0, conf.getDouble("linear_accel"), "getting actual config values in save_config");
+    assert_equals(0, conf.getInt("other_key"));
+
+    // set values
+    conf.setDouble("linear_accel", 123.45);
+    conf.setInt("other_key", 27);
+    conf.save("cool.json");
+
+    // reload config and see if it worked
+    Config new_conf("cool.json");
+    assert_equals(123.45, new_conf.getDouble("linear_accel"));
+    assert_equals(27, new_conf.getInt("other_key"));
+
+    // cleanup
+    retval = system("rm bot-config.json");
+    assert_equals(retval, 0, "removing bot-config json file");
 }
 
 void test_config()
