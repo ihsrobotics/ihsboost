@@ -42,8 +42,8 @@ void test_save_config()
     assert_equals(27, new_conf.getInt("other_key"));
 
     // cleanup
-    retval = system("rm bot-config.json");
-    assert_equals(retval, 0, "removing bot-config json file");
+    retval = system("rm cool.json");
+    assert_equals(retval, 0, "removing cool json file");
 }
 
 void test_config()
@@ -65,6 +65,7 @@ void test_config()
 int main()
 {
     test_get_config();
+    test_save_config();
     test_config();
     return 0;
 }
