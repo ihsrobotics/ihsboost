@@ -75,6 +75,46 @@ public:
      */
     virtual std::string getString(std::string key);
 
+    /**
+     * @brief Set a config value to an int
+     *
+     * @param key the name of the key
+     * @param val the value to set it to
+     */
+    virtual void setInt(std::string key, int val);
+
+    /**
+     * @brief Set a config value to a double
+     *
+     * @param key the name of the key
+     * @param val the value to set it to
+     */
+    virtual void setDouble(std::string key, double val);
+
+    /**
+     * @brief Set a config value to a bool
+     *
+     * @param key the name of the key
+     * @param val the value to set it to
+     */
+    virtual void setBool(std::string key, bool val);
+
+    /**
+     * @brief Set a config value to a string
+     *
+     * @param key the name of the key
+     * @param val the value to set it to
+     */
+    virtual void setString(std::string key, std::string val);
+
+    /**
+     * @brief Save the config to a json file
+     *
+     * @param file the name of the file to save to. If the file doesn't
+     * exist, a new file is created.
+     */
+    virtual void save(std::string file = "bot-config.json");
+
 protected:
     /**
      * @brief Load values from the given json file

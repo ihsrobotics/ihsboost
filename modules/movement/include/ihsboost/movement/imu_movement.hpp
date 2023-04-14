@@ -19,6 +19,16 @@
 #include <functional>
 
 /**
+ * @brief Calibrate the ihsboost variables `min_gyro_val`, `max_gyro_val`, and `mean_gyro_val`
+ * `raw_to_360_degrees` must be calibrated manually. Changes are written to `bot-config.json` afterwards
+ * @exception Json::RuntimeError is thrown if `bot-config.json` doesn't exist
+ *
+ * @param num_samples how many samples to take; this function takes samples at a rate of 200 samples / sec
+ * @param min_occurences how many times a value must occur in order for it to be considered valid
+ */
+void calibrate_ihsboost_gyro(int num_samples = 1000, uint16_t min_occurences = 8);
+
+/**
  * @brief Drive straight using the gyroscope until told to stop
  *
  * @param speed the speed to drive at, can be positive or negative
