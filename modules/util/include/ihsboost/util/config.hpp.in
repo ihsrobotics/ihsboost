@@ -45,6 +45,7 @@
  * @li `linear_accel` - default linear acceleration to use in `accelerate_linear`; should always be positive \see accelerate_linear
  * @li `sinusoidal_accel` - default sinusoidal acceleration to use in `accelerate_sinusoidal`; should always be positive \see accelerate_sinusoidal
  * @li `accelerate_updates_per_sec` - default updates per second when accelerating
+ * @li `accelerometer_updates_per_sec` - default updates per second for the accelerometer
  * @li `black` - greater than this value is white, less than is black
  * @li `line_follow_updates_per_sec` - default updates per second when line following
  * @li `line_follow_correction_proportion` - default correction for line following

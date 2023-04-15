@@ -172,3 +172,53 @@ double EncoderSubscriber::get_relative_left_distance() { return get_relative_len
 double EncoderSubscriber::get_relative_right_distance() { return get_relative_renc_delta() * ENC_2_MM; }
 double EncoderSubscriber::get_relative_distance() { return (get_relative_left_distance() + get_relative_right_distance()) / 2.0; }
 double EncoderSubscriber::get_relative_angle() { return (get_relative_left_distance() - get_relative_right_distance()) / (DIST_BETWEEN_WHEEL * 10) * rad2deg_mult; }
+
+// --------------------------------------------- ACCEL SINGLETON ---------------------------------------------
+// Functions in this section deal with the Accelerometer Singleton
+// --------------------------------------------------------------------------------------------------------
+AccelSingleton::AccelSingleton(int updates_per_second) : BackgroundTask(updates_per_second), accel_cur(0), accel_prev(0), jolt(0), dt(0), velocity_cur(0), velocity_prev(0), position(0){};
+void AccelSingleton::start()
+{
+    dt = get_msleep_time() * 0.001;
+    accel_cur = ACCEL_FUNCTION();
+    accel_prev = accel_cur;
+    BackgroundTask::start();
+}
+void AccelSingleton::function()
+{
+    // read value
+    accel_cur = ACCEL_FUNCTION();
+
+    // jolt calculation (derivative of accel)
+    jolt = (accel_cur - accel_prev) / dt;
+
+    // trapezoidal integration for velocity and position calculation
+    velocity_cur += (accel_cur + accel_prev) / 2.0 * dt;
+    position += (velocity_cur + velocity_prev) / 2.0 * dt;
+
+    // update previous vals
+    accel_prev = accel_cur;
+    velocity_prev = velocity_cur;
+}
+
+// getters and setters
+double AccelSingleton::get_jolt() const { return jolt; }
+double AccelSingleton::get_velocity() const { return velocity_cur; }
+double AccelSingleton::get_position() const { return position; }
+void AccelSingleton::set_velocity(double v)
+{
+    velocity_cur = v;
+    velocity_prev = v;
+}
+void AccelSingleton::set_position(double p) { position = p; }
+signed short AccelSingleton::get_accel_val() { return ACCEL_FUNCTION(); }
+double AccelSingleton::get_accel_ms() { return static_cast<double>(ACCEL_FUNCTION()) / (1 << 14) * 9.81; }
+AccelSingleton *AccelSingleton::instance()
+{
+    if (_instance.get() == nullptr)
+    {
+        _instance = std::shared_ptr<AccelSingleton>(new AccelSingleton());
+    }
+    return _instance.get();
+}
+std::shared_ptr<AccelSingleton> AccelSingleton::_instance = nullptr;

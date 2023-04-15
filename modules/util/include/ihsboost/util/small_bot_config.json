@@ -12,6 +12,7 @@
     "linear_accel": 500.0,
     "sinusoidal_accel": 500.0,
     "accelerate_updates_per_sec": 500,
+    "accelerometer_updates_per_sec": 50,
     "black": 2000,
     "line_follow_updates_per_sec": 500,
     "line_follow_correction_proportion": 0.9,

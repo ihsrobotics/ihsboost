@@ -23,5 +23,10 @@
 #define GYRO_FUNCTION gyro_x ///< the function to use for gyro movement, must return a signed short
 #endif
 
+// accelerometer configs
+#ifndef ACCEL_FUNCTION
+#define ACCEL_FUNCTION accel_z ///< the function to use for accelerometer position tracking
+#endif
+
 #endif
 /**@}*/

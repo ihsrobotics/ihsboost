@@ -19,13 +19,26 @@
 #include "ihsboost/util/config.hpp"
 
 /**
- * @brief Abstract class representing a subscriber
+ * @brief Abstract class representing a subscriber that
+ * can return information regarding the current angle
  *
  */
-class Subscriber
+class AngleSubscriber
 {
 public:
     virtual double get_relative_angle() = 0;
+};
+
+/**
+ * @brief Abstract class representing a subscriber that
+ * can return information regarding the current distance
+ * traveled
+ *
+ */
+class DistanceSubscriber
+{
+public:
+    virtual double get_relative_distance() = 0;
 };
 
 /**
@@ -149,16 +162,95 @@ private:
     static std::shared_ptr<EncoderSingleton> _instance;
 };
 
+class AccelSingleton : public BackgroundTask
+{
+public:
+    static AccelSingleton *instance();
+
+    /**
+     * @brief Get the current accelerometer reading, in accel units
+     *
+     * @return signed short
+     */
+    static signed short get_accel_val();
+    /**
+     * @brief Get the current accelerometer reading, in meters per second
+     *
+     * @return double
+     */
+    static double get_accel_ms();
+
+    /**
+     * @brief Get the current jolt (change in acceleration)
+     * @details positive values are for forward jolt, negative values are for backwards jolt
+     *
+     * @return double
+     */
+    double get_jolt() const;
+
+    /**
+     * @brief Get the current velocity, in meters per second
+     *
+     * @return double
+     */
+    double get_velocity() const;
+    /**
+     * @brief Get the current position, in meters
+     *
+     * @return double
+     */
+    double get_position() const;
+
+    /**
+     * @brief Set the velocity to the given value
+     *
+     * @param velocity
+     */
+    void set_velocity(double velocity);
+
+    /**
+     * @brief Set the position to the given value
+     *
+     * @param position
+     */
+    void set_position(double position);
+
+    /**
+     * @brief Start the reading of accel values
+     *
+     */
+    virtual void start();
+
+protected:
+    /**
+     * @brief Function stub that BackgroundTask will call
+     *
+     */
+    virtual void function();
+
+private:
+    AccelSingleton(int updates_per_second = get_config().getInt("accelerometer_updates_per_sec"));
+    signed short accel_cur;
+    signed short accel_prev;
+    double jolt;
+    double dt;
+    double velocity_cur;
+    double velocity_prev;
+    double position;
+
+    static std::shared_ptr<AccelSingleton> _instance;
+};
+
 /**
  * @brief Class that takes care of setting up the GyroSingleton for use
  * in client programs
  *
  */
-class GyroSubscriber : public Subscriber
+class GyroSubscriber : public AngleSubscriber
 {
 public:
     /**
-     * @brief Construct a new Gyro Subscriber object
+     * @brief Construct a new Gyro AngleSubscriber object
      * @details this will get the GyroSingleton accumulating, record the starting
      * angle that the brain was at at this moment in time, and whether or not the
      * GyroSingleton was already accumulating when this subscriber was created.
@@ -168,7 +260,7 @@ public:
     GyroSubscriber(int updates_per_sec);
 
     /**
-     * @brief Destroy the Gyro Subscriber object
+     * @brief Destroy the Gyro AngleSubscriber object
      * @details if the GyroSingleton was already accumulating when this subscriber
      * was created, then the GyroSingleton will continue to accumulate. Else,
      * this will stop the accumulation.
@@ -202,7 +294,7 @@ private:
  * in client programs
  *
  */
-class EncoderSubscriber : public Subscriber
+class EncoderSubscriber : public AngleSubscriber, public DistanceSubscriber
 {
 public:
     /**
@@ -285,7 +377,7 @@ public:
      *
      * @return double - how far, in mm, the create has traveled
      */
-    double get_relative_distance();
+    virtual double get_relative_distance();
 
     /**
      * @brief Get the angle relative to when this EncoderSubscriber

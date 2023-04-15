@@ -3,7 +3,7 @@
 #include "ihsboost/util/config.hpp"
 #include <kipr/wombat.h>
 
-void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
+void turn_degrees(AngleSubscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec)
 {
     // initialize misc
     int left_sign_val = degrees > 0 ? 1 : -1;
@@ -12,7 +12,7 @@ void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min
     MOVEMENT_FUNCTION(0, 0);
 }
 
-void turn_degrees(Subscriber *subscriber, Speed turn_speed, double degrees, int updates_per_sec)
+void turn_degrees(AngleSubscriber *subscriber, Speed turn_speed, double degrees, int updates_per_sec)
 {
     // drive until reached goal degrees
     MOVEMENT_FUNCTION(turn_speed.left, turn_speed.right);
@@ -26,7 +26,7 @@ void turn_degrees(Subscriber *subscriber, Speed turn_speed, double degrees, int 
     MOVEMENT_FUNCTION(0, 0);
 }
 
-void drive_straight(Subscriber *subscriber, int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec)
+void drive_straight(AngleSubscriber *subscriber, int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec)
 {
     // go until told to stop
     while (!condition())

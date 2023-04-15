@@ -64,7 +64,7 @@
  * @param accel_per_sec how fast to accelerate
  * @param updates_per_sec how many updates to do per second
  */
-void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec);
+void turn_degrees(AngleSubscriber *subscriber, int max_speed, double degrees, int min_speed, double accel_per_sec, int updates_per_sec);
 
 /**
  * @brief Turn the given number of degrees sat the given speed using the given subscriber
@@ -74,7 +74,7 @@ void turn_degrees(Subscriber *subscriber, int max_speed, double degrees, int min
  * @param degrees the number of degrees to turn (+ vals for CW, - vals for CCW)
  * @param updates_per_sec how many updates to do per second
  */
-void turn_degrees(Subscriber *subscriber, Speed turn_speed, double degrees, int updates_per_sec);
+void turn_degrees(AngleSubscriber *subscriber, Speed turn_speed, double degrees, int updates_per_sec);
 
 /**
  * @brief Drive straight using the given subscriber until told to stop
@@ -87,7 +87,7 @@ void turn_degrees(Subscriber *subscriber, Speed turn_speed, double degrees, int 
  * @param correction_proportion how much to correct by; values closer to 1 mean less correction, values closer to 0 mean more correction.
  * @param updates_per_sec how many updates to do per second
  */
-void drive_straight(Subscriber *subscriber, int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec);
+void drive_straight(AngleSubscriber *subscriber, int speed, std::function<bool()> condition, bool stop, double correction_proportion, int updates_per_sec);
 
 #endif
 /**@}*/
