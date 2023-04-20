@@ -25,7 +25,7 @@
  * @tparam size the number of readings to average
  */
 template <typename FilterType, std::size_t size>
-class RunningAverage : public Filter
+class RunningAverage : public Filter<FilterType>
 {
 public:
     /**
@@ -67,7 +67,7 @@ public:
     }
 
 private:
-    FilterType[size] buf;
+    FilterType buf[size];
     bool complete;
     size_t idx;
 };
