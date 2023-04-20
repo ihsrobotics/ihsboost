@@ -43,14 +43,33 @@
 
 #include "modules.hpp"
 
+// communication
+#ifdef build_communicate
+#include "ihsboost/communicate/communicate.hpp"
+#endif
+
 // controllers
 #ifdef build_controllers
 #include "ihsboost/controllers/controllers.hpp"
 #endif
 
-//  movement
+// create_extra
+#ifdef build_create_extra
+#include "ihsboost/create_extra/create_extra.hpp"
+#endif
+
+// filters
+#ifdef build_filters
+#include "ihsboost/filters/filters.hpp"
+#endif
+
+// movement
 #ifdef build_movement
 #include "ihsboost/movement/movement.hpp"
+#endif
+// servos
+#ifdef build_servos
+#include "ihsboost/servos/servos.hpp"
 #endif
 
 // threading
@@ -61,19 +80,4 @@
 // util
 #ifdef build_util
 #include "ihsboost/util/util.hpp"
-#endif
-
-// servos
-#ifdef build_servos
-#include "ihsboost/servos/servos.hpp"
-#endif
-
-// communication
-#ifdef build_communicate
-#include "ihsboost/communicate/communicate.hpp"
-#endif
-
-// create_extra
-#ifdef build_create_extra
-#include "ihsboost/create_extra/create_extra.hpp"
 #endif

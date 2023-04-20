@@ -14,6 +14,7 @@ option(build_movement "whether or not to build movement functionality" ON)
 option(build_servos "whether or not to build servo functionality" ON)
 option(build_threading "whether or not to build threading functionality" ON)
 option(build_util "whether or not to build util functionality" ON)
+option(build_filters "whether or not to build filter functionality" ON)
 
 # ========== Configure Section ==========
 # configure modules
@@ -52,7 +53,7 @@ endfunction()
 # ========== Library Section ==========
 if (${build_library})
     # set directories
-    set(DIRECTORIES bindings communicate controllers create_extra movement servos threading util)
+    set(DIRECTORIES bindings communicate controllers create_extra filters movement servos threading util)
 
     # add compile options
     add_compile_options("-std=c++11")

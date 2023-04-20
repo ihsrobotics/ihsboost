@@ -15,6 +15,7 @@
 #cmakedefine build_communicate
 #cmakedefine build_controllers
 #cmakedefine build_create_extra
+#cmakedefine build_filters
 #cmakedefine build_movement
 #cmakedefine build_servos
 #cmakedefine build_threading
