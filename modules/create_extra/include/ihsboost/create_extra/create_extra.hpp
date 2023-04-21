@@ -63,8 +63,6 @@ private:
      */
     void transfer();
 
-    uint8_t write;
-
     int8_t main_brush_speed;
     int8_t side_brush_speed;
     int8_t vacuum_speed;

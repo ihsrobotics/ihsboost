@@ -60,10 +60,15 @@ if (${build_library})
     add_compile_options("-Wall")
     add_compile_options("-Wconversion")
 
-    # install path configuration, defaults to /usr/local/
+    # install path and staging configuration, defaults to /usr/local/
     message("installing to " ${CMAKE_INSTALL_PREFIX})
     define_property(GLOBAL PROPERTY install_path BRIEF_DOCS "where to install" FULL_DOCS "where to install files")
-    set_property(GLOBAL PROPERTY install_path ${CMAKE_INSTALL_PREFIX}/include/ihsboost)
+    if (CMAKE_STAGING_PREFIX)
+        message("staging installed files at " ${CMAKE_STAGING_PREFIX})
+        set_property(GLOBAL PROPERTY install_path ${CMAKE_STAGING_PREFIX}/include/ihsboost)
+    else()
+        set_property(GLOBAL PROPERTY install_path ${CMAKE_INSTALL_PREFIX}/include/ihsboost)
+    endif()
     get_property(local_install_path GLOBAL PROPERTY install_path)
     message("include install_path has been set to " ${local_install_path})
 
@@ -81,6 +86,6 @@ if (${build_library})
     endforeach()
 
     # install
-    install(TARGETS ihsboost DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+    install(TARGETS ihsboost DESTINATION ${local_install_path}/../../lib)
     install(FILES include/all.hpp include/modules.hpp DESTINATION ${local_install_path})
 endif()

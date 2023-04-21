@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(ihs_boost VERSION 1.8.0)
+project(ihs_boost VERSION 1.8.1)
 
 # options
 option(build_tests "build_tests" OFF)
