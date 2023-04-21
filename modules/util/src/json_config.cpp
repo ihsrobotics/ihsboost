@@ -1,5 +1,6 @@
 #include "json_config.hpp"
 #include <fstream>
+#include <memory>
 using namespace std;
 
 // ========== Constructors and deconstructors ==========
@@ -52,7 +53,8 @@ void Config::setString(string key, string val)
 }
 void Config::save(string file)
 {
-    Json::StreamWriterBuilder writer;
+    Json::StreamWriterBuilder builder;
     ofstream out(file);
-    writer.newStreamWriter()->write(configs, &out);
+    std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
+    writer->write(configs, &out);
 }
