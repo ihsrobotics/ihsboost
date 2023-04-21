@@ -52,7 +52,7 @@ void Config::setString(string key, string val)
 }
 void Config::save(string file)
 {
-    Json::StyledStreamWriter writer;
+    Json::StreamWriterBuilder writer;
     ofstream out(file);
-    writer.write(out, configs);
+    writer.newStreamWriter()->write(configs, &out);
 }

@@ -194,7 +194,7 @@ public:
 
 private:
     const double start_angle; ///< angle that the brain was at when this subscriber was created
-    const double was_running; ///< whether or not the GyroSingleton was running when this subscriber was created
+    const bool was_running;   ///< whether or not the GyroSingleton was running when this subscriber was created
 };
 
 /**

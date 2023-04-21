@@ -2,7 +2,7 @@ if(${build_bindings})
     set(python_version "3.9" CACHE STRING "Python version to use")
 
     # set install path
-    set(python_install_path /usr/local/lib/python${python_version}/dist-packages)
+    set(python_install_path ${local_install_path}/../../lib/python${python_version}/dist-packages)
     message("using python module install path of " ${python_install_path})
 
     # configure
@@ -16,7 +16,7 @@ if(${build_bindings})
         message("Invalid python version!")
     endif()
     find_library(python_libs boost_python${python_nodot_version} REQUIRED)
-    include_directories(/usr/include/python${python_version})
+    include_directories(${CMAKE_SYSROOT}/usr/include/python${python_version})
 
     # include all the correct directories
     include_directories(${CMAKE_SOURCE_DIR}/modules/include/)
@@ -34,12 +34,12 @@ if(${build_bindings})
     ${CMAKE_CURRENT_SOURCE_DIR}/src/servos_bindings.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/util_bindings.cpp)
     add_library(ihs_bindings SHARED ${SOURCES})
     set_target_properties(ihs_bindings PROPERTIES PREFIX "")
-    set_target_properties(ihs_bindings PROPERTIES SUFFIX .cpython-${python_nodot_version}-${CMAKE_HOST_SYSTEM_PROCESSOR}-linux-gnu.so)
+    set_target_properties(ihs_bindings PROPERTIES SUFFIX .cpython-${python_nodot_version}-${CMAKE_SYSTEM_PROCESSOR}-linux-gnu.so)
     target_compile_definitions(ihs_bindings PUBLIC BOOST_BIND_GLOBAL_PLACEHOLDERS BOOST_ALLOW_DEPRECATED_HEADERS)  # ignore warnings
 
     # link to dependency libraries
     add_dependencies(ihs_bindings ihsboost)
-    target_link_libraries(ihs_bindings ${python_libs} pthread util dl ihsboost)
+    target_link_libraries(ihs_bindings ${python_libs} ihsboost)
 
     # install
     install(TARGETS ihs_bindings DESTINATION ${python_install_path})
