@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.8.0</span>
+   &#160;<span id="projectnumber">1.8.1</span>
    </div>
   </td>
  </tr>
@@ -95,8 +95,27 @@ Wombat Build</h2>
 <div class="line">sudo make install</div>
 </div><!-- fragment --><p>Note: you will need to use either the <code>main</code> branch or the <code>older-wombat</code> branch depending on whether you are using a new wombat or an old (original OS) wombat (see <code>Getting the Source files</code>) </p>
 <h2><a class="anchor" id="autotoc_md5"></a>
-Cross Compile Build</h2>
-<p>Currently, cross compile build is unsupported. </p>
+Cross Compile</h2>
+<p>In order to cross-compile ihsboost, make sure to create a toolchain file. It should look something like this </p><div class="fragment"><div class="line"># set the target architecture and system name (for raspberry pi, is aarch64)</div>
+<div class="line">set(CMAKE_SYSTEM_NAME Linux)</div>
+<div class="line">set(CMAKE_SYSTEM_PROCESSOR aarch64)</div>
+<div class="line"> </div>
+<div class="line"># set the compiler you want to use</div>
+<div class="line">set(CMAKE_C_COMPILER clang)</div>
+<div class="line">set(CMAKE_CXX_COMPILER clang++)</div>
+<div class="line"> </div>
+<div class="line"># location of libs and includes to link/compile against</div>
+<div class="line">set(CMAKE_SYSROOT /path/to/your/sysroot)</div>
+<div class="line"> </div>
+<div class="line"># when using clang, make sure to set the c and cxx flags (cpu is optional)</div>
+<div class="line">set(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -O3 --target=${CMAKE_SYSTEM_PROCESSOR}-linux-gnu --sysroot=${CMAKE_SYSROOT} -mcpu=cortex-a53&quot;)</div>
+<div class="line">set(CMAKE_CXX_FLAGS &quot;${CMAKE_C_FLAGS}&quot;)</div>
+<div class="line"> </div>
+<div class="line"># where you want to install the files locally before copying</div>
+<div class="line"># them to their final destination</div>
+<div class="line">set(CMAKE_STAGING_PREFIX /path/to/temporary/out)</div>
+</div><!-- fragment --><p> Then, just specify the toolchain file when configuring with the option <code>-DCMAKE_TOOLCHAIN_FILE=/path/to/your/toolchain/file</code>. For example, to cross compile the full library, you could run </p><div class="fragment"><div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/path/to/your/toolchain/file`</div>
+</div><!-- fragment --><p> After configuring with cmake, building can proceed normally </p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Other Build Options</h2>
 <p>The following are options that can be appended to the <code>cmake</code> command when configuring the project.</p>
