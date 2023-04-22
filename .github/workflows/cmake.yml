@@ -55,7 +55,7 @@ jobs:
         # Configure ihsboost CMake in 'build' subdirectory.
         run:
           cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-          -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON \
+          -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON -Dbuild_debian=ON \
           -G "Ninja"
 
       - name: Build
@@ -63,8 +63,11 @@ jobs:
         id: build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+      - name: Package Debian
+        run: cd ${{github.workspace}}/build && cpack && cd ${{github.workspace}}
+
       - name: install
-        run: sudo cmake --install ${{github.workspace}}/build && sudo ldconfig
+        run: sudo dpkg --install ${{github.workspace}}/build/ihs_boost-*.deb && sudo ldconfig
 
       - name: update-build-status
         uses: myrotvorets/set-commit-status-action@1.1.6
@@ -88,11 +91,11 @@ jobs:
           context: test-status
 
       # ========== Exit ==========
-      - name: Upload Artifacts
+      - name: Upload Debian Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts
-          path: ${{github.workspace}}/build
+          name: x86_64-linux deb package
+          path: ${{github.workspace}}/build/ihs_boost-*.deb
 
       # ========== Failure Section ==========
       # if build fails, set it to failed

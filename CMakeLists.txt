@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
-project(ihs_boost VERSION 1.8.1)
+project(ihs_boost VERSION 1.8.2)
 
 # options
 option(build_tests "build_tests" OFF)
 option(with_documentation "with_documentation" OFF)
+option(build_debian "build_debian" OFF)
 
 # add modules
 add_subdirectory(modules)
@@ -25,4 +26,19 @@ if (${with_documentation})
 
     # doxygen it
     doxygen_add_docs(doxygen ${DOXYGEN_SOURCES} ALL)
+endif()
+
+# debian package
+if(${build_debian})    
+    # generate debian package
+    set(CPACK_GENERATOR "DEB")
+
+    # set maintainer
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Eliot")
+    
+    # install on target machine to the provided install path
+    set(CPACK_PACKAGE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+    
+    # include CPack to use these variables
+    include(CPack)
 endif()
