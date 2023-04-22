@@ -77,6 +77,7 @@ when configuring the project.
 
 * `-Dbuild_library=ON/OFF` - build ihsboost, defaults to `ON`
 * `-Dbuild_tests=OFF/ON` - build tests to assure that ihsboost built successfully, defaults to `OFF`
+* `-Dbuild_debian=OFF/ON` - build debian package for easy install / uninstall
 * `-Dwith_documentation=OFF/ON` - build documentation files for the project, defaults to `OFF`
 * `-Droomba=ON/OFF` - use roomba configs or not, defaults to `ON`
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9,
