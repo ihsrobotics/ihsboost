@@ -55,7 +55,7 @@ jobs:
         # Configure ihsboost CMake in 'build' subdirectory.
         run:
           cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-          -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON \
+          -Dwith_documentation=OFF -Dpython_version=3.10 -Dbuild_tests=ON -Dbuild_debian=ON \
           -G "Ninja"
 
       - name: Build
@@ -88,11 +88,14 @@ jobs:
           context: test-status
 
       # ========== Exit ==========
-      - name: Upload Artifacts
+      - name: Prepare Debian Artifacts
+        run: cd ${{github.workspace}}/build && cpack && cd cd ${{github.workspace}}
+
+      - name: Upload Debian Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Artifacts
-          path: ${{github.workspace}}/build
+          path: ${{github.workspace}}/build/ihs_boost-*.deb
 
       # ========== Failure Section ==========
       # if build fails, set it to failed
