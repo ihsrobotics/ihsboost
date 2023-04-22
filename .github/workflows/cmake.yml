@@ -94,7 +94,7 @@ jobs:
       - name: Upload Debian Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts
+          name: x86_64-linux deb package
           path: ${{github.workspace}}/build/ihs_boost-*.deb
 
       # ========== Failure Section ==========
