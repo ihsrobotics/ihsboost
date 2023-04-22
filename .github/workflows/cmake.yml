@@ -63,8 +63,11 @@ jobs:
         id: build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+      - name: Package Debian
+        run: cd ${{github.workspace}}/build && cpack && cd ${{github.workspace}}
+
       - name: install
-        run: sudo cmake --install ${{github.workspace}}/build && sudo ldconfig
+        run: sudo dpkg --install ${{github.workspace}}/build/ihs_boost-*.deb && sudo ldconfig
 
       - name: update-build-status
         uses: myrotvorets/set-commit-status-action@1.1.6
@@ -88,9 +91,6 @@ jobs:
           context: test-status
 
       # ========== Exit ==========
-      - name: Prepare Debian Artifacts
-        run: cd ${{github.workspace}}/build && cpack && cd cd ${{github.workspace}}
-
       - name: Upload Debian Artifacts
         uses: actions/upload-artifact@v3
         with:
