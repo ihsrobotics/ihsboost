@@ -60,6 +60,10 @@ set(CMAKE_SYSROOT /path/to/your/sysroot)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 --target=${CMAKE_SYSTEM_PROCESSOR}-linux-gnu --sysroot=${CMAKE_SYSROOT} -mcpu=cortex-a53")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
 
+# when building a debian package, make sure to set this variable
+# to the output of `dpkg --print-architecture` on the target machine
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE arm64)
+
 # where you want to install the files locally before copying
 # them to their final destination
 set(CMAKE_STAGING_PREFIX /path/to/temporary/out)
