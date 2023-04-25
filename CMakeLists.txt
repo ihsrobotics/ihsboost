@@ -38,7 +38,7 @@ if(${build_debian})
     set(CPACK_DEBIAN_PACKAGE_DEPENDS "libjsoncpp-dev, libbluetooth-dev")
 
     # install on target machine to the provided install path
-    set(CPACK_PACKAGE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+    set(CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
     
     # include CPack to use these variables
     include(CPack)
