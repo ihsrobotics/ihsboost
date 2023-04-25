@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ihs_boost
-   &#160;<span id="projectnumber">1.8.2</span>
+   &#160;<span id="projectnumber">1.8.3</span>
    </div>
   </td>
  </tr>
@@ -110,6 +110,10 @@ Cross Compile</h2>
 <div class="line"># when using clang, make sure to set the c and cxx flags (cpu is optional)</div>
 <div class="line">set(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -O3 --target=${CMAKE_SYSTEM_PROCESSOR}-linux-gnu --sysroot=${CMAKE_SYSROOT} -mcpu=cortex-a53&quot;)</div>
 <div class="line">set(CMAKE_CXX_FLAGS &quot;${CMAKE_C_FLAGS}&quot;)</div>
+<div class="line"> </div>
+<div class="line"># when building a debian package, make sure to set this variable</div>
+<div class="line"># to the output of `dpkg --print-architecture` on the target machine</div>
+<div class="line">set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE arm64)</div>
 <div class="line"> </div>
 <div class="line"># where you want to install the files locally before copying</div>
 <div class="line"># them to their final destination</div>
