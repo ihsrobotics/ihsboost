@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(ihs_boost VERSION 1.8.2)
+project(ihs_boost VERSION 1.8.3)
 
 # options
 option(build_tests "build_tests" OFF)
@@ -33,9 +33,10 @@ if(${build_debian})
     # generate debian package
     set(CPACK_GENERATOR "DEB")
 
-    # set maintainer
+    # set debian variables
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Eliot")
-    
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libjsoncpp-dev, libbluetooth-dev")
+
     # install on target machine to the provided install path
     set(CPACK_PACKAGE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
     
