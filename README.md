@@ -41,14 +41,47 @@ sudo make install
 Note: you will need to use either the `main` branch or the 
 `older-wombat` branch depending on whether you are using a
 new wombat or an old (original OS) wombat (see `Getting the Source files`) 
-### Cross Compile Build
-Currently, cross compile build is unsupported.
+### Cross Compile
+In order to cross-compile ihsboost, make sure to create a toolchain file. It should look
+something like this
+```cmake
+# set the target architecture and system name (for raspberry pi, is aarch64)
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+# set the compiler you want to use
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+
+# location of libs and includes to link/compile against
+set(CMAKE_SYSROOT /path/to/your/sysroot)
+
+# when using clang, make sure to set the c and cxx flags (cpu is optional)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 --target=${CMAKE_SYSTEM_PROCESSOR}-linux-gnu --sysroot=${CMAKE_SYSROOT} -mcpu=cortex-a53")
+set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
+
+# when building a debian package, make sure to set this variable
+# to the output of `dpkg --print-architecture` on the target machine
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE arm64)
+
+# where you want to install the files locally before copying
+# them to their final destination
+set(CMAKE_STAGING_PREFIX /path/to/temporary/out)
+```
+Then, just specify the toolchain file when configuring with the option
+`-DCMAKE_TOOLCHAIN_FILE=/path/to/your/toolchain/file`. For example, to
+cross compile the full library, you could run
+```shell
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/path/to/your/toolchain/file`
+```
+After configuring with cmake, building can proceed normally
 ### Other Build Options
 The following are options that can be appended to the `cmake` command
 when configuring the project.
 
 * `-Dbuild_library=ON/OFF` - build ihsboost, defaults to `ON`
 * `-Dbuild_tests=OFF/ON` - build tests to assure that ihsboost built successfully, defaults to `OFF`
+* `-Dbuild_debian=OFF/ON` - build debian package for easy install / uninstall
 * `-Dwith_documentation=OFF/ON` - build documentation files for the project, defaults to `OFF`
 * `-Droomba=ON/OFF` - use roomba configs or not, defaults to `ON`
 * `-Dpython_version=XXX` - use a specific version of python (for example, 3.9 or 3.10), defaults to 3.9,
