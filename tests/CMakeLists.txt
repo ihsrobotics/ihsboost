@@ -5,6 +5,6 @@ function(add_ihsboost_test_executable _name _file _module_depends)
     target_link_libraries(${_name} ihsboost)
 endfunction()
 
-set(DIRECTORIES bindings communicate controllers threading util)
+set(DIRECTORIES bindings communicate controllers filters threading util)
 
 subdirs(${DIRECTORIES})

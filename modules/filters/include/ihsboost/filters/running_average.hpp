@@ -22,9 +22,8 @@
  * `size` readings
  *
  * @tparam FilterType the type of the values that the filter will filter
- * @tparam size the number of readings to average
  */
-template <typename FilterType, std::size_t size>
+template <typename FilterType>
 class RunningAverage : public Filter<FilterType>
 {
 public:
@@ -32,7 +31,8 @@ public:
      * @brief Construct a new Running Average object
      *
      */
-    RunningAverage() : Filter<FilterType>(), buf(), complete(false), idx(0){};
+    RunningAverage(std::size_t size) : Filter<FilterType>(), buf(new FilterType[size]), complete(false), idx(0), size(size){};
+    ~RunningAverage() { delete[] buf; }
 
     /**
      * @brief Update the filter with the given value and return the filtered
@@ -61,15 +61,16 @@ public:
         }
         else
         {
-            double total = std::accumulate(buf, buf + idx);
+            double total = std::accumulate(buf, buf + idx, 0);
             return total / idx;
         }
     }
 
 private:
-    FilterType buf[size];
+    FilterType *buf;
     bool complete;
     size_t idx;
+    size_t size;
 };
 
 #endif
