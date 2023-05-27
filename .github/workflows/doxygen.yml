@@ -17,8 +17,10 @@ jobs:
 
         # ========== Setup ==========
       - name: Install Doxygen
-        run: sudo apt-get install doxygen graphviz doxygen-latex -y
         shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install doxygen graphviz doxygen-latex -y
 
       - name: Configure Doxygen Python
         run: cp ./modules/bindings/include/ihs_bindings.pyi ./modules/bindings/include/ihs_bindings.py
