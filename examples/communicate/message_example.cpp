@@ -18,23 +18,22 @@
  * @copyright Copyright (c) 2023
  *
  */
+#include <chrono>
 #include <ihsboost/all.hpp>
 #include <iostream>
 #include <sstream>
 #include <thread>
 #include <vector>
-#include <chrono>
 
 using namespace std;
 using namespace chrono;
 
-int main(int argc, const char *argv[])
-{
-    if (argc != 3)
-    {
+int main(int argc, const char *argv[]) {
+    if (argc != 3) {
         cerr << "need 2 arguments to be provided" << endl;
         cerr << "first should be either `talker` or `listener`" << endl;
-        cerr << "second should be the communicator type: `SysVCommunicator`, `PosixQCommunicator`"
+        cerr << "second should be the communicator type: `SysVCommunicator`, "
+                "`PosixQCommunicator`"
              << "`SocketCommunicator` or `SHMCommunicator`" << endl;
         return -1;
     }
@@ -53,48 +52,41 @@ int main(int argc, const char *argv[])
 
     // initialize communicator to correct type
     Communicator *c;
-    if (string(argv[2]) == "SysVCommunicator")
-    {
+    if (string(argv[2]) == "SysVCommunicator") {
         c = new SysVCommunicator(id);
     }
-    else if (string(argv[2]) == "PosixQCommunicator")
-    {
+    else if (string(argv[2]) == "PosixQCommunicator") {
         c = new PosixQCommunicator(name);
     }
-    else if (string(argv[2]) == "SHMCommunicator")
-    {
+    else if (string(argv[2]) == "SHMCommunicator") {
         c = new SHMCommunicator(id);
     }
-    else if (string(argv[2]) == "SocketCommunicator")
-    {
-        if (string(argv[1]) == "talker")
-        {
+    else if (string(argv[2]) == "SocketCommunicator") {
+        if (string(argv[1]) == "talker") {
             c = new SocketServer(port);
         }
-        else
-        {
+        else {
             c = new SocketClient(ip, port);
         }
     }
-    else
-    {
+    else {
         cerr << "invalid talker provided" << endl;
         return 1;
     }
 
     // run the main code
-    if (string(argv[1]) == "talker")
-    {
+    if (string(argv[1]) == "talker") {
         cout << "talker" << endl;
 
         int count = 0;
         ostringstream o;
-        for (int i = 0; i < num_times; ++i)
-        {
+        for (int i = 0; i < num_times; ++i) {
             o << "cool " << i << endl;
             string ret = o.str();
             cout << "sending message : " << ret << endl;
-            c->send_msg(c->create_msg<char>(ret.c_str(), ret.size())); // send a "string" (it's really a list of char's)
+            c->send_msg(c->create_msg<char>(
+                ret.c_str(),
+                ret.size())); // send a "string" (it's really a list of char's)
 
             // send list of doubles instead
             // double my_double[3] = {3.14, 2.22, 7.77};
@@ -112,12 +104,10 @@ int main(int argc, const char *argv[])
             ++count;
         }
     }
-    if (string(argv[1]) == "listener")
-    {
+    if (string(argv[1]) == "listener") {
         cout << "listener" << endl;
 
-        for (int i = 0; i < num_times; ++i)
-        {
+        for (int i = 0; i < num_times; ++i) {
             // receive list of doubles
             // MessageBuf ret = c->receive_msg();
             // double *vals = ret.get_ptr_val<double>();

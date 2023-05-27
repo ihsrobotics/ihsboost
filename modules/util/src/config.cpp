@@ -8,20 +8,18 @@ using namespace std;
  * @note This functions like a singleton, and should only be instantiated once
  *
  */
-class PartialConfig : public Config
-{
-public:
+class PartialConfig : public Config {
+  public:
     /**
      * @brief Construct a new Partial Config object from the provided
      * default config file
      *
      */
-    PartialConfig(std::string default_config_file) : Config(default_config_file), extra_config(nullptr){};
+    PartialConfig(std::string default_config_file)
+        : Config(default_config_file), extra_config(nullptr){};
 
-    virtual ~PartialConfig()
-    {
-        if (extra_config != nullptr)
-        {
+    virtual ~PartialConfig() {
+        if (extra_config != nullptr) {
             delete extra_config;
         }
     }
@@ -31,10 +29,8 @@ public:
      *
      * @param config_file
      */
-    void set_extra_config(string config_file)
-    {
-        if (extra_config != nullptr)
-        {
+    void set_extra_config(string config_file) {
+        if (extra_config != nullptr) {
             delete extra_config;
         }
         extra_config = new Config(config_file);
@@ -45,10 +41,7 @@ public:
      *
      * @param config_file
      */
-    void set_defualt_config(string config_file)
-    {
-        loadConfig(config_file);
-    }
+    void set_defualt_config(string config_file) { loadConfig(config_file); }
 
     /**
      * @brief Return if the extra config doesn't have a value for the given key
@@ -57,10 +50,8 @@ public:
      * @return true if the key doesn't have a value
      * @return false if the key does have a value
      */
-    bool isEmptyExtraValue(string key)
-    {
-        if (extra_config == nullptr)
-        {
+    bool isEmptyExtraValue(string key) {
+        if (extra_config == nullptr) {
             return true;
         }
         string extra_value = extra_config->getString(key);
@@ -75,14 +66,11 @@ public:
      *  or the value stored in the default config,
      *  or false if the key doesn't exist
      */
-    virtual bool getBool(string key) override
-    {
-        if (isEmptyExtraValue(key))
-        {
+    virtual bool getBool(string key) override {
+        if (isEmptyExtraValue(key)) {
             return Config::getBool(key);
         }
-        else
-        {
+        else {
             return extra_config->getBool(key);
         }
     }
@@ -95,14 +83,11 @@ public:
      *  or the value stored in the default config,
      *  or 0 if the key doesn't exist
      */
-    virtual int getInt(string key) override
-    {
-        if (isEmptyExtraValue(key))
-        {
+    virtual int getInt(string key) override {
+        if (isEmptyExtraValue(key)) {
             return Config::getInt(key);
         }
-        else
-        {
+        else {
             return extra_config->getInt(key);
         }
     }
@@ -115,14 +100,11 @@ public:
      *  or the value stored in the default config,
      *  or 0 if the key doesn't exist
      */
-    virtual double getDouble(string key) override
-    {
-        if (isEmptyExtraValue(key))
-        {
+    virtual double getDouble(string key) override {
+        if (isEmptyExtraValue(key)) {
             return Config::getDouble(key);
         }
-        else
-        {
+        else {
             return extra_config->getDouble(key);
         }
     }
@@ -135,40 +117,34 @@ public:
      *  or the value stored in the default config,
      *  or an empty string if the key doesn't exist
      */
-    virtual string getString(string key) override
-    {
-        if (isEmptyExtraValue(key))
-        {
+    virtual string getString(string key) override {
+        if (isEmptyExtraValue(key)) {
             return Config::getString(key);
         }
-        else
-        {
+        else {
             return extra_config->getString(key);
         }
     }
 
-private:
+  private:
     Config *extra_config; ///< the extra config
 };
 
 // singleton-like behavior of PartialConfig is done through this shared pointer
 std::shared_ptr<PartialConfig> ihsboost_config(nullptr);
 
-Config &get_config(std::string config_file)
-{
-    if (ihsboost_config.get() == nullptr)
-    {
+Config &get_config(std::string config_file) {
+    if (ihsboost_config.get() == nullptr) {
         ihsboost_config = make_shared<PartialConfig>(config_file);
     }
     return *ihsboost_config.get();
 }
 
-void set_extra_config(string config_file)
-{
+void set_extra_config(string config_file) {
     static_cast<PartialConfig *>(&get_config())->set_extra_config(config_file);
 }
 
-void set_default_config(string config_file)
-{
-    static_cast<PartialConfig *>(&get_config())->set_defualt_config(config_file);
+void set_default_config(string config_file) {
+    static_cast<PartialConfig *>(&get_config())
+        ->set_defualt_config(config_file);
 }

@@ -13,18 +13,17 @@
 #ifndef IHSBOOST_SINGLETONS_HPP
 #define IHSBOOST_SINGLETONS_HPP
 
-#include <memory>
-#include "ihsboost/threading/background_task.hpp"
 #include "ihsboost/threading/accumulator.hpp"
+#include "ihsboost/threading/background_task.hpp"
 #include "ihsboost/util/config.hpp"
+#include <memory>
 
 /**
  * @brief Abstract class representing a subscriber
  *
  */
-class Subscriber
-{
-public:
+class Subscriber {
+  public:
     virtual double get_relative_angle() = 0;
 };
 
@@ -37,9 +36,8 @@ public:
  * the current angle that the brain is at.
  *
  */
-class GyroSingleton : public Accumulator
-{
-public:
+class GyroSingleton : public Accumulator {
+  public:
     /**
      * @brief Get the current processed gyro reading, in gyro units
      *
@@ -61,16 +59,18 @@ public:
      */
     static GyroSingleton *instance();
 
-private:
+  private:
     /**
      * @brief Construct a new Gyro Singleton object
      * @details this is marked private to enforce the singleton behavior
      *
      * @param updates_per_sec how many updates to do per sec by default
      */
-    GyroSingleton(int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
+    GyroSingleton(
+        int updates_per_sec = get_config().getInt("gyro_updates_per_sec"));
 
-    static std::shared_ptr<GyroSingleton> _instance; ///< the instance of GyroSingleton
+    static std::shared_ptr<GyroSingleton>
+        _instance; ///< the instance of GyroSingleton
 };
 
 /**
@@ -80,9 +80,8 @@ private:
  * be used to access the functionality of this class.
  *
  */
-class EncoderSingleton : public BackgroundTask
-{
-public:
+class EncoderSingleton : public BackgroundTask {
+  public:
     /**
      * @brief Get the instance
      *
@@ -100,16 +99,22 @@ public:
     static void read_encoders(int &lenc, int &renc);
 
     /**
-     * @brief Process encoders so that, even if overflow/underflow occurs, `lenc_delta` and `renc_delta` will be accurate
+     * @brief Process encoders so that, even if overflow/underflow occurs,
+     * `lenc_delta` and `renc_delta` will be accurate
      *
-     * @param lenc_prev the previous left encoder value. This is modified inside the function
-     *  to the value of the new reading
-     * @param renc_prev the previous right encoder value. This is modified inside the function
-     *  to the value of the new reading
-     * @param lenc_delta the change in the left encoder. This is incremented inside the function
-     * @param renc_delta the change in the right encoder. This is incremeneted inside the function
+     * @param lenc_prev the previous left encoder value. This is modified inside
+     * the function to the value of the new reading
+     * @param renc_prev the previous right encoder value. This is modified
+     * inside the function to the value of the new reading
+     * @param lenc_delta the change in the left encoder. This is incremented
+     * inside the function
+     * @param renc_delta the change in the right encoder. This is incremeneted
+     * inside the function
      */
-    static void process_encoders(int &lenc_prev, int &renc_prev, int &lenc_delta, int &renc_delta);
+    static void process_encoders(int &lenc_prev,
+                                 int &renc_prev,
+                                 int &lenc_delta,
+                                 int &renc_delta);
 
     /**
      * @brief Get how far the left wheel has turned
@@ -131,15 +136,16 @@ public:
      */
     virtual void start();
 
-protected:
+  protected:
     /**
      * @brief Function stub that BackgrounTask will call
      *
      */
     virtual void function();
 
-private:
-    EncoderSingleton(int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
+  private:
+    EncoderSingleton(
+        int updates_per_sec = get_config().getInt("roomba_updates_per_sec"));
     int lenc_prev;
     int renc_prev;
     int lenc_delta;
@@ -154,14 +160,14 @@ private:
  * in client programs
  *
  */
-class GyroSubscriber : public Subscriber
-{
-public:
+class GyroSubscriber : public Subscriber {
+  public:
     /**
      * @brief Construct a new Gyro Subscriber object
-     * @details this will get the GyroSingleton accumulating, record the starting
-     * angle that the brain was at at this moment in time, and whether or not the
-     * GyroSingleton was already accumulating when this subscriber was created.
+     * @details this will get the GyroSingleton accumulating, record the
+     * starting angle that the brain was at at this moment in time, and whether
+     * or not the GyroSingleton was already accumulating when this subscriber
+     * was created.
      *
      * @param updates_per_sec how many times to read from the gyroscope per sec
      */
@@ -169,17 +175,19 @@ public:
 
     /**
      * @brief Destroy the Gyro Subscriber object
-     * @details if the GyroSingleton was already accumulating when this subscriber
-     * was created, then the GyroSingleton will continue to accumulate. Else,
-     * this will stop the accumulation.
+     * @details if the GyroSingleton was already accumulating when this
+     * subscriber was created, then the GyroSingleton will continue to
+     * accumulate. Else, this will stop the accumulation.
      *
      */
     ~GyroSubscriber();
 
     /**
-     * @brief Get the angle that the brain was at when this subscriber was created
+     * @brief Get the angle that the brain was at when this subscriber was
+     * created
      *
-     * @return const double& - the angle that the brain was at when the GyroSubscriber was created
+     * @return const double& - the angle that the brain was at when the
+     * GyroSubscriber was created
      */
     const double &get_start_angle();
 
@@ -192,9 +200,11 @@ public:
      */
     virtual double get_relative_angle();
 
-private:
-    const double start_angle; ///< angle that the brain was at when this subscriber was created
-    const bool was_running;   ///< whether or not the GyroSingleton was running when this subscriber was created
+  private:
+    const double start_angle; ///< angle that the brain was at when this
+                              ///< subscriber was created
+    const bool was_running;   ///< whether or not the GyroSingleton was running
+                              ///< when this subscriber was created
 };
 
 /**
@@ -202,9 +212,8 @@ private:
  * in client programs
  *
  */
-class EncoderSubscriber : public Subscriber
-{
-public:
+class EncoderSubscriber : public Subscriber {
+  public:
     /**
      * @brief Construct a new EncoderSubscriber object
      * @details this will get the EncoderSingleton running, record the starting
@@ -229,7 +238,8 @@ public:
      * @brief Get the lenc_delta that the create was at when
      * this subscriber was created
      *
-     * @return const int& - the initial delta, in encoder units, of the left wheel
+     * @return const int& - the initial delta, in encoder units, of the left
+     * wheel
      */
     const int &get_start_lenc_delta();
 
@@ -237,7 +247,8 @@ public:
      * @brief Get the renc_delta that the create was at when
      * this subscriber was created
      *
-     * @return const int& - the initial delta, in encoder units, of the right wheel
+     * @return const int& - the initial delta, in encoder units, of the right
+     * wheel
      */
     const int &get_start_renc_delta();
 
@@ -299,7 +310,7 @@ public:
      */
     virtual double get_relative_angle();
 
-private:
+  private:
     const int start_lenc_delta;
     const int start_renc_delta;
     const bool was_running;

@@ -14,16 +14,15 @@
 #define IHSBOOST_POSIX_Q_COMMUNICATOR_HPP
 
 #include "communicator.hpp"
-#include <string>
 #include <mqueue.h>
+#include <string>
 
 /**
  * @brief Class for communicating over posix-based mqueue's
  *
  */
-class PosixQCommunicator : public FileCommunicator
-{
-public:
+class PosixQCommunicator : public FileCommunicator {
+  public:
     /**
      * @brief Construct a new Posix Q Communicator object
      *
@@ -42,7 +41,9 @@ public:
      * will be able to hold
      * @param max_msg_size The maximum size of your messages
      */
-    PosixQCommunicator(std::string name, size_t max_msgs, uint32_t max_msg_size);
+    PosixQCommunicator(std::string name,
+                       size_t max_msgs,
+                       uint32_t max_msg_size);
 
     /**
      * @brief Destroy the Posix Q Communicator object
@@ -81,7 +82,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted

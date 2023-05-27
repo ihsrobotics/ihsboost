@@ -20,12 +20,12 @@
  * @brief Class to communicate using System V message queues
  *
  */
-class SysVCommunicator : public FileCommunicator
-{
-public:
+class SysVCommunicator : public FileCommunicator {
+  public:
     /**
-     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue, both `path`
-     * and `identifier` must be the same on both communicators
+     * @brief Construct a new SysVCommunicator object. In order to connect to
+     * the same msg queue, both `path` and `identifier` must be the same on both
+     * communicators
      *
      * @param path a path to real file
      * @param identifier an integer to use as the "session id"
@@ -42,16 +42,18 @@ public:
     SysVCommunicator(const char *path, int identifier, uint32_t max_msg_size);
 
     /**
-     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
-     * the provided key on both communicators must be the same
+     * @brief Construct a new SysVCommunicator object. In order to connect to
+     * the same msg queue, the provided key on both communicators must be the
+     * same
      *
      * @param key
      */
     SysVCommunicator(int key);
 
     /**
-     * @brief Construct a new SysVCommunicator object. In order to connect to the same msg queue,
-     * the provided key on both communicators must be the same
+     * @brief Construct a new SysVCommunicator object. In order to connect to
+     * the same msg queue, the provided key on both communicators must be the
+     * same
      *
      * @param key
      * @param max_msg_size the maximum size of your messages
@@ -93,7 +95,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted

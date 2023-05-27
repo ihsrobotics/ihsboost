@@ -19,9 +19,8 @@
  * @brief Abstract class for all communicators
  *
  */
-class Communicator
-{
-public:
+class Communicator {
+  public:
     /**
      * @brief Destroy the Communicator object
      * @details This has no effect in the base class
@@ -70,11 +69,10 @@ public:
      *
      * @tparam T the type of the value
      * @param val the value to store
-     * @return MessageBuf - a MessageBuf object that can be sent using communicators
+     * @return MessageBuf - a MessageBuf object that can be sent using
+     * communicators
      */
-    template <typename T>
-    MessageBuf create_msg(T val)
-    {
+    template <typename T> MessageBuf create_msg(T val) {
         MessageBuf m(max_msg_size);
         m.set_val<T>(val);
         return m;
@@ -86,17 +84,16 @@ public:
      * @tparam T the type of the values
      * @param val a pointer to the values to store
      * @param len how many items to store
-     * @return MessageBuf - a MessageBuf object that can be sent using communicators
+     * @return MessageBuf - a MessageBuf object that can be sent using
+     * communicators
      */
-    template <typename T>
-    MessageBuf create_msg(const T *val, uint16_t len)
-    {
+    template <typename T> MessageBuf create_msg(const T *val, uint16_t len) {
         MessageBuf m(max_msg_size);
         m.set_val<T>(val, len);
         return m;
     }
 
-protected:
+  protected:
     /**
      * @brief Construct a new Communicator object
      *
@@ -135,9 +132,8 @@ protected:
  * @brief Abstract class for all file-based communicators
  *
  */
-class FileCommunicator : public Communicator
-{
-public:
+class FileCommunicator : public Communicator {
+  public:
     /**
      * @brief Close the communicator and remove the associated files
      * even if this isn't the owner
@@ -154,7 +150,7 @@ public:
      */
     virtual bool is_owner() const;
 
-protected:
+  protected:
     /**
      * @brief Construct a new FileCommunicator object
      *
@@ -184,8 +180,9 @@ protected:
      */
     virtual void check_exists();
 
-private:
-    bool owner; ///< whether or not this object is the "owner" (creator) of the file.
+  private:
+    bool owner; ///< whether or not this object is the "owner" (creator) of the
+                ///< file.
 };
 
 #endif

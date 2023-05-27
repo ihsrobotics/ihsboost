@@ -19,12 +19,12 @@
  * @brief Class for communicating over shared memory
  *
  */
-class SHMCommunicator : public FileCommunicator
-{
-public:
+class SHMCommunicator : public FileCommunicator {
+  public:
     /**
-     * @brief Construct a new SHMCommunicator object. In order to connect to the same msg queue, both `path`
-     * and `identifier` must be the same on both communicators
+     * @brief Construct a new SHMCommunicator object. In order to connect to the
+     * same msg queue, both `path` and `identifier` must be the same on both
+     * communicators
      *
      * @param path a path to real file
      * @param identifier a character to use as the "session id"
@@ -32,8 +32,9 @@ public:
     SHMCommunicator(const char *path, int identifier);
 
     /**
-     * @brief Construct a new SHMCommunicator object. In order to connect to the same msg queue, both `path`
-     * and `identifier` must be the same on both communicators
+     * @brief Construct a new SHMCommunicator object. In order to connect to the
+     * same msg queue, both `path` and `identifier` must be the same on both
+     * communicators
      *
      * @param path a path to real file
      * @param identifier a character to use as the "session id"
@@ -42,16 +43,18 @@ public:
     SHMCommunicator(const char *path, int identifier, uint32_t max_msg_size);
 
     /**
-     * @brief Construct a new SHMCommunicator object. In order to connect to the same shared memory,
-     * the provided id on both communicators must be the same
+     * @brief Construct a new SHMCommunicator object. In order to connect to the
+     * same shared memory, the provided id on both communicators must be the
+     * same
      *
      * @param id the id for this SHMCommunicator.
      */
     SHMCommunicator(int id);
 
     /**
-     * @brief Construct a new SHMCommunicator object. In order to connect to the same shared memory,
-     * the provided id on both communicators must be the same
+     * @brief Construct a new SHMCommunicator object. In order to connect to the
+     * same shared memory, the provided id on both communicators must be the
+     * same
      *
      * @param id the id for this SHMCommunicator.
      * @param max_msg_size The maximum size of your messages
@@ -59,8 +62,8 @@ public:
     SHMCommunicator(int id, uint32_t max_msg_size);
 
     /**
-     * @brief Destroy the SHMCommunicator object and the shared memory associated
-     * with it
+     * @brief Destroy the SHMCommunicator object and the shared memory
+     * associated with it
      *
      */
     virtual ~SHMCommunicator();
@@ -89,19 +92,19 @@ public:
     /**
      * @brief Wait to receive a message.
      * Blocks until message was received
-     * @exception Segmentation Fault - happens if the shared memory has already been
-     * closed by another process
+     * @exception Segmentation Fault - happens if the shared memory has already
+     * been closed by another process
      *
      * @return MessageBuf - the message that was received
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted
-     * @exception Segmentation Fault - happens if the shared memory has already been
-     * closed by another process
+     * @exception Segmentation Fault - happens if the shared memory has already
+     * been closed by another process
      *
      * @param bytes the bytes, created from MessageBuf.to_bytes
      */

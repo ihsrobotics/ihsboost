@@ -1,24 +1,21 @@
 #include "background_task.hpp"
 #include <chrono>
 
-BackgroundTask::BackgroundTask(int updates_per_sec) : running(false), t(nullptr), msleep_time(1000 / updates_per_sec){};
+BackgroundTask::BackgroundTask(int updates_per_sec)
+    : running(false), t(nullptr), msleep_time(1000 / updates_per_sec){};
 BackgroundTask::~BackgroundTask() { stop(); }
 
-void BackgroundTask::start()
-{
-    if (t == nullptr)
-    {
+void BackgroundTask::start() {
+    if (t == nullptr) {
         running = true;
         t = new Threadable(&BackgroundTask::run_function, this);
         t->start();
     }
 }
 
-void BackgroundTask::stop()
-{
+void BackgroundTask::stop() {
     running = false;
-    if (t != nullptr)
-    {
+    if (t != nullptr) {
         // wait till finished
         while (!t->done())
             ;
@@ -31,13 +28,14 @@ void BackgroundTask::stop()
 
 bool BackgroundTask::is_running() { return running; }
 int BackgroundTask::get_msleep_time() { return msleep_time; }
-void BackgroundTask::set_updates_per_sec(int updates_per_sec) { msleep_time = 1000 / updates_per_sec; }
+void BackgroundTask::set_updates_per_sec(int updates_per_sec) {
+    msleep_time = 1000 / updates_per_sec;
+}
 
-void BackgroundTask::run_function()
-{
-    while (this->running)
-    {
+void BackgroundTask::run_function() {
+    while (this->running) {
         this->function();
-        std::this_thread::sleep_for(std::chrono::milliseconds(this->msleep_time));
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(this->msleep_time));
     }
 }

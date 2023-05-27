@@ -14,16 +14,15 @@
 #ifndef IHSBOOST_BT_COMMUNICATOR_HPP
 #define IHSBOOST_BT_COMMUNICATOR_HPP
 
-#include <string>
 #include "communicator.hpp"
+#include <string>
 
 /**
  * @brief Server class for communicating over bluetooth
  *
  */
-class BluetoothServer : public Communicator
-{
-public:
+class BluetoothServer : public Communicator {
+  public:
     /**
      * @brief Construct a new Bluetooth Server object
      *
@@ -65,7 +64,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted
@@ -85,9 +84,8 @@ private:
  * can only be made between devices.
  *
  */
-class BluetoothClient : public Communicator
-{
-public:
+class BluetoothClient : public Communicator {
+  public:
     /**
      * @brief Construct a new Bluetooth Client object
      *
@@ -131,7 +129,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted
@@ -141,7 +139,7 @@ private:
     virtual void send_bytes(char *bytes);
 
     std::string target_addr; ///< the address to connect to
-    int bt_socket;           ///< the socket fd on which to send and receive data
+    int bt_socket; ///< the socket fd on which to send and receive data
 };
 
 #endif

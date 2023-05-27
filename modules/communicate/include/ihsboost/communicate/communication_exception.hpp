@@ -20,9 +20,8 @@
  * @brief Exception class for when things go wrong with communicators
  *
  */
-class CommunicationException : public std::exception
-{
-public:
+class CommunicationException : public std::exception {
+  public:
     /**
      * @brief Construct a new Communication Exception object
      *
@@ -58,7 +57,7 @@ public:
      */
     virtual const char *what() const noexcept override;
 
-private:
+  private:
     const char *where; ///! where it went wrong
     char *msg;         ///! msg to print
     int error_code;    ///! the error code that went wrong
@@ -68,16 +67,14 @@ private:
  * @brief Exception class to protect from bad reinterpret_cast's
  *
  */
-class BadBufCastException : public std::bad_cast
-{
-public:
+class BadBufCastException : public std::bad_cast {
+  public:
     /**
      * @brief Get the exception's description in readable form
      *
      * @return const char*
      */
-    virtual const char *what() const noexcept override
-    {
+    virtual const char *what() const noexcept override {
         return "get_val tried to return the wrong type!";
     }
 };
@@ -86,16 +83,14 @@ public:
  * @brief Exception class to protect from nullptr segmentation faults
  *
  */
-class EmptyBufException : public std::bad_exception
-{
-public:
+class EmptyBufException : public std::bad_exception {
+  public:
     /**
      * @brief Get the exception's description in readable form
      *
      * @return const char*
      */
-    virtual const char *what() const noexcept override
-    {
+    virtual const char *what() const noexcept override {
         return "get_val was called but the buffer is empty!";
     }
 };

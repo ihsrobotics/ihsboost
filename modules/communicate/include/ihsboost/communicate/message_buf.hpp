@@ -12,19 +12,19 @@
  */
 #ifndef IHSBOOST_MESSAGE_BUF_HPP
 #define IHSBOOST_MESSAGE_BUF_HPP
-#include <typeinfo>
-#include <memory.h>
 #include "communication_exception.hpp"
+#include <memory.h>
+#include <typeinfo>
 
-#define DEFAULT_MAX_MSG_SIZE 100 ///< default maximum size for a MessageBuf's buffer
+#define DEFAULT_MAX_MSG_SIZE                                                   \
+    100 ///< default maximum size for a MessageBuf's buffer
 
 /**
  * @brief Class for storing data over communicators
  *
  */
-class MessageBuf
-{
-public:
+class MessageBuf {
+  public:
     // constructors and deconstructors
     /**
      * @brief Construct a new MessageBuf object
@@ -107,13 +107,12 @@ public:
      * of type T will take that holds `len` number of T's
      * will take
      *
-     * @tparam T the type of the data, regardless of whether it is a pointer or not
+     * @tparam T the type of the data, regardless of whether it is a pointer or
+     * not
      * @param len how many T's the MessageBuf holds
      * @return uint32_t the number of bytes
      */
-    template <typename T>
-    static uint32_t get_size(std::uint16_t len)
-    {
+    template <typename T> static uint32_t get_size(std::uint16_t len) {
         return sizeof(BufAttrs) + sizeof(T) * len;
     }
     /**
@@ -123,8 +122,7 @@ public:
      * @param buf_size the size of the buffer
      * @return uint32_t the number of bytes
      */
-    static uint32_t get_size(uint32_t buf_size)
-    {
+    static uint32_t get_size(uint32_t buf_size) {
         return sizeof(BufAttrs) + buf_size;
     }
 
@@ -134,26 +132,22 @@ public:
      * @exception Will throw BadBufCastException if `get_val` is called
      * with the wrong type
      *
-     * @tparam T the type of the data, regardless of whether it is a pointer or not
+     * @tparam T the type of the data, regardless of whether it is a pointer or
+     * not
      * @return T the stored value
      */
-    template <typename T>
-    T get_val()
-    {
+    template <typename T> T get_val() {
         // check if it is empty
-        if (is_empty())
-        {
+        if (is_empty()) {
             throw EmptyBufException();
         }
 
         // check if it is the right type
-        if (typeid(T).hash_code() != get_type_hash())
-        {
+        if (typeid(T).hash_code() != get_type_hash()) {
             throw BadBufCastException();
         }
         // if it is, then return the data
-        else
-        {
+        else {
             return reinterpret_cast<T *>(data_holder)[0];
         }
     }
@@ -164,25 +158,21 @@ public:
      * @exception Will throw BadBufCastException if `get_val` is called
      * with the wrong type
      *
-     * @tparam T the type of the data, regardless of whether it is a pointer or not
+     * @tparam T the type of the data, regardless of whether it is a pointer or
+     * not
      * @return T* a pointer to the data
      */
-    template <typename T>
-    T *get_ptr_val()
-    {
+    template <typename T> T *get_ptr_val() {
         // check if it is empty
-        if (is_empty())
-        {
+        if (is_empty()) {
             throw EmptyBufException();
         }
 
         // check if it is the right type
-        if (typeid(T *).hash_code() != get_type_hash())
-        {
+        if (typeid(T *).hash_code() != get_type_hash()) {
             throw BadBufCastException();
         }
-        else
-        {
+        else {
             return reinterpret_cast<T *>(data_holder);
         }
     }
@@ -190,12 +180,11 @@ public:
     /**
      * @brief Store a literal
      *
-     * @tparam T the type of the data, regardless of whether it is a pointer or not
+     * @tparam T the type of the data, regardless of whether it is a pointer or
+     * not
      * @param val the value to store
      */
-    template <typename T>
-    void set_val(T val)
-    {
+    template <typename T> void set_val(T val) {
         // clear any data if there is any
         reset();
 
@@ -211,13 +200,12 @@ public:
      * @details val must be a pointer to an array
      * of T's of minimum length _Length
      *
-     * @tparam T the type of the data, regardless of whether it is a pointer or not
+     * @tparam T the type of the data, regardless of whether it is a pointer or
+     * not
      * @param val a pointer to the values to store
      * @param len how many items to store
      */
-    template <typename T>
-    void set_val(const T *val, std::uint16_t len)
-    {
+    template <typename T> void set_val(const T *val, std::uint16_t len) {
         // clean up
         reset();
 
@@ -232,7 +220,8 @@ public:
     /**
      * @brief Convert the buffer to bytes
      *
-     * @return char* a pointer to a newly allocated byte buffer that needs to be freed / deleted.
+     * @return char* a pointer to a newly allocated byte buffer that needs to be
+     * freed / deleted.
      */
     char *to_bytes() const;
 
@@ -253,7 +242,7 @@ public:
      */
     MessageBuf &copy(MessageBuf &other);
 
-private:
+  private:
     /**
      * @brief copies the other MessageBuf, including copying
      * the data stored in it.
@@ -281,8 +270,7 @@ private:
      * message attributes
      *
      */
-    struct BufAttrs
-    {
+    struct BufAttrs {
         /**
          * @brief Construct a new BufAttrs object
          *
@@ -299,21 +287,19 @@ private:
          * @brief configures this attributes object so that
          * it reflects holding data of type T
          *
-         * @tparam T the type of the data, regardless of whether it is a pointer or not
+         * @tparam T the type of the data, regardless of whether it is a pointer
+         * or not
          * @param len the length of the message
          * @param is_ptr whether or not this stores a ptr
          */
         template <typename T>
-        void hold_data(std::uint16_t len, bool is_ptr = false)
-        {
+        void hold_data(std::uint16_t len, bool is_ptr = false) {
             empty = false;
 
-            if (is_ptr)
-            {
+            if (is_ptr) {
                 tp_hash = typeid(T *).hash_code();
             }
-            else
-            {
+            else {
                 tp_hash = typeid(T).hash_code();
             }
 
@@ -328,10 +314,11 @@ private:
         void reset();
 
         uint32_t data_holder_size; ///< how large the data is
-        uint32_t buf_size;         ///< how large the buffer should be when converting to bytes
-        uint16_t data_holder_len;  ///< how many items data contains
-        uint64_t tp_hash;          ///< info about type
-        bool empty;                ///< whether or not the buffer is empty
+        uint32_t buf_size; ///< how large the buffer should be when converting
+                           ///< to bytes
+        uint16_t data_holder_len; ///< how many items data contains
+        uint64_t tp_hash;         ///< info about type
+        bool empty;               ///< whether or not the buffer is empty
     };
 
     // attributes

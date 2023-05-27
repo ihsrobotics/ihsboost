@@ -17,8 +17,7 @@
  * @brief An object to represent speed in terms of left and right wheel speeds
  *
  */
-struct Speed
-{
+struct Speed {
     /**
      * @brief Construct a new Speed object
      *
@@ -28,7 +27,8 @@ struct Speed
     Speed(int left_speed, int right_speed);
 
     /**
-     * @brief Return a new Speed object representing the difference of two speeds
+     * @brief Return a new Speed object representing the difference of two
+     * speeds
      * @details equivalent to constructing a new Speed object with
      * speeds left - o.left and right - o.right, respectively
      *
@@ -64,7 +64,8 @@ struct Speed
     Speed &operator-=(const Speed o);
 
     /**
-     * @brief Check if the other speed is equal by comparing left and right speeds
+     * @brief Check if the other speed is equal by comparing left and right
+     * speeds
      *
      * @param o the speed to check equality with
      * @return true
@@ -73,7 +74,8 @@ struct Speed
     bool operator==(const Speed o) const;
 
     /**
-     * @brief Check if the other speed is not equal by comparing left and right speeds
+     * @brief Check if the other speed is not equal by comparing left and right
+     * speeds
      *
      * @param o the speed to check inequality with
      * @return true

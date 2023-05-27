@@ -20,9 +20,8 @@
  * to line-follow for a certain amount of time.
  *
  */
-class Timer
-{
-public:
+class Timer {
+  public:
     /**
      * @brief Construct a new Timer object
      *
@@ -48,7 +47,7 @@ public:
      */
     bool done() const;
 
-private:
+  private:
     int _time;
     std::chrono::steady_clock::time_point _start_time;
 };

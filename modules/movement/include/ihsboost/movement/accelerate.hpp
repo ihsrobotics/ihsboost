@@ -22,9 +22,14 @@
  * @param from_speed the starting speed
  * @param to_speed the ending speed
  * @param accel_per_sec how much to accelerate per second (default 500)
- * @param updates_per_sec how many updates to the speed to make per second (default 500)
+ * @param updates_per_sec how many updates to the speed to make per second
+ * (default 500)
  */
-void accelerate_forward_linear(int from_speed, int to_speed, double accel_per_sec = get_config().getDouble("linear_accel"), int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
+void accelerate_forward_linear(
+    int from_speed,
+    int to_speed,
+    double accel_per_sec = get_config().getDouble("linear_accel"),
+    int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
 
 /**
  * @brief Accelerate both wheels at the same sinusoidal rate
@@ -32,29 +37,46 @@ void accelerate_forward_linear(int from_speed, int to_speed, double accel_per_se
  * @param from_speed the starting speed
  * @param to_speed the ending speed
  * @param avg_accel_per_sec how much to accelerate per second (default 500)
- * @param updates_per_sec how many updates to the speed to make per second (default 500)
+ * @param updates_per_sec how many updates to the speed to make per second
+ * (default 500)
  */
-void accelerate_forward_sin(int from_speed, int to_speed, double avg_accel_per_sec = get_config().getDouble("sinusoidal_accel"), int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
+void accelerate_forward_sin(
+    int from_speed,
+    int to_speed,
+    double avg_accel_per_sec = get_config().getDouble("sinusoidal_accel"),
+    int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
 
 /**
  * @brief Accelerate both wheels at potentially different linear rates
  *
- * @param from_speed the starting speed, in the form of {left_speed, right_speed}
+ * @param from_speed the starting speed, in the form of {left_speed,
+ * right_speed}
  * @param to_speed the ending speed, in the form of {left_speed, right_speed}
  * @param accel_per_sec how much to accelerate per second (default 500)
- * @param updates_per_sec how many updates to the speed to make per second (default 500)
+ * @param updates_per_sec how many updates to the speed to make per second
+ * (default 500)
  */
-void accelerate_linear(Speed from_speed, Speed to_speed, double accel_per_sec = get_config().getDouble("linear_accel"), int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
+void accelerate_linear(
+    Speed from_speed,
+    Speed to_speed,
+    double accel_per_sec = get_config().getDouble("linear_accel"),
+    int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
 
 /**
  * @brief Accelerate both wheels at potentially different sinusoidal rates
  *
- * @param from_speed the starting speed, in the form of {left_speed, right_speed}
+ * @param from_speed the starting speed, in the form of {left_speed,
+ * right_speed}
  * @param to_speed the ending speed, in the form of {left_speed, right_speed}
  * @param accel_per_sec how much to accelerate per second (default 500)
- * @param updates_per_sec how many updates to the speed to make per second (default 500)
+ * @param updates_per_sec how many updates to the speed to make per second
+ * (default 500)
  */
-void accelerate_sinusoidal(Speed from_speed, Speed to_speed, double accel_per_sec = get_config().getDouble("sinusoidal_accel"), int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
+void accelerate_sinusoidal(
+    Speed from_speed,
+    Speed to_speed,
+    double accel_per_sec = get_config().getDouble("sinusoidal_accel"),
+    int updates_per_sec = get_config().getInt("accelerate_updates_per_sec"));
 
 #endif
 /**@}*/

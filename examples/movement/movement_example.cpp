@@ -12,8 +12,7 @@
 #include <kipr/wombat.h>
 #include <kipr/wombat.hpp>
 
-int main()
-{
+int main() {
     create_connect_once();
     kipr::create::Create::instance()->setRefreshRate(8);
 

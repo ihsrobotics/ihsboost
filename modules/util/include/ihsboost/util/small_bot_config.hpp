@@ -21,16 +21,18 @@
 #define RIGHT_MOTOR 1 ///< default right motor port
 #endif
 #ifndef MOVEMENT_FUNCTION
-#define MOVEMENT_FUNCTION(lspeed, rspeed) \
-    {                                     \
-        mav(LEFT_MOTOR, lspeed);          \
-        mav(RIGHT_MOTOR, rspeed);         \
+#define MOVEMENT_FUNCTION(lspeed, rspeed)                                      \
+    {                                                                          \
+        mav(LEFT_MOTOR, lspeed);                                               \
+        mav(RIGHT_MOTOR, rspeed);                                              \
     } ///< movement function for small bots
 #endif
 
 // gyro configs
 #ifndef GYRO_FUNCTION
-#define GYRO_FUNCTION gyro_y ///< the function to use for gyro movement, must return a signed short
+#define GYRO_FUNCTION                                                          \
+    gyro_y ///< the function to use for gyro movement, must return a signed
+           ///< short
 #endif
 
 #endif

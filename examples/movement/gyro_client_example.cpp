@@ -9,12 +9,11 @@
  *
  */
 #include <ihsboost/all.hpp>
-#include <kipr/wombat.h>
 #include <iostream>
+#include <kipr/wombat.h>
 using namespace std;
 
-int main()
-{
+int main() {
     create_connect_once();
 
     // align with black
@@ -38,8 +37,7 @@ int main()
     // since we set our zero point when we had aligned with the line,
     // this should return us back to that same angle.
     create_drive_direct(-100, 100);
-    while (subscriber.get_relative_angle() > 0)
-    {
+    while (subscriber.get_relative_angle() > 0) {
         msleep(1);
     }
     create_drive_direct(0, 0);

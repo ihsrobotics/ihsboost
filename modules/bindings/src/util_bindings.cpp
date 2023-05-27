@@ -6,27 +6,22 @@
 #include <sstream>
 #include <string>
 
-namespace util_export
-{
-    std::string print_speed(Speed &s)
-    {
-        std::ostringstream o;
-        o << "(" << s.left << ", " << s.right << ")";
-        return o.str();
-    }
+namespace util_export {
+std::string print_speed(Speed &s) {
+    std::ostringstream o;
+    o << "(" << s.left << ", " << s.right << ")";
+    return o.str();
+}
 
-    std::string get_version()
-    {
-        return IHSBOOST_VERSION;
-    }
+std::string get_version() { return IHSBOOST_VERSION; }
 }; // namespace util_export
 
-void export_util()
-{
+void export_util() {
     using namespace util_export;
     using namespace boost::python;
 
-    class_<Speed>("Speed", init<int, int>((arg("left_speed"), arg("right_speed"))))
+    class_<Speed>("Speed",
+                  init<int, int>((arg("left_speed"), arg("right_speed"))))
         .def("__eq__", &Speed::operator==)
         .def("__ne__", &Speed::operator!=)
         .def("__add__", &Speed::operator+)

@@ -20,9 +20,8 @@
  * @brief Server Class for communicating over sockets
  *
  */
-class SocketServer : public Communicator
-{
-public:
+class SocketServer : public Communicator {
+  public:
     /**
      * @brief Construct a new Socket Server object
      *
@@ -66,7 +65,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted
@@ -84,9 +83,8 @@ private:
  * @brief Client class for communicating over sockets
  *
  */
-class SocketClient : public Communicator
-{
-public:
+class SocketClient : public Communicator {
+  public:
     /**
      * @brief Construct a new Socket Client object
      *
@@ -132,7 +130,7 @@ public:
      */
     virtual MessageBuf receive_msg();
 
-private:
+  private:
     /**
      * @brief Send the bytes of the MessageBuf over the communicator
      * @warning bytes will be deleted

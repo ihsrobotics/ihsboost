@@ -14,10 +14,11 @@
 
 using namespace std;
 
-int main()
-{
-    string bt_address = "00:11:22:33:44:55"; // replace this with a real bluetooth address
-    BluetoothClient client(bt_address);      // connect to the given bluetooth address
+int main() {
+    string bt_address =
+        "00:11:22:33:44:55"; // replace this with a real bluetooth address
+    BluetoothClient client(
+        bt_address); // connect to the given bluetooth address
 
     // receive a message from the server
     int reply = client.receive_msg().get_val<int>();

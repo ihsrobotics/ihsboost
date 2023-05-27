@@ -19,9 +19,8 @@
  * @details This requires being in full mode
  *
  */
-class CreateExtraController
-{
-public:
+class CreateExtraController {
+  public:
     /**
      * @brief Create a CreateExtraController for
      * running the vacuum, main brush, and side brush
@@ -55,7 +54,7 @@ public:
      */
     void run_vacuum(int8_t speed);
 
-private:
+  private:
     /**
      * @brief Write changes to the create. This must be called
      * in order for changes to take effect.

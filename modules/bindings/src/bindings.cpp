@@ -7,8 +7,7 @@ void export_movement();
 void export_servos();
 void export_util();
 
-BOOST_PYTHON_MODULE(ihs_bindings)
-{
+BOOST_PYTHON_MODULE(ihs_bindings) {
 #ifdef build_communicate
     export_communicate();
 #endif

@@ -20,9 +20,8 @@
  * @brief Integrate values returned by the given function
  *
  */
-class Accumulator : public BackgroundTask
-{
-public:
+class Accumulator : public BackgroundTask {
+  public:
     /**
      * @brief Construct a new Accumulator object
      * @details this will integrate values returned by the callable,
@@ -55,7 +54,7 @@ public:
      */
     const volatile double &get_accumulator();
 
-protected:
+  protected:
     /**
      * @brief Function stub that BackgroundTask will
      * call
@@ -63,7 +62,7 @@ protected:
      */
     virtual void function();
 
-private:
+  private:
     std::function<double()> callable;
     volatile double accumulator;
 

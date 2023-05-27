@@ -1,36 +1,33 @@
 #include "test.hpp"
 #include "threading.hpp"
-#include <iostream>
 #include <chrono>
-#include <thread>
+#include <iostream>
 #include <numeric>
+#include <thread>
 #include <vector>
 
 using namespace std;
 using namespace chrono;
 
-class Test
-{
-public:
+class Test {
+  public:
     Test(int val) : val(val){};
     void increment_val(int increment_amt) { val += increment_amt; }
     void add_vals(int a, int b) { val += a + b; }
     int get_val() { return val; }
 
-private:
+  private:
     int val;
 };
 
-void a(Test &t, int amt)
-{
+void a(Test &t, int amt) {
     this_thread::sleep_for(milliseconds(200));
     cout << "adding a with " << amt << endl;
     t.increment_val(amt);
     this_thread::sleep_for(milliseconds(100));
 }
 
-void test_single_thread_ptr()
-{
+void test_single_thread_ptr() {
     Test test(0);
 
     int amt = 10;
@@ -51,8 +48,7 @@ void test_single_thread_ptr()
     delete thread;
     cout << "passed one val ptr" << endl;
 }
-void test_single_thread()
-{
+void test_single_thread() {
     Test test(0);
 
     int amt = 10;
@@ -73,8 +69,7 @@ void test_single_thread()
     cout << "passed one thread" << endl;
 }
 
-void test_two_threads_ptr()
-{
+void test_two_threads_ptr() {
     Test test(0);
 
     int amt1 = 10;
@@ -103,8 +98,7 @@ void test_two_threads_ptr()
 
     cout << "passed two threads ptr" << endl;
 }
-void test_two_threads()
-{
+void test_two_threads() {
     Test test(0);
 
     int amt1 = 10;
@@ -129,8 +123,7 @@ void test_two_threads()
     cout << "passed two threads" << endl;
 }
 
-void test_multiple_threads_ptr()
-{
+void test_multiple_threads_ptr() {
     Test test(0);
 
     int num_threads = 5;
@@ -138,41 +131,37 @@ void test_multiple_threads_ptr()
     vector<Threadable *> threadables(num_threads);
 
     // create threadables
-    for (int i = 0; i < num_threads; ++i)
-    {
+    for (int i = 0; i < num_threads; ++i) {
         threadables[i] = new Threadable(a, test, amts[i]);
     }
 
     // run threads
-    for (int i = 0; i < num_threads; ++i)
-    {
+    for (int i = 0; i < num_threads; ++i) {
         threadables[i]->start();
     }
 
     // wait for done
     bool done = false;
-    while (!done)
-    {
+    while (!done) {
         done = true;
-        for (int i = 0; i < num_threads; ++i)
-        {
+        for (int i = 0; i < num_threads; ++i) {
             done &= threadables[i]->done();
         }
     }
 
     // check sum
-    assert_equals(accumulate(amts.begin(), amts.end(), 0), test.get_val(), "checking multiple sum");
+    assert_equals(accumulate(amts.begin(), amts.end(), 0),
+                  test.get_val(),
+                  "checking multiple sum");
 
     // cleanup
-    for (int i = 0; i < num_threads; ++i)
-    {
+    for (int i = 0; i < num_threads; ++i) {
         delete threadables[i];
         threadables[i] = nullptr;
     }
     cout << "passed multiple threads ptr" << endl;
 }
-void test_multiple_threads()
-{
+void test_multiple_threads() {
     Test test(0);
 
     int num_threads = 5;
@@ -180,34 +169,31 @@ void test_multiple_threads()
     vector<Threadable> threadables(num_threads);
 
     // create threadables
-    for (int i = 0; i < num_threads; ++i)
-    {
+    for (int i = 0; i < num_threads; ++i) {
         threadables[i] = Threadable(a, test, amts[i]);
     }
 
     // run threads
-    for (int i = 0; i < num_threads; ++i)
-    {
+    for (int i = 0; i < num_threads; ++i) {
         threadables[i].start();
     }
 
     // wait for done
     bool done = false;
-    while (!done)
-    {
+    while (!done) {
         done = true;
-        for (int i = 0; i < num_threads; ++i)
-        {
+        for (int i = 0; i < num_threads; ++i) {
             done &= threadables[i].done();
         }
     }
 
-    assert_equals(accumulate(amts.begin(), amts.end(), 0), test.get_val(), "checking multiple sum");
+    assert_equals(accumulate(amts.begin(), amts.end(), 0),
+                  test.get_val(),
+                  "checking multiple sum");
     cout << "passed multiple threads" << endl;
 }
 
-void test_dynamic(int val1, int val2)
-{
+void test_dynamic(int val1, int val2) {
     Test test(0);
 
     Threadable t1(a, test, val1);
@@ -223,8 +209,7 @@ void test_dynamic(int val1, int val2)
     cout << "passed test dynamic" << endl;
 }
 
-void test_member_func()
-{
+void test_member_func() {
     Test test(0);
     int amt1 = 10;
     int amt2 = 20;
@@ -241,8 +226,7 @@ void test_member_func()
     cout << "passed member funcs" << endl;
 }
 
-void test_rvalue_member()
-{
+void test_rvalue_member() {
     Test test(0);
     Threadable t1(&Test::increment_val, &test, 10);
     t1.start();
@@ -254,8 +238,7 @@ void test_rvalue_member()
     cout << "passed rvalue member" << endl;
 }
 
-void test_rvalue_static()
-{
+void test_rvalue_static() {
     Test test(0);
     Threadable t1(a, test, 35);
     t1.start();
@@ -267,8 +250,7 @@ void test_rvalue_static()
     cout << "passed rvalue static" << endl;
 }
 
-void test_multiple_same_type()
-{
+void test_multiple_same_type() {
     Test test(0);
     Threadable t1(&Test::add_vals, &test, 30, 70);
     Threadable t2(&Test::add_vals, &test, 50, 10);
@@ -282,8 +264,7 @@ void test_multiple_same_type()
     cout << "passed multiple rvalue same type" << endl;
 }
 
-int main()
-{
+int main() {
     test_single_thread_ptr();
     test_two_threads_ptr();
 

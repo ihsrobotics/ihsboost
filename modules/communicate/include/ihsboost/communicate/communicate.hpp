@@ -13,9 +13,9 @@
 #ifndef IHSBOOST_COMMUNICATE_HPP
 #define IHSBOOST_COMMUNICATE_HPP
 
+#include "btcommunicator.hpp"
 #include "communication_exception.hpp"
 #include "communicator.hpp"
-#include "btcommunicator.hpp"
 #include "message_buf.hpp"
 #include "posixqcommunicator.hpp"
 #include "shmcommunicator.hpp"

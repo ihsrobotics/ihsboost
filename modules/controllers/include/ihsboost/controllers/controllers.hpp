@@ -17,9 +17,8 @@
  * @brief Class for accelerating
  *
  */
-class AccelerateController
-{
-public:
+class AccelerateController {
+  public:
     /**
      * @brief Construct a new AccelerateController object
      *
@@ -28,11 +27,21 @@ public:
      * @param accel_per_sec the acceleration per second
      * @param updates_per_sec how many updates to use per second
      */
-    AccelerateController(int from_speed, int to_speed, double accel_per_sec, int updates_per_sec) : _from_speed(from_speed), _to_speed(to_speed), _accel_per_sec(accel_per_sec), _updates_per_sec(updates_per_sec), _num_steps(0), _cur_speed(from_speed){};
+    AccelerateController(int from_speed,
+                         int to_speed,
+                         double accel_per_sec,
+                         int updates_per_sec)
+        : _from_speed(from_speed),
+          _to_speed(to_speed),
+          _accel_per_sec(accel_per_sec),
+          _updates_per_sec(updates_per_sec),
+          _num_steps(0),
+          _cur_speed(from_speed){};
 
     /**
      * @brief Updates the controller
-     * @details Takes care of updating the speed; must be called in order to see any change in speed()
+     * @details Takes care of updating the speed; must be called in order to see
+     * any change in speed()
      */
     virtual void step() = 0;
 
@@ -57,7 +66,7 @@ public:
      */
     virtual bool done() = 0;
 
-protected:
+  protected:
     int _from_speed;       ///< the speed to accelerate from
     int _to_speed;         ///< the speed to accelerate to
     double _accel_per_sec; ///< the acceleration per second
@@ -71,9 +80,8 @@ protected:
  * @brief Class for accelerating linearly
  *
  */
-class LinearController : public AccelerateController
-{
-public:
+class LinearController : public AccelerateController {
+  public:
     /**
      * @brief Construct a new LinearController object
      *
@@ -82,11 +90,15 @@ public:
      * @param accel_per_sec the acceleration per second
      * @param updates_per_sec how many updates to use per second
      */
-    LinearController(int from_speed, int to_speed, double accel_per_sec, int updates_per_sec);
+    LinearController(int from_speed,
+                     int to_speed,
+                     double accel_per_sec,
+                     int updates_per_sec);
 
     /**
      * @brief Updates the controller
-     * @details Takes care of updating the speed; must be called in order to see any change in speed()
+     * @details Takes care of updating the speed; must be called in order to see
+     * any change in speed()
      */
     virtual void step() override;
 
@@ -98,7 +110,7 @@ public:
      */
     virtual bool done() override;
 
-private:
+  private:
     int sign; ///< the sign/direction of the acceleration
 };
 
@@ -106,9 +118,8 @@ private:
  * @brief Class for accelerating sinusoidally
  *
  */
-class SinusoidalController : public AccelerateController
-{
-public:
+class SinusoidalController : public AccelerateController {
+  public:
     /**
      * @brief Construct a new Sinusoidal Controller object
      *
@@ -117,11 +128,15 @@ public:
      * @param avg_accel_per_sec the acceleration per second
      * @param updates_per_sec how many updates to use per second
      */
-    SinusoidalController(int from_speed, int to_speed, double avg_accel_per_sec, int updates_per_sec);
+    SinusoidalController(int from_speed,
+                         int to_speed,
+                         double avg_accel_per_sec,
+                         int updates_per_sec);
 
     /**
      * @brief Updates the controller
-     * @details Takes care of updating the speed; must be called in order to see any change in speed()
+     * @details Takes care of updating the speed; must be called in order to see
+     * any change in speed()
      */
     virtual void step() override;
 
@@ -133,7 +148,7 @@ public:
      */
     virtual bool done() override;
 
-private:
+  private:
     int delta_speed;          ///< the change in speed
     double necessary_updates; ///< how many updates are necessary
 };
@@ -142,17 +157,18 @@ private:
  * @brief A basic PID Controller
  *
  */
-class PIDController
-{
-public:
+class PIDController {
+  public:
     /**
      * @brief Construct a new PIDController object
-     * @details uses the formula \f[u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{\mathrm{d} e}{\mathrm{d} x}\f]
+     * @details uses the formula \f[u(t) = K_p e(t) + K_i \int e(t)dt + K_d
+     * \frac{\mathrm{d} e}{\mathrm{d} x}\f]
      *
      * @param Kp the coefficient for proportionality to e(t)
      * @param Ki the coefficient for the integral of e(t)
      * @param Kd the coefficient for the derivative of e(t)
-     * @param updates_per_second how many updates per second are done (used to calculate dt)
+     * @param updates_per_second how many updates per second are done (used to
+     * calculate dt)
      */
     PIDController(double Kp, double Ki, double Kd, int updates_per_second);
 
@@ -178,7 +194,7 @@ public:
      */
     const double speed() const;
 
-private:
+  private:
     double Kp; ///< coefficient for proportionality
     double Ki; ///< coefficient for the integral
     double Kd; ///< coefficient for the derivative

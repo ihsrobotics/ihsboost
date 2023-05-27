@@ -12,22 +12,19 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     PosixQCommunicator communicator("/our_queue");
 
     // receive the list of ints
     MessageBuf ret = communicator.receive_msg();
-    for (size_t i = 0; i < ret.get_length(); ++i)
-    {
+    for (size_t i = 0; i < ret.get_length(); ++i) {
         cout << ret.get_ptr_val<int>()[i] << ", ";
     }
     cout << endl;
 
     // receive the list of doubles
     ret = communicator.receive_msg();
-    for (size_t i = 0; i < ret.get_length(); ++i)
-    {
+    for (size_t i = 0; i < ret.get_length(); ++i) {
         cout << ret.get_ptr_val<double>()[i] << ", ";
     }
     cout << endl;
@@ -50,8 +47,7 @@ int main()
 
     // receive the typecasted bools
     ret = communicator.receive_msg();
-    for (size_t i = 0; i < ret.get_length(); ++i)
-    {
+    for (size_t i = 0; i < ret.get_length(); ++i) {
         cout << ret.get_ptr_val<bool>()[i] << ", ";
     }
     cout << endl;

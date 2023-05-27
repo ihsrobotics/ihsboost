@@ -19,9 +19,8 @@
  * number of updates to do every second
  *
  */
-class BackgroundTask
-{
-public:
+class BackgroundTask {
+  public:
     /**
      * @brief Construct a new Background Task object
      *
@@ -30,7 +29,8 @@ public:
     BackgroundTask(int updates_per_sec);
 
     /**
-     * @brief Destroy the Background Task object, waiting for the thread to finish
+     * @brief Destroy the Background Task object, waiting for the thread to
+     * finish
      *
      */
     virtual ~BackgroundTask();
@@ -69,14 +69,14 @@ public:
      */
     virtual void set_updates_per_sec(int updates_per_sec);
 
-protected:
+  protected:
     /**
      * @brief Function that should be called by this task
      *
      */
     virtual void function() = 0;
 
-private:
+  private:
     /**
      * @brief The function that runs the task
      *

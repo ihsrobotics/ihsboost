@@ -15,14 +15,13 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     create_connect_once();
-    kipr::create::Create::instance()->setRefreshRate(8); // set the refresh rate to slightly below 10
+    kipr::create::Create::instance()->setRefreshRate(
+        8); // set the refresh rate to slightly below 10
 
     // durability test
-    for (int i = 0; i < 10; ++i)
-    {
+    for (int i = 0; i < 10; ++i) {
         encoder_drive_straight(500, 150);
         encoder_turn_degrees(300, 180 * (i % 2 == 0 ? 1 : -1));
     }

@@ -1,21 +1,18 @@
 #include "threadable.hpp"
 
-Threadable::Threadable() : _started(false), _done(false), _thread(), _func(nullptr){};
-Threadable::~Threadable()
-{
+Threadable::Threadable()
+    : _started(false), _done(false), _thread(), _func(nullptr){};
+Threadable::~Threadable() {
     // stop thread
     join();
 
     // delete function storage
-    if (_func != nullptr)
-    {
+    if (_func != nullptr) {
         delete _func;
     }
 }
-Threadable &Threadable::operator=(Threadable &&other)
-{
-    if (this == &other)
-    {
+Threadable &Threadable::operator=(Threadable &&other) {
+    if (this == &other) {
         return *this;
     }
 
@@ -30,10 +27,8 @@ Threadable &Threadable::operator=(Threadable &&other)
     return *this;
 }
 
-void Threadable::start()
-{
-    if (!_started)
-    {
+void Threadable::start() {
+    if (!_started) {
         _thread = std::thread(&Threadable::wrapper, this);
         _done = false;
         _started = true;
@@ -41,10 +36,8 @@ void Threadable::start()
 }
 
 // modifiers
-void Threadable::join()
-{
-    if (_thread.joinable())
-    {
+void Threadable::join() {
+    if (_thread.joinable()) {
         _thread.join();
     }
 }
@@ -54,11 +47,9 @@ bool Threadable::done() const { return _done; }
 bool Threadable::operator()() const { return done(); }
 bool Threadable::started() const { return _started; }
 
-void Threadable::wrapper()
-{
+void Threadable::wrapper() {
     // call function if it exists
-    if (_func != nullptr)
-    {
+    if (_func != nullptr) {
         _func->call();
     }
 

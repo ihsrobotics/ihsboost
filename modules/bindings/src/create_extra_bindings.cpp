@@ -4,8 +4,7 @@
 #include "create_extra.hpp"
 #include <boost/python.hpp>
 
-void export_create_extra()
-{
+void export_create_extra() {
     using namespace boost::python;
     // create_extra
     class_<CreateExtraController>("CreateExtraController", init<>())

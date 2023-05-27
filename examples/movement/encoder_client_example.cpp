@@ -9,13 +9,12 @@
  *
  */
 #include <ihsboost/all.hpp>
-#include <kipr/wombat.h>
 #include <iostream>
+#include <kipr/wombat.h>
 #include <kipr/wombat.hpp>
 using namespace std;
 
-int main()
-{
+int main() {
     create_connect_once();
 
     // set refresh rate of the create to once every 4 ms (default is 10 ms)
@@ -42,8 +41,7 @@ int main()
     // this should return us back to that same angle.
     create_drive_direct(-100, 100);
     cout << "relative angle is " << subscriber.get_relative_angle() << endl;
-    while (subscriber.get_relative_angle() > 0)
-    {
+    while (subscriber.get_relative_angle() > 0) {
         msleep(1);
     }
     create_drive_direct(0, 0);

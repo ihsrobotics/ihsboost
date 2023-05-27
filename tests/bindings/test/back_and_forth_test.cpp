@@ -1,18 +1,18 @@
-#include <iostream>
+#include "communicate.hpp"
 #include "test.hpp"
 #include <chrono>
+#include <iostream>
 #include <thread>
-#include "communicate.hpp"
 using namespace std;
 using namespace chrono;
 
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[]) {
     // exit if not provided communicator
-    if (argc != 2)
-    {
+    if (argc != 2) {
         cerr << "no communicator provided" << endl;
-        cerr << "Valid communicators: PosixQCommunicator, SocketCommunicator, SysVCommunicator" << endl;
+        cerr << "Valid communicators: PosixQCommunicator, SocketCommunicator, "
+                "SysVCommunicator"
+             << endl;
         return 1;
     }
 
@@ -24,20 +24,16 @@ int main(int argc, const char *argv[])
 
     // initialize communicator
     Communicator *com = nullptr;
-    if (string(argv[1]) == string("PosixQCommunicator"))
-    {
+    if (string(argv[1]) == string("PosixQCommunicator")) {
         com = new PosixQCommunicator("/back_and_forth_queue");
     }
-    else if (string(argv[1]) == string("SocketCommunicator"))
-    {
+    else if (string(argv[1]) == string("SocketCommunicator")) {
         com = new SocketServer(2222);
     }
-    else if (string(argv[1]) == string("SysVCommunicator"))
-    {
+    else if (string(argv[1]) == string("SysVCommunicator")) {
         com = new SysVCommunicator(22);
     }
-    else
-    {
+    else {
         cerr << "invalid communicator" << endl;
         return 2;
     }
@@ -51,14 +47,20 @@ int main(int argc, const char *argv[])
     this_thread::sleep_for(milliseconds(10));
 
     // check that we received the processed value
-    assert_equals(com->receive_msg().get_val<int>(), 23 * val, "getting it back");
+    assert_equals(
+        com->receive_msg().get_val<int>(), 23 * val, "getting it back");
 
     // send strings over
     string start = "hello";
     string expected = "hello world";
-    com->send_msg(com->create_msg<char>(start.c_str(), static_cast<uint16_t>(start.size()))); // dont need a +1 when sending to python
+    com->send_msg(com->create_msg<char>(
+        start.c_str(),
+        static_cast<uint16_t>(
+            start.size()))); // dont need a +1 when sending to python
     this_thread::sleep_for(milliseconds(200));
-    assert_equals(string(com->receive_msg().get_ptr_val<char>()), expected, "getting strings from python");
+    assert_equals(string(com->receive_msg().get_ptr_val<char>()),
+                  expected,
+                  "getting strings from python");
 
     return 0;
 }

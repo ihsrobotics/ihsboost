@@ -13,8 +13,7 @@
 #include <kipr/wombat.h>
 using namespace std;
 
-int main()
-{
+int main() {
     create_connect_once();
     create_full(); // change mode to full in order to control vacuum, etc
     CreateExtraController c;

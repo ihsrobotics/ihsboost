@@ -12,16 +12,15 @@
  *
  */
 
-#include <iostream>
-#include <ihsboost/all.hpp>
-#include <thread>
 #include <chrono>
+#include <ihsboost/all.hpp>
+#include <iostream>
+#include <thread>
 
 using namespace std;
 using namespace chrono;
 
-int main()
-{
+int main() {
     // we can use the same queue for back and forth communication
     PosixQCommunicator communicator("/my_queue");
 
@@ -31,8 +30,7 @@ int main()
     // wait for python to let us know it is ready
     cout << "waiting for python to be ready" << endl;
     int status = communicator.receive_msg().get_val<int>();
-    if (status != 1)
-    {
+    if (status != 1) {
         return status;
     }
     cout << "received a 1 from python letting us know it's ready!!" << endl;
