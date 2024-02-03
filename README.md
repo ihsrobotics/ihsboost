@@ -34,6 +34,7 @@ from terminal inside the ihsboost directory on the wombat
 ```shell
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
+#Important: do not use the -j4 flag when building on Wombat
 make -j4
 sudo make install
 ```
