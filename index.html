@@ -91,10 +91,11 @@ Wombat Build</h2>
 <p>To build on the wombat, run the following commands from terminal inside the ihsboost directory on the wombat</p>
 <div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
 <div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release</div>
-<div class="line">#Important: do not use the -j4 flag when building on Wombat</div>
+<div class="line"># important: do not use the -j4 flag when building on wombat</div>
 <div class="line">make -j4</div>
 <div class="line">sudo make install</div>
-</div><!-- fragment --><p>Note: you will need to use either the <code>main</code> branch or the <code>older-wombat</code> branch depending on whether you are using a new wombat or an old (original OS) wombat (see <code>Getting the Source files</code>) </p>
+</div><!-- fragment --><p> <b>If you plan on using the python bindings, run <code>sudo ldconfig</code> to index the ihsboost shared objects.</b></p>
+<p>Note: you will need to use either the <code>main</code> branch or the <code>older-wombat</code> branch depending on whether you are using a new wombat or an old (original OS) wombat (see <code>Getting the Source files</code>) </p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Cross Compile</h2>
 <p>In order to cross-compile ihsboost, make sure to create a toolchain file. It should look something like this </p><div class="fragment"><div class="line"># set the target architecture and system name (for raspberry pi, is aarch64)</div>
