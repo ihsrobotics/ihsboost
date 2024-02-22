@@ -34,10 +34,11 @@ from terminal inside the ihsboost directory on the wombat
 ```shell
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-#Important: do not use the -j4 flag when building on Wombat
+# important: do not use the -j4 flag when building on wombat
 make -j4
 sudo make install
 ```
+**If you plan on using the python bindings, run `sudo ldconfig` to index the ihsboost shared objects.**
 
 Note: you will need to use either the `main` branch or the 
 `older-wombat` branch depending on whether you are using a
